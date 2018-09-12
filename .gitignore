@@ -1,0 +1,9 @@
+/e2e
+/node_modules
+/src
+.editorconfig
+/angular.json
+/server.ts
+/tsconfig.json
+/tslint.json
+/webpack.server.config.js
