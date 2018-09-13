@@ -25,7 +25,7 @@ export class WaterComponent implements OnInit {
   }
 
   getState(): void {
-    this._state.getWaterState().subscribe(ws => this.state = ws)
+    this._state.getWaterState().subscribe(ws => { this.zone.run(() => {this.state = ws}) })
   }
 
   getWater(): void {
