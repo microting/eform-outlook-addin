@@ -450,8 +450,8 @@ var data_service_1 = __webpack_require__(/*! ../service/data.service */ "./src/a
 var i18n_1 = __webpack_require__(/*! ../service/i18n */ "./src/app/service/i18n.ts");
 var state_service_1 = __webpack_require__(/*! ../service/state.service */ "./src/app/service/state.service.ts");
 var CraneComponent = /** @class */ (function () {
-    function CraneComponent(zone, _data, _state) {
-        this.zone = zone;
+    function CraneComponent(_zone, _data, _state) {
+        this._zone = _zone;
         this._data = _data;
         this._state = _state;
     }
@@ -462,7 +462,7 @@ var CraneComponent = /** @class */ (function () {
     };
     CraneComponent.prototype.getState = function () {
         var _this = this;
-        this._state.getCraneState().subscribe(function (cs) { _this.state = cs; console.log("get crane state called"); });
+        this._state.getCraneState().subscribe(function (cs) { _this._zone.run(function () { _this.state = cs; console.log(_this.state); }); });
     };
     CraneComponent.prototype.getCrane = function () {
         var _this = this;

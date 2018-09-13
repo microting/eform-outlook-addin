@@ -15,7 +15,7 @@ export class CraneComponent implements OnInit {
   uitext
   state: CraneState
 
-  constructor(private zone: NgZone, public _data: DataService, public _state: StateService) { }
+  constructor(private _zone: NgZone, public _data: DataService, public _state: StateService) { }
 
   ngOnInit() {
     this.uitext = i18n.getTexts(this._state.state.locale)
@@ -24,7 +24,7 @@ export class CraneComponent implements OnInit {
   }
 
   getState(): void {
-    this._state.getCraneState().subscribe(cs => {this.state = cs; console.log("get crane state called");})
+    this._state.getCraneState().subscribe(cs => {this._zone.run(() => { this.state = cs; console.log(this.state);}); })
   }
 
   getCrane(): void {
