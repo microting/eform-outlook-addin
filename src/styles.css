@@ -1,0 +1,23 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.section {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+textarea {
+  resize: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+ul {
+  padding: 0
+}

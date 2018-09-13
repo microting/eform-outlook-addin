@@ -1,0 +1,38 @@
+<div class='section' *ngIf="state">
+  <label>{{this.content.ship.label}}</label>
+  <select [(ngModel)]='state.shipid' >
+      <option *ngFor='let optionItem of content.ship.value'
+          [ngValue]='optionItem.id' >{{optionItem.value}}</option>
+  </select>
+</div>
+<div class='section' *ngIf="state">
+  <label>{{this.content.quay.label}}</label>
+  <select [(ngModel)]='state.quayid' >
+      <option *ngFor='let optionItem of content.quay.value'
+          [ngValue]='optionItem.id' >{{optionItem.value}}</option>
+  </select>
+</div>
+<div class='section' *ngIf="state">
+  <label>{{this.content.crane.label}}</label>
+  <ul>
+      <li *ngFor='let radioItem of content.crane.value'
+          (click)='state.craneid = radioItem.id' >
+          <input type='radio' [value]='radioItem.id' [(ngModel)]='state.craneid'
+              >{{radioItem.value}}
+      </li>
+  </ul>
+</div>
+<div class='section' *ngIf="state">
+  <label>{{this.content.workers.label}}</label>
+  <ul>
+      <li *ngFor='let checkItem of content.workers.value; index as i'
+          (click)='onWorkers(i)' >
+          <input type='checkbox' [(ngModel)]='state.workers[i]'
+              >{{checkItem.value}}
+      </li>
+  </ul>
+</div>
+<div class='section' *ngIf="state">
+  <label>{{this.content.message.label}}</label>
+  <textarea [(ngModel)]='state.message' rows="8" ></textarea>
+</div>
