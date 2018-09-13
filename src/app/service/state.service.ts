@@ -12,7 +12,7 @@ export class StateService {
 
   constructor() {
     this.state = {
-      eform: 'water',
+      eform: 'crane',
       crane: undefined,
       water: undefined
     }

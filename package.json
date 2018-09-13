@@ -32,6 +32,7 @@
     "@nguniversal/module-map-ngfactory-loader": "^6.0.0",
     "angular-in-memory-web-api": "^0.6.0",
     "core-js": "^2.5.4",
+    "ejs": "^2.6.1",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.24"
   },
@@ -43,6 +44,7 @@
     "@types/jasmine": "~2.8.0",
     "@types/jasminewd2": "^2.0.3",
     "@types/node": "^6.0.45",
+    "@types/office-js": "0.0.111",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~1.7.1",

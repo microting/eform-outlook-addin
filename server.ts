@@ -7,6 +7,7 @@ import { enableProdMode } from '@angular/core';
 import * as express from 'express';
 import { join } from 'path';
 import * as https from 'http'
+import * as ejs from 'ejs'
 
 // Faster server renders w/ Prod mode (dev mode never needed)
 enableProdMode();
@@ -24,6 +25,15 @@ const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require('./dist/server/mai
 import { ngExpressEngine } from '@nguniversal/express-engine';
 // Import module map for lazy loading
 import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
+
+app.get('/manifest.xml', function (req, res) {
+  var host = req.get('host')
+  res.header({'Content-Type': 'application/xml'})
+  var filename =  __dirname + '/manifest.xml'
+  ejs.renderFile(filename, {'host': host}, {}, function (err, str) {
+      res.send(str);
+  })
+})
 
 app.engine('html', ngExpressEngine({
   bootstrap: AppServerModuleNgFactory,

@@ -35,14 +35,20 @@ export class WaterComponent implements OnInit {
       this.content = {
         ship: {
           label: this.uitext.water.label_ship,
+          label_edit: this.uitext.water.label_edit,
+          label_refresh: this.uitext.water.label_refresh,
           value: c.ship
         },
         quay: {
           label: this.uitext.water.label_quay,
+          label_edit: this.uitext.water.label_edit,
+          label_refresh: this.uitext.water.label_refresh,
           value: c.quay
         },
         workers: {
           label: this.uitext.water.label_workers,
+          label_edit: this.uitext.water.label_edit,
+          label_refresh: this.uitext.water.label_refresh,
           value: c.workers
         },
         message: {

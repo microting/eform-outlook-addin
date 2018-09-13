@@ -19,5 +19,41 @@ li {
 }
 
 ul {
-  padding: 0
+  padding: 0;
+  margin: 0;
+}
+
+.section-header {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 3px;
+  margin-left: 2px;
+}
+
+.padding {
+  flex: 1 0 auto;
+}
+
+.link {
+  text-decoration: underline;
+  outline: none;
+  color: #0254EB;
+  cursor: pointer;
+  margin-left: 16px;
+}
+
+.button {
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  color: white;
+  background-color: #0078d7;
+  user-select: none;
+  cursor: pointer;
+}
+.button:hover {
+  background-color: #265a99;
+}
+.button:active {
+  background-color: #0078d7;
 }

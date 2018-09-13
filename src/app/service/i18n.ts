@@ -6,6 +6,8 @@ export const i18n = {
       label_select_water: 'Water'
     },
     crane: {
+      label_edit: 'Edit',
+      label_refresh: 'Refresh',
       label_ship: 'Select Ship',
       label_quay: 'Select Quay',
       label_crane: 'Select Crane',
@@ -13,6 +15,8 @@ export const i18n = {
       label_message: 'Message to Workers'
     },
     water: {
+      label_edit: 'Edit',
+      label_refresh: 'Refresh',
       label_ship: 'Select Ship',
       label_quay: 'Select Quay',
       label_workers: 'Select Workers',
