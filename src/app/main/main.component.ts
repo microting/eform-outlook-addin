@@ -43,7 +43,6 @@ export class MainComponent implements OnInit {
       let lang = 'en'
       this.uitext = i18n.getTexts(lang)
 
-      console.log('insert action')
       let txt_subject = ''
       let txt_body = ''
       if ( this.state == 'crane' ) {

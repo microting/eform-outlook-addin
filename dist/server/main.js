@@ -707,7 +707,6 @@ var MainComponent = /** @class */ (function () {
             // let lang = Office.context.displayLanguage
             var lang = 'en';
             _this.uitext = i18n_1.i18n.getTexts(lang);
-            console.log('insert action');
             var txt_subject = '';
             var txt_body = '';
             if (_this.state == 'crane') {
@@ -1089,6 +1088,7 @@ var StateService = /** @class */ (function () {
     StateService.prototype.parseBody = function (c) {
         var _this = this;
         var uitext = i18n_1.i18n.getTexts(this.state.locale);
+        console.log('start parsing crane');
         this.ngZone.run(function () {
             var item = Office.context.mailbox.item;
             if (item.itemType == Office.MailboxEnums.ItemType.Appointment) {
@@ -1096,6 +1096,7 @@ var StateService = /** @class */ (function () {
                 item.body.getAsync(Office.CoercionType.Text, function (result) {
                     if (result.status == Office.AsyncResultStatus.Succeeded) {
                         var txtVal = result.value;
+                        console.log(':: - value' + txtVal);
                         var textLines = txtVal.split('\n');
                         if (textLines[0] == '') {
                             textLines.shift();
@@ -1110,11 +1111,13 @@ var StateService = /** @class */ (function () {
                                 var optionValue = textLine.split(':')[1].trim();
                                 if (optionValue == 'water') {
                                     __this_1.state.eform = 'water';
+                                    console.log('parsing crane - state eform - water');
                                     break;
                                 }
                             }
                             else if (textLine.includes(uitext.crane.label_ship)) {
                                 var optionValue = textLine.split(':')[1].trim();
+                                console.log('parsing crane - state ship - ' + optionValue);
                                 for (var j = 0; j < c.ship.length; j++) {
                                     if (c.ship[j].value == optionValue) {
                                         __this_1.state.crane.shipid = c.ship[j].id;
@@ -1123,6 +1126,7 @@ var StateService = /** @class */ (function () {
                             }
                             else if (textLine.includes(uitext.crane.label_quay)) {
                                 var optionValue = textLine.split(':')[1].trim();
+                                console.log('parsing crane - state quay - ' + optionValue);
                                 for (var j = 0; j < c.quay.length; j++) {
                                     if (c.quay[j].value == optionValue) {
                                         __this_1.state.crane.quayid = c.quay[j].id;
@@ -1131,6 +1135,7 @@ var StateService = /** @class */ (function () {
                             }
                             else if (textLine.includes(uitext.crane.label_crane)) {
                                 var optionValue = textLine.split(':')[1].trim();
+                                console.log('parsing crane - state crane - ' + optionValue);
                                 for (var j = 0; j < c.crane.length; j++) {
                                     if (c.crane[j].value == optionValue) {
                                         __this_1.state.crane.craneid = c.crane[j].id;
@@ -1139,6 +1144,7 @@ var StateService = /** @class */ (function () {
                             }
                             else if (textLine.includes(uitext.crane.label_workers)) {
                                 var optionValue = textLine.split(':')[1].trim();
+                                console.log('parsing crane - state workers - ' + optionValue);
                                 var cworkers = optionValue.split(', ');
                                 for (var j = 0; j < c.workers.length; j++) {
                                     for (var k = 0; k < cworkers.length; k++) {
