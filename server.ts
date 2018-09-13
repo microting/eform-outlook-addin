@@ -27,9 +27,11 @@ import { ngExpressEngine } from '@nguniversal/express-engine';
 import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 
 app.get('/manifest.xml', function (req, res) {
-  var host = req.get('host')
+  let host = req.get('host')
   res.header({'Content-Type': 'application/xml'})
-  var filename =  __dirname + '/manifest.xml'
+
+  let filename =  join(process.cwd(), 'manifest.xml')
+
   ejs.renderFile(filename, {'host': host}, {}, function (err, str) {
       res.send(str);
   })
