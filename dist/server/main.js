@@ -1044,15 +1044,27 @@ var StateService = /** @class */ (function () {
             crane: undefined,
             water: undefined
         };
+        this.observableEForm = new rxjs_1.BehaviorSubject(this.state.eform);
+        this.observableCrane = new rxjs_1.BehaviorSubject(this.state.crane);
+        this.observableWater = new rxjs_1.BehaviorSubject(this.state.water);
     }
+    StateService.prototype.onEFormChange = function () {
+        this.observableEForm.next(this.state.eform);
+    };
+    StateService.prototype.onCraneChange = function () {
+        this.observableCrane.next(this.state.crane);
+    };
+    StateService.prototype.onWaterChange = function () {
+        this.observableWater.next(this.state.water);
+    };
     StateService.prototype.getEState = function () {
-        return rxjs_1.of(this.state.eform);
+        return this.observableEForm;
     };
     StateService.prototype.getCraneState = function () {
-        return rxjs_1.of(this.state.crane);
+        return this.observableCrane;
     };
     StateService.prototype.getWaterState = function () {
-        return rxjs_1.of(this.state.water);
+        return this.observableWater;
     };
     StateService.prototype.initCraneState = function (c) {
         if (this.state.crane == undefined) {
@@ -1112,6 +1124,7 @@ var StateService = /** @class */ (function () {
                                 if (optionValue == 'water') {
                                     __this_1.state.eform = 'water';
                                     console.log('parsing crane - state eform - water');
+                                    __this_1.onEFormChange();
                                     break;
                                 }
                             }
@@ -1162,6 +1175,7 @@ var StateService = /** @class */ (function () {
                             }
                         }
                         __this_1.state.crane.message = stringText;
+                        __this_1.onCraneChange();
                     }
                 });
             }

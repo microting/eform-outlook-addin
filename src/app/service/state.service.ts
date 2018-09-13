@@ -1,6 +1,6 @@
 import { Injectable, NgZone } from '@angular/core';
 import { State, CraneState, WaterState } from './state';
-import { Observable, of } from 'rxjs';
+import { Observable, of, BehaviorSubject } from 'rxjs';
 import { Crane, Water } from './data';
 import { i18n } from '../service/i18n';
 
@@ -12,6 +12,9 @@ declare const Office: any
 export class StateService {
 
   state: State
+  observableEForm: BehaviorSubject<string>
+  observableCrane: BehaviorSubject<CraneState>
+  observableWater: BehaviorSubject<WaterState>
 
   constructor(private ngZone: NgZone) {
     this.state = {
@@ -20,18 +23,33 @@ export class StateService {
       crane: undefined,
       water: undefined
     }
+    this.observableEForm = new BehaviorSubject<string>(this.state.eform)
+    this.observableCrane = new BehaviorSubject<CraneState>(this.state.crane)
+    this.observableWater = new BehaviorSubject<WaterState>(this.state.water)
+  }
+
+  onEFormChange(): void {
+    this.observableEForm.next(this.state.eform)
+  }
+
+  onCraneChange(): void {
+    this.observableCrane.next(this.state.crane)
+  }
+
+  onWaterChange(): void {
+    this.observableWater.next(this.state.water)
   }
 
   getEState(): Observable<string> {
-    return of(this.state.eform)
+    return this.observableEForm
   }
 
   getCraneState(): Observable<CraneState> {
-    return of(this.state.crane)
+    return this.observableCrane
   }
 
   getWaterState(): Observable<WaterState> {
-    return of(this.state.water)
+    return this.observableWater
   }
 
   initCraneState(c: Crane) {
@@ -91,6 +109,7 @@ export class StateService {
                 if ( optionValue == 'water' ) {
                   __this.state.eform = 'water'
                   console.log('parsing crane - state eform - water')
+                  __this.onEFormChange()
                   break
                 }
               } else if ( textLine.includes( uitext.crane.label_ship ) ) {
@@ -135,6 +154,7 @@ export class StateService {
               }
             }
             __this.state.crane.message = stringText
+            __this.onCraneChange()
           }
         })
       }
