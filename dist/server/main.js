@@ -652,7 +652,10 @@ function View_MainComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, 
     } if (("ngModelChange" === en)) {
         var pd_2 = ((_co.state = $event) !== false);
         ad = (pd_2 && ad);
-    } return ad; }, null, null)), i1.ɵdid(6, 16384, null, 0, i2.SelectControlValueAccessor, [i1.Renderer2, i1.ElementRef], null, null), i1.ɵprd(1024, null, i2.NG_VALUE_ACCESSOR, function (p0_0) { return [p0_0]; }, [i2.SelectControlValueAccessor]), i1.ɵdid(8, 671744, null, 0, i2.NgModel, [[8, null], [8, null], [8, null], [6, i2.NG_VALUE_ACCESSOR]], { model: [0, "model"] }, { update: "ngModelChange" }), i1.ɵprd(2048, null, i2.NgControl, null, [i2.NgModel]), i1.ɵdid(10, 16384, null, 0, i2.NgControlStatus, [[4, i2.NgControl]], null, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_MainComponent_1)), i1.ɵdid(12, 278528, null, 0, i9.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], { ngForOf: [0, "ngForOf"] }, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_MainComponent_2)), i1.ɵdid(14, 16384, null, 0, i9.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_MainComponent_3)), i1.ɵdid(16, 16384, null, 0, i9.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵeld(17, 0, null, null, 2, "div", [["class", "section"]], null, null, null, null, null)), (_l()(), i1.ɵeld(18, 0, null, null, 1, "div", [["class", "button"]], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Insert"]))], function (_ck, _v) { var _co = _v.component; var currVal_8 = _co.state; _ck(_v, 8, 0, currVal_8); var currVal_9 = _co.eform.value; _ck(_v, 12, 0, currVal_9); var currVal_10 = (_co.state == "crane"); _ck(_v, 14, 0, currVal_10); var currVal_11 = (_co.state == "water"); _ck(_v, 16, 0, currVal_11); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.eform.label; _ck(_v, 4, 0, currVal_0); var currVal_1 = i1.ɵnov(_v, 10).ngClassUntouched; var currVal_2 = i1.ɵnov(_v, 10).ngClassTouched; var currVal_3 = i1.ɵnov(_v, 10).ngClassPristine; var currVal_4 = i1.ɵnov(_v, 10).ngClassDirty; var currVal_5 = i1.ɵnov(_v, 10).ngClassValid; var currVal_6 = i1.ɵnov(_v, 10).ngClassInvalid; var currVal_7 = i1.ɵnov(_v, 10).ngClassPending; _ck(_v, 5, 0, currVal_1, currVal_2, currVal_3, currVal_4, currVal_5, currVal_6, currVal_7); }); }
+    } return ad; }, null, null)), i1.ɵdid(6, 16384, null, 0, i2.SelectControlValueAccessor, [i1.Renderer2, i1.ElementRef], null, null), i1.ɵprd(1024, null, i2.NG_VALUE_ACCESSOR, function (p0_0) { return [p0_0]; }, [i2.SelectControlValueAccessor]), i1.ɵdid(8, 671744, null, 0, i2.NgModel, [[8, null], [8, null], [8, null], [6, i2.NG_VALUE_ACCESSOR]], { model: [0, "model"] }, { update: "ngModelChange" }), i1.ɵprd(2048, null, i2.NgControl, null, [i2.NgModel]), i1.ɵdid(10, 16384, null, 0, i2.NgControlStatus, [[4, i2.NgControl]], null, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_MainComponent_1)), i1.ɵdid(12, 278528, null, 0, i9.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], { ngForOf: [0, "ngForOf"] }, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_MainComponent_2)), i1.ɵdid(14, 16384, null, 0, i9.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_MainComponent_3)), i1.ɵdid(16, 16384, null, 0, i9.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵeld(17, 0, null, null, 2, "div", [["class", "section"]], null, null, null, null, null)), (_l()(), i1.ɵeld(18, 0, null, null, 1, "div", [["class", "button"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
+        var pd_0 = (_co.onInsert() !== false);
+        ad = (pd_0 && ad);
+    } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, ["Insert"]))], function (_ck, _v) { var _co = _v.component; var currVal_8 = _co.state; _ck(_v, 8, 0, currVal_8); var currVal_9 = _co.eform.value; _ck(_v, 12, 0, currVal_9); var currVal_10 = (_co.state == "crane"); _ck(_v, 14, 0, currVal_10); var currVal_11 = (_co.state == "water"); _ck(_v, 16, 0, currVal_11); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.eform.label; _ck(_v, 4, 0, currVal_0); var currVal_1 = i1.ɵnov(_v, 10).ngClassUntouched; var currVal_2 = i1.ɵnov(_v, 10).ngClassTouched; var currVal_3 = i1.ɵnov(_v, 10).ngClassPristine; var currVal_4 = i1.ɵnov(_v, 10).ngClassDirty; var currVal_5 = i1.ɵnov(_v, 10).ngClassValid; var currVal_6 = i1.ɵnov(_v, 10).ngClassInvalid; var currVal_7 = i1.ɵnov(_v, 10).ngClassPending; _ck(_v, 5, 0, currVal_1, currVal_2, currVal_3, currVal_4, currVal_5, currVal_6, currVal_7); }); }
 exports.View_MainComponent_0 = View_MainComponent_0;
 function View_MainComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-main", [], null, null, null, View_MainComponent_0, RenderType_MainComponent)), i1.ɵdid(1, 114688, null, 0, i10.MainComponent, [i1.NgZone, i5.DataService, i6.StateService], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
 exports.View_MainComponent_Host_0 = View_MainComponent_Host_0;
@@ -677,9 +680,9 @@ var data_service_1 = __webpack_require__(/*! ../service/data.service */ "./src/a
 var i18n_1 = __webpack_require__(/*! ../service/i18n */ "./src/app/service/i18n.ts");
 var state_service_1 = __webpack_require__(/*! ../service/state.service */ "./src/app/service/state.service.ts");
 var MainComponent = /** @class */ (function () {
-    function MainComponent(zone, data, _state) {
+    function MainComponent(zone, _data, _state) {
         this.zone = zone;
-        this.data = data;
+        this._data = _data;
         this._state = _state;
     }
     MainComponent.prototype.ngOnInit = function () {
@@ -701,6 +704,74 @@ var MainComponent = /** @class */ (function () {
     MainComponent.prototype.getState = function () {
         var _this = this;
         this._state.getEState().subscribe(function (es) { return _this.state = es; });
+    };
+    MainComponent.prototype.onInsert = function () {
+        var _this = this;
+        this.zone.run(function () {
+            console.log('insert action');
+            var txt_subject = '';
+            if (_this._state.state.eform == 'crane') {
+                txt_subject = 'crane';
+                for (var i = 0; i < _this._data.crane.ship.length; i++) {
+                    var shipitem = _this._data.crane.ship[i];
+                    if (shipitem.id == _this._state.state.crane.shipid) {
+                        txt_subject = txt_subject + ' - ' + shipitem.value;
+                        break;
+                    }
+                }
+                for (var i = 0; i < _this._data.crane.quay.length; i++) {
+                    var quayitem = _this._data.crane.quay[i];
+                    if (quayitem.id == _this._state.state.crane.quayid) {
+                        txt_subject = txt_subject + ' - ' + quayitem.value;
+                        break;
+                    }
+                }
+                for (var i = 0; i < _this._data.crane.crane.length; i++) {
+                    var craneitem = _this._data.crane.quay[i];
+                    if (craneitem.id == _this._state.state.crane.craneid) {
+                        txt_subject = txt_subject + ' - ' + craneitem.value;
+                        break;
+                    }
+                }
+                var cworkers = [];
+                for (var i = 0; i < _this._data.crane.workers.length; i++) {
+                    var worker = _this._data.crane.quay[i];
+                    if (_this._state.state.crane.workers[i]) {
+                        cworkers.push(worker.value);
+                    }
+                }
+                txt_subject = txt_subject + ' - ' + cworkers.join(', ');
+            }
+            else if (_this._state.state.eform == 'water') {
+                txt_subject = 'water';
+                for (var i = 0; i < _this._data.water.ship.length; i++) {
+                    var shipitem = _this._data.water.ship[i];
+                    if (shipitem.id == _this._state.state.water.shipid) {
+                        txt_subject = txt_subject + ' - ' + shipitem.value;
+                        break;
+                    }
+                }
+                for (var i = 0; i < _this._data.water.quay.length; i++) {
+                    var quayitem = _this._data.water.quay[i];
+                    if (quayitem.id == _this._state.state.water.quayid) {
+                        txt_subject = txt_subject + ' - ' + quayitem.value;
+                        break;
+                    }
+                }
+                var cworkers = [];
+                for (var i = 0; i < _this._data.water.workers.length; i++) {
+                    var worker = _this._data.water.quay[i];
+                    if (_this._state.state.water.workers[i]) {
+                        cworkers.push(worker.value);
+                    }
+                }
+                txt_subject = txt_subject + ' - ' + cworkers.join(', ');
+            }
+            var item = Office.context.mailbox.item;
+            if (item.itemType == Office.MailboxEnums.ItemType.Appointment) {
+                item.subject.setAsync(txt_subject);
+            }
+        });
     };
     return MainComponent;
 }());

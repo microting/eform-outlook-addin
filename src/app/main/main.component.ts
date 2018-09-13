@@ -2,7 +2,8 @@ import { Component, OnInit, NgZone } from '@angular/core';
 import { DataService } from '../service/data.service';
 import { i18n } from '../service/i18n';
 import { StateService } from '../service/state.service';
-import { Observable } from 'rxjs';
+
+declare const Office: any
 
 @Component({
   selector: 'app-main',
@@ -40,6 +41,7 @@ export class MainComponent implements OnInit {
 
   onInsert(): void {
     this.zone.run(() => {
+      console.log('insert action')
       let txt_subject = ''
       if ( this._state.state.eform == 'crane' ) {
         txt_subject = 'crane'
