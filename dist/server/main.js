@@ -273,7 +273,7 @@ var i20 = __webpack_require__(/*! ./main/main.component */ "./src/app/main/main.
 var i21 = __webpack_require__(/*! ./edit/edit.component */ "./src/app/edit/edit.component.ts");
 var i22 = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
 var i23 = __webpack_require__(/*! ./app.module */ "./src/app/app.module.ts");
-var AppServerModuleNgFactory = i0.ɵcmf(i1.AppServerModule, [i2.AppComponent], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, [i3.ɵEmptyOutletComponentNgFactory, i4.MainComponentNgFactory, i5.EditComponentNgFactory, i6.AppComponentNgFactory]], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(5120, i0.LOCALE_ID, i0.ɵangular_packages_core_core_k, [[3, i0.LOCALE_ID]]), i0.ɵmpd(4608, i7.NgLocalization, i7.NgLocaleLocalization, [i0.LOCALE_ID, [2, i7.ɵangular_packages_common_common_a]]), i0.ɵmpd(5120, i0.IterableDiffers, i0.ɵangular_packages_core_core_i, []), i0.ɵmpd(5120, i0.KeyValueDiffers, i0.ɵangular_packages_core_core_j, []), i0.ɵmpd(4608, i8.DomSanitizer, i8.ɵDomSanitizerImpl, [i7.DOCUMENT]), i0.ɵmpd(6144, i0.Sanitizer, null, [i8.DomSanitizer]), i0.ɵmpd(4608, i8.HAMMER_GESTURE_CONFIG, i8.HammerGestureConfig, []), i0.ɵmpd(5120, i8.EVENT_MANAGER_PLUGINS, function (p0_0, p0_1, p0_2, p1_0, p2_0, p2_1, p2_2, p2_3, p3_0) { return [new i8.ɵDomEventsPlugin(p0_0, p0_1, p0_2), new i8.ɵKeyEventsPlugin(p1_0), new i8.ɵHammerGesturesPlugin(p2_0, p2_1, p2_2, p2_3), new i9.ɵangular_packages_platform_server_platform_server_d(p3_0)]; }, [i7.DOCUMENT, i0.NgZone, i0.PLATFORM_ID, i7.DOCUMENT, i7.DOCUMENT, i8.HAMMER_GESTURE_CONFIG, i0.ɵConsole, [2, i8.HAMMER_LOADER], i8.DOCUMENT]), i0.ɵmpd(4608, i8.EventManager, i8.EventManager, [i8.EVENT_MANAGER_PLUGINS, i0.NgZone]), i0.ɵmpd(135680, i8.ɵDomSharedStylesHost, i8.ɵDomSharedStylesHost, [i7.DOCUMENT]), i0.ɵmpd(4608, i8.ɵDomRendererFactory2, i8.ɵDomRendererFactory2, [i8.EventManager, i8.ɵDomSharedStylesHost]), i0.ɵmpd(4608, i9.ɵangular_packages_platform_server_platform_server_c, i9.ɵangular_packages_platform_server_platform_server_c, [i8.DOCUMENT, [2, i8.ɵTRANSITION_ID]]), i0.ɵmpd(6144, i8.ɵSharedStylesHost, null, [i9.ɵangular_packages_platform_server_platform_server_c]), i0.ɵmpd(4608, i9.ɵServerRendererFactory2, i9.ɵServerRendererFactory2, [i8.EventManager, i0.NgZone, i8.DOCUMENT, i8.ɵSharedStylesHost]), i0.ɵmpd(4608, i10.AnimationDriver, i10.ɵNoopAnimationDriver, []), i0.ɵmpd(5120, i10.ɵAnimationStyleNormalizer, i11.ɵangular_packages_platform_browser_animations_animations_c, []), i0.ɵmpd(4608, i10.ɵAnimationEngine, i11.ɵangular_packages_platform_browser_animations_animations_a, [i7.DOCUMENT, i10.AnimationDriver, i10.ɵAnimationStyleNormalizer]), i0.ɵmpd(5120, i0.RendererFactory2, i9.ɵangular_packages_platform_server_platform_server_a, [i9.ɵServerRendererFactory2, i10.ɵAnimationEngine, i0.NgZone]), i0.ɵmpd(4352, i0.Testability, null, []), i0.ɵmpd(4608, i12.ɵangular_packages_forms_forms_i, i12.ɵangular_packages_forms_forms_i, []), i0.ɵmpd(5120, i13.ActivatedRoute, i13.ɵangular_packages_router_router_g, [i13.Router]), i0.ɵmpd(4608, i13.NoPreloading, i13.NoPreloading, []), i0.ɵmpd(6144, i13.PreloadingStrategy, null, [i13.NoPreloading]), i0.ɵmpd(135680, i13.RouterPreloader, i13.RouterPreloader, [i13.Router, i0.NgModuleFactoryLoader, i0.Compiler, i0.Injector, i13.PreloadingStrategy]), i0.ɵmpd(4608, i13.PreloadAllModules, i13.PreloadAllModules, []), i0.ɵmpd(4608, i7.ViewportScroller, i7.ɵNullViewportScroller, []), i0.ɵmpd(5120, i13.ɵangular_packages_router_router_n, i13.ɵangular_packages_router_router_c, [i13.Router, i7.ViewportScroller, i13.ROUTER_CONFIGURATION]), i0.ɵmpd(5120, i13.ROUTER_INITIALIZER, i13.ɵangular_packages_router_router_j, [i13.ɵangular_packages_router_router_h]), i0.ɵmpd(5120, i0.APP_BOOTSTRAP_LISTENER, function (p0_0) { return [p0_0]; }, [i13.ROUTER_INITIALIZER]), i0.ɵmpd(4608, i14.HttpXsrfTokenExtractor, i14.ɵangular_packages_common_http_http_g, [i7.DOCUMENT, i0.PLATFORM_ID, i14.ɵangular_packages_common_http_http_e]), i0.ɵmpd(4608, i14.ɵangular_packages_common_http_http_h, i14.ɵangular_packages_common_http_http_h, [i14.HttpXsrfTokenExtractor, i14.ɵangular_packages_common_http_http_f]), i0.ɵmpd(5120, i14.HTTP_INTERCEPTORS, function (p0_0) { return [p0_0]; }, [i14.ɵangular_packages_common_http_http_h]), i0.ɵmpd(4608, i14.XhrFactory, i9.ɵangular_packages_platform_server_platform_server_e, []), i0.ɵmpd(4608, i14.HttpXhrBackend, i14.HttpXhrBackend, [i14.XhrFactory]), i0.ɵmpd(6144, i14.HttpBackend, null, [i14.HttpXhrBackend]), i0.ɵmpd(5120, i14.HttpHandler, i9.ɵangular_packages_platform_server_platform_server_h, [i14.HttpBackend, i0.Injector]), i0.ɵmpd(4608, i14.HttpClient, i14.HttpClient, [i14.HttpHandler]), i0.ɵmpd(4608, i14.ɵangular_packages_common_http_http_d, i14.ɵangular_packages_common_http_http_d, []), i0.ɵmpd(4608, i15.StateService, i15.StateService, []), i0.ɵmpd(4608, i16.DataService, i16.DataService, [i14.HttpClient, i15.StateService]), i0.ɵmpd(4608, i17.BrowserXhr, i9.ɵangular_packages_platform_server_platform_server_e, []), i0.ɵmpd(4608, i17.ResponseOptions, i17.BaseResponseOptions, []), i0.ɵmpd(4608, i17.XSRFStrategy, i9.ɵangular_packages_platform_server_platform_server_f, []), i0.ɵmpd(4608, i17.XHRBackend, i17.XHRBackend, [i17.BrowserXhr, i17.ResponseOptions, i17.XSRFStrategy]), i0.ɵmpd(4608, i17.RequestOptions, i17.BaseRequestOptions, []), i0.ɵmpd(5120, i17.Http, i9.ɵangular_packages_platform_server_platform_server_g, [i17.XHRBackend, i17.RequestOptions]), i0.ɵmpd(4608, i18.AnimationBuilder, i11.ɵBrowserAnimationBuilder, [i0.RendererFactory2, i8.DOCUMENT]), i0.ɵmpd(1073742336, i7.CommonModule, i7.CommonModule, []), i0.ɵmpd(1024, i0.ErrorHandler, i8.ɵangular_packages_platform_browser_platform_browser_a, []), i0.ɵmpd(1024, i0.NgProbeToken, function () { return [i13.ɵangular_packages_router_router_b()]; }, []), i0.ɵmpd(512, i13.ɵangular_packages_router_router_h, i13.ɵangular_packages_router_router_h, [i0.Injector]), i0.ɵmpd(256, i0.APP_ID, "eform", []), i0.ɵmpd(2048, i8.ɵTRANSITION_ID, null, [i0.APP_ID]), i0.ɵmpd(1024, i0.APP_INITIALIZER, function (p0_0, p1_0, p2_0, p2_1, p2_2) { return [i8.ɵangular_packages_platform_browser_platform_browser_j(p0_0), i13.ɵangular_packages_router_router_i(p1_0), i8.ɵangular_packages_platform_browser_platform_browser_h(p2_0, p2_1, p2_2)]; }, [[2, i0.NgProbeToken], i13.ɵangular_packages_router_router_h, i8.ɵTRANSITION_ID, i7.DOCUMENT, i0.Injector]), i0.ɵmpd(512, i0.ApplicationInitStatus, i0.ApplicationInitStatus, [[2, i0.APP_INITIALIZER]]), i0.ɵmpd(131584, i0.ApplicationRef, i0.ApplicationRef, [i0.NgZone, i0.ɵConsole, i0.Injector, i0.ErrorHandler, i0.ComponentFactoryResolver, i0.ApplicationInitStatus]), i0.ɵmpd(1073742336, i0.ApplicationModule, i0.ApplicationModule, [i0.ApplicationRef]), i0.ɵmpd(1073742336, i8.BrowserModule, i8.BrowserModule, [[3, i8.BrowserModule]]), i0.ɵmpd(1073742336, i12.ɵangular_packages_forms_forms_bb, i12.ɵangular_packages_forms_forms_bb, []), i0.ɵmpd(1073742336, i12.FormsModule, i12.FormsModule, []), i0.ɵmpd(1024, i13.ɵangular_packages_router_router_a, i13.ɵangular_packages_router_router_e, [[3, i13.Router]]), i0.ɵmpd(512, i13.UrlSerializer, i13.DefaultUrlSerializer, []), i0.ɵmpd(512, i13.ChildrenOutletContexts, i13.ChildrenOutletContexts, []), i0.ɵmpd(256, i13.ROUTER_CONFIGURATION, {}, []), i0.ɵmpd(1024, i7.LocationStrategy, i13.ɵangular_packages_router_router_d, [i7.PlatformLocation, [2, i7.APP_BASE_HREF], i13.ROUTER_CONFIGURATION]), i0.ɵmpd(512, i7.Location, i7.Location, [i7.LocationStrategy]), i0.ɵmpd(512, i0.Compiler, i0.Compiler, []), i0.ɵmpd(512, i0.NgModuleFactoryLoader, i19.ModuleMapNgFactoryLoader, [i0.Compiler, i19.MODULE_MAP]), i0.ɵmpd(1024, i13.ROUTES, function () { return [[{ path: "", redirectTo: "/main", pathMatch: "full" }, { path: "main", component: i20.MainComponent }, { path: "edit", component: i21.EditComponent }]]; }, []), i0.ɵmpd(1024, i13.Router, i13.ɵangular_packages_router_router_f, [i0.ApplicationRef, i13.UrlSerializer, i13.ChildrenOutletContexts, i7.Location, i0.Injector, i0.NgModuleFactoryLoader, i0.Compiler, i13.ROUTES, i13.ROUTER_CONFIGURATION, [2, i13.UrlHandlingStrategy], [2, i13.RouteReuseStrategy]]), i0.ɵmpd(1073742336, i13.RouterModule, i13.RouterModule, [[2, i13.ɵangular_packages_router_router_a], [2, i13.Router]]), i0.ɵmpd(1073742336, i22.AppRoutingModule, i22.AppRoutingModule, []), i0.ɵmpd(1073742336, i14.HttpClientXsrfModule, i14.HttpClientXsrfModule, []), i0.ɵmpd(1073742336, i14.HttpClientModule, i14.HttpClientModule, []), i0.ɵmpd(1073742336, i23.AppModule, i23.AppModule, [i0.PLATFORM_ID, i0.APP_ID]), i0.ɵmpd(1073742336, i17.HttpModule, i17.HttpModule, []), i0.ɵmpd(1073742336, i11.NoopAnimationsModule, i11.NoopAnimationsModule, []), i0.ɵmpd(1073742336, i9.ServerModule, i9.ServerModule, []), i0.ɵmpd(1073742336, i19.ModuleMapLoaderModule, i19.ModuleMapLoaderModule, []), i0.ɵmpd(1073742336, i1.AppServerModule, i1.AppServerModule, []), i0.ɵmpd(256, i0.ɵAPP_ROOT, true, []), i0.ɵmpd(256, i14.ɵangular_packages_common_http_http_e, "XSRF-TOKEN", []), i0.ɵmpd(256, i14.ɵangular_packages_common_http_http_f, "X-XSRF-TOKEN", []), i0.ɵmpd(256, i11.ANIMATION_MODULE_TYPE, "NoopAnimations", [])]); });
+var AppServerModuleNgFactory = i0.ɵcmf(i1.AppServerModule, [i2.AppComponent], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, [i3.ɵEmptyOutletComponentNgFactory, i4.MainComponentNgFactory, i5.EditComponentNgFactory, i6.AppComponentNgFactory]], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(5120, i0.LOCALE_ID, i0.ɵangular_packages_core_core_k, [[3, i0.LOCALE_ID]]), i0.ɵmpd(4608, i7.NgLocalization, i7.NgLocaleLocalization, [i0.LOCALE_ID, [2, i7.ɵangular_packages_common_common_a]]), i0.ɵmpd(5120, i0.IterableDiffers, i0.ɵangular_packages_core_core_i, []), i0.ɵmpd(5120, i0.KeyValueDiffers, i0.ɵangular_packages_core_core_j, []), i0.ɵmpd(4608, i8.DomSanitizer, i8.ɵDomSanitizerImpl, [i7.DOCUMENT]), i0.ɵmpd(6144, i0.Sanitizer, null, [i8.DomSanitizer]), i0.ɵmpd(4608, i8.HAMMER_GESTURE_CONFIG, i8.HammerGestureConfig, []), i0.ɵmpd(5120, i8.EVENT_MANAGER_PLUGINS, function (p0_0, p0_1, p0_2, p1_0, p2_0, p2_1, p2_2, p2_3, p3_0) { return [new i8.ɵDomEventsPlugin(p0_0, p0_1, p0_2), new i8.ɵKeyEventsPlugin(p1_0), new i8.ɵHammerGesturesPlugin(p2_0, p2_1, p2_2, p2_3), new i9.ɵangular_packages_platform_server_platform_server_d(p3_0)]; }, [i7.DOCUMENT, i0.NgZone, i0.PLATFORM_ID, i7.DOCUMENT, i7.DOCUMENT, i8.HAMMER_GESTURE_CONFIG, i0.ɵConsole, [2, i8.HAMMER_LOADER], i8.DOCUMENT]), i0.ɵmpd(4608, i8.EventManager, i8.EventManager, [i8.EVENT_MANAGER_PLUGINS, i0.NgZone]), i0.ɵmpd(135680, i8.ɵDomSharedStylesHost, i8.ɵDomSharedStylesHost, [i7.DOCUMENT]), i0.ɵmpd(4608, i8.ɵDomRendererFactory2, i8.ɵDomRendererFactory2, [i8.EventManager, i8.ɵDomSharedStylesHost]), i0.ɵmpd(4608, i9.ɵangular_packages_platform_server_platform_server_c, i9.ɵangular_packages_platform_server_platform_server_c, [i8.DOCUMENT, [2, i8.ɵTRANSITION_ID]]), i0.ɵmpd(6144, i8.ɵSharedStylesHost, null, [i9.ɵangular_packages_platform_server_platform_server_c]), i0.ɵmpd(4608, i9.ɵServerRendererFactory2, i9.ɵServerRendererFactory2, [i8.EventManager, i0.NgZone, i8.DOCUMENT, i8.ɵSharedStylesHost]), i0.ɵmpd(4608, i10.AnimationDriver, i10.ɵNoopAnimationDriver, []), i0.ɵmpd(5120, i10.ɵAnimationStyleNormalizer, i11.ɵangular_packages_platform_browser_animations_animations_c, []), i0.ɵmpd(4608, i10.ɵAnimationEngine, i11.ɵangular_packages_platform_browser_animations_animations_a, [i7.DOCUMENT, i10.AnimationDriver, i10.ɵAnimationStyleNormalizer]), i0.ɵmpd(5120, i0.RendererFactory2, i9.ɵangular_packages_platform_server_platform_server_a, [i9.ɵServerRendererFactory2, i10.ɵAnimationEngine, i0.NgZone]), i0.ɵmpd(4352, i0.Testability, null, []), i0.ɵmpd(4608, i12.ɵangular_packages_forms_forms_i, i12.ɵangular_packages_forms_forms_i, []), i0.ɵmpd(5120, i13.ActivatedRoute, i13.ɵangular_packages_router_router_g, [i13.Router]), i0.ɵmpd(4608, i13.NoPreloading, i13.NoPreloading, []), i0.ɵmpd(6144, i13.PreloadingStrategy, null, [i13.NoPreloading]), i0.ɵmpd(135680, i13.RouterPreloader, i13.RouterPreloader, [i13.Router, i0.NgModuleFactoryLoader, i0.Compiler, i0.Injector, i13.PreloadingStrategy]), i0.ɵmpd(4608, i13.PreloadAllModules, i13.PreloadAllModules, []), i0.ɵmpd(4608, i7.ViewportScroller, i7.ɵNullViewportScroller, []), i0.ɵmpd(5120, i13.ɵangular_packages_router_router_n, i13.ɵangular_packages_router_router_c, [i13.Router, i7.ViewportScroller, i13.ROUTER_CONFIGURATION]), i0.ɵmpd(5120, i13.ROUTER_INITIALIZER, i13.ɵangular_packages_router_router_j, [i13.ɵangular_packages_router_router_h]), i0.ɵmpd(5120, i0.APP_BOOTSTRAP_LISTENER, function (p0_0) { return [p0_0]; }, [i13.ROUTER_INITIALIZER]), i0.ɵmpd(4608, i14.HttpXsrfTokenExtractor, i14.ɵangular_packages_common_http_http_g, [i7.DOCUMENT, i0.PLATFORM_ID, i14.ɵangular_packages_common_http_http_e]), i0.ɵmpd(4608, i14.ɵangular_packages_common_http_http_h, i14.ɵangular_packages_common_http_http_h, [i14.HttpXsrfTokenExtractor, i14.ɵangular_packages_common_http_http_f]), i0.ɵmpd(5120, i14.HTTP_INTERCEPTORS, function (p0_0) { return [p0_0]; }, [i14.ɵangular_packages_common_http_http_h]), i0.ɵmpd(4608, i14.XhrFactory, i9.ɵangular_packages_platform_server_platform_server_e, []), i0.ɵmpd(4608, i14.HttpXhrBackend, i14.HttpXhrBackend, [i14.XhrFactory]), i0.ɵmpd(6144, i14.HttpBackend, null, [i14.HttpXhrBackend]), i0.ɵmpd(5120, i14.HttpHandler, i9.ɵangular_packages_platform_server_platform_server_h, [i14.HttpBackend, i0.Injector]), i0.ɵmpd(4608, i14.HttpClient, i14.HttpClient, [i14.HttpHandler]), i0.ɵmpd(4608, i14.ɵangular_packages_common_http_http_d, i14.ɵangular_packages_common_http_http_d, []), i0.ɵmpd(4608, i15.StateService, i15.StateService, [i0.NgZone]), i0.ɵmpd(4608, i16.DataService, i16.DataService, [i14.HttpClient, i15.StateService]), i0.ɵmpd(4608, i17.BrowserXhr, i9.ɵangular_packages_platform_server_platform_server_e, []), i0.ɵmpd(4608, i17.ResponseOptions, i17.BaseResponseOptions, []), i0.ɵmpd(4608, i17.XSRFStrategy, i9.ɵangular_packages_platform_server_platform_server_f, []), i0.ɵmpd(4608, i17.XHRBackend, i17.XHRBackend, [i17.BrowserXhr, i17.ResponseOptions, i17.XSRFStrategy]), i0.ɵmpd(4608, i17.RequestOptions, i17.BaseRequestOptions, []), i0.ɵmpd(5120, i17.Http, i9.ɵangular_packages_platform_server_platform_server_g, [i17.XHRBackend, i17.RequestOptions]), i0.ɵmpd(4608, i18.AnimationBuilder, i11.ɵBrowserAnimationBuilder, [i0.RendererFactory2, i8.DOCUMENT]), i0.ɵmpd(1073742336, i7.CommonModule, i7.CommonModule, []), i0.ɵmpd(1024, i0.ErrorHandler, i8.ɵangular_packages_platform_browser_platform_browser_a, []), i0.ɵmpd(1024, i0.NgProbeToken, function () { return [i13.ɵangular_packages_router_router_b()]; }, []), i0.ɵmpd(512, i13.ɵangular_packages_router_router_h, i13.ɵangular_packages_router_router_h, [i0.Injector]), i0.ɵmpd(256, i0.APP_ID, "eform", []), i0.ɵmpd(2048, i8.ɵTRANSITION_ID, null, [i0.APP_ID]), i0.ɵmpd(1024, i0.APP_INITIALIZER, function (p0_0, p1_0, p2_0, p2_1, p2_2) { return [i8.ɵangular_packages_platform_browser_platform_browser_j(p0_0), i13.ɵangular_packages_router_router_i(p1_0), i8.ɵangular_packages_platform_browser_platform_browser_h(p2_0, p2_1, p2_2)]; }, [[2, i0.NgProbeToken], i13.ɵangular_packages_router_router_h, i8.ɵTRANSITION_ID, i7.DOCUMENT, i0.Injector]), i0.ɵmpd(512, i0.ApplicationInitStatus, i0.ApplicationInitStatus, [[2, i0.APP_INITIALIZER]]), i0.ɵmpd(131584, i0.ApplicationRef, i0.ApplicationRef, [i0.NgZone, i0.ɵConsole, i0.Injector, i0.ErrorHandler, i0.ComponentFactoryResolver, i0.ApplicationInitStatus]), i0.ɵmpd(1073742336, i0.ApplicationModule, i0.ApplicationModule, [i0.ApplicationRef]), i0.ɵmpd(1073742336, i8.BrowserModule, i8.BrowserModule, [[3, i8.BrowserModule]]), i0.ɵmpd(1073742336, i12.ɵangular_packages_forms_forms_bb, i12.ɵangular_packages_forms_forms_bb, []), i0.ɵmpd(1073742336, i12.FormsModule, i12.FormsModule, []), i0.ɵmpd(1024, i13.ɵangular_packages_router_router_a, i13.ɵangular_packages_router_router_e, [[3, i13.Router]]), i0.ɵmpd(512, i13.UrlSerializer, i13.DefaultUrlSerializer, []), i0.ɵmpd(512, i13.ChildrenOutletContexts, i13.ChildrenOutletContexts, []), i0.ɵmpd(256, i13.ROUTER_CONFIGURATION, {}, []), i0.ɵmpd(1024, i7.LocationStrategy, i13.ɵangular_packages_router_router_d, [i7.PlatformLocation, [2, i7.APP_BASE_HREF], i13.ROUTER_CONFIGURATION]), i0.ɵmpd(512, i7.Location, i7.Location, [i7.LocationStrategy]), i0.ɵmpd(512, i0.Compiler, i0.Compiler, []), i0.ɵmpd(512, i0.NgModuleFactoryLoader, i19.ModuleMapNgFactoryLoader, [i0.Compiler, i19.MODULE_MAP]), i0.ɵmpd(1024, i13.ROUTES, function () { return [[{ path: "", redirectTo: "/main", pathMatch: "full" }, { path: "main", component: i20.MainComponent }, { path: "edit", component: i21.EditComponent }]]; }, []), i0.ɵmpd(1024, i13.Router, i13.ɵangular_packages_router_router_f, [i0.ApplicationRef, i13.UrlSerializer, i13.ChildrenOutletContexts, i7.Location, i0.Injector, i0.NgModuleFactoryLoader, i0.Compiler, i13.ROUTES, i13.ROUTER_CONFIGURATION, [2, i13.UrlHandlingStrategy], [2, i13.RouteReuseStrategy]]), i0.ɵmpd(1073742336, i13.RouterModule, i13.RouterModule, [[2, i13.ɵangular_packages_router_router_a], [2, i13.Router]]), i0.ɵmpd(1073742336, i22.AppRoutingModule, i22.AppRoutingModule, []), i0.ɵmpd(1073742336, i14.HttpClientXsrfModule, i14.HttpClientXsrfModule, []), i0.ɵmpd(1073742336, i14.HttpClientModule, i14.HttpClientModule, []), i0.ɵmpd(1073742336, i23.AppModule, i23.AppModule, [i0.PLATFORM_ID, i0.APP_ID]), i0.ɵmpd(1073742336, i17.HttpModule, i17.HttpModule, []), i0.ɵmpd(1073742336, i11.NoopAnimationsModule, i11.NoopAnimationsModule, []), i0.ɵmpd(1073742336, i9.ServerModule, i9.ServerModule, []), i0.ɵmpd(1073742336, i19.ModuleMapLoaderModule, i19.ModuleMapLoaderModule, []), i0.ɵmpd(1073742336, i1.AppServerModule, i1.AppServerModule, []), i0.ɵmpd(256, i0.ɵAPP_ROOT, true, []), i0.ɵmpd(256, i14.ɵangular_packages_common_http_http_e, "XSRF-TOKEN", []), i0.ɵmpd(256, i14.ɵangular_packages_common_http_http_f, "X-XSRF-TOKEN", []), i0.ɵmpd(256, i11.ANIMATION_MODULE_TYPE, "NoopAnimations", [])]); });
 exports.AppServerModuleNgFactory = AppServerModuleNgFactory;
 
 
@@ -456,9 +456,7 @@ var CraneComponent = /** @class */ (function () {
         this._state = _state;
     }
     CraneComponent.prototype.ngOnInit = function () {
-        // let lang = Office.context.displayLanguage
-        var lang = 'en';
-        this.uitext = i18n_1.i18n.getTexts(lang);
+        this.uitext = i18n_1.i18n.getTexts(this._state.state.locale);
         this.getCrane();
         this.getState();
     };
@@ -686,9 +684,7 @@ var MainComponent = /** @class */ (function () {
         this._state = _state;
     }
     MainComponent.prototype.ngOnInit = function () {
-        // let lang = Office.context.displayLanguage
-        var lang = 'en';
-        this.uitext = i18n_1.i18n.getTexts(lang);
+        this.uitext = i18n_1.i18n.getTexts(this._state.state.locale);
         this.eform = {
             label: this.uitext.eform.label_eform,
             value: [{
@@ -886,25 +882,25 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.i18n = {
     en: {
         eform: {
-            label_eform: 'Select eForm',
+            label_eform: 'eForm',
             label_select_crane: 'Crane',
             label_select_water: 'Water'
         },
         crane: {
             label_edit: 'Edit',
             label_refresh: 'Refresh',
-            label_ship: 'Select Ship',
-            label_quay: 'Select Quay',
-            label_crane: 'Select Crane',
-            label_workers: 'Select Workers',
+            label_ship: 'Ship',
+            label_quay: 'Quay',
+            label_crane: 'Crane',
+            label_workers: 'Workers',
             label_message: 'Message to Workers'
         },
         water: {
             label_edit: 'Edit',
             label_refresh: 'Refresh',
-            label_ship: 'Select Ship',
-            label_quay: 'Select Quay',
-            label_workers: 'Select Workers',
+            label_ship: 'Ship',
+            label_quay: 'Quay',
+            label_workers: 'Workers',
             label_message: 'Message to Workers'
         }
     },
@@ -1036,12 +1032,16 @@ exports.MockWater = {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
 var rxjs_1 = __webpack_require__(/*! rxjs */ "rxjs");
+var i18n_1 = __webpack_require__(/*! ../service/i18n */ "./src/app/service/i18n.ts");
 var i0 = __webpack_require__(/*! @angular/core */ "@angular/core");
 var StateService = /** @class */ (function () {
-    function StateService() {
+    function StateService(ngZone) {
+        this.ngZone = ngZone;
         this.state = {
             eform: 'crane',
+            locale: Office.context.displayLanguage,
             crane: undefined,
             water: undefined
         };
@@ -1064,25 +1064,104 @@ var StateService = /** @class */ (function () {
                 workers: Array(c.workers.length).fill(false),
                 message: c.message
             };
+            this.parseBody(c);
         }
         else {
             // regen water state -> check if current id is in new list ? preserve original id : [0].id
         }
     };
-    StateService.prototype.initWaterState = function (c) {
-        if (this.state.water == undefined) {
-            this.state.water = {
-                shipid: c.ship[0].id,
-                quayid: c.quay[0].id,
-                workers: Array(c.workers.length).fill(false),
-                message: c.message
-            };
-        }
-        else {
-            // regen water state -> check if current id is in new list ? preserve original id : [0].id
-        }
+    StateService.prototype.initWaterState = function (w) {
+        var _this = this;
+        this.ngZone.run(function () {
+            if (_this.state.water == undefined) {
+                _this.state.water = {
+                    shipid: w.ship[0].id,
+                    quayid: w.quay[0].id,
+                    workers: Array(w.workers.length).fill(false),
+                    message: w.message
+                };
+            }
+            else {
+                // regen water state -> check if current id is in new list ? preserve original id : [0].id
+            }
+        });
     };
-    StateService.ngInjectableDef = i0.defineInjectable({ factory: function StateService_Factory() { return new StateService(); }, token: StateService, providedIn: "root" });
+    StateService.prototype.parseBody = function (c) {
+        var _this = this;
+        var uitext = i18n_1.i18n.getTexts(this.state.locale);
+        this.ngZone.run(function () {
+            var item = Office.context.mailbox.item;
+            if (item.itemType == Office.MailboxEnums.ItemType.Appointment) {
+                var __this_1 = _this;
+                item.body.getAsync(Office.CoercionType.Text, function (result) {
+                    if (result.status == Office.AsyncResultStatus.Succeeded) {
+                        var txtVal = result.value;
+                        var textLines = txtVal.split('\n');
+                        if (textLines[0] == '') {
+                            textLines.shift();
+                        }
+                        if (textLines[textLines.length - 1] == '') {
+                            textLines.pop();
+                        }
+                        var stringText = '';
+                        for (var i = 0; i < textLines.length; i++) {
+                            var textLine = textLines[i];
+                            if (textLine.includes(uitext.eform.label_eform)) {
+                                var optionValue = textLine.split(':')[1].trim();
+                                if (optionValue == 'water') {
+                                    __this_1.state.eform = 'water';
+                                    break;
+                                }
+                            }
+                            else if (textLine.includes(uitext.crane.label_ship)) {
+                                var optionValue = textLine.split(':')[1].trim();
+                                for (var j = 0; j < c.ship.length; j++) {
+                                    if (c.ship[j].value == optionValue) {
+                                        __this_1.state.crane.shipid = c.ship[j].id;
+                                    }
+                                }
+                            }
+                            else if (textLine.includes(uitext.crane.label_quay)) {
+                                var optionValue = textLine.split(':')[1].trim();
+                                for (var j = 0; j < c.quay.length; j++) {
+                                    if (c.quay[j].value == optionValue) {
+                                        __this_1.state.crane.quayid = c.quay[j].id;
+                                    }
+                                }
+                            }
+                            else if (textLine.includes(uitext.crane.label_crane)) {
+                                var optionValue = textLine.split(':')[1].trim();
+                                for (var j = 0; j < c.crane.length; j++) {
+                                    if (c.crane[j].value == optionValue) {
+                                        __this_1.state.crane.craneid = c.crane[j].id;
+                                    }
+                                }
+                            }
+                            else if (textLine.includes(uitext.crane.label_workers)) {
+                                var optionValue = textLine.split(':')[1].trim();
+                                var cworkers = optionValue.split(', ');
+                                for (var j = 0; j < c.workers.length; j++) {
+                                    for (var k = 0; k < cworkers.length; k++) {
+                                        if (c.workers[j].value == cworkers[k]) {
+                                            __this_1.state.crane.workers[j] = true;
+                                        }
+                                    }
+                                }
+                            }
+                            else if (textLine.includes(uitext.crane.label_message)) {
+                                stringText = textLine.replace(uitext.crane.label_message + ': ', '') + '\n';
+                            }
+                            else {
+                                stringText = stringText + textLine + '\n';
+                            }
+                        }
+                        __this_1.state.crane.message = stringText;
+                    }
+                });
+            }
+        });
+    };
+    StateService.ngInjectableDef = i0.defineInjectable({ factory: function StateService_Factory() { return new StateService(i0.inject(i0.NgZone)); }, token: StateService, providedIn: "root" });
     return StateService;
 }());
 exports.StateService = StateService;
@@ -1221,9 +1300,7 @@ var WaterComponent = /** @class */ (function () {
         this._state = _state;
     }
     WaterComponent.prototype.ngOnInit = function () {
-        // let lang = Office.context.displayLanguage
-        var lang = 'en';
-        this.uitext = i18n_1.i18n.getTexts(lang);
+        this.uitext = i18n_1.i18n.getTexts(this._state.state.locale);
         this.getWater();
         this.getState();
     };

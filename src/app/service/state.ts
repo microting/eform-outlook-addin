@@ -1,5 +1,6 @@
 export class State {
     eform: 'crane' | 'water'
+    locale: string
     crane: CraneState
     water: WaterState
 }

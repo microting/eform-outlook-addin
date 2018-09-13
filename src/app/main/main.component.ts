@@ -19,9 +19,7 @@ export class MainComponent implements OnInit {
   constructor(private zone: NgZone, public _data: DataService, public _state: StateService) { }
 
   ngOnInit() {
-    // let lang = Office.context.displayLanguage
-    let lang = 'en'
-    this.uitext = i18n.getTexts(lang)
+    this.uitext = i18n.getTexts(this._state.state.locale)
     this.eform = {
       label: this.uitext.eform.label_eform,
       value: [{
