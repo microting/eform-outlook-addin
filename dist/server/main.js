@@ -1101,7 +1101,6 @@ var StateService = /** @class */ (function () {
     StateService.prototype.parseCraneBody = function (c) {
         var _this = this;
         var uitext = i18n_1.i18n.getTexts(this.state.locale);
-        console.log('start parsing crane');
         this.ngZone.run(function () {
             var item = Office.context.mailbox.item;
             if (item.itemType == Office.MailboxEnums.ItemType.Appointment) {
@@ -1109,7 +1108,6 @@ var StateService = /** @class */ (function () {
                 item.body.getAsync(Office.CoercionType.Text, function (result) {
                     if (result.status == Office.AsyncResultStatus.Succeeded) {
                         var txtVal = result.value;
-                        console.log(':: - value' + txtVal);
                         var textLines = txtVal.split('\n');
                         if (textLines[0] == '') {
                             textLines.shift();
@@ -1124,14 +1122,12 @@ var StateService = /** @class */ (function () {
                                 var optionValue = textLine.split(':')[1].trim();
                                 if (optionValue == 'water') {
                                     __this_1.state.eform = 'water';
-                                    console.log('parsing crane - state eform - water');
                                     __this_1.onEFormChange();
                                     break;
                                 }
                             }
                             else if (textLine.startsWith(uitext.crane.label_ship)) {
                                 var optionValue = textLine.split(':')[1].trim();
-                                console.log('parsing crane - state ship - ' + optionValue);
                                 for (var j = 0; j < c.ship.length; j++) {
                                     if (c.ship[j].value == optionValue) {
                                         __this_1.state.crane.shipid = c.ship[j].id;
@@ -1140,7 +1136,6 @@ var StateService = /** @class */ (function () {
                             }
                             else if (textLine.startsWith(uitext.crane.label_quay)) {
                                 var optionValue = textLine.split(':')[1].trim();
-                                console.log('parsing crane - state quay - ' + optionValue);
                                 for (var j = 0; j < c.quay.length; j++) {
                                     if (c.quay[j].value == optionValue) {
                                         __this_1.state.crane.quayid = c.quay[j].id;
@@ -1149,7 +1144,6 @@ var StateService = /** @class */ (function () {
                             }
                             else if (textLine.startsWith(uitext.crane.label_crane)) {
                                 var optionValue = textLine.split(':')[1].trim();
-                                console.log('parsing crane - state crane - ' + optionValue);
                                 for (var j = 0; j < c.crane.length; j++) {
                                     if (c.crane[j].value == optionValue) {
                                         __this_1.state.crane.craneid = c.crane[j].id;
@@ -1158,7 +1152,6 @@ var StateService = /** @class */ (function () {
                             }
                             else if (textLine.startsWith(uitext.crane.label_workers)) {
                                 var optionValue = textLine.split(':')[1].trim();
-                                console.log('parsing crane - state workers - ' + optionValue);
                                 var cworkers = optionValue.split(', ');
                                 if (cworkers.length > 0) {
                                     for (var j = 0; j < c.workers.length; j++) {
@@ -1187,7 +1180,6 @@ var StateService = /** @class */ (function () {
     StateService.prototype.parseWaterBody = function (c) {
         var _this = this;
         var uitext = i18n_1.i18n.getTexts(this.state.locale);
-        console.log('start parsing water');
         this.ngZone.run(function () {
             var item = Office.context.mailbox.item;
             if (item.itemType == Office.MailboxEnums.ItemType.Appointment) {
@@ -1195,7 +1187,6 @@ var StateService = /** @class */ (function () {
                 item.body.getAsync(Office.CoercionType.Text, function (result) {
                     if (result.status == Office.AsyncResultStatus.Succeeded) {
                         var txtVal = result.value;
-                        console.log(':: - value' + txtVal);
                         var textLines = txtVal.split('\n');
                         if (textLines[0] == '') {
                             textLines.shift();
@@ -1209,15 +1200,11 @@ var StateService = /** @class */ (function () {
                             if (textLine.startsWith(uitext.eform.label_eform)) {
                                 var optionValue = textLine.split(':')[1].trim();
                                 if (optionValue == 'crane') {
-                                    __this_2.state.eform = 'crane';
-                                    console.log('parsing water - state eform - crane');
-                                    __this_2.onEFormChange();
                                     break;
                                 }
                             }
                             else if (textLine.startsWith(uitext.water.label_ship)) {
                                 var optionValue = textLine.split(':')[1].trim();
-                                console.log('parsing water - state ship - ' + optionValue);
                                 for (var j = 0; j < c.ship.length; j++) {
                                     if (c.ship[j].value == optionValue) {
                                         __this_2.state.water.shipid = c.ship[j].id;
@@ -1226,7 +1213,6 @@ var StateService = /** @class */ (function () {
                             }
                             else if (textLine.startsWith(uitext.water.label_quay)) {
                                 var optionValue = textLine.split(':')[1].trim();
-                                console.log('parsing water - state quay - ' + optionValue);
                                 for (var j = 0; j < c.quay.length; j++) {
                                     if (c.quay[j].value == optionValue) {
                                         __this_2.state.water.quayid = c.quay[j].id;
@@ -1235,7 +1221,6 @@ var StateService = /** @class */ (function () {
                             }
                             else if (textLine.startsWith(uitext.water.label_workers)) {
                                 var optionValue = textLine.split(':')[1].trim();
-                                console.log('parsing water - state workers - ' + optionValue);
                                 var cworkers = optionValue.split(', ');
                                 for (var j = 0; j < c.workers.length; j++) {
                                     for (var k = 0; k < cworkers.length; k++) {

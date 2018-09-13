@@ -85,7 +85,6 @@ export class StateService {
 
   parseCraneBody(c: Crane): void {
     let uitext = i18n.getTexts(this.state.locale)
-    console.log('start parsing crane')
 
     this.ngZone.run(() => {
       let item = Office.context.mailbox.item
@@ -94,7 +93,6 @@ export class StateService {
         item.body.getAsync(Office.CoercionType.Text, function(result) {
           if ( result.status == Office.AsyncResultStatus.Succeeded ) {
             let txtVal: string = result.value
-            console.log(':: - value' + txtVal)
             let textLines = txtVal.split( '\n' )
             if ( textLines[0] == '' ) {
               textLines.shift()
@@ -109,13 +107,11 @@ export class StateService {
                 let optionValue = textLine.split( ':' )[1].trim()
                 if ( optionValue == 'water' ) {
                   __this.state.eform = 'water'
-                  console.log('parsing crane - state eform - water')
                   __this.onEFormChange()
                   break
                 }
               } else if ( textLine.startsWith( uitext.crane.label_ship ) ) {
                 let optionValue = textLine.split( ':' )[1].trim()
-                console.log('parsing crane - state ship - ' + optionValue)
                 for (let j = 0; j < c.ship.length; j ++) {
                   if ( c.ship[j].value == optionValue ) {
                     __this.state.crane.shipid = c.ship[j].id
@@ -123,7 +119,6 @@ export class StateService {
                 }
               } else if ( textLine.startsWith( uitext.crane.label_quay ) ) {
                 let optionValue = textLine.split( ':' )[1].trim()
-                console.log('parsing crane - state quay - ' + optionValue)
                 for (let j = 0; j < c.quay.length; j ++) {
                   if ( c.quay[j].value == optionValue ) {
                     __this.state.crane.quayid = c.quay[j].id
@@ -131,7 +126,6 @@ export class StateService {
                 }
               } else if ( textLine.startsWith( uitext.crane.label_crane ) ) {
                 let optionValue = textLine.split( ':' )[1].trim()
-                console.log('parsing crane - state crane - ' + optionValue)
                 for (let j = 0; j < c.crane.length; j ++) {
                   if ( c.crane[j].value == optionValue ) {
                     __this.state.crane.craneid = c.crane[j].id
@@ -139,7 +133,6 @@ export class StateService {
                 }
               } else if ( textLine.startsWith( uitext.crane.label_workers ) ) {
                 let optionValue = textLine.split( ':' )[1].trim()
-                console.log('parsing crane - state workers - ' + optionValue)
                 let cworkers = optionValue.split(', ')
                 if ( cworkers.length > 0 ) {
                   for (let j = 0; j < c.workers.length; j ++) {
@@ -166,7 +159,6 @@ export class StateService {
 
   parseWaterBody(c: Water): void {
     let uitext = i18n.getTexts(this.state.locale)
-    console.log('start parsing water')
 
     this.ngZone.run(() => {
       let item = Office.context.mailbox.item
@@ -175,7 +167,6 @@ export class StateService {
         item.body.getAsync(Office.CoercionType.Text, function(result) {
           if ( result.status == Office.AsyncResultStatus.Succeeded ) {
             let txtVal: string = result.value
-            console.log(':: - value' + txtVal)
             let textLines = txtVal.split( '\n' )
             if ( textLines[0] == '' ) {
               textLines.shift()
@@ -189,14 +180,10 @@ export class StateService {
               if ( textLine.startsWith( uitext.eform.label_eform ) ) {
                 let optionValue = textLine.split( ':' )[1].trim()
                 if ( optionValue == 'crane' ) {
-                  __this.state.eform = 'crane'
-                  console.log('parsing water - state eform - crane')
-                  __this.onEFormChange()
                   break
                 }
               } else if ( textLine.startsWith( uitext.water.label_ship ) ) {
                 let optionValue = textLine.split( ':' )[1].trim()
-                console.log('parsing water - state ship - ' + optionValue)
                 for (let j = 0; j < c.ship.length; j ++) {
                   if ( c.ship[j].value == optionValue ) {
                     __this.state.water.shipid = c.ship[j].id
@@ -204,7 +191,6 @@ export class StateService {
                 }
               } else if ( textLine.startsWith( uitext.water.label_quay ) ) {
                 let optionValue = textLine.split( ':' )[1].trim()
-                console.log('parsing water - state quay - ' + optionValue)
                 for (let j = 0; j < c.quay.length; j ++) {
                   if ( c.quay[j].value == optionValue ) {
                     __this.state.water.quayid = c.quay[j].id
@@ -212,7 +198,6 @@ export class StateService {
                 }
               } else if ( textLine.startsWith( uitext.water.label_workers ) ) {
                 let optionValue = textLine.split( ':' )[1].trim()
-                console.log('parsing water - state workers - ' + optionValue)
                 let cworkers = optionValue.split(', ')
                 for (let j = 0; j < c.workers.length; j ++) {
                   for (let k = 0; k < cworkers.length; k ++) {
