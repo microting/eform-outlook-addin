@@ -462,7 +462,7 @@ var CraneComponent = /** @class */ (function () {
     };
     CraneComponent.prototype.getState = function () {
         var _this = this;
-        this._state.getCraneState().subscribe(function (cs) { _this._zone.run(function () { _this.state = cs; console.log(_this.state); }); });
+        this._state.getCraneState().subscribe(function (cs) { _this._zone.run(function () { _this.state = cs; }); });
     };
     CraneComponent.prototype.getCrane = function () {
         var _this = this;
@@ -699,7 +699,7 @@ var MainComponent = /** @class */ (function () {
     };
     MainComponent.prototype.getState = function () {
         var _this = this;
-        this._state.getEState().subscribe(function (es) { _this.state = es; console.log("get main state called"); });
+        this._state.getEState().subscribe(function (es) { _this.zone.run(function () { _this.state = es; }); });
     };
     MainComponent.prototype.onInsert = function () {
         var _this = this;
@@ -1403,7 +1403,7 @@ var WaterComponent = /** @class */ (function () {
     };
     WaterComponent.prototype.getState = function () {
         var _this = this;
-        this._state.getWaterState().subscribe(function (ws) { return _this.state = ws; });
+        this._state.getWaterState().subscribe(function (ws) { _this.zone.run(function () { _this.state = ws; }); });
     };
     WaterComponent.prototype.getWater = function () {
         var _this = this;
