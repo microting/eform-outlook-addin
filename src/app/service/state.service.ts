@@ -76,6 +76,7 @@ export class StateService {
           workers: Array(w.workers.length).fill(false),
           message: w.message
         }
+        this.parseWaterBody(w)
       } else {
         // regen water state -> check if current id is in new list ? preserve original id : [0].id
       }
