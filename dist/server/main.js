@@ -1075,7 +1075,7 @@ var StateService = /** @class */ (function () {
                 workers: Array(c.workers.length).fill(false),
                 message: c.message
             };
-            this.parseBody(c);
+            this.parseCraneBody(c);
         }
         else {
             // regen water state -> check if current id is in new list ? preserve original id : [0].id
@@ -1097,7 +1097,7 @@ var StateService = /** @class */ (function () {
             }
         });
     };
-    StateService.prototype.parseBody = function (c) {
+    StateService.prototype.parseCraneBody = function (c) {
         var _this = this;
         var uitext = i18n_1.i18n.getTexts(this.state.locale);
         console.log('start parsing crane');
@@ -1119,7 +1119,7 @@ var StateService = /** @class */ (function () {
                         var stringText = '';
                         for (var i = 0; i < textLines.length; i++) {
                             var textLine = textLines[i];
-                            if (textLine.includes(uitext.eform.label_eform)) {
+                            if (textLine.startsWith(uitext.eform.label_eform)) {
                                 var optionValue = textLine.split(':')[1].trim();
                                 if (optionValue == 'water') {
                                     __this_1.state.eform = 'water';
@@ -1128,7 +1128,7 @@ var StateService = /** @class */ (function () {
                                     break;
                                 }
                             }
-                            else if (textLine.includes(uitext.crane.label_ship)) {
+                            else if (textLine.startsWith(uitext.crane.label_ship)) {
                                 var optionValue = textLine.split(':')[1].trim();
                                 console.log('parsing crane - state ship - ' + optionValue);
                                 for (var j = 0; j < c.ship.length; j++) {
@@ -1137,7 +1137,7 @@ var StateService = /** @class */ (function () {
                                     }
                                 }
                             }
-                            else if (textLine.includes(uitext.crane.label_quay)) {
+                            else if (textLine.startsWith(uitext.crane.label_quay)) {
                                 var optionValue = textLine.split(':')[1].trim();
                                 console.log('parsing crane - state quay - ' + optionValue);
                                 for (var j = 0; j < c.quay.length; j++) {
@@ -1146,7 +1146,7 @@ var StateService = /** @class */ (function () {
                                     }
                                 }
                             }
-                            else if (textLine.includes(uitext.crane.label_crane)) {
+                            else if (textLine.startsWith(uitext.crane.label_crane)) {
                                 var optionValue = textLine.split(':')[1].trim();
                                 console.log('parsing crane - state crane - ' + optionValue);
                                 for (var j = 0; j < c.crane.length; j++) {
@@ -1155,19 +1155,21 @@ var StateService = /** @class */ (function () {
                                     }
                                 }
                             }
-                            else if (textLine.includes(uitext.crane.label_workers)) {
+                            else if (textLine.startsWith(uitext.crane.label_workers)) {
                                 var optionValue = textLine.split(':')[1].trim();
                                 console.log('parsing crane - state workers - ' + optionValue);
                                 var cworkers = optionValue.split(', ');
-                                for (var j = 0; j < c.workers.length; j++) {
-                                    for (var k = 0; k < cworkers.length; k++) {
-                                        if (c.workers[j].value == cworkers[k]) {
-                                            __this_1.state.crane.workers[j] = true;
+                                if (cworkers.length > 0) {
+                                    for (var j = 0; j < c.workers.length; j++) {
+                                        for (var k = 0; k < cworkers.length; k++) {
+                                            if (c.workers[j].value == cworkers[k]) {
+                                                __this_1.state.crane.workers[j] = true;
+                                            }
                                         }
                                     }
                                 }
                             }
-                            else if (textLine.includes(uitext.crane.label_message)) {
+                            else if (textLine.startsWith(uitext.crane.label_message)) {
                                 stringText = textLine.replace(uitext.crane.label_message + ': ', '') + '\n';
                             }
                             else {
@@ -1176,6 +1178,81 @@ var StateService = /** @class */ (function () {
                         }
                         __this_1.state.crane.message = stringText;
                         __this_1.onCraneChange();
+                    }
+                });
+            }
+        });
+    };
+    StateService.prototype.parseWaterBody = function (c) {
+        var _this = this;
+        var uitext = i18n_1.i18n.getTexts(this.state.locale);
+        console.log('start parsing water');
+        this.ngZone.run(function () {
+            var item = Office.context.mailbox.item;
+            if (item.itemType == Office.MailboxEnums.ItemType.Appointment) {
+                var __this_2 = _this;
+                item.body.getAsync(Office.CoercionType.Text, function (result) {
+                    if (result.status == Office.AsyncResultStatus.Succeeded) {
+                        var txtVal = result.value;
+                        console.log(':: - value' + txtVal);
+                        var textLines = txtVal.split('\n');
+                        if (textLines[0] == '') {
+                            textLines.shift();
+                        }
+                        if (textLines[textLines.length - 1] == '') {
+                            textLines.pop();
+                        }
+                        var stringText = '';
+                        for (var i = 0; i < textLines.length; i++) {
+                            var textLine = textLines[i];
+                            if (textLine.startsWith(uitext.eform.label_eform)) {
+                                var optionValue = textLine.split(':')[1].trim();
+                                if (optionValue == 'crane') {
+                                    __this_2.state.eform = 'crane';
+                                    console.log('parsing water - state eform - crane');
+                                    __this_2.onEFormChange();
+                                    break;
+                                }
+                            }
+                            else if (textLine.startsWith(uitext.water.label_ship)) {
+                                var optionValue = textLine.split(':')[1].trim();
+                                console.log('parsing water - state ship - ' + optionValue);
+                                for (var j = 0; j < c.ship.length; j++) {
+                                    if (c.ship[j].value == optionValue) {
+                                        __this_2.state.water.shipid = c.ship[j].id;
+                                    }
+                                }
+                            }
+                            else if (textLine.startsWith(uitext.water.label_quay)) {
+                                var optionValue = textLine.split(':')[1].trim();
+                                console.log('parsing water - state quay - ' + optionValue);
+                                for (var j = 0; j < c.quay.length; j++) {
+                                    if (c.quay[j].value == optionValue) {
+                                        __this_2.state.water.quayid = c.quay[j].id;
+                                    }
+                                }
+                            }
+                            else if (textLine.startsWith(uitext.water.label_workers)) {
+                                var optionValue = textLine.split(':')[1].trim();
+                                console.log('parsing water - state workers - ' + optionValue);
+                                var cworkers = optionValue.split(', ');
+                                for (var j = 0; j < c.workers.length; j++) {
+                                    for (var k = 0; k < cworkers.length; k++) {
+                                        if (c.workers[j].value == cworkers[k]) {
+                                            __this_2.state.water.workers[j] = true;
+                                        }
+                                    }
+                                }
+                            }
+                            else if (textLine.startsWith(uitext.water.label_message)) {
+                                stringText = textLine.replace(uitext.water.label_message + ': ', '') + '\n';
+                            }
+                            else {
+                                stringText = stringText + textLine + '\n';
+                            }
+                        }
+                        __this_2.state.water.message = stringText;
+                        __this_2.onWaterChange();
                     }
                 });
             }
