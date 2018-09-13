@@ -115,14 +115,12 @@ exports.ɵEmptyOutletComponentNgFactory = ɵEmptyOutletComponentNgFactory;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var router_1 = __webpack_require__(/*! @angular/router */ "@angular/router");
-var dashboard_component_1 = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
-var heroes_component_1 = __webpack_require__(/*! ./heroes/heroes.component */ "./src/app/heroes/heroes.component.ts");
-var hero_detail_component_1 = __webpack_require__(/*! ./hero-detail/hero-detail.component */ "./src/app/hero-detail/hero-detail.component.ts");
+var main_component_1 = __webpack_require__(/*! ./main/main.component */ "./src/app/main/main.component.ts");
+var edit_component_1 = __webpack_require__(/*! ./edit/edit.component */ "./src/app/edit/edit.component.ts");
 var routes = [
-    { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-    { path: 'dashboard', component: dashboard_component_1.DashboardComponent },
-    { path: 'detail/:id', component: hero_detail_component_1.HeroDetailComponent },
-    { path: 'heroes', component: heroes_component_1.HeroesComponent }
+    { path: '', redirectTo: '/main', pathMatch: 'full' },
+    { path: 'main', component: main_component_1.MainComponent },
+    { path: 'edit', component: edit_component_1.EditComponent }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -150,7 +148,7 @@ exports.AppRoutingModule = AppRoutingModule;
  * tslint:disable
  */ 
 Object.defineProperty(exports, "__esModule", { value: true });
-var styles = ["h1[_ngcontent-%COMP%] {\n  font-size: 1.2em;\n  color: #999;\n  margin-bottom: 0;\n}\nh2[_ngcontent-%COMP%] {\n  font-size: 2em;\n  margin-top: 0;\n  padding-top: 0;\n}\nnav[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  padding: 5px 10px;\n  text-decoration: none;\n  margin-top: 10px;\n  display: inline-block;\n  background-color: #eee;\n  border-radius: 4px;\n}\nnav[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]:visited, a[_ngcontent-%COMP%]:link {\n  color: #607D8B;\n}\nnav[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]:hover {\n  color: #039be5;\n  background-color: #CFD8DC;\n}\nnav[_ngcontent-%COMP%]   a.active[_ngcontent-%COMP%] {\n  color: #039be5;\n}"];
+var styles = [""];
 exports.styles = styles;
 
 
@@ -175,25 +173,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var i0 = __webpack_require__(/*! ./app.component.css.shim.ngstyle */ "./src/app/app.component.css.shim.ngstyle.js");
 var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
 var i2 = __webpack_require__(/*! @angular/router */ "@angular/router");
-var i3 = __webpack_require__(/*! @angular/common */ "@angular/common");
-var i4 = __webpack_require__(/*! ./messages/messages.component.ngfactory */ "./src/app/messages/messages.component.ngfactory.js");
-var i5 = __webpack_require__(/*! ./messages/messages.component */ "./src/app/messages/messages.component.ts");
-var i6 = __webpack_require__(/*! ./message.service */ "./src/app/message.service.ts");
-var i7 = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+var i3 = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 var styles_AppComponent = [i0.styles];
 var RenderType_AppComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_AppComponent, data: {} });
 exports.RenderType_AppComponent = RenderType_AppComponent;
-function View_AppComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "h1", [], null, null, null, null, null)), (_l()(), i1.ɵted(1, null, ["", ""])), (_l()(), i1.ɵeld(2, 0, null, null, 6, "nav", [], null, null, null, null, null)), (_l()(), i1.ɵeld(3, 0, null, null, 2, "a", [["routerLink", "/dashboard"]], [[1, "target", 0], [8, "href", 4]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
-        var pd_0 = (i1.ɵnov(_v, 4).onClick($event.button, $event.ctrlKey, $event.metaKey, $event.shiftKey) !== false);
-        ad = (pd_0 && ad);
-    } return ad; }, null, null)), i1.ɵdid(4, 671744, null, 0, i2.RouterLinkWithHref, [i2.Router, i2.ActivatedRoute, i3.LocationStrategy], { routerLink: [0, "routerLink"] }, null), (_l()(), i1.ɵted(-1, null, ["Dashboard"])), (_l()(), i1.ɵeld(6, 0, null, null, 2, "a", [["routerLink", "/heroes"]], [[1, "target", 0], [8, "href", 4]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
-        var pd_0 = (i1.ɵnov(_v, 7).onClick($event.button, $event.ctrlKey, $event.metaKey, $event.shiftKey) !== false);
-        ad = (pd_0 && ad);
-    } return ad; }, null, null)), i1.ɵdid(7, 671744, null, 0, i2.RouterLinkWithHref, [i2.Router, i2.ActivatedRoute, i3.LocationStrategy], { routerLink: [0, "routerLink"] }, null), (_l()(), i1.ɵted(-1, null, ["Heroes"])), (_l()(), i1.ɵeld(9, 16777216, null, null, 1, "router-outlet", [], null, null, null, null, null)), i1.ɵdid(10, 212992, null, 0, i2.RouterOutlet, [i2.ChildrenOutletContexts, i1.ViewContainerRef, i1.ComponentFactoryResolver, [8, null], i1.ChangeDetectorRef], null, null), (_l()(), i1.ɵeld(11, 0, null, null, 1, "app-messages", [], null, null, null, i4.View_MessagesComponent_0, i4.RenderType_MessagesComponent)), i1.ɵdid(12, 114688, null, 0, i5.MessagesComponent, [i6.MessageService], null, null)], function (_ck, _v) { var currVal_3 = "/dashboard"; _ck(_v, 4, 0, currVal_3); var currVal_6 = "/heroes"; _ck(_v, 7, 0, currVal_6); _ck(_v, 10, 0); _ck(_v, 12, 0); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.title; _ck(_v, 1, 0, currVal_0); var currVal_1 = i1.ɵnov(_v, 4).target; var currVal_2 = i1.ɵnov(_v, 4).href; _ck(_v, 3, 0, currVal_1, currVal_2); var currVal_4 = i1.ɵnov(_v, 7).target; var currVal_5 = i1.ɵnov(_v, 7).href; _ck(_v, 6, 0, currVal_4, currVal_5); }); }
+function View_AppComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 16777216, null, null, 1, "router-outlet", [], null, null, null, null, null)), i1.ɵdid(1, 212992, null, 0, i2.RouterOutlet, [i2.ChildrenOutletContexts, i1.ViewContainerRef, i1.ComponentFactoryResolver, [8, null], i1.ChangeDetectorRef], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
 exports.View_AppComponent_0 = View_AppComponent_0;
-function View_AppComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-root", [], null, null, null, View_AppComponent_0, RenderType_AppComponent)), i1.ɵdid(1, 49152, null, 0, i7.AppComponent, [], null, null)], null, null); }
+function View_AppComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-root", [], null, null, null, View_AppComponent_0, RenderType_AppComponent)), i1.ɵdid(1, 49152, null, 0, i3.AppComponent, [], null, null)], null, null); }
 exports.View_AppComponent_Host_0 = View_AppComponent_Host_0;
-var AppComponentNgFactory = i1.ɵccf("app-root", i7.AppComponent, View_AppComponent_Host_0, {}, {}, []);
+var AppComponentNgFactory = i1.ɵccf("app-root", i3.AppComponent, View_AppComponent_Host_0, {}, {}, []);
 exports.AppComponentNgFactory = AppComponentNgFactory;
 
 
@@ -211,7 +199,6 @@ exports.AppComponentNgFactory = AppComponentNgFactory;
 Object.defineProperty(exports, "__esModule", { value: true });
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
-        this.title = 'Tour of Heroes';
     }
     return AppComponent;
 }());
@@ -266,32 +253,27 @@ var i0 = __webpack_require__(/*! @angular/core */ "@angular/core");
 var i1 = __webpack_require__(/*! ./app.server.module */ "./src/app/app.server.module.ts");
 var i2 = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
 var i3 = __webpack_require__(/*! ../../node_modules/@angular/router/router.ngfactory */ "./node_modules/@angular/router/router.ngfactory.js");
-var i4 = __webpack_require__(/*! ./dashboard/dashboard.component.ngfactory */ "./src/app/dashboard/dashboard.component.ngfactory.js");
-var i5 = __webpack_require__(/*! ./hero-detail/hero-detail.component.ngfactory */ "./src/app/hero-detail/hero-detail.component.ngfactory.js");
-var i6 = __webpack_require__(/*! ./heroes/heroes.component.ngfactory */ "./src/app/heroes/heroes.component.ngfactory.js");
-var i7 = __webpack_require__(/*! ./app.component.ngfactory */ "./src/app/app.component.ngfactory.js");
-var i8 = __webpack_require__(/*! @angular/common */ "@angular/common");
-var i9 = __webpack_require__(/*! @angular/platform-browser */ "@angular/platform-browser");
-var i10 = __webpack_require__(/*! @angular/platform-server */ "@angular/platform-server");
-var i11 = __webpack_require__(/*! @angular/animations/browser */ "@angular/animations/browser");
-var i12 = __webpack_require__(/*! @angular/platform-browser/animations */ "@angular/platform-browser/animations");
-var i13 = __webpack_require__(/*! @angular/forms */ "@angular/forms");
-var i14 = __webpack_require__(/*! @angular/router */ "@angular/router");
-var i15 = __webpack_require__(/*! @angular/common/http */ "@angular/common/http");
-var i16 = __webpack_require__(/*! angular-in-memory-web-api/interfaces */ "angular-in-memory-web-api/interfaces");
-var i17 = __webpack_require__(/*! ./in-memory-data.service */ "./src/app/in-memory-data.service.ts");
-var i18 = __webpack_require__(/*! angular-in-memory-web-api/http-client-in-memory-web-api.module */ "angular-in-memory-web-api/http-client-in-memory-web-api.module");
-var i19 = __webpack_require__(/*! ./message.service */ "./src/app/message.service.ts");
-var i20 = __webpack_require__(/*! ./hero.service */ "./src/app/hero.service.ts");
-var i21 = __webpack_require__(/*! @angular/http */ "@angular/http");
-var i22 = __webpack_require__(/*! @angular/animations */ "@angular/animations");
-var i23 = __webpack_require__(/*! @nguniversal/module-map-ngfactory-loader */ "@nguniversal/module-map-ngfactory-loader");
-var i24 = __webpack_require__(/*! ./dashboard/dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
-var i25 = __webpack_require__(/*! ./hero-detail/hero-detail.component */ "./src/app/hero-detail/hero-detail.component.ts");
-var i26 = __webpack_require__(/*! ./heroes/heroes.component */ "./src/app/heroes/heroes.component.ts");
-var i27 = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-var i28 = __webpack_require__(/*! ./app.module */ "./src/app/app.module.ts");
-var AppServerModuleNgFactory = i0.ɵcmf(i1.AppServerModule, [i2.AppComponent], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, [i3.ɵEmptyOutletComponentNgFactory, i4.DashboardComponentNgFactory, i5.HeroDetailComponentNgFactory, i6.HeroesComponentNgFactory, i7.AppComponentNgFactory]], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(5120, i0.LOCALE_ID, i0.ɵangular_packages_core_core_k, [[3, i0.LOCALE_ID]]), i0.ɵmpd(4608, i8.NgLocalization, i8.NgLocaleLocalization, [i0.LOCALE_ID, [2, i8.ɵangular_packages_common_common_a]]), i0.ɵmpd(5120, i0.IterableDiffers, i0.ɵangular_packages_core_core_i, []), i0.ɵmpd(5120, i0.KeyValueDiffers, i0.ɵangular_packages_core_core_j, []), i0.ɵmpd(4608, i9.DomSanitizer, i9.ɵDomSanitizerImpl, [i8.DOCUMENT]), i0.ɵmpd(6144, i0.Sanitizer, null, [i9.DomSanitizer]), i0.ɵmpd(4608, i9.HAMMER_GESTURE_CONFIG, i9.HammerGestureConfig, []), i0.ɵmpd(5120, i9.EVENT_MANAGER_PLUGINS, function (p0_0, p0_1, p0_2, p1_0, p2_0, p2_1, p2_2, p2_3, p3_0) { return [new i9.ɵDomEventsPlugin(p0_0, p0_1, p0_2), new i9.ɵKeyEventsPlugin(p1_0), new i9.ɵHammerGesturesPlugin(p2_0, p2_1, p2_2, p2_3), new i10.ɵangular_packages_platform_server_platform_server_d(p3_0)]; }, [i8.DOCUMENT, i0.NgZone, i0.PLATFORM_ID, i8.DOCUMENT, i8.DOCUMENT, i9.HAMMER_GESTURE_CONFIG, i0.ɵConsole, [2, i9.HAMMER_LOADER], i9.DOCUMENT]), i0.ɵmpd(4608, i9.EventManager, i9.EventManager, [i9.EVENT_MANAGER_PLUGINS, i0.NgZone]), i0.ɵmpd(135680, i9.ɵDomSharedStylesHost, i9.ɵDomSharedStylesHost, [i8.DOCUMENT]), i0.ɵmpd(4608, i9.ɵDomRendererFactory2, i9.ɵDomRendererFactory2, [i9.EventManager, i9.ɵDomSharedStylesHost]), i0.ɵmpd(4608, i10.ɵangular_packages_platform_server_platform_server_c, i10.ɵangular_packages_platform_server_platform_server_c, [i9.DOCUMENT, [2, i9.ɵTRANSITION_ID]]), i0.ɵmpd(6144, i9.ɵSharedStylesHost, null, [i10.ɵangular_packages_platform_server_platform_server_c]), i0.ɵmpd(4608, i10.ɵServerRendererFactory2, i10.ɵServerRendererFactory2, [i9.EventManager, i0.NgZone, i9.DOCUMENT, i9.ɵSharedStylesHost]), i0.ɵmpd(4608, i11.AnimationDriver, i11.ɵNoopAnimationDriver, []), i0.ɵmpd(5120, i11.ɵAnimationStyleNormalizer, i12.ɵangular_packages_platform_browser_animations_animations_c, []), i0.ɵmpd(4608, i11.ɵAnimationEngine, i12.ɵangular_packages_platform_browser_animations_animations_a, [i8.DOCUMENT, i11.AnimationDriver, i11.ɵAnimationStyleNormalizer]), i0.ɵmpd(5120, i0.RendererFactory2, i10.ɵangular_packages_platform_server_platform_server_a, [i10.ɵServerRendererFactory2, i11.ɵAnimationEngine, i0.NgZone]), i0.ɵmpd(4352, i0.Testability, null, []), i0.ɵmpd(4608, i13.ɵangular_packages_forms_forms_i, i13.ɵangular_packages_forms_forms_i, []), i0.ɵmpd(5120, i14.ActivatedRoute, i14.ɵangular_packages_router_router_g, [i14.Router]), i0.ɵmpd(4608, i14.NoPreloading, i14.NoPreloading, []), i0.ɵmpd(6144, i14.PreloadingStrategy, null, [i14.NoPreloading]), i0.ɵmpd(135680, i14.RouterPreloader, i14.RouterPreloader, [i14.Router, i0.NgModuleFactoryLoader, i0.Compiler, i0.Injector, i14.PreloadingStrategy]), i0.ɵmpd(4608, i14.PreloadAllModules, i14.PreloadAllModules, []), i0.ɵmpd(4608, i8.ViewportScroller, i8.ɵNullViewportScroller, []), i0.ɵmpd(5120, i14.ɵangular_packages_router_router_n, i14.ɵangular_packages_router_router_c, [i14.Router, i8.ViewportScroller, i14.ROUTER_CONFIGURATION]), i0.ɵmpd(5120, i14.ROUTER_INITIALIZER, i14.ɵangular_packages_router_router_j, [i14.ɵangular_packages_router_router_h]), i0.ɵmpd(5120, i0.APP_BOOTSTRAP_LISTENER, function (p0_0) { return [p0_0]; }, [i14.ROUTER_INITIALIZER]), i0.ɵmpd(4608, i15.HttpXsrfTokenExtractor, i15.ɵangular_packages_common_http_http_g, [i8.DOCUMENT, i0.PLATFORM_ID, i15.ɵangular_packages_common_http_http_e]), i0.ɵmpd(4608, i15.ɵangular_packages_common_http_http_h, i15.ɵangular_packages_common_http_http_h, [i15.HttpXsrfTokenExtractor, i15.ɵangular_packages_common_http_http_f]), i0.ɵmpd(5120, i15.HTTP_INTERCEPTORS, function (p0_0) { return [p0_0]; }, [i15.ɵangular_packages_common_http_http_h]), i0.ɵmpd(4608, i16.InMemoryDbService, i17.InMemoryDataService, []), i0.ɵmpd(4608, i15.XhrFactory, i10.ɵangular_packages_platform_server_platform_server_e, []), i0.ɵmpd(5120, i15.HttpBackend, i18.httpClientInMemBackendServiceFactory, [i16.InMemoryDbService, i16.InMemoryBackendConfig, i15.XhrFactory]), i0.ɵmpd(5120, i15.HttpHandler, i10.ɵangular_packages_platform_server_platform_server_h, [i15.HttpBackend, i0.Injector]), i0.ɵmpd(4608, i15.HttpClient, i15.HttpClient, [i15.HttpHandler]), i0.ɵmpd(4608, i15.HttpXhrBackend, i15.HttpXhrBackend, [i15.XhrFactory]), i0.ɵmpd(4608, i15.ɵangular_packages_common_http_http_d, i15.ɵangular_packages_common_http_http_d, []), i0.ɵmpd(4608, i19.MessageService, i19.MessageService, []), i0.ɵmpd(4608, i20.HeroService, i20.HeroService, [i15.HttpClient, i19.MessageService, [2, i8.APP_BASE_HREF]]), i0.ɵmpd(4608, i21.BrowserXhr, i10.ɵangular_packages_platform_server_platform_server_e, []), i0.ɵmpd(4608, i21.ResponseOptions, i21.BaseResponseOptions, []), i0.ɵmpd(4608, i21.XSRFStrategy, i10.ɵangular_packages_platform_server_platform_server_f, []), i0.ɵmpd(4608, i21.XHRBackend, i21.XHRBackend, [i21.BrowserXhr, i21.ResponseOptions, i21.XSRFStrategy]), i0.ɵmpd(4608, i21.RequestOptions, i21.BaseRequestOptions, []), i0.ɵmpd(5120, i21.Http, i10.ɵangular_packages_platform_server_platform_server_g, [i21.XHRBackend, i21.RequestOptions]), i0.ɵmpd(4608, i22.AnimationBuilder, i12.ɵBrowserAnimationBuilder, [i0.RendererFactory2, i9.DOCUMENT]), i0.ɵmpd(1073742336, i8.CommonModule, i8.CommonModule, []), i0.ɵmpd(1024, i0.ErrorHandler, i9.ɵangular_packages_platform_browser_platform_browser_a, []), i0.ɵmpd(1024, i0.NgProbeToken, function () { return [i14.ɵangular_packages_router_router_b()]; }, []), i0.ɵmpd(512, i14.ɵangular_packages_router_router_h, i14.ɵangular_packages_router_router_h, [i0.Injector]), i0.ɵmpd(256, i0.APP_ID, "tour-of-heroes", []), i0.ɵmpd(2048, i9.ɵTRANSITION_ID, null, [i0.APP_ID]), i0.ɵmpd(1024, i0.APP_INITIALIZER, function (p0_0, p1_0, p2_0, p2_1, p2_2) { return [i9.ɵangular_packages_platform_browser_platform_browser_j(p0_0), i14.ɵangular_packages_router_router_i(p1_0), i9.ɵangular_packages_platform_browser_platform_browser_h(p2_0, p2_1, p2_2)]; }, [[2, i0.NgProbeToken], i14.ɵangular_packages_router_router_h, i9.ɵTRANSITION_ID, i8.DOCUMENT, i0.Injector]), i0.ɵmpd(512, i0.ApplicationInitStatus, i0.ApplicationInitStatus, [[2, i0.APP_INITIALIZER]]), i0.ɵmpd(131584, i0.ApplicationRef, i0.ApplicationRef, [i0.NgZone, i0.ɵConsole, i0.Injector, i0.ErrorHandler, i0.ComponentFactoryResolver, i0.ApplicationInitStatus]), i0.ɵmpd(1073742336, i0.ApplicationModule, i0.ApplicationModule, [i0.ApplicationRef]), i0.ɵmpd(1073742336, i9.BrowserModule, i9.BrowserModule, [[3, i9.BrowserModule]]), i0.ɵmpd(1073742336, i13.ɵangular_packages_forms_forms_bb, i13.ɵangular_packages_forms_forms_bb, []), i0.ɵmpd(1073742336, i13.FormsModule, i13.FormsModule, []), i0.ɵmpd(1024, i14.ɵangular_packages_router_router_a, i14.ɵangular_packages_router_router_e, [[3, i14.Router]]), i0.ɵmpd(512, i14.UrlSerializer, i14.DefaultUrlSerializer, []), i0.ɵmpd(512, i14.ChildrenOutletContexts, i14.ChildrenOutletContexts, []), i0.ɵmpd(256, i14.ROUTER_CONFIGURATION, {}, []), i0.ɵmpd(1024, i8.LocationStrategy, i14.ɵangular_packages_router_router_d, [i8.PlatformLocation, [2, i8.APP_BASE_HREF], i14.ROUTER_CONFIGURATION]), i0.ɵmpd(512, i8.Location, i8.Location, [i8.LocationStrategy]), i0.ɵmpd(512, i0.Compiler, i0.Compiler, []), i0.ɵmpd(512, i0.NgModuleFactoryLoader, i23.ModuleMapNgFactoryLoader, [i0.Compiler, i23.MODULE_MAP]), i0.ɵmpd(1024, i14.ROUTES, function () { return [[{ path: "", redirectTo: "/dashboard", pathMatch: "full" }, { path: "dashboard", component: i24.DashboardComponent }, { path: "detail/:id", component: i25.HeroDetailComponent }, { path: "heroes", component: i26.HeroesComponent }]]; }, []), i0.ɵmpd(1024, i14.Router, i14.ɵangular_packages_router_router_f, [i0.ApplicationRef, i14.UrlSerializer, i14.ChildrenOutletContexts, i8.Location, i0.Injector, i0.NgModuleFactoryLoader, i0.Compiler, i14.ROUTES, i14.ROUTER_CONFIGURATION, [2, i14.UrlHandlingStrategy], [2, i14.RouteReuseStrategy]]), i0.ɵmpd(1073742336, i14.RouterModule, i14.RouterModule, [[2, i14.ɵangular_packages_router_router_a], [2, i14.Router]]), i0.ɵmpd(1073742336, i27.AppRoutingModule, i27.AppRoutingModule, []), i0.ɵmpd(1073742336, i15.HttpClientXsrfModule, i15.HttpClientXsrfModule, []), i0.ɵmpd(1073742336, i15.HttpClientModule, i15.HttpClientModule, []), i0.ɵmpd(1073742336, i18.HttpClientInMemoryWebApiModule, i18.HttpClientInMemoryWebApiModule, []), i0.ɵmpd(1073742336, i28.AppModule, i28.AppModule, [i0.PLATFORM_ID, i0.APP_ID]), i0.ɵmpd(1073742336, i21.HttpModule, i21.HttpModule, []), i0.ɵmpd(1073742336, i12.NoopAnimationsModule, i12.NoopAnimationsModule, []), i0.ɵmpd(1073742336, i10.ServerModule, i10.ServerModule, []), i0.ɵmpd(1073742336, i23.ModuleMapLoaderModule, i23.ModuleMapLoaderModule, []), i0.ɵmpd(1073742336, i1.AppServerModule, i1.AppServerModule, []), i0.ɵmpd(256, i0.ɵAPP_ROOT, true, []), i0.ɵmpd(256, i15.ɵangular_packages_common_http_http_e, "XSRF-TOKEN", []), i0.ɵmpd(256, i15.ɵangular_packages_common_http_http_f, "X-XSRF-TOKEN", []), i0.ɵmpd(256, i16.InMemoryBackendConfig, { dataEncapsulation: false }, []), i0.ɵmpd(256, i12.ANIMATION_MODULE_TYPE, "NoopAnimations", [])]); });
+var i4 = __webpack_require__(/*! ./main/main.component.ngfactory */ "./src/app/main/main.component.ngfactory.js");
+var i5 = __webpack_require__(/*! ./edit/edit.component.ngfactory */ "./src/app/edit/edit.component.ngfactory.js");
+var i6 = __webpack_require__(/*! ./app.component.ngfactory */ "./src/app/app.component.ngfactory.js");
+var i7 = __webpack_require__(/*! @angular/common */ "@angular/common");
+var i8 = __webpack_require__(/*! @angular/platform-browser */ "@angular/platform-browser");
+var i9 = __webpack_require__(/*! @angular/platform-server */ "@angular/platform-server");
+var i10 = __webpack_require__(/*! @angular/animations/browser */ "@angular/animations/browser");
+var i11 = __webpack_require__(/*! @angular/platform-browser/animations */ "@angular/platform-browser/animations");
+var i12 = __webpack_require__(/*! @angular/forms */ "@angular/forms");
+var i13 = __webpack_require__(/*! @angular/router */ "@angular/router");
+var i14 = __webpack_require__(/*! @angular/common/http */ "@angular/common/http");
+var i15 = __webpack_require__(/*! ./service/state.service */ "./src/app/service/state.service.ts");
+var i16 = __webpack_require__(/*! ./service/data.service */ "./src/app/service/data.service.ts");
+var i17 = __webpack_require__(/*! @angular/http */ "@angular/http");
+var i18 = __webpack_require__(/*! @angular/animations */ "@angular/animations");
+var i19 = __webpack_require__(/*! @nguniversal/module-map-ngfactory-loader */ "@nguniversal/module-map-ngfactory-loader");
+var i20 = __webpack_require__(/*! ./main/main.component */ "./src/app/main/main.component.ts");
+var i21 = __webpack_require__(/*! ./edit/edit.component */ "./src/app/edit/edit.component.ts");
+var i22 = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+var i23 = __webpack_require__(/*! ./app.module */ "./src/app/app.module.ts");
+var AppServerModuleNgFactory = i0.ɵcmf(i1.AppServerModule, [i2.AppComponent], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, [i3.ɵEmptyOutletComponentNgFactory, i4.MainComponentNgFactory, i5.EditComponentNgFactory, i6.AppComponentNgFactory]], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(5120, i0.LOCALE_ID, i0.ɵangular_packages_core_core_k, [[3, i0.LOCALE_ID]]), i0.ɵmpd(4608, i7.NgLocalization, i7.NgLocaleLocalization, [i0.LOCALE_ID, [2, i7.ɵangular_packages_common_common_a]]), i0.ɵmpd(5120, i0.IterableDiffers, i0.ɵangular_packages_core_core_i, []), i0.ɵmpd(5120, i0.KeyValueDiffers, i0.ɵangular_packages_core_core_j, []), i0.ɵmpd(4608, i8.DomSanitizer, i8.ɵDomSanitizerImpl, [i7.DOCUMENT]), i0.ɵmpd(6144, i0.Sanitizer, null, [i8.DomSanitizer]), i0.ɵmpd(4608, i8.HAMMER_GESTURE_CONFIG, i8.HammerGestureConfig, []), i0.ɵmpd(5120, i8.EVENT_MANAGER_PLUGINS, function (p0_0, p0_1, p0_2, p1_0, p2_0, p2_1, p2_2, p2_3, p3_0) { return [new i8.ɵDomEventsPlugin(p0_0, p0_1, p0_2), new i8.ɵKeyEventsPlugin(p1_0), new i8.ɵHammerGesturesPlugin(p2_0, p2_1, p2_2, p2_3), new i9.ɵangular_packages_platform_server_platform_server_d(p3_0)]; }, [i7.DOCUMENT, i0.NgZone, i0.PLATFORM_ID, i7.DOCUMENT, i7.DOCUMENT, i8.HAMMER_GESTURE_CONFIG, i0.ɵConsole, [2, i8.HAMMER_LOADER], i8.DOCUMENT]), i0.ɵmpd(4608, i8.EventManager, i8.EventManager, [i8.EVENT_MANAGER_PLUGINS, i0.NgZone]), i0.ɵmpd(135680, i8.ɵDomSharedStylesHost, i8.ɵDomSharedStylesHost, [i7.DOCUMENT]), i0.ɵmpd(4608, i8.ɵDomRendererFactory2, i8.ɵDomRendererFactory2, [i8.EventManager, i8.ɵDomSharedStylesHost]), i0.ɵmpd(4608, i9.ɵangular_packages_platform_server_platform_server_c, i9.ɵangular_packages_platform_server_platform_server_c, [i8.DOCUMENT, [2, i8.ɵTRANSITION_ID]]), i0.ɵmpd(6144, i8.ɵSharedStylesHost, null, [i9.ɵangular_packages_platform_server_platform_server_c]), i0.ɵmpd(4608, i9.ɵServerRendererFactory2, i9.ɵServerRendererFactory2, [i8.EventManager, i0.NgZone, i8.DOCUMENT, i8.ɵSharedStylesHost]), i0.ɵmpd(4608, i10.AnimationDriver, i10.ɵNoopAnimationDriver, []), i0.ɵmpd(5120, i10.ɵAnimationStyleNormalizer, i11.ɵangular_packages_platform_browser_animations_animations_c, []), i0.ɵmpd(4608, i10.ɵAnimationEngine, i11.ɵangular_packages_platform_browser_animations_animations_a, [i7.DOCUMENT, i10.AnimationDriver, i10.ɵAnimationStyleNormalizer]), i0.ɵmpd(5120, i0.RendererFactory2, i9.ɵangular_packages_platform_server_platform_server_a, [i9.ɵServerRendererFactory2, i10.ɵAnimationEngine, i0.NgZone]), i0.ɵmpd(4352, i0.Testability, null, []), i0.ɵmpd(4608, i12.ɵangular_packages_forms_forms_i, i12.ɵangular_packages_forms_forms_i, []), i0.ɵmpd(5120, i13.ActivatedRoute, i13.ɵangular_packages_router_router_g, [i13.Router]), i0.ɵmpd(4608, i13.NoPreloading, i13.NoPreloading, []), i0.ɵmpd(6144, i13.PreloadingStrategy, null, [i13.NoPreloading]), i0.ɵmpd(135680, i13.RouterPreloader, i13.RouterPreloader, [i13.Router, i0.NgModuleFactoryLoader, i0.Compiler, i0.Injector, i13.PreloadingStrategy]), i0.ɵmpd(4608, i13.PreloadAllModules, i13.PreloadAllModules, []), i0.ɵmpd(4608, i7.ViewportScroller, i7.ɵNullViewportScroller, []), i0.ɵmpd(5120, i13.ɵangular_packages_router_router_n, i13.ɵangular_packages_router_router_c, [i13.Router, i7.ViewportScroller, i13.ROUTER_CONFIGURATION]), i0.ɵmpd(5120, i13.ROUTER_INITIALIZER, i13.ɵangular_packages_router_router_j, [i13.ɵangular_packages_router_router_h]), i0.ɵmpd(5120, i0.APP_BOOTSTRAP_LISTENER, function (p0_0) { return [p0_0]; }, [i13.ROUTER_INITIALIZER]), i0.ɵmpd(4608, i14.HttpXsrfTokenExtractor, i14.ɵangular_packages_common_http_http_g, [i7.DOCUMENT, i0.PLATFORM_ID, i14.ɵangular_packages_common_http_http_e]), i0.ɵmpd(4608, i14.ɵangular_packages_common_http_http_h, i14.ɵangular_packages_common_http_http_h, [i14.HttpXsrfTokenExtractor, i14.ɵangular_packages_common_http_http_f]), i0.ɵmpd(5120, i14.HTTP_INTERCEPTORS, function (p0_0) { return [p0_0]; }, [i14.ɵangular_packages_common_http_http_h]), i0.ɵmpd(4608, i14.XhrFactory, i9.ɵangular_packages_platform_server_platform_server_e, []), i0.ɵmpd(4608, i14.HttpXhrBackend, i14.HttpXhrBackend, [i14.XhrFactory]), i0.ɵmpd(6144, i14.HttpBackend, null, [i14.HttpXhrBackend]), i0.ɵmpd(5120, i14.HttpHandler, i9.ɵangular_packages_platform_server_platform_server_h, [i14.HttpBackend, i0.Injector]), i0.ɵmpd(4608, i14.HttpClient, i14.HttpClient, [i14.HttpHandler]), i0.ɵmpd(4608, i14.ɵangular_packages_common_http_http_d, i14.ɵangular_packages_common_http_http_d, []), i0.ɵmpd(4608, i15.StateService, i15.StateService, []), i0.ɵmpd(4608, i16.DataService, i16.DataService, [i14.HttpClient, i15.StateService]), i0.ɵmpd(4608, i17.BrowserXhr, i9.ɵangular_packages_platform_server_platform_server_e, []), i0.ɵmpd(4608, i17.ResponseOptions, i17.BaseResponseOptions, []), i0.ɵmpd(4608, i17.XSRFStrategy, i9.ɵangular_packages_platform_server_platform_server_f, []), i0.ɵmpd(4608, i17.XHRBackend, i17.XHRBackend, [i17.BrowserXhr, i17.ResponseOptions, i17.XSRFStrategy]), i0.ɵmpd(4608, i17.RequestOptions, i17.BaseRequestOptions, []), i0.ɵmpd(5120, i17.Http, i9.ɵangular_packages_platform_server_platform_server_g, [i17.XHRBackend, i17.RequestOptions]), i0.ɵmpd(4608, i18.AnimationBuilder, i11.ɵBrowserAnimationBuilder, [i0.RendererFactory2, i8.DOCUMENT]), i0.ɵmpd(1073742336, i7.CommonModule, i7.CommonModule, []), i0.ɵmpd(1024, i0.ErrorHandler, i8.ɵangular_packages_platform_browser_platform_browser_a, []), i0.ɵmpd(1024, i0.NgProbeToken, function () { return [i13.ɵangular_packages_router_router_b()]; }, []), i0.ɵmpd(512, i13.ɵangular_packages_router_router_h, i13.ɵangular_packages_router_router_h, [i0.Injector]), i0.ɵmpd(256, i0.APP_ID, "eform", []), i0.ɵmpd(2048, i8.ɵTRANSITION_ID, null, [i0.APP_ID]), i0.ɵmpd(1024, i0.APP_INITIALIZER, function (p0_0, p1_0, p2_0, p2_1, p2_2) { return [i8.ɵangular_packages_platform_browser_platform_browser_j(p0_0), i13.ɵangular_packages_router_router_i(p1_0), i8.ɵangular_packages_platform_browser_platform_browser_h(p2_0, p2_1, p2_2)]; }, [[2, i0.NgProbeToken], i13.ɵangular_packages_router_router_h, i8.ɵTRANSITION_ID, i7.DOCUMENT, i0.Injector]), i0.ɵmpd(512, i0.ApplicationInitStatus, i0.ApplicationInitStatus, [[2, i0.APP_INITIALIZER]]), i0.ɵmpd(131584, i0.ApplicationRef, i0.ApplicationRef, [i0.NgZone, i0.ɵConsole, i0.Injector, i0.ErrorHandler, i0.ComponentFactoryResolver, i0.ApplicationInitStatus]), i0.ɵmpd(1073742336, i0.ApplicationModule, i0.ApplicationModule, [i0.ApplicationRef]), i0.ɵmpd(1073742336, i8.BrowserModule, i8.BrowserModule, [[3, i8.BrowserModule]]), i0.ɵmpd(1073742336, i12.ɵangular_packages_forms_forms_bb, i12.ɵangular_packages_forms_forms_bb, []), i0.ɵmpd(1073742336, i12.FormsModule, i12.FormsModule, []), i0.ɵmpd(1024, i13.ɵangular_packages_router_router_a, i13.ɵangular_packages_router_router_e, [[3, i13.Router]]), i0.ɵmpd(512, i13.UrlSerializer, i13.DefaultUrlSerializer, []), i0.ɵmpd(512, i13.ChildrenOutletContexts, i13.ChildrenOutletContexts, []), i0.ɵmpd(256, i13.ROUTER_CONFIGURATION, {}, []), i0.ɵmpd(1024, i7.LocationStrategy, i13.ɵangular_packages_router_router_d, [i7.PlatformLocation, [2, i7.APP_BASE_HREF], i13.ROUTER_CONFIGURATION]), i0.ɵmpd(512, i7.Location, i7.Location, [i7.LocationStrategy]), i0.ɵmpd(512, i0.Compiler, i0.Compiler, []), i0.ɵmpd(512, i0.NgModuleFactoryLoader, i19.ModuleMapNgFactoryLoader, [i0.Compiler, i19.MODULE_MAP]), i0.ɵmpd(1024, i13.ROUTES, function () { return [[{ path: "", redirectTo: "/main", pathMatch: "full" }, { path: "main", component: i20.MainComponent }, { path: "edit", component: i21.EditComponent }]]; }, []), i0.ɵmpd(1024, i13.Router, i13.ɵangular_packages_router_router_f, [i0.ApplicationRef, i13.UrlSerializer, i13.ChildrenOutletContexts, i7.Location, i0.Injector, i0.NgModuleFactoryLoader, i0.Compiler, i13.ROUTES, i13.ROUTER_CONFIGURATION, [2, i13.UrlHandlingStrategy], [2, i13.RouteReuseStrategy]]), i0.ɵmpd(1073742336, i13.RouterModule, i13.RouterModule, [[2, i13.ɵangular_packages_router_router_a], [2, i13.Router]]), i0.ɵmpd(1073742336, i22.AppRoutingModule, i22.AppRoutingModule, []), i0.ɵmpd(1073742336, i14.HttpClientXsrfModule, i14.HttpClientXsrfModule, []), i0.ɵmpd(1073742336, i14.HttpClientModule, i14.HttpClientModule, []), i0.ɵmpd(1073742336, i23.AppModule, i23.AppModule, [i0.PLATFORM_ID, i0.APP_ID]), i0.ɵmpd(1073742336, i17.HttpModule, i17.HttpModule, []), i0.ɵmpd(1073742336, i11.NoopAnimationsModule, i11.NoopAnimationsModule, []), i0.ɵmpd(1073742336, i9.ServerModule, i9.ServerModule, []), i0.ɵmpd(1073742336, i19.ModuleMapLoaderModule, i19.ModuleMapLoaderModule, []), i0.ɵmpd(1073742336, i1.AppServerModule, i1.AppServerModule, []), i0.ɵmpd(256, i0.ɵAPP_ROOT, true, []), i0.ɵmpd(256, i14.ɵangular_packages_common_http_http_e, "XSRF-TOKEN", []), i0.ɵmpd(256, i14.ɵangular_packages_common_http_http_f, "X-XSRF-TOKEN", []), i0.ɵmpd(256, i11.ANIMATION_MODULE_TYPE, "NoopAnimations", [])]); });
 exports.AppServerModuleNgFactory = AppServerModuleNgFactory;
 
 
@@ -317,10 +299,10 @@ exports.AppServerModule = AppServerModule;
 
 /***/ }),
 
-/***/ "./src/app/dashboard/dashboard.component.css.shim.ngstyle.js":
-/*!*******************************************************************!*\
-  !*** ./src/app/dashboard/dashboard.component.css.shim.ngstyle.js ***!
-  \*******************************************************************/
+/***/ "./src/app/crane/crane.component.css.shim.ngstyle.js":
+/*!***********************************************************!*\
+  !*** ./src/app/crane/crane.component.css.shim.ngstyle.js ***!
+  \***********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -333,16 +315,16 @@ exports.AppServerModule = AppServerModule;
  * tslint:disable
  */ 
 Object.defineProperty(exports, "__esModule", { value: true });
-var styles = ["[class*='col-'][_ngcontent-%COMP%] {\n  float: left;\n  padding-right: 20px;\n  padding-bottom: 20px;\n}\n[class*='col-'][_ngcontent-%COMP%]:last-of-type {\n  padding-right: 0;\n}\na[_ngcontent-%COMP%] {\n  text-decoration: none;\n}\n*[_ngcontent-%COMP%], *[_ngcontent-%COMP%]:after, *[_ngcontent-%COMP%]:before {\n  box-sizing: border-box;\n}\nh3[_ngcontent-%COMP%] {\n  text-align: center; margin-bottom: 0;\n}\nh4[_ngcontent-%COMP%] {\n  position: relative;\n}\n.grid[_ngcontent-%COMP%] {\n  margin: 0;\n}\n.col-1-4[_ngcontent-%COMP%] {\n  width: 25%;\n}\n.module[_ngcontent-%COMP%] {\n  padding: 20px;\n  text-align: center;\n  color: #eee;\n  max-height: 120px;\n  min-width: 120px;\n  background-color: #607D8B;\n  border-radius: 2px;\n}\n.module[_ngcontent-%COMP%]:hover {\n  background-color: #EEE;\n  cursor: pointer;\n  color: #607d8b;\n}\n.grid-pad[_ngcontent-%COMP%] {\n  padding: 10px 0;\n}\n.grid-pad[_ngcontent-%COMP%]    > [class*='col-'][_ngcontent-%COMP%]:last-of-type {\n  padding-right: 20px;\n}\n@media (max-width: 600px) {\n  .module[_ngcontent-%COMP%] {\n    font-size: 10px;\n    max-height: 75px; }\n}\n@media (max-width: 1024px) {\n  .grid[_ngcontent-%COMP%] {\n    margin: 0;\n  }\n  .module[_ngcontent-%COMP%] {\n    min-width: 60px;\n  }\n}"];
+var styles = [""];
 exports.styles = styles;
 
 
 /***/ }),
 
-/***/ "./src/app/dashboard/dashboard.component.ngfactory.js":
-/*!************************************************************!*\
-  !*** ./src/app/dashboard/dashboard.component.ngfactory.js ***!
-  \************************************************************/
+/***/ "./src/app/crane/crane.component.ngfactory.js":
+/*!****************************************************!*\
+  !*** ./src/app/crane/crane.component.ngfactory.js ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -355,67 +337,253 @@ exports.styles = styles;
  * tslint:disable
  */ 
 Object.defineProperty(exports, "__esModule", { value: true });
-var i0 = __webpack_require__(/*! ./dashboard.component.css.shim.ngstyle */ "./src/app/dashboard/dashboard.component.css.shim.ngstyle.js");
+var i0 = __webpack_require__(/*! ./crane.component.css.shim.ngstyle */ "./src/app/crane/crane.component.css.shim.ngstyle.js");
 var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
-var i2 = __webpack_require__(/*! @angular/router */ "@angular/router");
+var i2 = __webpack_require__(/*! @angular/forms */ "@angular/forms");
 var i3 = __webpack_require__(/*! @angular/common */ "@angular/common");
-var i4 = __webpack_require__(/*! ../hero-search/hero-search.component.ngfactory */ "./src/app/hero-search/hero-search.component.ngfactory.js");
-var i5 = __webpack_require__(/*! ../hero-search/hero-search.component */ "./src/app/hero-search/hero-search.component.ts");
-var i6 = __webpack_require__(/*! ../hero.service */ "./src/app/hero.service.ts");
-var i7 = __webpack_require__(/*! ./dashboard.component */ "./src/app/dashboard/dashboard.component.ts");
-var styles_DashboardComponent = [i0.styles];
-var RenderType_DashboardComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_DashboardComponent, data: {} });
-exports.RenderType_DashboardComponent = RenderType_DashboardComponent;
-function View_DashboardComponent_1(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 4, "a", [["class", "col-1-4"]], [[1, "target", 0], [8, "href", 4]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
-        var pd_0 = (i1.ɵnov(_v, 1).onClick($event.button, $event.ctrlKey, $event.metaKey, $event.shiftKey) !== false);
+var i4 = __webpack_require__(/*! ./crane.component */ "./src/app/crane/crane.component.ts");
+var i5 = __webpack_require__(/*! ../service/data.service */ "./src/app/service/data.service.ts");
+var i6 = __webpack_require__(/*! ../service/state.service */ "./src/app/service/state.service.ts");
+var styles_CraneComponent = [i0.styles];
+var RenderType_CraneComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_CraneComponent, data: {} });
+exports.RenderType_CraneComponent = RenderType_CraneComponent;
+function View_CraneComponent_2(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 3, "option", [], null, null, null, null, null)), i1.ɵdid(1, 147456, null, 0, i2.NgSelectOption, [i1.ElementRef, i1.Renderer2, [2, i2.SelectControlValueAccessor]], { ngValue: [0, "ngValue"] }, null), i1.ɵdid(2, 147456, null, 0, i2.ɵangular_packages_forms_forms_r, [i1.ElementRef, i1.Renderer2, [8, null]], { ngValue: [0, "ngValue"] }, null), (_l()(), i1.ɵted(3, null, ["", ""]))], function (_ck, _v) { var currVal_0 = _v.context.$implicit.id; _ck(_v, 1, 0, currVal_0); var currVal_1 = _v.context.$implicit.id; _ck(_v, 2, 0, currVal_1); }, function (_ck, _v) { var currVal_2 = _v.context.$implicit.value; _ck(_v, 3, 0, currVal_2); }); }
+function View_CraneComponent_1(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 10, "div", [["class", "section"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "label", [], null, null, null, null, null)), (_l()(), i1.ɵted(2, null, ["", ""])), (_l()(), i1.ɵeld(3, 0, null, null, 7, "select", [], [[2, "ng-untouched", null], [2, "ng-touched", null], [2, "ng-pristine", null], [2, "ng-dirty", null], [2, "ng-valid", null], [2, "ng-invalid", null], [2, "ng-pending", null]], [[null, "ngModelChange"], [null, "change"], [null, "blur"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("change" === en)) {
+        var pd_0 = (i1.ɵnov(_v, 4).onChange($event.target.value) !== false);
         ad = (pd_0 && ad);
-    } return ad; }, null, null)), i1.ɵdid(1, 671744, null, 0, i2.RouterLinkWithHref, [i2.Router, i2.ActivatedRoute, i3.LocationStrategy], { routerLink: [0, "routerLink"] }, null), (_l()(), i1.ɵeld(2, 0, null, null, 2, "div", [["class", "module hero"]], null, null, null, null, null)), (_l()(), i1.ɵeld(3, 0, null, null, 1, "h4", [], null, null, null, null, null)), (_l()(), i1.ɵted(4, null, ["", ""]))], function (_ck, _v) { var currVal_2 = i1.ɵinlineInterpolate(1, "/detail/", _v.context.$implicit.id, ""); _ck(_v, 1, 0, currVal_2); }, function (_ck, _v) { var currVal_0 = i1.ɵnov(_v, 1).target; var currVal_1 = i1.ɵnov(_v, 1).href; _ck(_v, 0, 0, currVal_0, currVal_1); var currVal_3 = _v.context.$implicit.name; _ck(_v, 4, 0, currVal_3); }); }
-function View_DashboardComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "h3", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Top Heroes"])), (_l()(), i1.ɵeld(2, 0, null, null, 2, "div", [["class", "grid grid-pad"]], null, null, null, null, null)), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_DashboardComponent_1)), i1.ɵdid(4, 278528, null, 0, i3.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], { ngForOf: [0, "ngForOf"] }, null), (_l()(), i1.ɵeld(5, 0, null, null, 1, "hero-search", [], null, null, null, i4.View_HeroSearchComponent_0, i4.RenderType_HeroSearchComponent)), i1.ɵdid(6, 114688, null, 0, i5.HeroSearchComponent, [i6.HeroService], null, null)], function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.heroes; _ck(_v, 4, 0, currVal_0); _ck(_v, 6, 0); }, null); }
-exports.View_DashboardComponent_0 = View_DashboardComponent_0;
-function View_DashboardComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-dashboard", [], null, null, null, View_DashboardComponent_0, RenderType_DashboardComponent)), i1.ɵdid(1, 114688, null, 0, i7.DashboardComponent, [i6.HeroService], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
-exports.View_DashboardComponent_Host_0 = View_DashboardComponent_Host_0;
-var DashboardComponentNgFactory = i1.ɵccf("app-dashboard", i7.DashboardComponent, View_DashboardComponent_Host_0, {}, {}, []);
-exports.DashboardComponentNgFactory = DashboardComponentNgFactory;
+    } if (("blur" === en)) {
+        var pd_1 = (i1.ɵnov(_v, 4).onTouched() !== false);
+        ad = (pd_1 && ad);
+    } if (("ngModelChange" === en)) {
+        var pd_2 = ((_co.state.shipid = $event) !== false);
+        ad = (pd_2 && ad);
+    } return ad; }, null, null)), i1.ɵdid(4, 16384, null, 0, i2.SelectControlValueAccessor, [i1.Renderer2, i1.ElementRef], null, null), i1.ɵprd(1024, null, i2.NG_VALUE_ACCESSOR, function (p0_0) { return [p0_0]; }, [i2.SelectControlValueAccessor]), i1.ɵdid(6, 671744, null, 0, i2.NgModel, [[8, null], [8, null], [8, null], [6, i2.NG_VALUE_ACCESSOR]], { model: [0, "model"] }, { update: "ngModelChange" }), i1.ɵprd(2048, null, i2.NgControl, null, [i2.NgModel]), i1.ɵdid(8, 16384, null, 0, i2.NgControlStatus, [[4, i2.NgControl]], null, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_CraneComponent_2)), i1.ɵdid(10, 278528, null, 0, i3.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], { ngForOf: [0, "ngForOf"] }, null)], function (_ck, _v) { var _co = _v.component; var currVal_8 = _co.state.shipid; _ck(_v, 6, 0, currVal_8); var currVal_9 = _co.content.ship.value; _ck(_v, 10, 0, currVal_9); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.content.ship.label; _ck(_v, 2, 0, currVal_0); var currVal_1 = i1.ɵnov(_v, 8).ngClassUntouched; var currVal_2 = i1.ɵnov(_v, 8).ngClassTouched; var currVal_3 = i1.ɵnov(_v, 8).ngClassPristine; var currVal_4 = i1.ɵnov(_v, 8).ngClassDirty; var currVal_5 = i1.ɵnov(_v, 8).ngClassValid; var currVal_6 = i1.ɵnov(_v, 8).ngClassInvalid; var currVal_7 = i1.ɵnov(_v, 8).ngClassPending; _ck(_v, 3, 0, currVal_1, currVal_2, currVal_3, currVal_4, currVal_5, currVal_6, currVal_7); }); }
+function View_CraneComponent_4(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 3, "option", [], null, null, null, null, null)), i1.ɵdid(1, 147456, null, 0, i2.NgSelectOption, [i1.ElementRef, i1.Renderer2, [2, i2.SelectControlValueAccessor]], { ngValue: [0, "ngValue"] }, null), i1.ɵdid(2, 147456, null, 0, i2.ɵangular_packages_forms_forms_r, [i1.ElementRef, i1.Renderer2, [8, null]], { ngValue: [0, "ngValue"] }, null), (_l()(), i1.ɵted(3, null, ["", ""]))], function (_ck, _v) { var currVal_0 = _v.context.$implicit.id; _ck(_v, 1, 0, currVal_0); var currVal_1 = _v.context.$implicit.id; _ck(_v, 2, 0, currVal_1); }, function (_ck, _v) { var currVal_2 = _v.context.$implicit.value; _ck(_v, 3, 0, currVal_2); }); }
+function View_CraneComponent_3(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 10, "div", [["class", "section"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "label", [], null, null, null, null, null)), (_l()(), i1.ɵted(2, null, ["", ""])), (_l()(), i1.ɵeld(3, 0, null, null, 7, "select", [], [[2, "ng-untouched", null], [2, "ng-touched", null], [2, "ng-pristine", null], [2, "ng-dirty", null], [2, "ng-valid", null], [2, "ng-invalid", null], [2, "ng-pending", null]], [[null, "ngModelChange"], [null, "change"], [null, "blur"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("change" === en)) {
+        var pd_0 = (i1.ɵnov(_v, 4).onChange($event.target.value) !== false);
+        ad = (pd_0 && ad);
+    } if (("blur" === en)) {
+        var pd_1 = (i1.ɵnov(_v, 4).onTouched() !== false);
+        ad = (pd_1 && ad);
+    } if (("ngModelChange" === en)) {
+        var pd_2 = ((_co.state.quayid = $event) !== false);
+        ad = (pd_2 && ad);
+    } return ad; }, null, null)), i1.ɵdid(4, 16384, null, 0, i2.SelectControlValueAccessor, [i1.Renderer2, i1.ElementRef], null, null), i1.ɵprd(1024, null, i2.NG_VALUE_ACCESSOR, function (p0_0) { return [p0_0]; }, [i2.SelectControlValueAccessor]), i1.ɵdid(6, 671744, null, 0, i2.NgModel, [[8, null], [8, null], [8, null], [6, i2.NG_VALUE_ACCESSOR]], { model: [0, "model"] }, { update: "ngModelChange" }), i1.ɵprd(2048, null, i2.NgControl, null, [i2.NgModel]), i1.ɵdid(8, 16384, null, 0, i2.NgControlStatus, [[4, i2.NgControl]], null, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_CraneComponent_4)), i1.ɵdid(10, 278528, null, 0, i3.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], { ngForOf: [0, "ngForOf"] }, null)], function (_ck, _v) { var _co = _v.component; var currVal_8 = _co.state.quayid; _ck(_v, 6, 0, currVal_8); var currVal_9 = _co.content.quay.value; _ck(_v, 10, 0, currVal_9); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.content.quay.label; _ck(_v, 2, 0, currVal_0); var currVal_1 = i1.ɵnov(_v, 8).ngClassUntouched; var currVal_2 = i1.ɵnov(_v, 8).ngClassTouched; var currVal_3 = i1.ɵnov(_v, 8).ngClassPristine; var currVal_4 = i1.ɵnov(_v, 8).ngClassDirty; var currVal_5 = i1.ɵnov(_v, 8).ngClassValid; var currVal_6 = i1.ɵnov(_v, 8).ngClassInvalid; var currVal_7 = i1.ɵnov(_v, 8).ngClassPending; _ck(_v, 3, 0, currVal_1, currVal_2, currVal_3, currVal_4, currVal_5, currVal_6, currVal_7); }); }
+function View_CraneComponent_6(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 8, "li", [], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
+        var pd_0 = ((_co.state.craneid = _v.context.$implicit.id) !== false);
+        ad = (pd_0 && ad);
+    } return ad; }, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 6, "input", [["type", "radio"]], [[2, "ng-untouched", null], [2, "ng-touched", null], [2, "ng-pristine", null], [2, "ng-dirty", null], [2, "ng-valid", null], [2, "ng-invalid", null], [2, "ng-pending", null]], [[null, "ngModelChange"], [null, "input"], [null, "blur"], [null, "compositionstart"], [null, "compositionend"], [null, "change"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("input" === en)) {
+        var pd_0 = (i1.ɵnov(_v, 2)._handleInput($event.target.value) !== false);
+        ad = (pd_0 && ad);
+    } if (("blur" === en)) {
+        var pd_1 = (i1.ɵnov(_v, 2).onTouched() !== false);
+        ad = (pd_1 && ad);
+    } if (("compositionstart" === en)) {
+        var pd_2 = (i1.ɵnov(_v, 2)._compositionStart() !== false);
+        ad = (pd_2 && ad);
+    } if (("compositionend" === en)) {
+        var pd_3 = (i1.ɵnov(_v, 2)._compositionEnd($event.target.value) !== false);
+        ad = (pd_3 && ad);
+    } if (("change" === en)) {
+        var pd_4 = (i1.ɵnov(_v, 3).onChange() !== false);
+        ad = (pd_4 && ad);
+    } if (("blur" === en)) {
+        var pd_5 = (i1.ɵnov(_v, 3).onTouched() !== false);
+        ad = (pd_5 && ad);
+    } if (("ngModelChange" === en)) {
+        var pd_6 = ((_co.state.craneid = $event) !== false);
+        ad = (pd_6 && ad);
+    } return ad; }, null, null)), i1.ɵdid(2, 16384, null, 0, i2.DefaultValueAccessor, [i1.Renderer2, i1.ElementRef, [2, i2.COMPOSITION_BUFFER_MODE]], null, null), i1.ɵdid(3, 212992, null, 0, i2.RadioControlValueAccessor, [i1.Renderer2, i1.ElementRef, i2.ɵangular_packages_forms_forms_i, i1.Injector], { value: [0, "value"] }, null), i1.ɵprd(1024, null, i2.NG_VALUE_ACCESSOR, function (p0_0, p1_0) { return [p0_0, p1_0]; }, [i2.DefaultValueAccessor, i2.RadioControlValueAccessor]), i1.ɵdid(5, 671744, null, 0, i2.NgModel, [[8, null], [8, null], [8, null], [6, i2.NG_VALUE_ACCESSOR]], { model: [0, "model"] }, { update: "ngModelChange" }), i1.ɵprd(2048, null, i2.NgControl, null, [i2.NgModel]), i1.ɵdid(7, 16384, null, 0, i2.NgControlStatus, [[4, i2.NgControl]], null, null), (_l()(), i1.ɵted(8, null, ["", " "]))], function (_ck, _v) { var _co = _v.component; var currVal_7 = _v.context.$implicit.id; _ck(_v, 3, 0, currVal_7); var currVal_8 = _co.state.craneid; _ck(_v, 5, 0, currVal_8); }, function (_ck, _v) { var currVal_0 = i1.ɵnov(_v, 7).ngClassUntouched; var currVal_1 = i1.ɵnov(_v, 7).ngClassTouched; var currVal_2 = i1.ɵnov(_v, 7).ngClassPristine; var currVal_3 = i1.ɵnov(_v, 7).ngClassDirty; var currVal_4 = i1.ɵnov(_v, 7).ngClassValid; var currVal_5 = i1.ɵnov(_v, 7).ngClassInvalid; var currVal_6 = i1.ɵnov(_v, 7).ngClassPending; _ck(_v, 1, 0, currVal_0, currVal_1, currVal_2, currVal_3, currVal_4, currVal_5, currVal_6); var currVal_9 = _v.context.$implicit.value; _ck(_v, 8, 0, currVal_9); }); }
+function View_CraneComponent_5(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 5, "div", [["class", "section"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "label", [], null, null, null, null, null)), (_l()(), i1.ɵted(2, null, ["", ""])), (_l()(), i1.ɵeld(3, 0, null, null, 2, "ul", [], null, null, null, null, null)), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_CraneComponent_6)), i1.ɵdid(5, 278528, null, 0, i3.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], { ngForOf: [0, "ngForOf"] }, null)], function (_ck, _v) { var _co = _v.component; var currVal_1 = _co.content.crane.value; _ck(_v, 5, 0, currVal_1); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.content.crane.label; _ck(_v, 2, 0, currVal_0); }); }
+function View_CraneComponent_8(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 7, "li", [], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
+        var pd_0 = (_co.onWorkers(_v.context.index) !== false);
+        ad = (pd_0 && ad);
+    } return ad; }, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 5, "input", [["type", "checkbox"]], [[2, "ng-untouched", null], [2, "ng-touched", null], [2, "ng-pristine", null], [2, "ng-dirty", null], [2, "ng-valid", null], [2, "ng-invalid", null], [2, "ng-pending", null]], [[null, "ngModelChange"], [null, "change"], [null, "blur"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("change" === en)) {
+        var pd_0 = (i1.ɵnov(_v, 2).onChange($event.target.checked) !== false);
+        ad = (pd_0 && ad);
+    } if (("blur" === en)) {
+        var pd_1 = (i1.ɵnov(_v, 2).onTouched() !== false);
+        ad = (pd_1 && ad);
+    } if (("ngModelChange" === en)) {
+        var pd_2 = ((_co.state.workers[_v.context.index] = $event) !== false);
+        ad = (pd_2 && ad);
+    } return ad; }, null, null)), i1.ɵdid(2, 16384, null, 0, i2.CheckboxControlValueAccessor, [i1.Renderer2, i1.ElementRef], null, null), i1.ɵprd(1024, null, i2.NG_VALUE_ACCESSOR, function (p0_0) { return [p0_0]; }, [i2.CheckboxControlValueAccessor]), i1.ɵdid(4, 671744, null, 0, i2.NgModel, [[8, null], [8, null], [8, null], [6, i2.NG_VALUE_ACCESSOR]], { model: [0, "model"] }, { update: "ngModelChange" }), i1.ɵprd(2048, null, i2.NgControl, null, [i2.NgModel]), i1.ɵdid(6, 16384, null, 0, i2.NgControlStatus, [[4, i2.NgControl]], null, null), (_l()(), i1.ɵted(7, null, ["", " "]))], function (_ck, _v) { var _co = _v.component; var currVal_7 = _co.state.workers[_v.context.index]; _ck(_v, 4, 0, currVal_7); }, function (_ck, _v) { var currVal_0 = i1.ɵnov(_v, 6).ngClassUntouched; var currVal_1 = i1.ɵnov(_v, 6).ngClassTouched; var currVal_2 = i1.ɵnov(_v, 6).ngClassPristine; var currVal_3 = i1.ɵnov(_v, 6).ngClassDirty; var currVal_4 = i1.ɵnov(_v, 6).ngClassValid; var currVal_5 = i1.ɵnov(_v, 6).ngClassInvalid; var currVal_6 = i1.ɵnov(_v, 6).ngClassPending; _ck(_v, 1, 0, currVal_0, currVal_1, currVal_2, currVal_3, currVal_4, currVal_5, currVal_6); var currVal_8 = _v.context.$implicit.value; _ck(_v, 7, 0, currVal_8); }); }
+function View_CraneComponent_7(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 5, "div", [["class", "section"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "label", [], null, null, null, null, null)), (_l()(), i1.ɵted(2, null, ["", ""])), (_l()(), i1.ɵeld(3, 0, null, null, 2, "ul", [], null, null, null, null, null)), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_CraneComponent_8)), i1.ɵdid(5, 278528, null, 0, i3.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], { ngForOf: [0, "ngForOf"] }, null)], function (_ck, _v) { var _co = _v.component; var currVal_1 = _co.content.workers.value; _ck(_v, 5, 0, currVal_1); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.content.workers.label; _ck(_v, 2, 0, currVal_0); }); }
+function View_CraneComponent_9(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 8, "div", [["class", "section"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "label", [], null, null, null, null, null)), (_l()(), i1.ɵted(2, null, ["", ""])), (_l()(), i1.ɵeld(3, 0, null, null, 5, "textarea", [["rows", "8"]], [[2, "ng-untouched", null], [2, "ng-touched", null], [2, "ng-pristine", null], [2, "ng-dirty", null], [2, "ng-valid", null], [2, "ng-invalid", null], [2, "ng-pending", null]], [[null, "ngModelChange"], [null, "input"], [null, "blur"], [null, "compositionstart"], [null, "compositionend"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("input" === en)) {
+        var pd_0 = (i1.ɵnov(_v, 4)._handleInput($event.target.value) !== false);
+        ad = (pd_0 && ad);
+    } if (("blur" === en)) {
+        var pd_1 = (i1.ɵnov(_v, 4).onTouched() !== false);
+        ad = (pd_1 && ad);
+    } if (("compositionstart" === en)) {
+        var pd_2 = (i1.ɵnov(_v, 4)._compositionStart() !== false);
+        ad = (pd_2 && ad);
+    } if (("compositionend" === en)) {
+        var pd_3 = (i1.ɵnov(_v, 4)._compositionEnd($event.target.value) !== false);
+        ad = (pd_3 && ad);
+    } if (("ngModelChange" === en)) {
+        var pd_4 = ((_co.state.message = $event) !== false);
+        ad = (pd_4 && ad);
+    } return ad; }, null, null)), i1.ɵdid(4, 16384, null, 0, i2.DefaultValueAccessor, [i1.Renderer2, i1.ElementRef, [2, i2.COMPOSITION_BUFFER_MODE]], null, null), i1.ɵprd(1024, null, i2.NG_VALUE_ACCESSOR, function (p0_0) { return [p0_0]; }, [i2.DefaultValueAccessor]), i1.ɵdid(6, 671744, null, 0, i2.NgModel, [[8, null], [8, null], [8, null], [6, i2.NG_VALUE_ACCESSOR]], { model: [0, "model"] }, { update: "ngModelChange" }), i1.ɵprd(2048, null, i2.NgControl, null, [i2.NgModel]), i1.ɵdid(8, 16384, null, 0, i2.NgControlStatus, [[4, i2.NgControl]], null, null)], function (_ck, _v) { var _co = _v.component; var currVal_8 = _co.state.message; _ck(_v, 6, 0, currVal_8); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.content.message.label; _ck(_v, 2, 0, currVal_0); var currVal_1 = i1.ɵnov(_v, 8).ngClassUntouched; var currVal_2 = i1.ɵnov(_v, 8).ngClassTouched; var currVal_3 = i1.ɵnov(_v, 8).ngClassPristine; var currVal_4 = i1.ɵnov(_v, 8).ngClassDirty; var currVal_5 = i1.ɵnov(_v, 8).ngClassValid; var currVal_6 = i1.ɵnov(_v, 8).ngClassInvalid; var currVal_7 = i1.ɵnov(_v, 8).ngClassPending; _ck(_v, 3, 0, currVal_1, currVal_2, currVal_3, currVal_4, currVal_5, currVal_6, currVal_7); }); }
+function View_CraneComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵand(16777216, null, null, 1, null, View_CraneComponent_1)), i1.ɵdid(1, 16384, null, 0, i3.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_CraneComponent_3)), i1.ɵdid(3, 16384, null, 0, i3.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_CraneComponent_5)), i1.ɵdid(5, 16384, null, 0, i3.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_CraneComponent_7)), i1.ɵdid(7, 16384, null, 0, i3.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_CraneComponent_9)), i1.ɵdid(9, 16384, null, 0, i3.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null)], function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.state; _ck(_v, 1, 0, currVal_0); var currVal_1 = _co.state; _ck(_v, 3, 0, currVal_1); var currVal_2 = _co.state; _ck(_v, 5, 0, currVal_2); var currVal_3 = _co.state; _ck(_v, 7, 0, currVal_3); var currVal_4 = _co.state; _ck(_v, 9, 0, currVal_4); }, null); }
+exports.View_CraneComponent_0 = View_CraneComponent_0;
+function View_CraneComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-crane", [], null, null, null, View_CraneComponent_0, RenderType_CraneComponent)), i1.ɵdid(1, 114688, null, 0, i4.CraneComponent, [i1.NgZone, i5.DataService, i6.StateService], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+exports.View_CraneComponent_Host_0 = View_CraneComponent_Host_0;
+var CraneComponentNgFactory = i1.ɵccf("app-crane", i4.CraneComponent, View_CraneComponent_Host_0, {}, {}, []);
+exports.CraneComponentNgFactory = CraneComponentNgFactory;
 
 
 /***/ }),
 
-/***/ "./src/app/dashboard/dashboard.component.ts":
+/***/ "./src/app/crane/crane.component.ts":
+/*!******************************************!*\
+  !*** ./src/app/crane/crane.component.ts ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var data_service_1 = __webpack_require__(/*! ../service/data.service */ "./src/app/service/data.service.ts");
+var i18n_1 = __webpack_require__(/*! ../service/i18n */ "./src/app/service/i18n.ts");
+var state_service_1 = __webpack_require__(/*! ../service/state.service */ "./src/app/service/state.service.ts");
+var CraneComponent = /** @class */ (function () {
+    function CraneComponent(zone, _data, _state) {
+        this.zone = zone;
+        this._data = _data;
+        this._state = _state;
+    }
+    CraneComponent.prototype.ngOnInit = function () {
+        // let lang = Office.context.displayLanguage
+        var lang = 'en';
+        this.uitext = i18n_1.i18n.getTexts(lang);
+        this.getCrane();
+        this.getState();
+    };
+    CraneComponent.prototype.getState = function () {
+        var _this = this;
+        this._state.getCraneState().subscribe(function (cs) { return _this.state = cs; });
+    };
+    CraneComponent.prototype.getCrane = function () {
+        var _this = this;
+        this._data.getCrane().subscribe(function (c) {
+            _this.content = {
+                ship: {
+                    label: _this.uitext.crane.label_ship,
+                    value: c.ship
+                },
+                quay: {
+                    label: _this.uitext.crane.label_quay,
+                    value: c.quay
+                },
+                crane: {
+                    label: _this.uitext.crane.label_crane,
+                    value: c.crane
+                },
+                workers: {
+                    label: _this.uitext.crane.label_workers,
+                    value: c.workers
+                },
+                message: {
+                    label: _this.uitext.crane.label_message,
+                    value: c.message
+                }
+            };
+        });
+    };
+    CraneComponent.prototype.onWorkers = function (workerIndex) {
+        this.state.workers[workerIndex] = !this.state.workers[workerIndex];
+    };
+    return CraneComponent;
+}());
+exports.CraneComponent = CraneComponent;
+
+
+/***/ }),
+
+/***/ "./src/app/edit/edit.component.css.shim.ngstyle.js":
+/*!*********************************************************!*\
+  !*** ./src/app/edit/edit.component.css.shim.ngstyle.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
+Object.defineProperty(exports, "__esModule", { value: true });
+var styles = [""];
+exports.styles = styles;
+
+
+/***/ }),
+
+/***/ "./src/app/edit/edit.component.ngfactory.js":
 /*!**************************************************!*\
-  !*** ./src/app/dashboard/dashboard.component.ts ***!
+  !*** ./src/app/edit/edit.component.ngfactory.js ***!
   \**************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+/**
+ * @fileoverview This file was generated by the Angular template compiler. Do not edit.
+ *
+ * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
+ * tslint:disable
+ */ 
 Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
-var hero_service_1 = __webpack_require__(/*! ../hero.service */ "./src/app/hero.service.ts");
-var DashboardComponent = /** @class */ (function () {
-    function DashboardComponent(heroService) {
-        this.heroService = heroService;
-        this.heroes = [];
-    }
-    DashboardComponent.prototype.ngOnInit = function () {
-        this.getHeroes();
-    };
-    DashboardComponent.prototype.getHeroes = function () {
-        var _this = this;
-        this.heroService.getHeroes()
-            .subscribe(function (heroes) { return _this.heroes = heroes.slice(1, 5); });
-    };
-    return DashboardComponent;
-}());
-exports.DashboardComponent = DashboardComponent;
+var i0 = __webpack_require__(/*! ./edit.component.css.shim.ngstyle */ "./src/app/edit/edit.component.css.shim.ngstyle.js");
+var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var i2 = __webpack_require__(/*! ./edit.component */ "./src/app/edit/edit.component.ts");
+var styles_EditComponent = [i0.styles];
+var RenderType_EditComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_EditComponent, data: {} });
+exports.RenderType_EditComponent = RenderType_EditComponent;
+function View_EditComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "p", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, [" edit works!\n"]))], null, null); }
+exports.View_EditComponent_0 = View_EditComponent_0;
+function View_EditComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-edit", [], null, null, null, View_EditComponent_0, RenderType_EditComponent)), i1.ɵdid(1, 114688, null, 0, i2.EditComponent, [], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+exports.View_EditComponent_Host_0 = View_EditComponent_Host_0;
+var EditComponentNgFactory = i1.ɵccf("app-edit", i2.EditComponent, View_EditComponent_Host_0, {}, {}, []);
+exports.EditComponentNgFactory = EditComponentNgFactory;
 
 
 /***/ }),
 
-/***/ "./src/app/hero-detail/hero-detail.component.css.shim.ngstyle.js":
-/*!***********************************************************************!*\
-  !*** ./src/app/hero-detail/hero-detail.component.css.shim.ngstyle.js ***!
-  \***********************************************************************/
+/***/ "./src/app/edit/edit.component.ts":
+/*!****************************************!*\
+  !*** ./src/app/edit/edit.component.ts ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var EditComponent = /** @class */ (function () {
+    function EditComponent() {
+    }
+    EditComponent.prototype.ngOnInit = function () {
+    };
+    return EditComponent;
+}());
+exports.EditComponent = EditComponent;
+
+
+/***/ }),
+
+/***/ "./src/app/main/main.component.css.shim.ngstyle.js":
+/*!*********************************************************!*\
+  !*** ./src/app/main/main.component.css.shim.ngstyle.js ***!
+  \*********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -428,16 +596,16 @@ exports.DashboardComponent = DashboardComponent;
  * tslint:disable
  */ 
 Object.defineProperty(exports, "__esModule", { value: true });
-var styles = ["label[_ngcontent-%COMP%] {\n  display: inline-block;\n  width: 3em;\n  margin: .5em 0;\n  color: #607D8B;\n  font-weight: bold;\n}\ninput[_ngcontent-%COMP%] {\n  height: 2em;\n  font-size: 1em;\n  padding-left: .4em;\n}\nbutton[_ngcontent-%COMP%] {\n  margin-top: 20px;\n  font-family: Arial;\n  background-color: #eee;\n  border: none;\n  padding: 5px 10px;\n  border-radius: 4px;\n  cursor: pointer; cursor: hand;\n}\nbutton[_ngcontent-%COMP%]:hover {\n  background-color: #cfd8dc;\n}\nbutton[_ngcontent-%COMP%]:disabled {\n  background-color: #eee;\n  color: #ccc;\n  cursor: auto;\n}"];
+var styles = [".main[_ngcontent-%COMP%] {\n    max-width: 400px;\n    margin: auto;\n}"];
 exports.styles = styles;
 
 
 /***/ }),
 
-/***/ "./src/app/hero-detail/hero-detail.component.ngfactory.js":
-/*!****************************************************************!*\
-  !*** ./src/app/hero-detail/hero-detail.component.ngfactory.js ***!
-  \****************************************************************/
+/***/ "./src/app/main/main.component.ngfactory.js":
+/*!**************************************************!*\
+  !*** ./src/app/main/main.component.ngfactory.js ***!
+  \**************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -450,52 +618,46 @@ exports.styles = styles;
  * tslint:disable
  */ 
 Object.defineProperty(exports, "__esModule", { value: true });
-var i0 = __webpack_require__(/*! ./hero-detail.component.css.shim.ngstyle */ "./src/app/hero-detail/hero-detail.component.css.shim.ngstyle.js");
+var i0 = __webpack_require__(/*! ./main.component.css.shim.ngstyle */ "./src/app/main/main.component.css.shim.ngstyle.js");
 var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
 var i2 = __webpack_require__(/*! @angular/forms */ "@angular/forms");
-var i3 = __webpack_require__(/*! @angular/common */ "@angular/common");
-var i4 = __webpack_require__(/*! ./hero-detail.component */ "./src/app/hero-detail/hero-detail.component.ts");
-var i5 = __webpack_require__(/*! @angular/router */ "@angular/router");
-var i6 = __webpack_require__(/*! ../hero.service */ "./src/app/hero.service.ts");
-var styles_HeroDetailComponent = [i0.styles];
-var RenderType_HeroDetailComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_HeroDetailComponent, data: {} });
-exports.RenderType_HeroDetailComponent = RenderType_HeroDetailComponent;
-function View_HeroDetailComponent_1(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 20, "div", [], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 2, "h2", [], null, null, null, null, null)), (_l()(), i1.ɵted(2, null, ["", " Details"])), i1.ɵppd(3, 1), (_l()(), i1.ɵeld(4, 0, null, null, 3, "div", [], null, null, null, null, null)), (_l()(), i1.ɵeld(5, 0, null, null, 1, "span", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["id: "])), (_l()(), i1.ɵted(7, null, ["", ""])), (_l()(), i1.ɵeld(8, 0, null, null, 8, "div", [], null, null, null, null, null)), (_l()(), i1.ɵeld(9, 0, null, null, 7, "label", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["name: "])), (_l()(), i1.ɵeld(11, 0, null, null, 5, "input", [["placeholder", "name"]], [[2, "ng-untouched", null], [2, "ng-touched", null], [2, "ng-pristine", null], [2, "ng-dirty", null], [2, "ng-valid", null], [2, "ng-invalid", null], [2, "ng-pending", null]], [[null, "ngModelChange"], [null, "input"], [null, "blur"], [null, "compositionstart"], [null, "compositionend"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("input" === en)) {
-        var pd_0 = (i1.ɵnov(_v, 12)._handleInput($event.target.value) !== false);
+var i3 = __webpack_require__(/*! ../crane/crane.component.ngfactory */ "./src/app/crane/crane.component.ngfactory.js");
+var i4 = __webpack_require__(/*! ../crane/crane.component */ "./src/app/crane/crane.component.ts");
+var i5 = __webpack_require__(/*! ../service/data.service */ "./src/app/service/data.service.ts");
+var i6 = __webpack_require__(/*! ../service/state.service */ "./src/app/service/state.service.ts");
+var i7 = __webpack_require__(/*! ../water/water.component.ngfactory */ "./src/app/water/water.component.ngfactory.js");
+var i8 = __webpack_require__(/*! ../water/water.component */ "./src/app/water/water.component.ts");
+var i9 = __webpack_require__(/*! @angular/common */ "@angular/common");
+var i10 = __webpack_require__(/*! ./main.component */ "./src/app/main/main.component.ts");
+var styles_MainComponent = [i0.styles];
+var RenderType_MainComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_MainComponent, data: {} });
+exports.RenderType_MainComponent = RenderType_MainComponent;
+function View_MainComponent_1(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 3, "option", [], null, null, null, null, null)), i1.ɵdid(1, 147456, null, 0, i2.NgSelectOption, [i1.ElementRef, i1.Renderer2, [2, i2.SelectControlValueAccessor]], { ngValue: [0, "ngValue"] }, null), i1.ɵdid(2, 147456, null, 0, i2.ɵangular_packages_forms_forms_r, [i1.ElementRef, i1.Renderer2, [8, null]], { ngValue: [0, "ngValue"] }, null), (_l()(), i1.ɵted(3, null, ["", ""]))], function (_ck, _v) { var currVal_0 = _v.context.$implicit.value; _ck(_v, 1, 0, currVal_0); var currVal_1 = _v.context.$implicit.value; _ck(_v, 2, 0, currVal_1); }, function (_ck, _v) { var currVal_2 = _v.context.$implicit.label; _ck(_v, 3, 0, currVal_2); }); }
+function View_MainComponent_2(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 2, "div", [["class", "content"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "app-crane", [], null, null, null, i3.View_CraneComponent_0, i3.RenderType_CraneComponent)), i1.ɵdid(2, 114688, null, 0, i4.CraneComponent, [i1.NgZone, i5.DataService, i6.StateService], null, null)], function (_ck, _v) { _ck(_v, 2, 0); }, null); }
+function View_MainComponent_3(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 2, "div", [["class", "content"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "app-water", [], null, null, null, i7.View_WaterComponent_0, i7.RenderType_WaterComponent)), i1.ɵdid(2, 114688, null, 0, i8.WaterComponent, [i1.NgZone, i5.DataService, i6.StateService], null, null)], function (_ck, _v) { _ck(_v, 2, 0); }, null); }
+function View_MainComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 16, "div", [["class", "main"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 11, "div", [["class", "header"]], null, null, null, null, null)), (_l()(), i1.ɵeld(2, 0, null, null, 10, "div", [["class", "section"]], null, null, null, null, null)), (_l()(), i1.ɵeld(3, 0, null, null, 1, "label", [], null, null, null, null, null)), (_l()(), i1.ɵted(4, null, ["", ""])), (_l()(), i1.ɵeld(5, 0, null, null, 7, "select", [], [[2, "ng-untouched", null], [2, "ng-touched", null], [2, "ng-pristine", null], [2, "ng-dirty", null], [2, "ng-valid", null], [2, "ng-invalid", null], [2, "ng-pending", null]], [[null, "ngModelChange"], [null, "change"], [null, "blur"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("change" === en)) {
+        var pd_0 = (i1.ɵnov(_v, 6).onChange($event.target.value) !== false);
         ad = (pd_0 && ad);
     } if (("blur" === en)) {
-        var pd_1 = (i1.ɵnov(_v, 12).onTouched() !== false);
+        var pd_1 = (i1.ɵnov(_v, 6).onTouched() !== false);
         ad = (pd_1 && ad);
-    } if (("compositionstart" === en)) {
-        var pd_2 = (i1.ɵnov(_v, 12)._compositionStart() !== false);
-        ad = (pd_2 && ad);
-    } if (("compositionend" === en)) {
-        var pd_3 = (i1.ɵnov(_v, 12)._compositionEnd($event.target.value) !== false);
-        ad = (pd_3 && ad);
     } if (("ngModelChange" === en)) {
-        var pd_4 = ((_co.hero.name = $event) !== false);
-        ad = (pd_4 && ad);
-    } return ad; }, null, null)), i1.ɵdid(12, 16384, null, 0, i2.DefaultValueAccessor, [i1.Renderer2, i1.ElementRef, [2, i2.COMPOSITION_BUFFER_MODE]], null, null), i1.ɵprd(1024, null, i2.NG_VALUE_ACCESSOR, function (p0_0) { return [p0_0]; }, [i2.DefaultValueAccessor]), i1.ɵdid(14, 671744, null, 0, i2.NgModel, [[8, null], [8, null], [8, null], [6, i2.NG_VALUE_ACCESSOR]], { model: [0, "model"] }, { update: "ngModelChange" }), i1.ɵprd(2048, null, i2.NgControl, null, [i2.NgModel]), i1.ɵdid(16, 16384, null, 0, i2.NgControlStatus, [[4, i2.NgControl]], null, null), (_l()(), i1.ɵeld(17, 0, null, null, 1, "button", [], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
-        var pd_0 = (_co.goBack() !== false);
-        ad = (pd_0 && ad);
-    } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, ["go back"])), (_l()(), i1.ɵeld(19, 0, null, null, 1, "button", [], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
-        var pd_0 = (_co.save() !== false);
-        ad = (pd_0 && ad);
-    } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, ["save"]))], function (_ck, _v) { var _co = _v.component; var currVal_9 = _co.hero.name; _ck(_v, 14, 0, currVal_9); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = i1.ɵunv(_v, 2, 0, _ck(_v, 3, 0, i1.ɵnov(_v.parent, 0), _co.hero.name)); _ck(_v, 2, 0, currVal_0); var currVal_1 = _co.hero.id; _ck(_v, 7, 0, currVal_1); var currVal_2 = i1.ɵnov(_v, 16).ngClassUntouched; var currVal_3 = i1.ɵnov(_v, 16).ngClassTouched; var currVal_4 = i1.ɵnov(_v, 16).ngClassPristine; var currVal_5 = i1.ɵnov(_v, 16).ngClassDirty; var currVal_6 = i1.ɵnov(_v, 16).ngClassValid; var currVal_7 = i1.ɵnov(_v, 16).ngClassInvalid; var currVal_8 = i1.ɵnov(_v, 16).ngClassPending; _ck(_v, 11, 0, currVal_2, currVal_3, currVal_4, currVal_5, currVal_6, currVal_7, currVal_8); }); }
-function View_HeroDetailComponent_0(_l) { return i1.ɵvid(0, [i1.ɵpid(0, i3.UpperCasePipe, []), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_HeroDetailComponent_1)), i1.ɵdid(2, 16384, null, 0, i3.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null)], function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.hero; _ck(_v, 2, 0, currVal_0); }, null); }
-exports.View_HeroDetailComponent_0 = View_HeroDetailComponent_0;
-function View_HeroDetailComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-hero-detail", [], null, null, null, View_HeroDetailComponent_0, RenderType_HeroDetailComponent)), i1.ɵdid(1, 114688, null, 0, i4.HeroDetailComponent, [i5.ActivatedRoute, i6.HeroService, i3.Location], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
-exports.View_HeroDetailComponent_Host_0 = View_HeroDetailComponent_Host_0;
-var HeroDetailComponentNgFactory = i1.ɵccf("app-hero-detail", i4.HeroDetailComponent, View_HeroDetailComponent_Host_0, {}, {}, []);
-exports.HeroDetailComponentNgFactory = HeroDetailComponentNgFactory;
+        var pd_2 = ((_co.state = $event) !== false);
+        ad = (pd_2 && ad);
+    } return ad; }, null, null)), i1.ɵdid(6, 16384, null, 0, i2.SelectControlValueAccessor, [i1.Renderer2, i1.ElementRef], null, null), i1.ɵprd(1024, null, i2.NG_VALUE_ACCESSOR, function (p0_0) { return [p0_0]; }, [i2.SelectControlValueAccessor]), i1.ɵdid(8, 671744, null, 0, i2.NgModel, [[8, null], [8, null], [8, null], [6, i2.NG_VALUE_ACCESSOR]], { model: [0, "model"] }, { update: "ngModelChange" }), i1.ɵprd(2048, null, i2.NgControl, null, [i2.NgModel]), i1.ɵdid(10, 16384, null, 0, i2.NgControlStatus, [[4, i2.NgControl]], null, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_MainComponent_1)), i1.ɵdid(12, 278528, null, 0, i9.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], { ngForOf: [0, "ngForOf"] }, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_MainComponent_2)), i1.ɵdid(14, 16384, null, 0, i9.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_MainComponent_3)), i1.ɵdid(16, 16384, null, 0, i9.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null)], function (_ck, _v) { var _co = _v.component; var currVal_8 = _co.state; _ck(_v, 8, 0, currVal_8); var currVal_9 = _co.eform.value; _ck(_v, 12, 0, currVal_9); var currVal_10 = (_co.state == "crane"); _ck(_v, 14, 0, currVal_10); var currVal_11 = (_co.state == "water"); _ck(_v, 16, 0, currVal_11); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.eform.label; _ck(_v, 4, 0, currVal_0); var currVal_1 = i1.ɵnov(_v, 10).ngClassUntouched; var currVal_2 = i1.ɵnov(_v, 10).ngClassTouched; var currVal_3 = i1.ɵnov(_v, 10).ngClassPristine; var currVal_4 = i1.ɵnov(_v, 10).ngClassDirty; var currVal_5 = i1.ɵnov(_v, 10).ngClassValid; var currVal_6 = i1.ɵnov(_v, 10).ngClassInvalid; var currVal_7 = i1.ɵnov(_v, 10).ngClassPending; _ck(_v, 5, 0, currVal_1, currVal_2, currVal_3, currVal_4, currVal_5, currVal_6, currVal_7); }); }
+exports.View_MainComponent_0 = View_MainComponent_0;
+function View_MainComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-main", [], null, null, null, View_MainComponent_0, RenderType_MainComponent)), i1.ɵdid(1, 114688, null, 0, i10.MainComponent, [i1.NgZone, i5.DataService, i6.StateService], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+exports.View_MainComponent_Host_0 = View_MainComponent_Host_0;
+var MainComponentNgFactory = i1.ɵccf("app-main", i10.MainComponent, View_MainComponent_Host_0, {}, {}, []);
+exports.MainComponentNgFactory = MainComponentNgFactory;
 
 
 /***/ }),
 
-/***/ "./src/app/hero-detail/hero-detail.component.ts":
-/*!******************************************************!*\
-  !*** ./src/app/hero-detail/hero-detail.component.ts ***!
-  \******************************************************/
+/***/ "./src/app/main/main.component.ts":
+/*!****************************************!*\
+  !*** ./src/app/main/main.component.ts ***!
+  \****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -503,147 +665,46 @@ exports.HeroDetailComponentNgFactory = HeroDetailComponentNgFactory;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
-var router_1 = __webpack_require__(/*! @angular/router */ "@angular/router");
-var common_1 = __webpack_require__(/*! @angular/common */ "@angular/common");
-var hero_service_1 = __webpack_require__(/*! ../hero.service */ "./src/app/hero.service.ts");
-var HeroDetailComponent = /** @class */ (function () {
-    function HeroDetailComponent(route, heroService, location) {
-        this.route = route;
-        this.heroService = heroService;
-        this.location = location;
+var data_service_1 = __webpack_require__(/*! ../service/data.service */ "./src/app/service/data.service.ts");
+var i18n_1 = __webpack_require__(/*! ../service/i18n */ "./src/app/service/i18n.ts");
+var state_service_1 = __webpack_require__(/*! ../service/state.service */ "./src/app/service/state.service.ts");
+var MainComponent = /** @class */ (function () {
+    function MainComponent(zone, data, _state) {
+        this.zone = zone;
+        this.data = data;
+        this._state = _state;
     }
-    HeroDetailComponent.prototype.ngOnInit = function () {
-        this.getHero();
+    MainComponent.prototype.ngOnInit = function () {
+        // let lang = Office.context.displayLanguage
+        var lang = 'en';
+        this.uitext = i18n_1.i18n.getTexts(lang);
+        this.eform = {
+            label: this.uitext.eform.label_eform,
+            value: [{
+                    label: this.uitext.eform.label_select_crane,
+                    value: 'crane'
+                }, {
+                    label: this.uitext.eform.label_select_water,
+                    value: 'water'
+                }]
+        };
+        this.getState();
     };
-    HeroDetailComponent.prototype.getHero = function () {
+    MainComponent.prototype.getState = function () {
         var _this = this;
-        var id = +this.route.snapshot.paramMap.get('id');
-        this.heroService.getHero(id)
-            .subscribe(function (hero) { return _this.hero = hero; });
+        this._state.getEState().subscribe(function (es) { return _this.state = es; });
     };
-    HeroDetailComponent.prototype.goBack = function () {
-        this.location.back();
-    };
-    HeroDetailComponent.prototype.save = function () {
-        var _this = this;
-        this.heroService.updateHero(this.hero)
-            .subscribe(function () { return _this.goBack(); });
-    };
-    return HeroDetailComponent;
+    return MainComponent;
 }());
-exports.HeroDetailComponent = HeroDetailComponent;
+exports.MainComponent = MainComponent;
 
 
 /***/ }),
 
-/***/ "./src/app/hero-search/hero-search.component.css.shim.ngstyle.js":
-/*!***********************************************************************!*\
-  !*** ./src/app/hero-search/hero-search.component.css.shim.ngstyle.js ***!
-  \***********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-/**
- * @fileoverview This file was generated by the Angular template compiler. Do not edit.
- *
- * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
- * tslint:disable
- */ 
-Object.defineProperty(exports, "__esModule", { value: true });
-var styles = [".search-result[_ngcontent-%COMP%]   li[_ngcontent-%COMP%] {\n  border-bottom: 1px solid gray;\n  border-left: 1px solid gray;\n  border-right: 1px solid gray;\n  width:195px;\n  height: 16px;\n  padding: 5px;\n  background-color: white;\n  cursor: pointer;\n  list-style-type: none;\n}\n.search-result[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]:hover {\n  background-color: #607D8B;\n}\n.search-result[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  color: #888;\n  display: block;\n  text-decoration: none;\n}\n.search-result[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]:hover {\n  color: white;\n}\n.search-result[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]:active {\n  color: white;\n}\n#search-box[_ngcontent-%COMP%] {\n  width: 200px;\n  height: 20px;\n}\nul.search-result[_ngcontent-%COMP%] {\n  margin-top: 0;\n  padding-left: 0;\n}"];
-exports.styles = styles;
-
-
-/***/ }),
-
-/***/ "./src/app/hero-search/hero-search.component.ngfactory.js":
-/*!****************************************************************!*\
-  !*** ./src/app/hero-search/hero-search.component.ngfactory.js ***!
-  \****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-/**
- * @fileoverview This file was generated by the Angular template compiler. Do not edit.
- *
- * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
- * tslint:disable
- */ 
-Object.defineProperty(exports, "__esModule", { value: true });
-var i0 = __webpack_require__(/*! ./hero-search.component.css.shim.ngstyle */ "./src/app/hero-search/hero-search.component.css.shim.ngstyle.js");
-var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
-var i2 = __webpack_require__(/*! @angular/router */ "@angular/router");
-var i3 = __webpack_require__(/*! @angular/common */ "@angular/common");
-var i4 = __webpack_require__(/*! ./hero-search.component */ "./src/app/hero-search/hero-search.component.ts");
-var i5 = __webpack_require__(/*! ../hero.service */ "./src/app/hero.service.ts");
-var styles_HeroSearchComponent = [i0.styles];
-var RenderType_HeroSearchComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_HeroSearchComponent, data: {} });
-exports.RenderType_HeroSearchComponent = RenderType_HeroSearchComponent;
-function View_HeroSearchComponent_1(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 3, "li", [], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 2, "a", [], [[1, "target", 0], [8, "href", 4]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
-        var pd_0 = (i1.ɵnov(_v, 2).onClick($event.button, $event.ctrlKey, $event.metaKey, $event.shiftKey) !== false);
-        ad = (pd_0 && ad);
-    } return ad; }, null, null)), i1.ɵdid(2, 671744, null, 0, i2.RouterLinkWithHref, [i2.Router, i2.ActivatedRoute, i3.LocationStrategy], { routerLink: [0, "routerLink"] }, null), (_l()(), i1.ɵted(3, null, [" ", " "]))], function (_ck, _v) { var currVal_2 = i1.ɵinlineInterpolate(1, "/detail/", _v.context.$implicit.id, ""); _ck(_v, 2, 0, currVal_2); }, function (_ck, _v) { var currVal_0 = i1.ɵnov(_v, 2).target; var currVal_1 = i1.ɵnov(_v, 2).href; _ck(_v, 1, 0, currVal_0, currVal_1); var currVal_3 = _v.context.$implicit.name; _ck(_v, 3, 0, currVal_3); }); }
-function View_HeroSearchComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 7, "div", [["id", "search-component"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "h4", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Hero Search"])), (_l()(), i1.ɵeld(3, 0, [["searchBox", 1]], null, 0, "input", [["id", "search-box"]], null, [[null, "keyup"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("keyup" === en)) {
-        var pd_0 = (_co.search(i1.ɵnov(_v, 3).value) !== false);
-        ad = (pd_0 && ad);
-    } return ad; }, null, null)), (_l()(), i1.ɵeld(4, 0, null, null, 3, "ul", [["class", "search-result"]], null, null, null, null, null)), (_l()(), i1.ɵand(16777216, null, null, 2, null, View_HeroSearchComponent_1)), i1.ɵdid(6, 278528, null, 0, i3.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], { ngForOf: [0, "ngForOf"] }, null), i1.ɵpid(131072, i3.AsyncPipe, [i1.ChangeDetectorRef])], function (_ck, _v) { var _co = _v.component; var currVal_0 = i1.ɵunv(_v, 6, 0, i1.ɵnov(_v, 7).transform(_co.heroes)); _ck(_v, 6, 0, currVal_0); }, null); }
-exports.View_HeroSearchComponent_0 = View_HeroSearchComponent_0;
-function View_HeroSearchComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "hero-search", [], null, null, null, View_HeroSearchComponent_0, RenderType_HeroSearchComponent)), i1.ɵdid(1, 114688, null, 0, i4.HeroSearchComponent, [i5.HeroService], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
-exports.View_HeroSearchComponent_Host_0 = View_HeroSearchComponent_Host_0;
-var HeroSearchComponentNgFactory = i1.ɵccf("hero-search", i4.HeroSearchComponent, View_HeroSearchComponent_Host_0, {}, {}, []);
-exports.HeroSearchComponentNgFactory = HeroSearchComponentNgFactory;
-
-
-/***/ }),
-
-/***/ "./src/app/hero-search/hero-search.component.ts":
-/*!******************************************************!*\
-  !*** ./src/app/hero-search/hero-search.component.ts ***!
-  \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
-var rxjs_1 = __webpack_require__(/*! rxjs */ "rxjs");
-var operators_1 = __webpack_require__(/*! rxjs/operators */ "rxjs/operators");
-var hero_service_1 = __webpack_require__(/*! ../hero.service */ "./src/app/hero.service.ts");
-var HeroSearchComponent = /** @class */ (function () {
-    function HeroSearchComponent(heroService) {
-        this.heroService = heroService;
-        this.searchTerms = new rxjs_1.Subject();
-    }
-    // Push a search term into the observable stream.
-    HeroSearchComponent.prototype.search = function (term) {
-        this.searchTerms.next(term);
-    };
-    HeroSearchComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.heroes = this.searchTerms.pipe(
-        // wait 300ms after each keystroke before considering the term
-        operators_1.debounceTime(300), 
-        // ignore new term if same as previous term
-        operators_1.distinctUntilChanged(), 
-        // switch to new search observable each time the term changes
-        operators_1.switchMap(function (term) { return _this.heroService.searchHeroes(term); }));
-    };
-    return HeroSearchComponent;
-}());
-exports.HeroSearchComponent = HeroSearchComponent;
-
-
-/***/ }),
-
-/***/ "./src/app/hero.service.ts":
-/*!*********************************!*\
-  !*** ./src/app/hero.service.ts ***!
-  \*********************************/
+/***/ "./src/app/service/data.service.ts":
+/*!*****************************************!*\
+  !*** ./src/app/service/data.service.ts ***!
+  \*****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -652,282 +713,273 @@ exports.HeroSearchComponent = HeroSearchComponent;
 Object.defineProperty(exports, "__esModule", { value: true });
 var http_1 = __webpack_require__(/*! @angular/common/http */ "@angular/common/http");
 var rxjs_1 = __webpack_require__(/*! rxjs */ "rxjs");
-var operators_1 = __webpack_require__(/*! rxjs/operators */ "rxjs/operators");
-var message_service_1 = __webpack_require__(/*! ./message.service */ "./src/app/message.service.ts");
+// Test purpose
+var mock_data_1 = __webpack_require__(/*! ./mock-data */ "./src/app/service/mock-data.ts");
+var state_service_1 = __webpack_require__(/*! ./state.service */ "./src/app/service/state.service.ts");
+var i0 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var i1 = __webpack_require__(/*! @angular/common/http */ "@angular/common/http");
+var i2 = __webpack_require__(/*! ./state.service */ "./src/app/service/state.service.ts");
 var httpOptions = {
     headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json' })
 };
-var HeroService = /** @class */ (function () {
-    function HeroService(http, messageService, origin) {
+var DataService = /** @class */ (function () {
+    function DataService(http, state) {
         this.http = http;
-        this.messageService = messageService;
-        this.heroesUrl = 'api/heroes'; // URL to web api
-        this.heroesUrl = "" + origin + this.heroesUrl;
+        this.state = state;
+        this.crane = undefined;
+        this.water = undefined;
     }
-    /** GET heroes from the server */
-    HeroService.prototype.getHeroes = function () {
-        var _this = this;
-        return this.http.get(this.heroesUrl)
-            .pipe(operators_1.tap(function (heroes) { return _this.log('fetched heroes'); }), operators_1.catchError(this.handleError('getHeroes', [])));
-    };
-    /** GET hero by id. Return `undefined` when id not found */
-    HeroService.prototype.getHeroNo404 = function (id) {
-        var _this = this;
-        var url = this.heroesUrl + "/?id=" + id;
-        return this.http.get(url)
-            .pipe(operators_1.map(function (heroes) { return heroes[0]; }), // returns a {0|1} element array
-        operators_1.tap(function (h) {
-            var outcome = h ? "fetched" : "did not find";
-            _this.log(outcome + " hero id=" + id);
-        }), operators_1.catchError(this.handleError("getHero id=" + id)));
-    };
-    /** GET hero by id. Will 404 if id not found */
-    HeroService.prototype.getHero = function (id) {
-        var _this = this;
-        var url = this.heroesUrl + "/" + id;
-        return this.http.get(url).pipe(operators_1.tap(function (_) { return _this.log("fetched hero id=" + id); }), operators_1.catchError(this.handleError("getHero id=" + id)));
-    };
-    /* GET heroes whose name contains search term */
-    HeroService.prototype.searchHeroes = function (term) {
-        var _this = this;
-        if (!term.trim()) {
-            // if not search term, return empty hero array.
-            return rxjs_1.of([]);
+    DataService.prototype.getCrane = function () {
+        if (this.crane == undefined) {
+            this.fetchCrane();
         }
-        return this.http.get(this.heroesUrl + "/?name=" + term).pipe(operators_1.tap(function (_) { return _this.log("found heroes matching \"" + term + "\""); }), operators_1.catchError(this.handleError('searchHeroes', [])));
+        return rxjs_1.of(this.crane); // Test purpose
     };
-    //////// Save methods //////////
-    /** POST: add a new hero to the server */
-    HeroService.prototype.addHero = function (name) {
-        var _this = this;
-        var hero = { name: name };
-        return this.http.post(this.heroesUrl, hero, httpOptions).pipe(operators_1.tap(function (hero) { return _this.log("added hero w/ id=" + hero.id); }), operators_1.catchError(this.handleError('addHero')));
+    DataService.prototype.getWater = function () {
+        if (this.water == undefined) {
+            this.fetchWater();
+        }
+        return rxjs_1.of(this.water); // Test purpose
     };
-    /** DELETE: delete the hero from the server */
-    HeroService.prototype.deleteHero = function (hero) {
-        var _this = this;
-        var id = typeof hero === 'number' ? hero : hero.id;
-        var url = this.heroesUrl + "/" + id;
-        return this.http.delete(url, httpOptions).pipe(operators_1.tap(function (_) { return _this.log("deleted hero id=" + id); }), operators_1.catchError(this.handleError('deleteHero')));
+    DataService.prototype.fetchCrane = function () {
+        this.crane = mock_data_1.MockCrane; // Test purpose
+        this.state.initCraneState(this.crane);
+        // return this.http.get<Crane>(this.apiGetCrane).pipe(
+        //   tap(c => this.crane = c)
+        // )
     };
-    /** PUT: update the hero on the server */
-    HeroService.prototype.updateHero = function (hero) {
-        var _this = this;
-        return this.http.put(this.heroesUrl, hero, httpOptions).pipe(operators_1.tap(function (_) { return _this.log("updated hero id=" + hero.id); }), operators_1.catchError(this.handleError('updateHero')));
+    DataService.prototype.fetchWater = function () {
+        this.water = mock_data_1.MockWater; // Test purpose
+        this.state.initWaterState(this.water);
+        // return this.http.get<Water>(this.apiGetWater).pipe(
+        //   tap(w => this.water = w)
+        // )
     };
-    /**
-     * Handle Http operation that failed.
-     * Let the app continue.
-     * @param operation - name of the operation that failed
-     * @param result - optional value to return as the observable result
-     */
-    HeroService.prototype.handleError = function (operation, result) {
-        var _this = this;
-        if (operation === void 0) { operation = 'operation'; }
-        return function (error) {
-            // TODO: send the error to remote logging infrastructure
-            console.error(error); // log to console instead
-            // TODO: better job of transforming error for user consumption
-            _this.log(operation + " failed: " + error.message);
-            // Let the app keep running by returning an empty result.
-            return rxjs_1.of(result);
+    DataService.ngInjectableDef = i0.defineInjectable({ factory: function DataService_Factory() { return new DataService(i0.inject(i1.HttpClient), i0.inject(i2.StateService)); }, token: DataService, providedIn: "root" });
+    return DataService;
+}());
+exports.DataService = DataService;
+
+
+/***/ }),
+
+/***/ "./src/app/service/i18n.ts":
+/*!*********************************!*\
+  !*** ./src/app/service/i18n.ts ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.i18n = {
+    en: {
+        eform: {
+            label_eform: 'Select eForm',
+            label_select_crane: 'Crane',
+            label_select_water: 'Water'
+        },
+        crane: {
+            label_ship: 'Select Ship',
+            label_quay: 'Select Quay',
+            label_crane: 'Select Crane',
+            label_workers: 'Select Workers',
+            label_message: 'Message to Workers'
+        },
+        water: {
+            label_ship: 'Select Ship',
+            label_quay: 'Select Quay',
+            label_workers: 'Select Workers',
+            label_message: 'Message to Workers'
+        }
+    },
+    getTexts: function (locale) {
+        if (locale.toLowerCase().includes('da')) {
+            return exports.i18n.en;
+        }
+        else {
+            return exports.i18n.en;
+        }
+    }
+};
+
+
+/***/ }),
+
+/***/ "./src/app/service/mock-data.ts":
+/*!**************************************!*\
+  !*** ./src/app/service/mock-data.ts ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.MockCrane = {
+    ship: [{
+            id: 'ship_1',
+            value: 'ship 1'
+        }, {
+            id: 'ship_2',
+            value: 'ship 2'
+        }, {
+            id: 'ship_3',
+            value: 'ship 3'
+        }],
+    quay: [{
+            id: 'quay_1',
+            value: 'quay 1'
+        }, {
+            id: 'quay_2',
+            value: 'quay 2'
+        }, {
+            id: 'quay_3',
+            value: 'quay 3'
+        }, {
+            id: 'quay_4',
+            value: 'quay 4'
+        }, {
+            id: 'quay_5',
+            value: 'quay 5'
+        }],
+    crane: [{
+            id: 'crane_1',
+            value: 'crane 1'
+        }, {
+            id: 'crane_2',
+            value: 'crane 2'
+        }],
+    workers: [{
+            id: 'worker_1',
+            value: 'worker 1'
+        }, {
+            id: 'worker_2',
+            value: 'worker 2'
+        }, {
+            id: 'worker_3',
+            value: 'worker 3'
+        }, {
+            id: 'worker_4',
+            value: 'worker 4'
+        }],
+    message: ''
+};
+exports.MockWater = {
+    ship: [{
+            id: 'ship_1',
+            value: 'ship 1'
+        }, {
+            id: 'ship_2',
+            value: 'ship 2'
+        }, {
+            id: 'ship_3',
+            value: 'ship 3'
+        }],
+    quay: [{
+            id: 'quay_1',
+            value: 'quay 1'
+        }, {
+            id: 'quay_2',
+            value: 'quay 2'
+        }, {
+            id: 'quay_3',
+            value: 'quay 3'
+        }, {
+            id: 'quay_4',
+            value: 'quay 4'
+        }, {
+            id: 'quay_5',
+            value: 'quay 5'
+        }],
+    workers: [{
+            id: 'worker_1',
+            value: 'worker 1'
+        }, {
+            id: 'worker_2',
+            value: 'worker 2'
+        }, {
+            id: 'worker_3',
+            value: 'worker 3'
+        }, {
+            id: 'worker_4',
+            value: 'worker 4'
+        }],
+    message: ''
+};
+
+
+/***/ }),
+
+/***/ "./src/app/service/state.service.ts":
+/*!******************************************!*\
+  !*** ./src/app/service/state.service.ts ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var rxjs_1 = __webpack_require__(/*! rxjs */ "rxjs");
+var i0 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var StateService = /** @class */ (function () {
+    function StateService() {
+        this.state = {
+            eform: 'water',
+            crane: undefined,
+            water: undefined
         };
-    };
-    /** Log a HeroService message with the MessageService */
-    HeroService.prototype.log = function (message) {
-        this.messageService.add("HeroService: " + message);
-    };
-    return HeroService;
-}());
-exports.HeroService = HeroService;
-
-
-/***/ }),
-
-/***/ "./src/app/heroes/heroes.component.css.shim.ngstyle.js":
-/*!*************************************************************!*\
-  !*** ./src/app/heroes/heroes.component.css.shim.ngstyle.js ***!
-  \*************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-/**
- * @fileoverview This file was generated by the Angular template compiler. Do not edit.
- *
- * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
- * tslint:disable
- */ 
-Object.defineProperty(exports, "__esModule", { value: true });
-var styles = [".heroes[_ngcontent-%COMP%] {\n  margin: 0 0 2em 0;\n  list-style-type: none;\n  padding: 0;\n  width: 15em;\n}\n.heroes[_ngcontent-%COMP%]   li[_ngcontent-%COMP%] {\n  position: relative;\n  cursor: pointer;\n  background-color: #EEE;\n  margin: .5em;\n  padding: .3em 0;\n  height: 1.6em;\n  border-radius: 4px;\n}\n.heroes[_ngcontent-%COMP%]   li[_ngcontent-%COMP%]:hover {\n  color: #607D8B;\n  background-color: #DDD;\n  left: .1em;\n}\n.heroes[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n  color: #888;\n  text-decoration: none;\n  position: relative;\n  display: block;\n  width: 250px;\n}\n.heroes[_ngcontent-%COMP%]   a[_ngcontent-%COMP%]:hover {\n  color:#607D8B;\n}\n.heroes[_ngcontent-%COMP%]   .badge[_ngcontent-%COMP%] {\n  display: inline-block;\n  font-size: small;\n  color: white;\n  padding: 0.8em 0.7em 0 0.7em;\n  background-color: #607D8B;\n  line-height: 1em;\n  position: relative;\n  left: -1px;\n  top: -4px;\n  height: 1.8em;\n  min-width: 16px;\n  text-align: right;\n  margin-right: .8em;\n  border-radius: 4px 0 0 4px;\n}\n.button[_ngcontent-%COMP%] {\n  background-color: #eee;\n  border: none;\n  padding: 5px 10px;\n  border-radius: 4px;\n  cursor: pointer;\n  cursor: hand;\n  font-family: Arial;\n}\nbutton[_ngcontent-%COMP%]:hover {\n  background-color: #cfd8dc;\n}\nbutton.delete[_ngcontent-%COMP%] {\n  position: relative;\n  left: 194px;\n  top: -32px;\n  background-color: gray !important;\n  color: white;\n}"];
-exports.styles = styles;
-
-
-/***/ }),
-
-/***/ "./src/app/heroes/heroes.component.ngfactory.js":
-/*!******************************************************!*\
-  !*** ./src/app/heroes/heroes.component.ngfactory.js ***!
-  \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-/**
- * @fileoverview This file was generated by the Angular template compiler. Do not edit.
- *
- * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
- * tslint:disable
- */ 
-Object.defineProperty(exports, "__esModule", { value: true });
-var i0 = __webpack_require__(/*! ./heroes.component.css.shim.ngstyle */ "./src/app/heroes/heroes.component.css.shim.ngstyle.js");
-var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
-var i2 = __webpack_require__(/*! @angular/router */ "@angular/router");
-var i3 = __webpack_require__(/*! @angular/common */ "@angular/common");
-var i4 = __webpack_require__(/*! ./heroes.component */ "./src/app/heroes/heroes.component.ts");
-var i5 = __webpack_require__(/*! ../hero.service */ "./src/app/hero.service.ts");
-var styles_HeroesComponent = [i0.styles];
-var RenderType_HeroesComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_HeroesComponent, data: {} });
-exports.RenderType_HeroesComponent = RenderType_HeroesComponent;
-function View_HeroesComponent_1(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 7, "li", [], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 4, "a", [], [[1, "target", 0], [8, "href", 4]], [[null, "click"]], function (_v, en, $event) { var ad = true; if (("click" === en)) {
-        var pd_0 = (i1.ɵnov(_v, 2).onClick($event.button, $event.ctrlKey, $event.metaKey, $event.shiftKey) !== false);
-        ad = (pd_0 && ad);
-    } return ad; }, null, null)), i1.ɵdid(2, 671744, null, 0, i2.RouterLinkWithHref, [i2.Router, i2.ActivatedRoute, i3.LocationStrategy], { routerLink: [0, "routerLink"] }, null), (_l()(), i1.ɵeld(3, 0, null, null, 1, "span", [["class", "badge"]], null, null, null, null, null)), (_l()(), i1.ɵted(4, null, ["", ""])), (_l()(), i1.ɵted(5, null, [" ", " "])), (_l()(), i1.ɵeld(6, 0, null, null, 1, "button", [["class", "delete"], ["title", "delete hero"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
-        _co.delete(_v.context.$implicit);
-        var pd_0 = ($event.stopPropagation() !== false);
-        ad = (pd_0 && ad);
-    } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, ["x"]))], function (_ck, _v) { var currVal_2 = i1.ɵinlineInterpolate(1, "/detail/", _v.context.$implicit.id, ""); _ck(_v, 2, 0, currVal_2); }, function (_ck, _v) { var currVal_0 = i1.ɵnov(_v, 2).target; var currVal_1 = i1.ɵnov(_v, 2).href; _ck(_v, 1, 0, currVal_0, currVal_1); var currVal_3 = _v.context.$implicit.id; _ck(_v, 4, 0, currVal_3); var currVal_4 = _v.context.$implicit.name; _ck(_v, 5, 0, currVal_4); }); }
-function View_HeroesComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "h2", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["My Heroes"])), (_l()(), i1.ɵeld(2, 0, null, null, 5, "div", [], null, null, null, null, null)), (_l()(), i1.ɵeld(3, 0, null, null, 2, "label", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Hero name: "])), (_l()(), i1.ɵeld(5, 0, [["heroName", 1]], null, 0, "input", [], null, null, null, null, null)), (_l()(), i1.ɵeld(6, 0, null, null, 1, "button", [], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
-        _co.add(i1.ɵnov(_v, 5).value);
-        var pd_0 = ((i1.ɵnov(_v, 5).value = "") !== false);
-        ad = (pd_0 && ad);
-    } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, [" add "])), (_l()(), i1.ɵeld(8, 0, null, null, 2, "ul", [["class", "heroes"]], null, null, null, null, null)), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_HeroesComponent_1)), i1.ɵdid(10, 278528, null, 0, i3.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], { ngForOf: [0, "ngForOf"] }, null)], function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.heroes; _ck(_v, 10, 0, currVal_0); }, null); }
-exports.View_HeroesComponent_0 = View_HeroesComponent_0;
-function View_HeroesComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-heroes", [], null, null, null, View_HeroesComponent_0, RenderType_HeroesComponent)), i1.ɵdid(1, 114688, null, 0, i4.HeroesComponent, [i5.HeroService], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
-exports.View_HeroesComponent_Host_0 = View_HeroesComponent_Host_0;
-var HeroesComponentNgFactory = i1.ɵccf("app-heroes", i4.HeroesComponent, View_HeroesComponent_Host_0, {}, {}, []);
-exports.HeroesComponentNgFactory = HeroesComponentNgFactory;
-
-
-/***/ }),
-
-/***/ "./src/app/heroes/heroes.component.ts":
-/*!********************************************!*\
-  !*** ./src/app/heroes/heroes.component.ts ***!
-  \********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
-var hero_service_1 = __webpack_require__(/*! ../hero.service */ "./src/app/hero.service.ts");
-var HeroesComponent = /** @class */ (function () {
-    function HeroesComponent(heroService) {
-        this.heroService = heroService;
     }
-    HeroesComponent.prototype.ngOnInit = function () {
-        this.getHeroes();
+    StateService.prototype.getEState = function () {
+        return rxjs_1.of(this.state.eform);
     };
-    HeroesComponent.prototype.getHeroes = function () {
-        var _this = this;
-        this.heroService.getHeroes()
-            .subscribe(function (heroes) { return _this.heroes = heroes; });
+    StateService.prototype.getCraneState = function () {
+        return rxjs_1.of(this.state.crane);
     };
-    HeroesComponent.prototype.add = function (name) {
-        var _this = this;
-        name = name.trim();
-        if (!name) {
-            return;
+    StateService.prototype.getWaterState = function () {
+        return rxjs_1.of(this.state.water);
+    };
+    StateService.prototype.initCraneState = function (c) {
+        if (this.state.crane == undefined) {
+            this.state.crane = {
+                shipid: c.ship[0].id,
+                quayid: c.quay[0].id,
+                craneid: c.crane[0].id,
+                workers: Array(c.workers.length).fill(false),
+                message: c.message
+            };
         }
-        this.heroService.addHero(name)
-            .subscribe(function (hero) {
-            _this.heroes.push(hero);
-        });
+        else {
+            // regen water state -> check if current id is in new list ? preserve original id : [0].id
+        }
     };
-    HeroesComponent.prototype.delete = function (hero) {
-        var _this = this;
-        this.heroService.deleteHero(hero)
-            .subscribe(function () {
-            _this.heroes = _this.heroes.filter(function (h) { return h !== hero; });
-        });
+    StateService.prototype.initWaterState = function (c) {
+        if (this.state.water == undefined) {
+            this.state.water = {
+                shipid: c.ship[0].id,
+                quayid: c.quay[0].id,
+                workers: Array(c.workers.length).fill(false),
+                message: c.message
+            };
+        }
+        else {
+            // regen water state -> check if current id is in new list ? preserve original id : [0].id
+        }
     };
-    return HeroesComponent;
+    StateService.ngInjectableDef = i0.defineInjectable({ factory: function StateService_Factory() { return new StateService(); }, token: StateService, providedIn: "root" });
+    return StateService;
 }());
-exports.HeroesComponent = HeroesComponent;
+exports.StateService = StateService;
 
 
 /***/ }),
 
-/***/ "./src/app/in-memory-data.service.ts":
-/*!*******************************************!*\
-  !*** ./src/app/in-memory-data.service.ts ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var InMemoryDataService = /** @class */ (function () {
-    function InMemoryDataService() {
-    }
-    InMemoryDataService.prototype.createDb = function () {
-        var heroes = [
-            { id: 11, name: 'Mr. Nice' },
-            { id: 12, name: 'Narco' },
-            { id: 13, name: 'Bombasto' },
-            { id: 14, name: 'Celeritas' },
-            { id: 15, name: 'Magneta' },
-            { id: 16, name: 'RubberMan' },
-            { id: 17, name: 'Dynama' },
-            { id: 18, name: 'Dr IQ' },
-            { id: 19, name: 'Magma' },
-            { id: 20, name: 'Tornado' }
-        ];
-        return { heroes: heroes };
-    };
-    return InMemoryDataService;
-}());
-exports.InMemoryDataService = InMemoryDataService;
-
-
-/***/ }),
-
-/***/ "./src/app/message.service.ts":
-/*!************************************!*\
-  !*** ./src/app/message.service.ts ***!
-  \************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var MessageService = /** @class */ (function () {
-    function MessageService() {
-        this.messages = [];
-    }
-    MessageService.prototype.add = function (message) {
-        this.messages.push(message);
-    };
-    MessageService.prototype.clear = function () {
-        this.messages = [];
-    };
-    return MessageService;
-}());
-exports.MessageService = MessageService;
-
-
-/***/ }),
-
-/***/ "./src/app/messages/messages.component.css.shim.ngstyle.js":
-/*!*****************************************************************!*\
-  !*** ./src/app/messages/messages.component.css.shim.ngstyle.js ***!
-  \*****************************************************************/
+/***/ "./src/app/water/water.component.css.shim.ngstyle.js":
+/*!***********************************************************!*\
+  !*** ./src/app/water/water.component.css.shim.ngstyle.js ***!
+  \***********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -940,16 +992,16 @@ exports.MessageService = MessageService;
  * tslint:disable
  */ 
 Object.defineProperty(exports, "__esModule", { value: true });
-var styles = ["h2[_ngcontent-%COMP%] {\n  color: red;\n  font-family: Arial, Helvetica, sans-serif;\n  font-weight: lighter;\n}\nbody[_ngcontent-%COMP%] {\n  margin: 2em;\n}\nbody[_ngcontent-%COMP%], input[text][_ngcontent-%COMP%], button[_ngcontent-%COMP%] {\n  color: crimson;\n  font-family: Cambria, Georgia;\n}\nbutton.clear[_ngcontent-%COMP%] {\n  font-family: Arial;\n  background-color: #eee;\n  border: none;\n  padding: 5px 10px;\n  border-radius: 4px;\n  cursor: pointer;\n  cursor: hand;\n}\nbutton[_ngcontent-%COMP%]:hover {\n  background-color: #cfd8dc;\n}\nbutton[_ngcontent-%COMP%]:disabled {\n  background-color: #eee;\n  color: #aaa;\n  cursor: auto;\n}\nbutton.clear[_ngcontent-%COMP%] {\n  color: #888;\n  margin-bottom: 12px;\n}"];
+var styles = [""];
 exports.styles = styles;
 
 
 /***/ }),
 
-/***/ "./src/app/messages/messages.component.ngfactory.js":
-/*!**********************************************************!*\
-  !*** ./src/app/messages/messages.component.ngfactory.js ***!
-  \**********************************************************/
+/***/ "./src/app/water/water.component.ngfactory.js":
+/*!****************************************************!*\
+  !*** ./src/app/water/water.component.ngfactory.js ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -962,33 +1014,82 @@ exports.styles = styles;
  * tslint:disable
  */ 
 Object.defineProperty(exports, "__esModule", { value: true });
-var i0 = __webpack_require__(/*! ./messages.component.css.shim.ngstyle */ "./src/app/messages/messages.component.css.shim.ngstyle.js");
+var i0 = __webpack_require__(/*! ./water.component.css.shim.ngstyle */ "./src/app/water/water.component.css.shim.ngstyle.js");
 var i1 = __webpack_require__(/*! @angular/core */ "@angular/core");
-var i2 = __webpack_require__(/*! @angular/common */ "@angular/common");
-var i3 = __webpack_require__(/*! ./messages.component */ "./src/app/messages/messages.component.ts");
-var i4 = __webpack_require__(/*! ../message.service */ "./src/app/message.service.ts");
-var styles_MessagesComponent = [i0.styles];
-var RenderType_MessagesComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_MessagesComponent, data: {} });
-exports.RenderType_MessagesComponent = RenderType_MessagesComponent;
-function View_MessagesComponent_2(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "div", [], null, null, null, null, null)), (_l()(), i1.ɵted(1, null, [" ", " "]))], null, function (_ck, _v) { var currVal_0 = _v.context.$implicit; _ck(_v, 1, 0, currVal_0); }); }
-function View_MessagesComponent_1(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 6, "div", [], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "h2", [], null, null, null, null, null)), (_l()(), i1.ɵted(-1, null, ["Messages"])), (_l()(), i1.ɵeld(3, 0, null, null, 1, "button", [["class", "clear"]], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
-        var pd_0 = (_co.messageService.clear() !== false);
+var i2 = __webpack_require__(/*! @angular/forms */ "@angular/forms");
+var i3 = __webpack_require__(/*! @angular/common */ "@angular/common");
+var i4 = __webpack_require__(/*! ./water.component */ "./src/app/water/water.component.ts");
+var i5 = __webpack_require__(/*! ../service/data.service */ "./src/app/service/data.service.ts");
+var i6 = __webpack_require__(/*! ../service/state.service */ "./src/app/service/state.service.ts");
+var styles_WaterComponent = [i0.styles];
+var RenderType_WaterComponent = i1.ɵcrt({ encapsulation: 0, styles: styles_WaterComponent, data: {} });
+exports.RenderType_WaterComponent = RenderType_WaterComponent;
+function View_WaterComponent_2(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 3, "option", [], null, null, null, null, null)), i1.ɵdid(1, 147456, null, 0, i2.NgSelectOption, [i1.ElementRef, i1.Renderer2, [2, i2.SelectControlValueAccessor]], { ngValue: [0, "ngValue"] }, null), i1.ɵdid(2, 147456, null, 0, i2.ɵangular_packages_forms_forms_r, [i1.ElementRef, i1.Renderer2, [8, null]], { ngValue: [0, "ngValue"] }, null), (_l()(), i1.ɵted(3, null, ["", ""]))], function (_ck, _v) { var currVal_0 = _v.context.$implicit.id; _ck(_v, 1, 0, currVal_0); var currVal_1 = _v.context.$implicit.id; _ck(_v, 2, 0, currVal_1); }, function (_ck, _v) { var currVal_2 = _v.context.$implicit.value; _ck(_v, 3, 0, currVal_2); }); }
+function View_WaterComponent_1(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 10, "div", [["class", "section"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "label", [], null, null, null, null, null)), (_l()(), i1.ɵted(2, null, ["", ""])), (_l()(), i1.ɵeld(3, 0, null, null, 7, "select", [], [[2, "ng-untouched", null], [2, "ng-touched", null], [2, "ng-pristine", null], [2, "ng-dirty", null], [2, "ng-valid", null], [2, "ng-invalid", null], [2, "ng-pending", null]], [[null, "ngModelChange"], [null, "change"], [null, "blur"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("change" === en)) {
+        var pd_0 = (i1.ɵnov(_v, 4).onChange($event.target.value) !== false);
         ad = (pd_0 && ad);
-    } return ad; }, null, null)), (_l()(), i1.ɵted(-1, null, ["clear"])), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_MessagesComponent_2)), i1.ɵdid(6, 278528, null, 0, i2.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], { ngForOf: [0, "ngForOf"] }, null)], function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.messageService.messages; _ck(_v, 6, 0, currVal_0); }, null); }
-function View_MessagesComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵand(16777216, null, null, 1, null, View_MessagesComponent_1)), i1.ɵdid(1, 16384, null, 0, i2.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null)], function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.messageService.messages.length; _ck(_v, 1, 0, currVal_0); }, null); }
-exports.View_MessagesComponent_0 = View_MessagesComponent_0;
-function View_MessagesComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-messages", [], null, null, null, View_MessagesComponent_0, RenderType_MessagesComponent)), i1.ɵdid(1, 114688, null, 0, i3.MessagesComponent, [i4.MessageService], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
-exports.View_MessagesComponent_Host_0 = View_MessagesComponent_Host_0;
-var MessagesComponentNgFactory = i1.ɵccf("app-messages", i3.MessagesComponent, View_MessagesComponent_Host_0, {}, {}, []);
-exports.MessagesComponentNgFactory = MessagesComponentNgFactory;
+    } if (("blur" === en)) {
+        var pd_1 = (i1.ɵnov(_v, 4).onTouched() !== false);
+        ad = (pd_1 && ad);
+    } if (("ngModelChange" === en)) {
+        var pd_2 = ((_co.state.shipid = $event) !== false);
+        ad = (pd_2 && ad);
+    } return ad; }, null, null)), i1.ɵdid(4, 16384, null, 0, i2.SelectControlValueAccessor, [i1.Renderer2, i1.ElementRef], null, null), i1.ɵprd(1024, null, i2.NG_VALUE_ACCESSOR, function (p0_0) { return [p0_0]; }, [i2.SelectControlValueAccessor]), i1.ɵdid(6, 671744, null, 0, i2.NgModel, [[8, null], [8, null], [8, null], [6, i2.NG_VALUE_ACCESSOR]], { model: [0, "model"] }, { update: "ngModelChange" }), i1.ɵprd(2048, null, i2.NgControl, null, [i2.NgModel]), i1.ɵdid(8, 16384, null, 0, i2.NgControlStatus, [[4, i2.NgControl]], null, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_WaterComponent_2)), i1.ɵdid(10, 278528, null, 0, i3.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], { ngForOf: [0, "ngForOf"] }, null)], function (_ck, _v) { var _co = _v.component; var currVal_8 = _co.state.shipid; _ck(_v, 6, 0, currVal_8); var currVal_9 = _co.content.ship.value; _ck(_v, 10, 0, currVal_9); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.content.ship.label; _ck(_v, 2, 0, currVal_0); var currVal_1 = i1.ɵnov(_v, 8).ngClassUntouched; var currVal_2 = i1.ɵnov(_v, 8).ngClassTouched; var currVal_3 = i1.ɵnov(_v, 8).ngClassPristine; var currVal_4 = i1.ɵnov(_v, 8).ngClassDirty; var currVal_5 = i1.ɵnov(_v, 8).ngClassValid; var currVal_6 = i1.ɵnov(_v, 8).ngClassInvalid; var currVal_7 = i1.ɵnov(_v, 8).ngClassPending; _ck(_v, 3, 0, currVal_1, currVal_2, currVal_3, currVal_4, currVal_5, currVal_6, currVal_7); }); }
+function View_WaterComponent_4(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 3, "option", [], null, null, null, null, null)), i1.ɵdid(1, 147456, null, 0, i2.NgSelectOption, [i1.ElementRef, i1.Renderer2, [2, i2.SelectControlValueAccessor]], { ngValue: [0, "ngValue"] }, null), i1.ɵdid(2, 147456, null, 0, i2.ɵangular_packages_forms_forms_r, [i1.ElementRef, i1.Renderer2, [8, null]], { ngValue: [0, "ngValue"] }, null), (_l()(), i1.ɵted(3, null, ["", ""]))], function (_ck, _v) { var currVal_0 = _v.context.$implicit.id; _ck(_v, 1, 0, currVal_0); var currVal_1 = _v.context.$implicit.id; _ck(_v, 2, 0, currVal_1); }, function (_ck, _v) { var currVal_2 = _v.context.$implicit.value; _ck(_v, 3, 0, currVal_2); }); }
+function View_WaterComponent_3(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 10, "div", [["class", "section"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "label", [], null, null, null, null, null)), (_l()(), i1.ɵted(2, null, ["", ""])), (_l()(), i1.ɵeld(3, 0, null, null, 7, "select", [], [[2, "ng-untouched", null], [2, "ng-touched", null], [2, "ng-pristine", null], [2, "ng-dirty", null], [2, "ng-valid", null], [2, "ng-invalid", null], [2, "ng-pending", null]], [[null, "ngModelChange"], [null, "change"], [null, "blur"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("change" === en)) {
+        var pd_0 = (i1.ɵnov(_v, 4).onChange($event.target.value) !== false);
+        ad = (pd_0 && ad);
+    } if (("blur" === en)) {
+        var pd_1 = (i1.ɵnov(_v, 4).onTouched() !== false);
+        ad = (pd_1 && ad);
+    } if (("ngModelChange" === en)) {
+        var pd_2 = ((_co.state.quayid = $event) !== false);
+        ad = (pd_2 && ad);
+    } return ad; }, null, null)), i1.ɵdid(4, 16384, null, 0, i2.SelectControlValueAccessor, [i1.Renderer2, i1.ElementRef], null, null), i1.ɵprd(1024, null, i2.NG_VALUE_ACCESSOR, function (p0_0) { return [p0_0]; }, [i2.SelectControlValueAccessor]), i1.ɵdid(6, 671744, null, 0, i2.NgModel, [[8, null], [8, null], [8, null], [6, i2.NG_VALUE_ACCESSOR]], { model: [0, "model"] }, { update: "ngModelChange" }), i1.ɵprd(2048, null, i2.NgControl, null, [i2.NgModel]), i1.ɵdid(8, 16384, null, 0, i2.NgControlStatus, [[4, i2.NgControl]], null, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_WaterComponent_4)), i1.ɵdid(10, 278528, null, 0, i3.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], { ngForOf: [0, "ngForOf"] }, null)], function (_ck, _v) { var _co = _v.component; var currVal_8 = _co.state.quayid; _ck(_v, 6, 0, currVal_8); var currVal_9 = _co.content.quay.value; _ck(_v, 10, 0, currVal_9); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.content.quay.label; _ck(_v, 2, 0, currVal_0); var currVal_1 = i1.ɵnov(_v, 8).ngClassUntouched; var currVal_2 = i1.ɵnov(_v, 8).ngClassTouched; var currVal_3 = i1.ɵnov(_v, 8).ngClassPristine; var currVal_4 = i1.ɵnov(_v, 8).ngClassDirty; var currVal_5 = i1.ɵnov(_v, 8).ngClassValid; var currVal_6 = i1.ɵnov(_v, 8).ngClassInvalid; var currVal_7 = i1.ɵnov(_v, 8).ngClassPending; _ck(_v, 3, 0, currVal_1, currVal_2, currVal_3, currVal_4, currVal_5, currVal_6, currVal_7); }); }
+function View_WaterComponent_6(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 7, "li", [], null, [[null, "click"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("click" === en)) {
+        var pd_0 = (_co.onWorkers(_v.context.index) !== false);
+        ad = (pd_0 && ad);
+    } return ad; }, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 5, "input", [["type", "checkbox"]], [[2, "ng-untouched", null], [2, "ng-touched", null], [2, "ng-pristine", null], [2, "ng-dirty", null], [2, "ng-valid", null], [2, "ng-invalid", null], [2, "ng-pending", null]], [[null, "ngModelChange"], [null, "change"], [null, "blur"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("change" === en)) {
+        var pd_0 = (i1.ɵnov(_v, 2).onChange($event.target.checked) !== false);
+        ad = (pd_0 && ad);
+    } if (("blur" === en)) {
+        var pd_1 = (i1.ɵnov(_v, 2).onTouched() !== false);
+        ad = (pd_1 && ad);
+    } if (("ngModelChange" === en)) {
+        var pd_2 = ((_co.state.workers[_v.context.index] = $event) !== false);
+        ad = (pd_2 && ad);
+    } return ad; }, null, null)), i1.ɵdid(2, 16384, null, 0, i2.CheckboxControlValueAccessor, [i1.Renderer2, i1.ElementRef], null, null), i1.ɵprd(1024, null, i2.NG_VALUE_ACCESSOR, function (p0_0) { return [p0_0]; }, [i2.CheckboxControlValueAccessor]), i1.ɵdid(4, 671744, null, 0, i2.NgModel, [[8, null], [8, null], [8, null], [6, i2.NG_VALUE_ACCESSOR]], { model: [0, "model"] }, { update: "ngModelChange" }), i1.ɵprd(2048, null, i2.NgControl, null, [i2.NgModel]), i1.ɵdid(6, 16384, null, 0, i2.NgControlStatus, [[4, i2.NgControl]], null, null), (_l()(), i1.ɵted(7, null, ["", " "]))], function (_ck, _v) { var _co = _v.component; var currVal_7 = _co.state.workers[_v.context.index]; _ck(_v, 4, 0, currVal_7); }, function (_ck, _v) { var currVal_0 = i1.ɵnov(_v, 6).ngClassUntouched; var currVal_1 = i1.ɵnov(_v, 6).ngClassTouched; var currVal_2 = i1.ɵnov(_v, 6).ngClassPristine; var currVal_3 = i1.ɵnov(_v, 6).ngClassDirty; var currVal_4 = i1.ɵnov(_v, 6).ngClassValid; var currVal_5 = i1.ɵnov(_v, 6).ngClassInvalid; var currVal_6 = i1.ɵnov(_v, 6).ngClassPending; _ck(_v, 1, 0, currVal_0, currVal_1, currVal_2, currVal_3, currVal_4, currVal_5, currVal_6); var currVal_8 = _v.context.$implicit.value; _ck(_v, 7, 0, currVal_8); }); }
+function View_WaterComponent_5(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 5, "div", [["class", "section"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "label", [], null, null, null, null, null)), (_l()(), i1.ɵted(2, null, ["", ""])), (_l()(), i1.ɵeld(3, 0, null, null, 2, "ul", [], null, null, null, null, null)), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_WaterComponent_6)), i1.ɵdid(5, 278528, null, 0, i3.NgForOf, [i1.ViewContainerRef, i1.TemplateRef, i1.IterableDiffers], { ngForOf: [0, "ngForOf"] }, null)], function (_ck, _v) { var _co = _v.component; var currVal_1 = _co.content.workers.value; _ck(_v, 5, 0, currVal_1); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.content.workers.label; _ck(_v, 2, 0, currVal_0); }); }
+function View_WaterComponent_7(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 8, "div", [["class", "section"]], null, null, null, null, null)), (_l()(), i1.ɵeld(1, 0, null, null, 1, "label", [], null, null, null, null, null)), (_l()(), i1.ɵted(2, null, ["", ""])), (_l()(), i1.ɵeld(3, 0, null, null, 5, "textarea", [["rows", "8"]], [[2, "ng-untouched", null], [2, "ng-touched", null], [2, "ng-pristine", null], [2, "ng-dirty", null], [2, "ng-valid", null], [2, "ng-invalid", null], [2, "ng-pending", null]], [[null, "ngModelChange"], [null, "input"], [null, "blur"], [null, "compositionstart"], [null, "compositionend"]], function (_v, en, $event) { var ad = true; var _co = _v.component; if (("input" === en)) {
+        var pd_0 = (i1.ɵnov(_v, 4)._handleInput($event.target.value) !== false);
+        ad = (pd_0 && ad);
+    } if (("blur" === en)) {
+        var pd_1 = (i1.ɵnov(_v, 4).onTouched() !== false);
+        ad = (pd_1 && ad);
+    } if (("compositionstart" === en)) {
+        var pd_2 = (i1.ɵnov(_v, 4)._compositionStart() !== false);
+        ad = (pd_2 && ad);
+    } if (("compositionend" === en)) {
+        var pd_3 = (i1.ɵnov(_v, 4)._compositionEnd($event.target.value) !== false);
+        ad = (pd_3 && ad);
+    } if (("ngModelChange" === en)) {
+        var pd_4 = ((_co.state.message = $event) !== false);
+        ad = (pd_4 && ad);
+    } return ad; }, null, null)), i1.ɵdid(4, 16384, null, 0, i2.DefaultValueAccessor, [i1.Renderer2, i1.ElementRef, [2, i2.COMPOSITION_BUFFER_MODE]], null, null), i1.ɵprd(1024, null, i2.NG_VALUE_ACCESSOR, function (p0_0) { return [p0_0]; }, [i2.DefaultValueAccessor]), i1.ɵdid(6, 671744, null, 0, i2.NgModel, [[8, null], [8, null], [8, null], [6, i2.NG_VALUE_ACCESSOR]], { model: [0, "model"] }, { update: "ngModelChange" }), i1.ɵprd(2048, null, i2.NgControl, null, [i2.NgModel]), i1.ɵdid(8, 16384, null, 0, i2.NgControlStatus, [[4, i2.NgControl]], null, null)], function (_ck, _v) { var _co = _v.component; var currVal_8 = _co.state.message; _ck(_v, 6, 0, currVal_8); }, function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.content.message.label; _ck(_v, 2, 0, currVal_0); var currVal_1 = i1.ɵnov(_v, 8).ngClassUntouched; var currVal_2 = i1.ɵnov(_v, 8).ngClassTouched; var currVal_3 = i1.ɵnov(_v, 8).ngClassPristine; var currVal_4 = i1.ɵnov(_v, 8).ngClassDirty; var currVal_5 = i1.ɵnov(_v, 8).ngClassValid; var currVal_6 = i1.ɵnov(_v, 8).ngClassInvalid; var currVal_7 = i1.ɵnov(_v, 8).ngClassPending; _ck(_v, 3, 0, currVal_1, currVal_2, currVal_3, currVal_4, currVal_5, currVal_6, currVal_7); }); }
+function View_WaterComponent_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵand(16777216, null, null, 1, null, View_WaterComponent_1)), i1.ɵdid(1, 16384, null, 0, i3.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_WaterComponent_3)), i1.ɵdid(3, 16384, null, 0, i3.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_WaterComponent_5)), i1.ɵdid(5, 16384, null, 0, i3.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null), (_l()(), i1.ɵand(16777216, null, null, 1, null, View_WaterComponent_7)), i1.ɵdid(7, 16384, null, 0, i3.NgIf, [i1.ViewContainerRef, i1.TemplateRef], { ngIf: [0, "ngIf"] }, null)], function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.state; _ck(_v, 1, 0, currVal_0); var currVal_1 = _co.state; _ck(_v, 3, 0, currVal_1); var currVal_2 = _co.state; _ck(_v, 5, 0, currVal_2); var currVal_3 = _co.state; _ck(_v, 7, 0, currVal_3); }, null); }
+exports.View_WaterComponent_0 = View_WaterComponent_0;
+function View_WaterComponent_Host_0(_l) { return i1.ɵvid(0, [(_l()(), i1.ɵeld(0, 0, null, null, 1, "app-water", [], null, null, null, View_WaterComponent_0, RenderType_WaterComponent)), i1.ɵdid(1, 114688, null, 0, i4.WaterComponent, [i1.NgZone, i5.DataService, i6.StateService], null, null)], function (_ck, _v) { _ck(_v, 1, 0); }, null); }
+exports.View_WaterComponent_Host_0 = View_WaterComponent_Host_0;
+var WaterComponentNgFactory = i1.ɵccf("app-water", i4.WaterComponent, View_WaterComponent_Host_0, {}, {}, []);
+exports.WaterComponentNgFactory = WaterComponentNgFactory;
 
 
 /***/ }),
 
-/***/ "./src/app/messages/messages.component.ts":
-/*!************************************************!*\
-  !*** ./src/app/messages/messages.component.ts ***!
-  \************************************************/
+/***/ "./src/app/water/water.component.ts":
+/*!******************************************!*\
+  !*** ./src/app/water/water.component.ts ***!
+  \******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -996,16 +1097,55 @@ exports.MessagesComponentNgFactory = MessagesComponentNgFactory;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
-var message_service_1 = __webpack_require__(/*! ../message.service */ "./src/app/message.service.ts");
-var MessagesComponent = /** @class */ (function () {
-    function MessagesComponent(messageService) {
-        this.messageService = messageService;
+var data_service_1 = __webpack_require__(/*! ../service/data.service */ "./src/app/service/data.service.ts");
+var i18n_1 = __webpack_require__(/*! ../service/i18n */ "./src/app/service/i18n.ts");
+var state_service_1 = __webpack_require__(/*! ../service/state.service */ "./src/app/service/state.service.ts");
+var WaterComponent = /** @class */ (function () {
+    function WaterComponent(zone, data, _state) {
+        this.zone = zone;
+        this.data = data;
+        this._state = _state;
     }
-    MessagesComponent.prototype.ngOnInit = function () {
+    WaterComponent.prototype.ngOnInit = function () {
+        // let lang = Office.context.displayLanguage
+        var lang = 'en';
+        this.uitext = i18n_1.i18n.getTexts(lang);
+        this.getWater();
+        this.getState();
     };
-    return MessagesComponent;
+    WaterComponent.prototype.getState = function () {
+        var _this = this;
+        this._state.getWaterState().subscribe(function (ws) { return _this.state = ws; });
+    };
+    WaterComponent.prototype.getWater = function () {
+        var _this = this;
+        this.data.getWater().subscribe(function (c) {
+            _this.content = {
+                ship: {
+                    label: _this.uitext.water.label_ship,
+                    value: c.ship
+                },
+                quay: {
+                    label: _this.uitext.water.label_quay,
+                    value: c.quay
+                },
+                workers: {
+                    label: _this.uitext.water.label_workers,
+                    value: c.workers
+                },
+                message: {
+                    label: _this.uitext.water.label_message,
+                    value: c.message
+                }
+            };
+        });
+    };
+    WaterComponent.prototype.onWorkers = function (workerIndex) {
+        this.state.workers[workerIndex] = !this.state.workers[workerIndex];
+    };
+    return WaterComponent;
 }());
-exports.MessagesComponent = MessagesComponent;
+exports.WaterComponent = WaterComponent;
 
 
 /***/ }),
@@ -1173,28 +1313,6 @@ module.exports = require("@nguniversal/module-map-ngfactory-loader");
 
 /***/ }),
 
-/***/ "angular-in-memory-web-api/http-client-in-memory-web-api.module":
-/*!*********************************************************************************!*\
-  !*** external "angular-in-memory-web-api/http-client-in-memory-web-api.module" ***!
-  \*********************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("angular-in-memory-web-api/http-client-in-memory-web-api.module");
-
-/***/ }),
-
-/***/ "angular-in-memory-web-api/interfaces":
-/*!*******************************************************!*\
-  !*** external "angular-in-memory-web-api/interfaces" ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("angular-in-memory-web-api/interfaces");
-
-/***/ }),
-
 /***/ "rxjs":
 /*!***********************!*\
   !*** external "rxjs" ***!
@@ -1203,17 +1321,6 @@ module.exports = require("angular-in-memory-web-api/interfaces");
 /***/ (function(module, exports) {
 
 module.exports = require("rxjs");
-
-/***/ }),
-
-/***/ "rxjs/operators":
-/*!*********************************!*\
-  !*** external "rxjs/operators" ***!
-  \*********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = require("rxjs/operators");
 
 /***/ })
 
