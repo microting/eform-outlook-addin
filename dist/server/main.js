@@ -462,7 +462,7 @@ var CraneComponent = /** @class */ (function () {
     };
     CraneComponent.prototype.getState = function () {
         var _this = this;
-        this._state.getCraneState().subscribe(function (cs) { return _this.state = cs; });
+        this._state.getCraneState().subscribe(function (cs) { _this.state = cs; console.log("get crane state called"); });
     };
     CraneComponent.prototype.getCrane = function () {
         var _this = this;
@@ -699,7 +699,7 @@ var MainComponent = /** @class */ (function () {
     };
     MainComponent.prototype.getState = function () {
         var _this = this;
-        this._state.getEState().subscribe(function (es) { return _this.state = es; });
+        this._state.getEState().subscribe(function (es) { _this.state = es; console.log("get main state called"); });
     };
     MainComponent.prototype.onInsert = function () {
         var _this = this;

@@ -24,7 +24,7 @@ export class CraneComponent implements OnInit {
   }
 
   getState(): void {
-    this._state.getCraneState().subscribe(cs => this.state = cs)
+    this._state.getCraneState().subscribe(cs => {this.state = cs; console.log("get crane state called");})
   }
 
   getCrane(): void {

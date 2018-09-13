@@ -34,7 +34,7 @@ export class MainComponent implements OnInit {
   }
 
   getState(): void {
-    this._state.getEState().subscribe(es => this.state = es)
+    this._state.getEState().subscribe(es => {this.state = es; console.log("get main state called");})
   }
 
   onInsert(): void {
