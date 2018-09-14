@@ -1175,6 +1175,7 @@ var StateService = /** @class */ (function () {
     StateService.prototype.parseCraneBody = function (c) {
         var _this = this;
         var uitext = i18n_1.i18n.getTexts(this.state.locale);
+        console.log('parseCraneBody');
         this.zone.run(function () {
             var item = Office.context.mailbox.item;
             if (item.itemType == Office.MailboxEnums.ItemType.Appointment) {
@@ -1274,6 +1275,7 @@ var StateService = /** @class */ (function () {
     StateService.prototype.parseWaterBody = function (c) {
         var _this = this;
         var uitext = i18n_1.i18n.getTexts(this.state.locale);
+        console.log('parseWaterBody');
         this.zone.run(function () {
             var item = Office.context.mailbox.item;
             if (item.itemType == Office.MailboxEnums.ItemType.Appointment) {

@@ -86,6 +86,7 @@ export class StateService {
 
   parseCraneBody(c: Crane): void {
     let uitext = i18n.getTexts(this.state.locale)
+    console.log('parseCraneBody')
 
     this.zone.run(() => {
       let item = Office.context.mailbox.item
@@ -181,6 +182,7 @@ export class StateService {
 
   parseWaterBody(c: Water): void {
     let uitext = i18n.getTexts(this.state.locale)
+    console.log('parseWaterBody')
 
     this.zone.run(() => {
       let item = Office.context.mailbox.item
