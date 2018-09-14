@@ -112,7 +112,6 @@ export class StateService {
                 if ( optionValue == waterVal ) {
                   __this.state.eform = WATERID
                   __this.onEFormChange()
-                  console.log('crane - eform - water - false')
                   itemMode = false
                   return
                 } else {
@@ -124,7 +123,6 @@ export class StateService {
                   if ( c.ship[j].value == optionValue ) {
                     __this.state.crane.shipid = c.ship[j].id
                     itemMode = true
-                    console.log('crane - ship - true')
                   }
                 }
               } else if ( textLine.startsWith( uitext.crane.label_quay ) ) {
@@ -133,7 +131,6 @@ export class StateService {
                   if ( c.quay[j].value == optionValue ) {
                     __this.state.crane.quayid = c.quay[j].id
                     itemMode = true
-                    console.log('crane - quay - true')
                   }
                 }
               } else if ( textLine.startsWith( uitext.crane.label_crane ) ) {
@@ -142,12 +139,10 @@ export class StateService {
                   if ( c.crane[j].value == optionValue ) {
                     __this.state.crane.craneid = c.crane[j].id
                     itemMode = true
-                    console.log('crane - crane - true')
                   }
                 }
               } else if ( textLine.startsWith( uitext.crane.label_workers ) ) {
                 itemMode = true
-                console.log('crane - workers - true')
                 let optionValue = textLine.split( ':' )[1].trim()
                 let cworkers = optionValue.split(', ')
                 if ( cworkers.length > 0 ) {
@@ -162,11 +157,9 @@ export class StateService {
               } else if (textLine.startsWith( uitext.crane.label_message )) {
                 stringText = textLine.replace(uitext.crane.label_message + ': ', '') + '\n'
                 itemMode = true
-                console.log('crane - message - true')
               } else {
                 itemMode = true
                 stringText = stringText + textLine + '\n'
-                console.log('crane - message - true')
               }
 
               if ( itemMode == false ) break
@@ -175,12 +168,8 @@ export class StateService {
             __this.state.crane.message = stringText
 
             if ( itemMode == true ) {
-              console.log('Crane - DataService fetch')
               const data = __this.injector.get(DataService)
-              console.log(data)
               data.removeEFormItem(WATERID)
-            } else {
-              console.log('Crane - Init with empty value')
             }
             __this.onCraneChange()
           }
@@ -191,7 +180,6 @@ export class StateService {
 
   parseWaterBody(c: Water): void {
     let uitext = i18n.getTexts(this.state.locale)
-    console.log('parseWaterBody')
 
     this.zone.run(() => {
       let item = Office.context.mailbox.item
@@ -216,7 +204,6 @@ export class StateService {
                 let optionValue = textLine.split( ':' )[1].trim()
                 let craneVal = uitext.eform[CRANEID]
                 if ( optionValue == craneVal ) {
-                  console.log('water - eform - crane - false')
                   return
                 } else {
                   itemMode = true
@@ -227,7 +214,6 @@ export class StateService {
                   if ( c.ship[j].value == optionValue ) {
                     __this.state.water.shipid = c.ship[j].id
                     itemMode = true
-                    console.log('ship - quay - true')
                   }
                 }
               } else if ( textLine.startsWith( uitext.water.label_quay ) ) {
@@ -236,11 +222,9 @@ export class StateService {
                   if ( c.quay[j].value == optionValue ) {
                     __this.state.water.quayid = c.quay[j].id
                     itemMode = true
-                    console.log('water - quay - true')
                   }
                 }
               } else if ( textLine.startsWith( uitext.water.label_workers ) ) {
-                console.log('label - workers - true')
                 itemMode = true
                 let optionValue = textLine.split( ':' )[1].trim()
                 let cworkers = optionValue.split(', ')
@@ -254,11 +238,9 @@ export class StateService {
               } else if (textLine.startsWith( uitext.water.label_message )) {
                 stringText = textLine.replace(uitext.water.label_message + ': ', '') + '\n'
                 itemMode = true
-                console.log('water - message - true')
               } else {
                 stringText = stringText + textLine + '\n'
                 itemMode = true
-                console.log('water - message - true')
               }
 
               if ( itemMode == false ) break
@@ -268,11 +250,7 @@ export class StateService {
 
             if ( itemMode == true ) {
               const data = __this.injector.get(DataService)
-              console.log('Water - DataService fetch')
-              console.log(data)
               data.removeEFormItem(CRANEID)
-            } else {
-              console.log('Water - Init with empty value')
             }
             __this.onWaterChange()
           }

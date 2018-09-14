@@ -695,6 +695,8 @@ var MainComponent = /** @class */ (function () {
         var _this = this;
         this._data.getEform().subscribe(function (e) {
             _this.zone.run(function () {
+                console.log('main - eform changed');
+                console.log(e);
                 _this.eform = {
                     label: _this.uitext.eform.label_eform,
                     value: []
@@ -890,10 +892,13 @@ var DataService = /** @class */ (function () {
         // )
     };
     DataService.prototype.removeEFormItem = function (item) {
+        console.log('eform remove requested');
+        console.log(this.eform);
         var index = this.eform.indexOf(item);
         if (index > -1) {
             this.eform.splice(index, 1);
         }
+        console.log(this.eform);
         this.onEFormChange();
     };
     DataService.ngInjectableDef = i0.defineInjectable({ factory: function DataService_Factory() { return new DataService(i0.inject(i1.HttpClient), i0.inject(i0.INJECTOR)); }, token: DataService, providedIn: "root" });
@@ -1196,7 +1201,6 @@ var StateService = /** @class */ (function () {
                                 if (optionValue == waterVal) {
                                     __this_1.state.eform = state_1.WATERID;
                                     __this_1.onEFormChange();
-                                    console.log('crane - eform - water - false');
                                     itemMode = false;
                                     return;
                                 }
@@ -1210,7 +1214,6 @@ var StateService = /** @class */ (function () {
                                     if (c.ship[j].value == optionValue) {
                                         __this_1.state.crane.shipid = c.ship[j].id;
                                         itemMode = true;
-                                        console.log('crane - ship - true');
                                     }
                                 }
                             }
@@ -1220,7 +1223,6 @@ var StateService = /** @class */ (function () {
                                     if (c.quay[j].value == optionValue) {
                                         __this_1.state.crane.quayid = c.quay[j].id;
                                         itemMode = true;
-                                        console.log('crane - quay - true');
                                     }
                                 }
                             }
@@ -1230,13 +1232,11 @@ var StateService = /** @class */ (function () {
                                     if (c.crane[j].value == optionValue) {
                                         __this_1.state.crane.craneid = c.crane[j].id;
                                         itemMode = true;
-                                        console.log('crane - crane - true');
                                     }
                                 }
                             }
                             else if (textLine.startsWith(uitext.crane.label_workers)) {
                                 itemMode = true;
-                                console.log('crane - workers - true');
                                 var optionValue = textLine.split(':')[1].trim();
                                 var cworkers = optionValue.split(', ');
                                 if (cworkers.length > 0) {
@@ -1252,25 +1252,18 @@ var StateService = /** @class */ (function () {
                             else if (textLine.startsWith(uitext.crane.label_message)) {
                                 stringText = textLine.replace(uitext.crane.label_message + ': ', '') + '\n';
                                 itemMode = true;
-                                console.log('crane - message - true');
                             }
                             else {
                                 itemMode = true;
                                 stringText = stringText + textLine + '\n';
-                                console.log('crane - message - true');
                             }
                             if (itemMode == false)
                                 break;
                         }
                         __this_1.state.crane.message = stringText;
                         if (itemMode == true) {
-                            console.log('Crane - DataService fetch');
                             var data = __this_1.injector.get(data_service_1.DataService);
-                            console.log(data);
                             data.removeEFormItem(state_1.WATERID);
-                        }
-                        else {
-                            console.log('Crane - Init with empty value');
                         }
                         __this_1.onCraneChange();
                     }
@@ -1281,7 +1274,6 @@ var StateService = /** @class */ (function () {
     StateService.prototype.parseWaterBody = function (c) {
         var _this = this;
         var uitext = i18n_1.i18n.getTexts(this.state.locale);
-        console.log('parseWaterBody');
         this.zone.run(function () {
             var item = Office.context.mailbox.item;
             if (item.itemType == Office.MailboxEnums.ItemType.Appointment) {
@@ -1305,7 +1297,6 @@ var StateService = /** @class */ (function () {
                                 var optionValue = textLine.split(':')[1].trim();
                                 var craneVal = uitext.eform[state_1.CRANEID];
                                 if (optionValue == craneVal) {
-                                    console.log('water - eform - crane - false');
                                     return;
                                 }
                                 else {
@@ -1318,7 +1309,6 @@ var StateService = /** @class */ (function () {
                                     if (c.ship[j].value == optionValue) {
                                         __this_2.state.water.shipid = c.ship[j].id;
                                         itemMode = true;
-                                        console.log('ship - quay - true');
                                     }
                                 }
                             }
@@ -1328,12 +1318,10 @@ var StateService = /** @class */ (function () {
                                     if (c.quay[j].value == optionValue) {
                                         __this_2.state.water.quayid = c.quay[j].id;
                                         itemMode = true;
-                                        console.log('water - quay - true');
                                     }
                                 }
                             }
                             else if (textLine.startsWith(uitext.water.label_workers)) {
-                                console.log('label - workers - true');
                                 itemMode = true;
                                 var optionValue = textLine.split(':')[1].trim();
                                 var cworkers = optionValue.split(', ');
@@ -1348,12 +1336,10 @@ var StateService = /** @class */ (function () {
                             else if (textLine.startsWith(uitext.water.label_message)) {
                                 stringText = textLine.replace(uitext.water.label_message + ': ', '') + '\n';
                                 itemMode = true;
-                                console.log('water - message - true');
                             }
                             else {
                                 stringText = stringText + textLine + '\n';
                                 itemMode = true;
-                                console.log('water - message - true');
                             }
                             if (itemMode == false)
                                 break;
@@ -1361,12 +1347,7 @@ var StateService = /** @class */ (function () {
                         __this_2.state.water.message = stringText;
                         if (itemMode == true) {
                             var data = __this_2.injector.get(data_service_1.DataService);
-                            console.log('Water - DataService fetch');
-                            console.log(data);
                             data.removeEFormItem(state_1.CRANEID);
-                        }
-                        else {
-                            console.log('Water - Init with empty value');
                         }
                         __this_2.onWaterChange();
                     }
