@@ -29,36 +29,39 @@ export class CraneComponent implements OnInit {
 
   getCrane(): void {
     this._data.getCrane().subscribe(c => {
-      this.content = {
-        ship: {
-          label: this.uitext.crane.label_ship,
-          label_edit: this.uitext.crane.label_edit,
-          label_refresh: this.uitext.crane.label_refresh,
-          value: c.ship
-        },
-        quay: {
-          label: this.uitext.crane.label_quay,
-          label_edit: this.uitext.crane.label_edit,
-          label_refresh: this.uitext.crane.label_refresh,
-          value: c.quay
-        },
-        crane: {
-          label: this.uitext.crane.label_crane,
-          label_edit: this.uitext.crane.label_edit,
-          label_refresh: this.uitext.crane.label_refresh,
-          value: c.crane
-        },
-        workers: {
-          label: this.uitext.crane.label_workers,
-          label_edit: this.uitext.crane.label_edit,
-          label_refresh: this.uitext.crane.label_refresh,
-          value: c.workers
-        },
-        message: {
-          label: this.uitext.crane.label_message,
-          value: c.message
+      this._zone.run(() => {
+        console.log('get crane is fired')
+        this.content = {
+          ship: {
+            label: this.uitext.crane.label_ship,
+            label_edit: this.uitext.crane.label_edit,
+            label_refresh: this.uitext.crane.label_refresh,
+            value: c.ship
+          },
+          quay: {
+            label: this.uitext.crane.label_quay,
+            label_edit: this.uitext.crane.label_edit,
+            label_refresh: this.uitext.crane.label_refresh,
+            value: c.quay
+          },
+          crane: {
+            label: this.uitext.crane.label_crane,
+            label_edit: this.uitext.crane.label_edit,
+            label_refresh: this.uitext.crane.label_refresh,
+            value: c.crane
+          },
+          workers: {
+            label: this.uitext.crane.label_workers,
+            label_edit: this.uitext.crane.label_edit,
+            label_refresh: this.uitext.crane.label_refresh,
+            value: c.workers
+          },
+          message: {
+            label: this.uitext.crane.label_message,
+            value: c.message
+          }
         }
-      }
+      })
     })
   }
 

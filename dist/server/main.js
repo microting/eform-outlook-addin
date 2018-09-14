@@ -467,36 +467,39 @@ var CraneComponent = /** @class */ (function () {
     CraneComponent.prototype.getCrane = function () {
         var _this = this;
         this._data.getCrane().subscribe(function (c) {
-            _this.content = {
-                ship: {
-                    label: _this.uitext.crane.label_ship,
-                    label_edit: _this.uitext.crane.label_edit,
-                    label_refresh: _this.uitext.crane.label_refresh,
-                    value: c.ship
-                },
-                quay: {
-                    label: _this.uitext.crane.label_quay,
-                    label_edit: _this.uitext.crane.label_edit,
-                    label_refresh: _this.uitext.crane.label_refresh,
-                    value: c.quay
-                },
-                crane: {
-                    label: _this.uitext.crane.label_crane,
-                    label_edit: _this.uitext.crane.label_edit,
-                    label_refresh: _this.uitext.crane.label_refresh,
-                    value: c.crane
-                },
-                workers: {
-                    label: _this.uitext.crane.label_workers,
-                    label_edit: _this.uitext.crane.label_edit,
-                    label_refresh: _this.uitext.crane.label_refresh,
-                    value: c.workers
-                },
-                message: {
-                    label: _this.uitext.crane.label_message,
-                    value: c.message
-                }
-            };
+            _this._zone.run(function () {
+                console.log('get crane is fired');
+                _this.content = {
+                    ship: {
+                        label: _this.uitext.crane.label_ship,
+                        label_edit: _this.uitext.crane.label_edit,
+                        label_refresh: _this.uitext.crane.label_refresh,
+                        value: c.ship
+                    },
+                    quay: {
+                        label: _this.uitext.crane.label_quay,
+                        label_edit: _this.uitext.crane.label_edit,
+                        label_refresh: _this.uitext.crane.label_refresh,
+                        value: c.quay
+                    },
+                    crane: {
+                        label: _this.uitext.crane.label_crane,
+                        label_edit: _this.uitext.crane.label_edit,
+                        label_refresh: _this.uitext.crane.label_refresh,
+                        value: c.crane
+                    },
+                    workers: {
+                        label: _this.uitext.crane.label_workers,
+                        label_edit: _this.uitext.crane.label_edit,
+                        label_refresh: _this.uitext.crane.label_refresh,
+                        value: c.workers
+                    },
+                    message: {
+                        label: _this.uitext.crane.label_message,
+                        value: c.message
+                    }
+                };
+            });
         });
     };
     CraneComponent.prototype.onWorkers = function (workerIndex) {
@@ -677,6 +680,7 @@ var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
 var data_service_1 = __webpack_require__(/*! ../service/data.service */ "./src/app/service/data.service.ts");
 var i18n_1 = __webpack_require__(/*! ../service/i18n */ "./src/app/service/i18n.ts");
 var state_service_1 = __webpack_require__(/*! ../service/state.service */ "./src/app/service/state.service.ts");
+var state_1 = __webpack_require__(/*! ../service/state */ "./src/app/service/state.ts");
 var MainComponent = /** @class */ (function () {
     function MainComponent(zone, _data, _state) {
         this.zone = zone;
@@ -685,17 +689,24 @@ var MainComponent = /** @class */ (function () {
     }
     MainComponent.prototype.ngOnInit = function () {
         this.uitext = i18n_1.i18n.getTexts(this._state.state.locale);
-        this.eform = {
-            label: this.uitext.eform.label_eform,
-            value: [{
-                    label: this.uitext.eform.label_select_crane,
-                    value: 'crane'
-                }, {
-                    label: this.uitext.eform.label_select_water,
-                    value: 'water'
-                }]
-        };
+        this.getEForm();
         this.getState();
+    };
+    MainComponent.prototype.getEForm = function () {
+        var _this = this;
+        this._data.getEform().subscribe(function (e) {
+            _this.zone.run(function () {
+                console.log('get eform is fired');
+                _this.eform = {
+                    label: _this.uitext.eform.label_eform,
+                    value: []
+                };
+                for (var i = 0; i < e.length; i++) {
+                    var item = e[i];
+                    _this.eform.value.push({ label: _this.uitext.eform[item], value: item });
+                }
+            });
+        });
     };
     MainComponent.prototype.getState = function () {
         var _this = this;
@@ -704,14 +715,13 @@ var MainComponent = /** @class */ (function () {
     MainComponent.prototype.onInsert = function () {
         var _this = this;
         this.zone.run(function () {
-            // let lang = Office.context.displayLanguage
-            var lang = 'en';
+            var lang = Office.context.displayLanguage;
             _this.uitext = i18n_1.i18n.getTexts(lang);
             var txt_subject = '';
             var txt_body = '';
-            if (_this.state == 'crane') {
-                txt_subject = 'crane';
-                txt_body = _this.uitext.eform.label_eform + ': ' + 'crane' + '<br>';
+            if (_this.state == state_1.CRANEID) {
+                txt_subject = state_1.CRANEID;
+                txt_body = _this.uitext.eform.label_eform + ': ' + _this.uitext.eform[state_1.CRANEID] + '<br>';
                 // crane - ship
                 for (var i = 0; i < _this._data.crane.ship.length; i++) {
                     var shipitem = _this._data.crane.ship[i];
@@ -755,9 +765,9 @@ var MainComponent = /** @class */ (function () {
                 txtVal = txtVal.replace(/\n/g, '<br>');
                 txt_body = txt_body + _this.uitext.crane.label_message + ': ' + txtVal;
             }
-            else if (_this.state == 'water') {
-                txt_subject = 'water';
-                txt_body = _this.uitext.eform.label_eform + ': ' + 'water' + '<br>';
+            else if (_this.state == state_1.WATERID) {
+                txt_subject = state_1.WATERID;
+                txt_body = _this.uitext.eform.label_eform + ': ' + _this.uitext.eform[state_1.WATERID] + '<br>';
                 // water - ship
                 for (var i = 0; i < _this._data.water.ship.length; i++) {
                     var shipitem = _this._data.water.ship[i];
@@ -818,6 +828,7 @@ exports.MainComponent = MainComponent;
 Object.defineProperty(exports, "__esModule", { value: true });
 var http_1 = __webpack_require__(/*! @angular/common/http */ "@angular/common/http");
 var rxjs_1 = __webpack_require__(/*! rxjs */ "rxjs");
+var data_1 = __webpack_require__(/*! ./data */ "./src/app/service/data.ts");
 // Test purpose
 var mock_data_1 = __webpack_require__(/*! ./mock-data */ "./src/app/service/mock-data.ts");
 var state_service_1 = __webpack_require__(/*! ./state.service */ "./src/app/service/state.service.ts");
@@ -833,7 +844,23 @@ var DataService = /** @class */ (function () {
         this.state = state;
         this.crane = undefined;
         this.water = undefined;
+        this.eform = data_1.MockEForm;
+        this.observableEForm = new rxjs_1.BehaviorSubject(this.eform);
+        this.observableCrane = new rxjs_1.BehaviorSubject(this.crane);
+        this.observableWater = new rxjs_1.BehaviorSubject(this.water);
     }
+    DataService.prototype.onEFormChange = function () {
+        console.log('fire eform data change');
+        this.observableEForm.next(this.eform);
+    };
+    DataService.prototype.onCraneChange = function () {
+        console.log('fire crane data change');
+        this.observableCrane.next(this.crane);
+    };
+    DataService.prototype.onWaterChange = function () {
+        console.log('fire water data change');
+        this.observableWater.next(this.water);
+    };
     DataService.prototype.getCrane = function () {
         if (this.crane == undefined) {
             this.fetchCrane();
@@ -846,9 +873,13 @@ var DataService = /** @class */ (function () {
         }
         return rxjs_1.of(this.water); // Test purpose
     };
+    DataService.prototype.getEform = function () {
+        return rxjs_1.of(this.eform);
+    };
     DataService.prototype.fetchCrane = function () {
         this.crane = mock_data_1.MockCrane; // Test purpose
         this.state.initCraneState(this.crane);
+        this.onCraneChange();
         // return this.http.get<Crane>(this.apiGetCrane).pipe(
         //   tap(c => this.crane = c)
         // )
@@ -856,14 +887,53 @@ var DataService = /** @class */ (function () {
     DataService.prototype.fetchWater = function () {
         this.water = mock_data_1.MockWater; // Test purpose
         this.state.initWaterState(this.water);
+        this.onWaterChange();
         // return this.http.get<Water>(this.apiGetWater).pipe(
         //   tap(w => this.water = w)
         // )
+    };
+    DataService.prototype.removeEFormItem = function (item) {
+        var index = this.eform.indexOf(item);
+        if (index > -1) {
+            this.eform.splice(index, 1);
+        }
+        this.onEFormChange();
     };
     DataService.ngInjectableDef = i0.defineInjectable({ factory: function DataService_Factory() { return new DataService(i0.inject(i1.HttpClient), i0.inject(i2.StateService)); }, token: DataService, providedIn: "root" });
     return DataService;
 }());
 exports.DataService = DataService;
+
+
+/***/ }),
+
+/***/ "./src/app/service/data.ts":
+/*!*********************************!*\
+  !*** ./src/app/service/data.ts ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var state_1 = __webpack_require__(/*! ./state */ "./src/app/service/state.ts");
+var Crane = /** @class */ (function () {
+    function Crane() {
+    }
+    return Crane;
+}());
+exports.Crane = Crane;
+var Water = /** @class */ (function () {
+    function Water() {
+    }
+    return Water;
+}());
+exports.Water = Water;
+exports.MockEForm = [
+    state_1.CRANEID,
+    state_1.WATERID
+];
 
 
 /***/ }),
@@ -882,8 +952,8 @@ exports.i18n = {
     en: {
         eform: {
             label_eform: 'eForm',
-            label_select_crane: 'Crane',
-            label_select_water: 'Water'
+            'crane': 'Crane',
+            'water': 'Water' /* WATERID */
         },
         crane: {
             label_edit: 'Edit',
@@ -1032,6 +1102,7 @@ exports.MockWater = {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
+var state_1 = __webpack_require__(/*! ./state */ "./src/app/service/state.ts");
 var rxjs_1 = __webpack_require__(/*! rxjs */ "rxjs");
 var i18n_1 = __webpack_require__(/*! ../service/i18n */ "./src/app/service/i18n.ts");
 var i0 = __webpack_require__(/*! @angular/core */ "@angular/core");
@@ -1039,7 +1110,7 @@ var StateService = /** @class */ (function () {
     function StateService(ngZone) {
         this.ngZone = ngZone;
         this.state = {
-            eform: 'crane',
+            eform: state_1.CRANEID,
             locale: Office.context.displayLanguage,
             crane: undefined,
             water: undefined
@@ -1120,8 +1191,8 @@ var StateService = /** @class */ (function () {
                             var textLine = textLines[i];
                             if (textLine.startsWith(uitext.eform.label_eform)) {
                                 var optionValue = textLine.split(':')[1].trim();
-                                if (optionValue == 'water') {
-                                    __this_1.state.eform = 'water';
+                                if (optionValue == state_1.WATERID) {
+                                    __this_1.state.eform = state_1.WATERID;
                                     __this_1.onEFormChange();
                                     break;
                                 }
@@ -1199,7 +1270,7 @@ var StateService = /** @class */ (function () {
                             var textLine = textLines[i];
                             if (textLine.startsWith(uitext.eform.label_eform)) {
                                 var optionValue = textLine.split(':')[1].trim();
-                                if (optionValue == 'crane') {
+                                if (optionValue == state_1.CRANEID) {
                                     break;
                                 }
                             }
@@ -1248,6 +1319,40 @@ var StateService = /** @class */ (function () {
     return StateService;
 }());
 exports.StateService = StateService;
+
+
+/***/ }),
+
+/***/ "./src/app/service/state.ts":
+/*!**********************************!*\
+  !*** ./src/app/service/state.ts ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CRANEID = 'crane';
+exports.WATERID = 'water';
+var State = /** @class */ (function () {
+    function State() {
+    }
+    return State;
+}());
+exports.State = State;
+var CraneState = /** @class */ (function () {
+    function CraneState() {
+    }
+    return CraneState;
+}());
+exports.CraneState = CraneState;
+var WaterState = /** @class */ (function () {
+    function WaterState() {
+    }
+    return WaterState;
+}());
+exports.WaterState = WaterState;
 
 
 /***/ }),
@@ -1394,30 +1499,33 @@ var WaterComponent = /** @class */ (function () {
     WaterComponent.prototype.getWater = function () {
         var _this = this;
         this.data.getWater().subscribe(function (c) {
-            _this.content = {
-                ship: {
-                    label: _this.uitext.water.label_ship,
-                    label_edit: _this.uitext.water.label_edit,
-                    label_refresh: _this.uitext.water.label_refresh,
-                    value: c.ship
-                },
-                quay: {
-                    label: _this.uitext.water.label_quay,
-                    label_edit: _this.uitext.water.label_edit,
-                    label_refresh: _this.uitext.water.label_refresh,
-                    value: c.quay
-                },
-                workers: {
-                    label: _this.uitext.water.label_workers,
-                    label_edit: _this.uitext.water.label_edit,
-                    label_refresh: _this.uitext.water.label_refresh,
-                    value: c.workers
-                },
-                message: {
-                    label: _this.uitext.water.label_message,
-                    value: c.message
-                }
-            };
+            _this.zone.run(function () {
+                console.log('get water is fired');
+                _this.content = {
+                    ship: {
+                        label: _this.uitext.water.label_ship,
+                        label_edit: _this.uitext.water.label_edit,
+                        label_refresh: _this.uitext.water.label_refresh,
+                        value: c.ship
+                    },
+                    quay: {
+                        label: _this.uitext.water.label_quay,
+                        label_edit: _this.uitext.water.label_edit,
+                        label_refresh: _this.uitext.water.label_refresh,
+                        value: c.quay
+                    },
+                    workers: {
+                        label: _this.uitext.water.label_workers,
+                        label_edit: _this.uitext.water.label_edit,
+                        label_refresh: _this.uitext.water.label_refresh,
+                        value: c.workers
+                    },
+                    message: {
+                        label: _this.uitext.water.label_message,
+                        value: c.message
+                    }
+                };
+            });
         });
     };
     WaterComponent.prototype.onWorkers = function (workerIndex) {

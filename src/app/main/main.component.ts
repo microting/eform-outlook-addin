@@ -2,6 +2,7 @@ import { Component, OnInit, NgZone } from '@angular/core';
 import { DataService } from '../service/data.service';
 import { i18n } from '../service/i18n';
 import { StateService } from '../service/state.service';
+import { CRANET, WATERT, CRANEID, WATERID } from '../service/state';
 
 declare const Office: any
 
@@ -12,7 +13,10 @@ declare const Office: any
 })
 export class MainComponent implements OnInit {
 
-  eform
+  eform: {
+    label: string
+    value: {label: string, value: (CRANET | WATERT)}[]
+  }
   uitext
   state: string
 
@@ -20,17 +24,24 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
     this.uitext = i18n.getTexts(this._state.state.locale)
-    this.eform = {
-      label: this.uitext.eform.label_eform,
-      value: [{
-        label: this.uitext.eform.label_select_crane,
-        value: 'crane'
-      }, {
-        label: this.uitext.eform.label_select_water,
-        value: 'water'
-      }]
-    }
+    this.getEForm()
     this.getState()
+  }
+
+  getEForm(): void {
+    this._data.getEform().subscribe(e => {
+      this.zone.run(() => {
+        console.log('get eform is fired')
+        this.eform = {
+          label: this.uitext.eform.label_eform,
+          value: []
+        }
+        for ( let i = 0; i < e.length; i ++ ) {
+          const item = e[i]
+          this.eform.value.push({label: this.uitext.eform[item], value: item})
+        }
+      })
+    })
   }
 
   getState(): void {
@@ -39,15 +50,14 @@ export class MainComponent implements OnInit {
 
   onInsert(): void {
     this.zone.run(() => {
-      // let lang = Office.context.displayLanguage
-      let lang = 'en'
+      let lang = Office.context.displayLanguage
       this.uitext = i18n.getTexts(lang)
 
       let txt_subject = ''
       let txt_body = ''
-      if ( this.state == 'crane' ) {
-        txt_subject = 'crane'
-        txt_body = this.uitext.eform.label_eform + ': ' + 'crane' + '<br>'
+      if ( this.state == CRANEID ) {
+        txt_subject = CRANEID
+        txt_body = this.uitext.eform.label_eform + ': ' + this.uitext.eform[CRANEID] + '<br>'
 
         // crane - ship
         for ( let i = 0; i < this._data.crane.ship.length; i ++ ) {
@@ -96,9 +106,9 @@ export class MainComponent implements OnInit {
         txtVal = txtVal.replace(/\n/g, '<br>')
         txt_body = txt_body + this.uitext.crane.label_message + ': ' + txtVal
 
-      } else if ( this.state == 'water' ) {
-        txt_subject = 'water'
-        txt_body = this.uitext.eform.label_eform + ': ' + 'water' + '<br>'
+      } else if ( this.state == WATERID ) {
+        txt_subject = WATERID
+        txt_body = this.uitext.eform.label_eform + ': ' + this.uitext.eform[WATERID] + '<br>'
 
         // water - ship
         for ( let i = 0; i < this._data.water.ship.length; i ++ ) {

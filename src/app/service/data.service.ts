@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 
-import { Observable, of } from 'rxjs'
+import { Observable, of, BehaviorSubject } from 'rxjs'
 import { tap } from 'rxjs/operators'
 
-import { Crane, Water } from './data'
+import { Crane, Water, MockEForm } from './data'
 
 // Test purpose
 import { MockCrane, MockWater } from './mock-data'
 import { StateService } from './state.service';
+import { CRANET, WATERT } from './state';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -26,10 +27,34 @@ export class DataService {
 
   crane: Crane
   water: Water
+  eform: (CRANET | WATERT)[]
+
+  observableEForm: BehaviorSubject<(CRANET | WATERT)[]>
+  observableCrane: BehaviorSubject<Crane>
+  observableWater: BehaviorSubject<Water>
 
   constructor( private http: HttpClient, private state: StateService ) {
     this.crane = undefined
     this.water = undefined
+    this.eform = MockEForm
+    this.observableEForm = new BehaviorSubject<(CRANET | WATERT)[]>(this.eform)
+    this.observableCrane = new BehaviorSubject<Crane>(this.crane)
+    this.observableWater = new BehaviorSubject<Water>(this.water)
+  }
+
+  onEFormChange(): void {
+    console.log('fire eform data change')
+    this.observableEForm.next(this.eform)
+  }
+
+  onCraneChange(): void {
+    console.log('fire crane data change')
+    this.observableCrane.next(this.crane)
+  }
+
+  onWaterChange(): void {
+    console.log('fire water data change')
+    this.observableWater.next(this.water)
   }
 
   getCrane(): Observable<Crane> {
@@ -46,9 +71,14 @@ export class DataService {
     return of(this.water) // Test purpose
   }
 
+  getEform(): Observable<(CRANET | WATERT)[]> {
+    return of(this.eform)
+  }
+
   fetchCrane() {
     this.crane = MockCrane // Test purpose
     this.state.initCraneState(this.crane)
+    this.onCraneChange()
     // return this.http.get<Crane>(this.apiGetCrane).pipe(
     //   tap(c => this.crane = c)
     // )
@@ -57,8 +87,17 @@ export class DataService {
   fetchWater() {
     this.water = MockWater // Test purpose
     this.state.initWaterState(this.water)
+    this.onWaterChange()
     // return this.http.get<Water>(this.apiGetWater).pipe(
     //   tap(w => this.water = w)
     // )
+  }
+
+  removeEFormItem(item: CRANET | WATERT) {
+    let index = this.eform.indexOf(item);
+    if (index > -1) {
+      this.eform.splice(index, 1);
+    }
+    this.onEFormChange()
   }
 }

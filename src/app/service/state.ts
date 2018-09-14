@@ -1,5 +1,11 @@
+export type CRANET = 'crane'
+export type WATERT = 'water'
+
+export const CRANEID = 'crane'
+export const WATERID = 'water'
+
 export class State {
-    eform: 'crane' | 'water'
+    eform: CRANET | WATERT
     locale: string
     crane: CraneState
     water: WaterState

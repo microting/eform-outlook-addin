@@ -1,5 +1,5 @@
 import { Injectable, NgZone } from '@angular/core';
-import { State, CraneState, WaterState } from './state';
+import { State, CraneState, WaterState, WATERID, CRANEID, CRANET, WATERT} from './state';
 import { Observable, of, BehaviorSubject } from 'rxjs';
 import { Crane, Water } from './data';
 import { i18n } from '../service/i18n';
@@ -12,18 +12,18 @@ declare const Office: any
 export class StateService {
 
   state: State
-  observableEForm: BehaviorSubject<string>
+  observableEForm: BehaviorSubject<CRANET | WATERT>
   observableCrane: BehaviorSubject<CraneState>
   observableWater: BehaviorSubject<WaterState>
 
   constructor(private ngZone: NgZone) {
     this.state = {
-      eform: 'crane',
+      eform: CRANEID,
       locale: Office.context.displayLanguage,
       crane: undefined,
       water: undefined
     }
-    this.observableEForm = new BehaviorSubject<string>(this.state.eform)
+    this.observableEForm = new BehaviorSubject<CRANET | WATERT>(this.state.eform)
     this.observableCrane = new BehaviorSubject<CraneState>(this.state.crane)
     this.observableWater = new BehaviorSubject<WaterState>(this.state.water)
   }
@@ -40,7 +40,7 @@ export class StateService {
     this.observableWater.next(this.state.water)
   }
 
-  getEState(): Observable<string> {
+  getEState(): Observable<(CRANET | WATERT)> {
     return this.observableEForm
   }
 
@@ -105,8 +105,8 @@ export class StateService {
               const textLine = textLines[i]
               if ( textLine.startsWith( uitext.eform.label_eform ) ) {
                 let optionValue = textLine.split( ':' )[1].trim()
-                if ( optionValue == 'water' ) {
-                  __this.state.eform = 'water'
+                if ( optionValue == WATERID ) {
+                  __this.state.eform = WATERID
                   __this.onEFormChange()
                   break
                 }
@@ -179,7 +179,7 @@ export class StateService {
               const textLine = textLines[i]
               if ( textLine.startsWith( uitext.eform.label_eform ) ) {
                 let optionValue = textLine.split( ':' )[1].trim()
-                if ( optionValue == 'crane' ) {
+                if ( optionValue == CRANEID ) {
                   break
                 }
               } else if ( textLine.startsWith( uitext.water.label_ship ) ) {

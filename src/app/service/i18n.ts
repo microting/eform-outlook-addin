@@ -1,9 +1,10 @@
+
 export const i18n = {
   en: {
     eform: {
       label_eform: 'eForm',
-      label_select_crane: 'Crane',
-      label_select_water: 'Water'
+      'crane': 'Crane', /* CRANEID */
+      'water': 'Water'  /* WATERID */
     },
     crane: {
       label_edit: 'Edit',

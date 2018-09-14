@@ -1,3 +1,5 @@
+import { CRANET, WATERT, CRANEID, WATERID } from "./state";
+
 export class Crane {
     ship: {id: string, value: string}[]
     quay: {id: string, value: string}[]
@@ -12,3 +14,8 @@ export class Water {
     workers: {id, value}[]
     message: string
 }
+
+export const MockEForm: (CRANET | WATERT)[] = [
+    CRANEID,
+    WATERID
+]
