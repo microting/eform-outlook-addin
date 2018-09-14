@@ -468,6 +468,7 @@ var CraneComponent = /** @class */ (function () {
         var _this = this;
         this._data.getCrane().subscribe(function (c) {
             _this._zone.run(function () {
+                console.log('Crane changed');
                 _this.content = {
                     ship: {
                         label: _this.uitext.crane.label_ship,
@@ -851,8 +852,10 @@ var DataService = /** @class */ (function () {
         var _this = this;
         this.zone.run(function () {
             console.log('eform change event - ' + _this.eform.length);
-            _this.observableEForm.next(_this.eform);
+            _this.observableEForm.next([_this.eform[0]]);
         });
+        this.onCraneChange();
+        this.onWaterChange();
     };
     DataService.prototype.onCraneChange = function () {
         this.observableCrane.next(this.crane);
@@ -1542,6 +1545,7 @@ var WaterComponent = /** @class */ (function () {
         var _this = this;
         this.data.getWater().subscribe(function (c) {
             _this.zone.run(function () {
+                console.log('Water changed');
                 _this.content = {
                     ship: {
                         label: _this.uitext.water.label_ship,

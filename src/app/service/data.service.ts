@@ -45,8 +45,10 @@ export class DataService {
   onEFormChange(): void {
     this.zone.run(() => {
       console.log('eform change event - ' + this.eform.length)
-      this.observableEForm.next(this.eform)
+      this.observableEForm.next([this.eform[0]])
     })
+    this.onCraneChange()
+    this.onWaterChange()
   }
 
   onCraneChange(): void {
