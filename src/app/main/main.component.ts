@@ -30,7 +30,7 @@ export class MainComponent implements OnInit {
 
   getEForm(): void {
     this._data.getEform().subscribe(e => {
-      /* this.zone.run(() => { */
+      this.zone.run(() => {
         console.log('main - eform changed')
         console.log(e)
         this.eform = {
@@ -41,7 +41,7 @@ export class MainComponent implements OnInit {
           const item = e[i]
           this.eform.value.push({label: this.uitext.eform[item], value: item})
         }
-      /* }) */
+      })
     })
   }
 

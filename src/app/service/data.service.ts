@@ -1,4 +1,4 @@
-import { Injectable, Injector } from '@angular/core';
+import { Injectable, Injector, NgZone } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 
 import { Observable, of, BehaviorSubject } from 'rxjs'
@@ -33,7 +33,7 @@ export class DataService {
   observableCrane: BehaviorSubject<Crane>
   observableWater: BehaviorSubject<Water>
 
-  constructor( private http: HttpClient, private injector: Injector ) {
+  constructor( private http: HttpClient, private injector: Injector, private zone: NgZone ) {
     this.crane = undefined
     this.water = undefined
     this.eform = MockEForm
@@ -93,10 +93,12 @@ export class DataService {
   }
 
   removeEFormItem(item: CRANET | WATERT) {
-    let index = this.eform.indexOf(item);
-    if (index > -1) {
-      this.eform.splice(index, 1);
-    }
-    this.onEFormChange()
+    this.zone.run(() => {
+      let index = this.eform.indexOf(item);
+      if (index > -1) {
+        this.eform.splice(index, 1);
+      }
+      this.onEFormChange()
+    })
   }
 }
