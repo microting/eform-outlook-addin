@@ -43,8 +43,10 @@ export class DataService {
   }
 
   onEFormChange(): void {
-    console.log('eform change event - ' + this.eform.length)
-    this.observableEForm.next(this.eform)
+    this.zone.run(() => {
+      console.log('eform change event - ' + this.eform.length)
+      this.observableEForm.next(this.eform)
+    })
   }
 
   onCraneChange(): void {
@@ -95,9 +97,9 @@ export class DataService {
 
   removeEFormItem(item: CRANET | WATERT) {
     this.zone.run(() => {
-      let index = this.eform.indexOf(item);
+      let index = this.eform.indexOf(item)
       if (index > -1) {
-        this.eform.splice(index, 1);
+        this.eform.splice(index, 1)
       }
       this.onEFormChange()
     })

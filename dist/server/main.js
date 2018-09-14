@@ -848,8 +848,11 @@ var DataService = /** @class */ (function () {
         this.observableWater = new rxjs_1.BehaviorSubject(this.water);
     }
     DataService.prototype.onEFormChange = function () {
-        console.log('eform change event - ' + this.eform.length);
-        this.observableEForm.next(this.eform);
+        var _this = this;
+        this.zone.run(function () {
+            console.log('eform change event - ' + _this.eform.length);
+            _this.observableEForm.next(_this.eform);
+        });
     };
     DataService.prototype.onCraneChange = function () {
         this.observableCrane.next(this.crane);
