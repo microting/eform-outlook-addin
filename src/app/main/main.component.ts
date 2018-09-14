@@ -31,7 +31,6 @@ export class MainComponent implements OnInit {
   getEForm(): void {
     this._data.getEform().subscribe(e => {
       this.zone.run(() => {
-        console.log('get eform is fired')
         this.eform = {
           label: this.uitext.eform.label_eform,
           value: []

@@ -264,8 +264,8 @@ var i11 = __webpack_require__(/*! @angular/platform-browser/animations */ "@angu
 var i12 = __webpack_require__(/*! @angular/forms */ "@angular/forms");
 var i13 = __webpack_require__(/*! @angular/router */ "@angular/router");
 var i14 = __webpack_require__(/*! @angular/common/http */ "@angular/common/http");
-var i15 = __webpack_require__(/*! ./service/state.service */ "./src/app/service/state.service.ts");
-var i16 = __webpack_require__(/*! ./service/data.service */ "./src/app/service/data.service.ts");
+var i15 = __webpack_require__(/*! ./service/data.service */ "./src/app/service/data.service.ts");
+var i16 = __webpack_require__(/*! ./service/state.service */ "./src/app/service/state.service.ts");
 var i17 = __webpack_require__(/*! @angular/http */ "@angular/http");
 var i18 = __webpack_require__(/*! @angular/animations */ "@angular/animations");
 var i19 = __webpack_require__(/*! @nguniversal/module-map-ngfactory-loader */ "@nguniversal/module-map-ngfactory-loader");
@@ -273,7 +273,7 @@ var i20 = __webpack_require__(/*! ./main/main.component */ "./src/app/main/main.
 var i21 = __webpack_require__(/*! ./edit/edit.component */ "./src/app/edit/edit.component.ts");
 var i22 = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
 var i23 = __webpack_require__(/*! ./app.module */ "./src/app/app.module.ts");
-var AppServerModuleNgFactory = i0.ɵcmf(i1.AppServerModule, [i2.AppComponent], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, [i3.ɵEmptyOutletComponentNgFactory, i4.MainComponentNgFactory, i5.EditComponentNgFactory, i6.AppComponentNgFactory]], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(5120, i0.LOCALE_ID, i0.ɵangular_packages_core_core_k, [[3, i0.LOCALE_ID]]), i0.ɵmpd(4608, i7.NgLocalization, i7.NgLocaleLocalization, [i0.LOCALE_ID, [2, i7.ɵangular_packages_common_common_a]]), i0.ɵmpd(5120, i0.IterableDiffers, i0.ɵangular_packages_core_core_i, []), i0.ɵmpd(5120, i0.KeyValueDiffers, i0.ɵangular_packages_core_core_j, []), i0.ɵmpd(4608, i8.DomSanitizer, i8.ɵDomSanitizerImpl, [i7.DOCUMENT]), i0.ɵmpd(6144, i0.Sanitizer, null, [i8.DomSanitizer]), i0.ɵmpd(4608, i8.HAMMER_GESTURE_CONFIG, i8.HammerGestureConfig, []), i0.ɵmpd(5120, i8.EVENT_MANAGER_PLUGINS, function (p0_0, p0_1, p0_2, p1_0, p2_0, p2_1, p2_2, p2_3, p3_0) { return [new i8.ɵDomEventsPlugin(p0_0, p0_1, p0_2), new i8.ɵKeyEventsPlugin(p1_0), new i8.ɵHammerGesturesPlugin(p2_0, p2_1, p2_2, p2_3), new i9.ɵangular_packages_platform_server_platform_server_d(p3_0)]; }, [i7.DOCUMENT, i0.NgZone, i0.PLATFORM_ID, i7.DOCUMENT, i7.DOCUMENT, i8.HAMMER_GESTURE_CONFIG, i0.ɵConsole, [2, i8.HAMMER_LOADER], i8.DOCUMENT]), i0.ɵmpd(4608, i8.EventManager, i8.EventManager, [i8.EVENT_MANAGER_PLUGINS, i0.NgZone]), i0.ɵmpd(135680, i8.ɵDomSharedStylesHost, i8.ɵDomSharedStylesHost, [i7.DOCUMENT]), i0.ɵmpd(4608, i8.ɵDomRendererFactory2, i8.ɵDomRendererFactory2, [i8.EventManager, i8.ɵDomSharedStylesHost]), i0.ɵmpd(4608, i9.ɵangular_packages_platform_server_platform_server_c, i9.ɵangular_packages_platform_server_platform_server_c, [i8.DOCUMENT, [2, i8.ɵTRANSITION_ID]]), i0.ɵmpd(6144, i8.ɵSharedStylesHost, null, [i9.ɵangular_packages_platform_server_platform_server_c]), i0.ɵmpd(4608, i9.ɵServerRendererFactory2, i9.ɵServerRendererFactory2, [i8.EventManager, i0.NgZone, i8.DOCUMENT, i8.ɵSharedStylesHost]), i0.ɵmpd(4608, i10.AnimationDriver, i10.ɵNoopAnimationDriver, []), i0.ɵmpd(5120, i10.ɵAnimationStyleNormalizer, i11.ɵangular_packages_platform_browser_animations_animations_c, []), i0.ɵmpd(4608, i10.ɵAnimationEngine, i11.ɵangular_packages_platform_browser_animations_animations_a, [i7.DOCUMENT, i10.AnimationDriver, i10.ɵAnimationStyleNormalizer]), i0.ɵmpd(5120, i0.RendererFactory2, i9.ɵangular_packages_platform_server_platform_server_a, [i9.ɵServerRendererFactory2, i10.ɵAnimationEngine, i0.NgZone]), i0.ɵmpd(4352, i0.Testability, null, []), i0.ɵmpd(4608, i12.ɵangular_packages_forms_forms_i, i12.ɵangular_packages_forms_forms_i, []), i0.ɵmpd(5120, i13.ActivatedRoute, i13.ɵangular_packages_router_router_g, [i13.Router]), i0.ɵmpd(4608, i13.NoPreloading, i13.NoPreloading, []), i0.ɵmpd(6144, i13.PreloadingStrategy, null, [i13.NoPreloading]), i0.ɵmpd(135680, i13.RouterPreloader, i13.RouterPreloader, [i13.Router, i0.NgModuleFactoryLoader, i0.Compiler, i0.Injector, i13.PreloadingStrategy]), i0.ɵmpd(4608, i13.PreloadAllModules, i13.PreloadAllModules, []), i0.ɵmpd(4608, i7.ViewportScroller, i7.ɵNullViewportScroller, []), i0.ɵmpd(5120, i13.ɵangular_packages_router_router_n, i13.ɵangular_packages_router_router_c, [i13.Router, i7.ViewportScroller, i13.ROUTER_CONFIGURATION]), i0.ɵmpd(5120, i13.ROUTER_INITIALIZER, i13.ɵangular_packages_router_router_j, [i13.ɵangular_packages_router_router_h]), i0.ɵmpd(5120, i0.APP_BOOTSTRAP_LISTENER, function (p0_0) { return [p0_0]; }, [i13.ROUTER_INITIALIZER]), i0.ɵmpd(4608, i14.HttpXsrfTokenExtractor, i14.ɵangular_packages_common_http_http_g, [i7.DOCUMENT, i0.PLATFORM_ID, i14.ɵangular_packages_common_http_http_e]), i0.ɵmpd(4608, i14.ɵangular_packages_common_http_http_h, i14.ɵangular_packages_common_http_http_h, [i14.HttpXsrfTokenExtractor, i14.ɵangular_packages_common_http_http_f]), i0.ɵmpd(5120, i14.HTTP_INTERCEPTORS, function (p0_0) { return [p0_0]; }, [i14.ɵangular_packages_common_http_http_h]), i0.ɵmpd(4608, i14.XhrFactory, i9.ɵangular_packages_platform_server_platform_server_e, []), i0.ɵmpd(4608, i14.HttpXhrBackend, i14.HttpXhrBackend, [i14.XhrFactory]), i0.ɵmpd(6144, i14.HttpBackend, null, [i14.HttpXhrBackend]), i0.ɵmpd(5120, i14.HttpHandler, i9.ɵangular_packages_platform_server_platform_server_h, [i14.HttpBackend, i0.Injector]), i0.ɵmpd(4608, i14.HttpClient, i14.HttpClient, [i14.HttpHandler]), i0.ɵmpd(4608, i14.ɵangular_packages_common_http_http_d, i14.ɵangular_packages_common_http_http_d, []), i0.ɵmpd(4608, i15.StateService, i15.StateService, [i0.NgZone]), i0.ɵmpd(4608, i16.DataService, i16.DataService, [i14.HttpClient, i15.StateService]), i0.ɵmpd(4608, i17.BrowserXhr, i9.ɵangular_packages_platform_server_platform_server_e, []), i0.ɵmpd(4608, i17.ResponseOptions, i17.BaseResponseOptions, []), i0.ɵmpd(4608, i17.XSRFStrategy, i9.ɵangular_packages_platform_server_platform_server_f, []), i0.ɵmpd(4608, i17.XHRBackend, i17.XHRBackend, [i17.BrowserXhr, i17.ResponseOptions, i17.XSRFStrategy]), i0.ɵmpd(4608, i17.RequestOptions, i17.BaseRequestOptions, []), i0.ɵmpd(5120, i17.Http, i9.ɵangular_packages_platform_server_platform_server_g, [i17.XHRBackend, i17.RequestOptions]), i0.ɵmpd(4608, i18.AnimationBuilder, i11.ɵBrowserAnimationBuilder, [i0.RendererFactory2, i8.DOCUMENT]), i0.ɵmpd(1073742336, i7.CommonModule, i7.CommonModule, []), i0.ɵmpd(1024, i0.ErrorHandler, i8.ɵangular_packages_platform_browser_platform_browser_a, []), i0.ɵmpd(1024, i0.NgProbeToken, function () { return [i13.ɵangular_packages_router_router_b()]; }, []), i0.ɵmpd(512, i13.ɵangular_packages_router_router_h, i13.ɵangular_packages_router_router_h, [i0.Injector]), i0.ɵmpd(256, i0.APP_ID, "eform", []), i0.ɵmpd(2048, i8.ɵTRANSITION_ID, null, [i0.APP_ID]), i0.ɵmpd(1024, i0.APP_INITIALIZER, function (p0_0, p1_0, p2_0, p2_1, p2_2) { return [i8.ɵangular_packages_platform_browser_platform_browser_j(p0_0), i13.ɵangular_packages_router_router_i(p1_0), i8.ɵangular_packages_platform_browser_platform_browser_h(p2_0, p2_1, p2_2)]; }, [[2, i0.NgProbeToken], i13.ɵangular_packages_router_router_h, i8.ɵTRANSITION_ID, i7.DOCUMENT, i0.Injector]), i0.ɵmpd(512, i0.ApplicationInitStatus, i0.ApplicationInitStatus, [[2, i0.APP_INITIALIZER]]), i0.ɵmpd(131584, i0.ApplicationRef, i0.ApplicationRef, [i0.NgZone, i0.ɵConsole, i0.Injector, i0.ErrorHandler, i0.ComponentFactoryResolver, i0.ApplicationInitStatus]), i0.ɵmpd(1073742336, i0.ApplicationModule, i0.ApplicationModule, [i0.ApplicationRef]), i0.ɵmpd(1073742336, i8.BrowserModule, i8.BrowserModule, [[3, i8.BrowserModule]]), i0.ɵmpd(1073742336, i12.ɵangular_packages_forms_forms_bb, i12.ɵangular_packages_forms_forms_bb, []), i0.ɵmpd(1073742336, i12.FormsModule, i12.FormsModule, []), i0.ɵmpd(1024, i13.ɵangular_packages_router_router_a, i13.ɵangular_packages_router_router_e, [[3, i13.Router]]), i0.ɵmpd(512, i13.UrlSerializer, i13.DefaultUrlSerializer, []), i0.ɵmpd(512, i13.ChildrenOutletContexts, i13.ChildrenOutletContexts, []), i0.ɵmpd(256, i13.ROUTER_CONFIGURATION, {}, []), i0.ɵmpd(1024, i7.LocationStrategy, i13.ɵangular_packages_router_router_d, [i7.PlatformLocation, [2, i7.APP_BASE_HREF], i13.ROUTER_CONFIGURATION]), i0.ɵmpd(512, i7.Location, i7.Location, [i7.LocationStrategy]), i0.ɵmpd(512, i0.Compiler, i0.Compiler, []), i0.ɵmpd(512, i0.NgModuleFactoryLoader, i19.ModuleMapNgFactoryLoader, [i0.Compiler, i19.MODULE_MAP]), i0.ɵmpd(1024, i13.ROUTES, function () { return [[{ path: "", redirectTo: "/main", pathMatch: "full" }, { path: "main", component: i20.MainComponent }, { path: "edit", component: i21.EditComponent }]]; }, []), i0.ɵmpd(1024, i13.Router, i13.ɵangular_packages_router_router_f, [i0.ApplicationRef, i13.UrlSerializer, i13.ChildrenOutletContexts, i7.Location, i0.Injector, i0.NgModuleFactoryLoader, i0.Compiler, i13.ROUTES, i13.ROUTER_CONFIGURATION, [2, i13.UrlHandlingStrategy], [2, i13.RouteReuseStrategy]]), i0.ɵmpd(1073742336, i13.RouterModule, i13.RouterModule, [[2, i13.ɵangular_packages_router_router_a], [2, i13.Router]]), i0.ɵmpd(1073742336, i22.AppRoutingModule, i22.AppRoutingModule, []), i0.ɵmpd(1073742336, i14.HttpClientXsrfModule, i14.HttpClientXsrfModule, []), i0.ɵmpd(1073742336, i14.HttpClientModule, i14.HttpClientModule, []), i0.ɵmpd(1073742336, i23.AppModule, i23.AppModule, [i0.PLATFORM_ID, i0.APP_ID]), i0.ɵmpd(1073742336, i17.HttpModule, i17.HttpModule, []), i0.ɵmpd(1073742336, i11.NoopAnimationsModule, i11.NoopAnimationsModule, []), i0.ɵmpd(1073742336, i9.ServerModule, i9.ServerModule, []), i0.ɵmpd(1073742336, i19.ModuleMapLoaderModule, i19.ModuleMapLoaderModule, []), i0.ɵmpd(1073742336, i1.AppServerModule, i1.AppServerModule, []), i0.ɵmpd(256, i0.ɵAPP_ROOT, true, []), i0.ɵmpd(256, i14.ɵangular_packages_common_http_http_e, "XSRF-TOKEN", []), i0.ɵmpd(256, i14.ɵangular_packages_common_http_http_f, "X-XSRF-TOKEN", []), i0.ɵmpd(256, i11.ANIMATION_MODULE_TYPE, "NoopAnimations", [])]); });
+var AppServerModuleNgFactory = i0.ɵcmf(i1.AppServerModule, [i2.AppComponent], function (_l) { return i0.ɵmod([i0.ɵmpd(512, i0.ComponentFactoryResolver, i0.ɵCodegenComponentFactoryResolver, [[8, [i3.ɵEmptyOutletComponentNgFactory, i4.MainComponentNgFactory, i5.EditComponentNgFactory, i6.AppComponentNgFactory]], [3, i0.ComponentFactoryResolver], i0.NgModuleRef]), i0.ɵmpd(5120, i0.LOCALE_ID, i0.ɵangular_packages_core_core_k, [[3, i0.LOCALE_ID]]), i0.ɵmpd(4608, i7.NgLocalization, i7.NgLocaleLocalization, [i0.LOCALE_ID, [2, i7.ɵangular_packages_common_common_a]]), i0.ɵmpd(5120, i0.IterableDiffers, i0.ɵangular_packages_core_core_i, []), i0.ɵmpd(5120, i0.KeyValueDiffers, i0.ɵangular_packages_core_core_j, []), i0.ɵmpd(4608, i8.DomSanitizer, i8.ɵDomSanitizerImpl, [i7.DOCUMENT]), i0.ɵmpd(6144, i0.Sanitizer, null, [i8.DomSanitizer]), i0.ɵmpd(4608, i8.HAMMER_GESTURE_CONFIG, i8.HammerGestureConfig, []), i0.ɵmpd(5120, i8.EVENT_MANAGER_PLUGINS, function (p0_0, p0_1, p0_2, p1_0, p2_0, p2_1, p2_2, p2_3, p3_0) { return [new i8.ɵDomEventsPlugin(p0_0, p0_1, p0_2), new i8.ɵKeyEventsPlugin(p1_0), new i8.ɵHammerGesturesPlugin(p2_0, p2_1, p2_2, p2_3), new i9.ɵangular_packages_platform_server_platform_server_d(p3_0)]; }, [i7.DOCUMENT, i0.NgZone, i0.PLATFORM_ID, i7.DOCUMENT, i7.DOCUMENT, i8.HAMMER_GESTURE_CONFIG, i0.ɵConsole, [2, i8.HAMMER_LOADER], i8.DOCUMENT]), i0.ɵmpd(4608, i8.EventManager, i8.EventManager, [i8.EVENT_MANAGER_PLUGINS, i0.NgZone]), i0.ɵmpd(135680, i8.ɵDomSharedStylesHost, i8.ɵDomSharedStylesHost, [i7.DOCUMENT]), i0.ɵmpd(4608, i8.ɵDomRendererFactory2, i8.ɵDomRendererFactory2, [i8.EventManager, i8.ɵDomSharedStylesHost]), i0.ɵmpd(4608, i9.ɵangular_packages_platform_server_platform_server_c, i9.ɵangular_packages_platform_server_platform_server_c, [i8.DOCUMENT, [2, i8.ɵTRANSITION_ID]]), i0.ɵmpd(6144, i8.ɵSharedStylesHost, null, [i9.ɵangular_packages_platform_server_platform_server_c]), i0.ɵmpd(4608, i9.ɵServerRendererFactory2, i9.ɵServerRendererFactory2, [i8.EventManager, i0.NgZone, i8.DOCUMENT, i8.ɵSharedStylesHost]), i0.ɵmpd(4608, i10.AnimationDriver, i10.ɵNoopAnimationDriver, []), i0.ɵmpd(5120, i10.ɵAnimationStyleNormalizer, i11.ɵangular_packages_platform_browser_animations_animations_c, []), i0.ɵmpd(4608, i10.ɵAnimationEngine, i11.ɵangular_packages_platform_browser_animations_animations_a, [i7.DOCUMENT, i10.AnimationDriver, i10.ɵAnimationStyleNormalizer]), i0.ɵmpd(5120, i0.RendererFactory2, i9.ɵangular_packages_platform_server_platform_server_a, [i9.ɵServerRendererFactory2, i10.ɵAnimationEngine, i0.NgZone]), i0.ɵmpd(4352, i0.Testability, null, []), i0.ɵmpd(4608, i12.ɵangular_packages_forms_forms_i, i12.ɵangular_packages_forms_forms_i, []), i0.ɵmpd(5120, i13.ActivatedRoute, i13.ɵangular_packages_router_router_g, [i13.Router]), i0.ɵmpd(4608, i13.NoPreloading, i13.NoPreloading, []), i0.ɵmpd(6144, i13.PreloadingStrategy, null, [i13.NoPreloading]), i0.ɵmpd(135680, i13.RouterPreloader, i13.RouterPreloader, [i13.Router, i0.NgModuleFactoryLoader, i0.Compiler, i0.Injector, i13.PreloadingStrategy]), i0.ɵmpd(4608, i13.PreloadAllModules, i13.PreloadAllModules, []), i0.ɵmpd(4608, i7.ViewportScroller, i7.ɵNullViewportScroller, []), i0.ɵmpd(5120, i13.ɵangular_packages_router_router_n, i13.ɵangular_packages_router_router_c, [i13.Router, i7.ViewportScroller, i13.ROUTER_CONFIGURATION]), i0.ɵmpd(5120, i13.ROUTER_INITIALIZER, i13.ɵangular_packages_router_router_j, [i13.ɵangular_packages_router_router_h]), i0.ɵmpd(5120, i0.APP_BOOTSTRAP_LISTENER, function (p0_0) { return [p0_0]; }, [i13.ROUTER_INITIALIZER]), i0.ɵmpd(4608, i14.HttpXsrfTokenExtractor, i14.ɵangular_packages_common_http_http_g, [i7.DOCUMENT, i0.PLATFORM_ID, i14.ɵangular_packages_common_http_http_e]), i0.ɵmpd(4608, i14.ɵangular_packages_common_http_http_h, i14.ɵangular_packages_common_http_http_h, [i14.HttpXsrfTokenExtractor, i14.ɵangular_packages_common_http_http_f]), i0.ɵmpd(5120, i14.HTTP_INTERCEPTORS, function (p0_0) { return [p0_0]; }, [i14.ɵangular_packages_common_http_http_h]), i0.ɵmpd(4608, i14.XhrFactory, i9.ɵangular_packages_platform_server_platform_server_e, []), i0.ɵmpd(4608, i14.HttpXhrBackend, i14.HttpXhrBackend, [i14.XhrFactory]), i0.ɵmpd(6144, i14.HttpBackend, null, [i14.HttpXhrBackend]), i0.ɵmpd(5120, i14.HttpHandler, i9.ɵangular_packages_platform_server_platform_server_h, [i14.HttpBackend, i0.Injector]), i0.ɵmpd(4608, i14.HttpClient, i14.HttpClient, [i14.HttpHandler]), i0.ɵmpd(4608, i14.ɵangular_packages_common_http_http_d, i14.ɵangular_packages_common_http_http_d, []), i0.ɵmpd(4608, i15.DataService, i15.DataService, [i14.HttpClient, i0.Injector]), i0.ɵmpd(4608, i16.StateService, i16.StateService, [i0.NgZone, i0.Injector]), i0.ɵmpd(4608, i17.BrowserXhr, i9.ɵangular_packages_platform_server_platform_server_e, []), i0.ɵmpd(4608, i17.ResponseOptions, i17.BaseResponseOptions, []), i0.ɵmpd(4608, i17.XSRFStrategy, i9.ɵangular_packages_platform_server_platform_server_f, []), i0.ɵmpd(4608, i17.XHRBackend, i17.XHRBackend, [i17.BrowserXhr, i17.ResponseOptions, i17.XSRFStrategy]), i0.ɵmpd(4608, i17.RequestOptions, i17.BaseRequestOptions, []), i0.ɵmpd(5120, i17.Http, i9.ɵangular_packages_platform_server_platform_server_g, [i17.XHRBackend, i17.RequestOptions]), i0.ɵmpd(4608, i18.AnimationBuilder, i11.ɵBrowserAnimationBuilder, [i0.RendererFactory2, i8.DOCUMENT]), i0.ɵmpd(1073742336, i7.CommonModule, i7.CommonModule, []), i0.ɵmpd(1024, i0.ErrorHandler, i8.ɵangular_packages_platform_browser_platform_browser_a, []), i0.ɵmpd(1024, i0.NgProbeToken, function () { return [i13.ɵangular_packages_router_router_b()]; }, []), i0.ɵmpd(512, i13.ɵangular_packages_router_router_h, i13.ɵangular_packages_router_router_h, [i0.Injector]), i0.ɵmpd(256, i0.APP_ID, "eform", []), i0.ɵmpd(2048, i8.ɵTRANSITION_ID, null, [i0.APP_ID]), i0.ɵmpd(1024, i0.APP_INITIALIZER, function (p0_0, p1_0, p2_0, p2_1, p2_2) { return [i8.ɵangular_packages_platform_browser_platform_browser_j(p0_0), i13.ɵangular_packages_router_router_i(p1_0), i8.ɵangular_packages_platform_browser_platform_browser_h(p2_0, p2_1, p2_2)]; }, [[2, i0.NgProbeToken], i13.ɵangular_packages_router_router_h, i8.ɵTRANSITION_ID, i7.DOCUMENT, i0.Injector]), i0.ɵmpd(512, i0.ApplicationInitStatus, i0.ApplicationInitStatus, [[2, i0.APP_INITIALIZER]]), i0.ɵmpd(131584, i0.ApplicationRef, i0.ApplicationRef, [i0.NgZone, i0.ɵConsole, i0.Injector, i0.ErrorHandler, i0.ComponentFactoryResolver, i0.ApplicationInitStatus]), i0.ɵmpd(1073742336, i0.ApplicationModule, i0.ApplicationModule, [i0.ApplicationRef]), i0.ɵmpd(1073742336, i8.BrowserModule, i8.BrowserModule, [[3, i8.BrowserModule]]), i0.ɵmpd(1073742336, i12.ɵangular_packages_forms_forms_bb, i12.ɵangular_packages_forms_forms_bb, []), i0.ɵmpd(1073742336, i12.FormsModule, i12.FormsModule, []), i0.ɵmpd(1024, i13.ɵangular_packages_router_router_a, i13.ɵangular_packages_router_router_e, [[3, i13.Router]]), i0.ɵmpd(512, i13.UrlSerializer, i13.DefaultUrlSerializer, []), i0.ɵmpd(512, i13.ChildrenOutletContexts, i13.ChildrenOutletContexts, []), i0.ɵmpd(256, i13.ROUTER_CONFIGURATION, {}, []), i0.ɵmpd(1024, i7.LocationStrategy, i13.ɵangular_packages_router_router_d, [i7.PlatformLocation, [2, i7.APP_BASE_HREF], i13.ROUTER_CONFIGURATION]), i0.ɵmpd(512, i7.Location, i7.Location, [i7.LocationStrategy]), i0.ɵmpd(512, i0.Compiler, i0.Compiler, []), i0.ɵmpd(512, i0.NgModuleFactoryLoader, i19.ModuleMapNgFactoryLoader, [i0.Compiler, i19.MODULE_MAP]), i0.ɵmpd(1024, i13.ROUTES, function () { return [[{ path: "", redirectTo: "/main", pathMatch: "full" }, { path: "main", component: i20.MainComponent }, { path: "edit", component: i21.EditComponent }]]; }, []), i0.ɵmpd(1024, i13.Router, i13.ɵangular_packages_router_router_f, [i0.ApplicationRef, i13.UrlSerializer, i13.ChildrenOutletContexts, i7.Location, i0.Injector, i0.NgModuleFactoryLoader, i0.Compiler, i13.ROUTES, i13.ROUTER_CONFIGURATION, [2, i13.UrlHandlingStrategy], [2, i13.RouteReuseStrategy]]), i0.ɵmpd(1073742336, i13.RouterModule, i13.RouterModule, [[2, i13.ɵangular_packages_router_router_a], [2, i13.Router]]), i0.ɵmpd(1073742336, i22.AppRoutingModule, i22.AppRoutingModule, []), i0.ɵmpd(1073742336, i14.HttpClientXsrfModule, i14.HttpClientXsrfModule, []), i0.ɵmpd(1073742336, i14.HttpClientModule, i14.HttpClientModule, []), i0.ɵmpd(1073742336, i23.AppModule, i23.AppModule, [i0.PLATFORM_ID, i0.APP_ID]), i0.ɵmpd(1073742336, i17.HttpModule, i17.HttpModule, []), i0.ɵmpd(1073742336, i11.NoopAnimationsModule, i11.NoopAnimationsModule, []), i0.ɵmpd(1073742336, i9.ServerModule, i9.ServerModule, []), i0.ɵmpd(1073742336, i19.ModuleMapLoaderModule, i19.ModuleMapLoaderModule, []), i0.ɵmpd(1073742336, i1.AppServerModule, i1.AppServerModule, []), i0.ɵmpd(256, i0.ɵAPP_ROOT, true, []), i0.ɵmpd(256, i14.ɵangular_packages_common_http_http_e, "XSRF-TOKEN", []), i0.ɵmpd(256, i14.ɵangular_packages_common_http_http_f, "X-XSRF-TOKEN", []), i0.ɵmpd(256, i11.ANIMATION_MODULE_TYPE, "NoopAnimations", [])]); });
 exports.AppServerModuleNgFactory = AppServerModuleNgFactory;
 
 
@@ -468,7 +468,6 @@ var CraneComponent = /** @class */ (function () {
         var _this = this;
         this._data.getCrane().subscribe(function (c) {
             _this._zone.run(function () {
-                console.log('get crane is fired');
                 _this.content = {
                     ship: {
                         label: _this.uitext.crane.label_ship,
@@ -696,7 +695,6 @@ var MainComponent = /** @class */ (function () {
         var _this = this;
         this._data.getEform().subscribe(function (e) {
             _this.zone.run(function () {
-                console.log('get eform is fired');
                 _this.eform = {
                     label: _this.uitext.eform.label_eform,
                     value: []
@@ -826,6 +824,7 @@ exports.MainComponent = MainComponent;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
 var http_1 = __webpack_require__(/*! @angular/common/http */ "@angular/common/http");
 var rxjs_1 = __webpack_require__(/*! rxjs */ "rxjs");
 var data_1 = __webpack_require__(/*! ./data */ "./src/app/service/data.ts");
@@ -834,14 +833,13 @@ var mock_data_1 = __webpack_require__(/*! ./mock-data */ "./src/app/service/mock
 var state_service_1 = __webpack_require__(/*! ./state.service */ "./src/app/service/state.service.ts");
 var i0 = __webpack_require__(/*! @angular/core */ "@angular/core");
 var i1 = __webpack_require__(/*! @angular/common/http */ "@angular/common/http");
-var i2 = __webpack_require__(/*! ./state.service */ "./src/app/service/state.service.ts");
 var httpOptions = {
     headers: new http_1.HttpHeaders({ 'Content-Type': 'application/json' })
 };
 var DataService = /** @class */ (function () {
-    function DataService(http, state) {
+    function DataService(http, injector) {
         this.http = http;
-        this.state = state;
+        this.injector = injector;
         this.crane = undefined;
         this.water = undefined;
         this.eform = data_1.MockEForm;
@@ -850,15 +848,12 @@ var DataService = /** @class */ (function () {
         this.observableWater = new rxjs_1.BehaviorSubject(this.water);
     }
     DataService.prototype.onEFormChange = function () {
-        console.log('fire eform data change');
         this.observableEForm.next(this.eform);
     };
     DataService.prototype.onCraneChange = function () {
-        console.log('fire crane data change');
         this.observableCrane.next(this.crane);
     };
     DataService.prototype.onWaterChange = function () {
-        console.log('fire water data change');
         this.observableWater.next(this.water);
     };
     DataService.prototype.getCrane = function () {
@@ -878,7 +873,10 @@ var DataService = /** @class */ (function () {
     };
     DataService.prototype.fetchCrane = function () {
         this.crane = mock_data_1.MockCrane; // Test purpose
-        this.state.initCraneState(this.crane);
+        var stateService = this.injector.get(state_service_1.StateService);
+        console.log('Crane - StateService fetch');
+        console.log(stateService);
+        stateService.initCraneState(this.crane);
         this.onCraneChange();
         // return this.http.get<Crane>(this.apiGetCrane).pipe(
         //   tap(c => this.crane = c)
@@ -886,7 +884,10 @@ var DataService = /** @class */ (function () {
     };
     DataService.prototype.fetchWater = function () {
         this.water = mock_data_1.MockWater; // Test purpose
-        this.state.initWaterState(this.water);
+        var stateService = this.injector.get(state_service_1.StateService);
+        console.log('Water - StateService fetch');
+        console.log(stateService);
+        stateService.initWaterState(this.water);
         this.onWaterChange();
         // return this.http.get<Water>(this.apiGetWater).pipe(
         //   tap(w => this.water = w)
@@ -899,7 +900,7 @@ var DataService = /** @class */ (function () {
         }
         this.onEFormChange();
     };
-    DataService.ngInjectableDef = i0.defineInjectable({ factory: function DataService_Factory() { return new DataService(i0.inject(i1.HttpClient), i0.inject(i2.StateService)); }, token: DataService, providedIn: "root" });
+    DataService.ngInjectableDef = i0.defineInjectable({ factory: function DataService_Factory() { return new DataService(i0.inject(i1.HttpClient), i0.inject(i0.INJECTOR)); }, token: DataService, providedIn: "root" });
     return DataService;
 }());
 exports.DataService = DataService;
@@ -1105,10 +1106,12 @@ var core_1 = __webpack_require__(/*! @angular/core */ "@angular/core");
 var state_1 = __webpack_require__(/*! ./state */ "./src/app/service/state.ts");
 var rxjs_1 = __webpack_require__(/*! rxjs */ "rxjs");
 var i18n_1 = __webpack_require__(/*! ../service/i18n */ "./src/app/service/i18n.ts");
+var data_service_1 = __webpack_require__(/*! ./data.service */ "./src/app/service/data.service.ts");
 var i0 = __webpack_require__(/*! @angular/core */ "@angular/core");
 var StateService = /** @class */ (function () {
-    function StateService(ngZone) {
-        this.ngZone = ngZone;
+    function StateService(zone, injector) {
+        this.zone = zone;
+        this.injector = injector;
         this.state = {
             eform: state_1.CRANEID,
             locale: Office.context.displayLanguage,
@@ -1154,7 +1157,7 @@ var StateService = /** @class */ (function () {
     };
     StateService.prototype.initWaterState = function (w) {
         var _this = this;
-        this.ngZone.run(function () {
+        this.zone.run(function () {
             if (_this.state.water == undefined) {
                 _this.state.water = {
                     shipid: w.ship[0].id,
@@ -1172,7 +1175,7 @@ var StateService = /** @class */ (function () {
     StateService.prototype.parseCraneBody = function (c) {
         var _this = this;
         var uitext = i18n_1.i18n.getTexts(this.state.locale);
-        this.ngZone.run(function () {
+        this.zone.run(function () {
             var item = Office.context.mailbox.item;
             if (item.itemType == Office.MailboxEnums.ItemType.Appointment) {
                 var __this_1 = _this;
@@ -1187,16 +1190,18 @@ var StateService = /** @class */ (function () {
                             textLines.pop();
                         }
                         var stringText = '';
+                        var itemMode = false;
                         for (var i = 0; i < textLines.length; i++) {
+                            itemMode = false;
                             var textLine = textLines[i];
                             if (textLine.startsWith(uitext.eform.label_eform)) {
                                 var optionValue = textLine.split(':')[1].trim();
                                 var waterVal = uitext.eform[state_1.WATERID];
                                 if (optionValue == waterVal) {
                                     __this_1.state.eform = state_1.WATERID;
-                                    console.log('crane - no need to continue parse - move to water');
                                     __this_1.onEFormChange();
-                                    break;
+                                    itemMode = false;
+                                    return;
                                 }
                             }
                             else if (textLine.startsWith(uitext.crane.label_ship)) {
@@ -1204,6 +1209,7 @@ var StateService = /** @class */ (function () {
                                 for (var j = 0; j < c.ship.length; j++) {
                                     if (c.ship[j].value == optionValue) {
                                         __this_1.state.crane.shipid = c.ship[j].id;
+                                        itemMode = true;
                                     }
                                 }
                             }
@@ -1212,6 +1218,7 @@ var StateService = /** @class */ (function () {
                                 for (var j = 0; j < c.quay.length; j++) {
                                     if (c.quay[j].value == optionValue) {
                                         __this_1.state.crane.quayid = c.quay[j].id;
+                                        itemMode = true;
                                     }
                                 }
                             }
@@ -1220,10 +1227,12 @@ var StateService = /** @class */ (function () {
                                 for (var j = 0; j < c.crane.length; j++) {
                                     if (c.crane[j].value == optionValue) {
                                         __this_1.state.crane.craneid = c.crane[j].id;
+                                        itemMode = true;
                                     }
                                 }
                             }
                             else if (textLine.startsWith(uitext.crane.label_workers)) {
+                                itemMode = true;
                                 var optionValue = textLine.split(':')[1].trim();
                                 var cworkers = optionValue.split(', ');
                                 if (cworkers.length > 0) {
@@ -1238,13 +1247,25 @@ var StateService = /** @class */ (function () {
                             }
                             else if (textLine.startsWith(uitext.crane.label_message)) {
                                 stringText = textLine.replace(uitext.crane.label_message + ': ', '') + '\n';
+                                itemMode = true;
                             }
                             else {
+                                itemMode = true;
                                 stringText = stringText + textLine + '\n';
                             }
+                            if (itemMode == false)
+                                break;
                         }
                         __this_1.state.crane.message = stringText;
-                        __this_1.onCraneChange();
+                        if (itemMode == true) {
+                            var data = __this_1.injector.get(data_service_1.DataService);
+                            console.log('Crane - DataService fetch');
+                            console.log(data);
+                            data.removeEFormItem(state_1.WATERID);
+                        }
+                        else {
+                            __this_1.onCraneChange();
+                        }
                     }
                 });
             }
@@ -1253,7 +1274,7 @@ var StateService = /** @class */ (function () {
     StateService.prototype.parseWaterBody = function (c) {
         var _this = this;
         var uitext = i18n_1.i18n.getTexts(this.state.locale);
-        this.ngZone.run(function () {
+        this.zone.run(function () {
             var item = Office.context.mailbox.item;
             if (item.itemType == Office.MailboxEnums.ItemType.Appointment) {
                 var __this_2 = _this;
@@ -1268,14 +1289,15 @@ var StateService = /** @class */ (function () {
                             textLines.pop();
                         }
                         var stringText = '';
+                        var itemMode = false;
                         for (var i = 0; i < textLines.length; i++) {
+                            itemMode = false;
                             var textLine = textLines[i];
                             if (textLine.startsWith(uitext.eform.label_eform)) {
                                 var optionValue = textLine.split(':')[1].trim();
                                 var craneVal = uitext.eform[state_1.CRANEID];
                                 if (optionValue == craneVal) {
-                                    console.log('water - no need to continue parse');
-                                    break;
+                                    return;
                                 }
                             }
                             else if (textLine.startsWith(uitext.water.label_ship)) {
@@ -1283,6 +1305,7 @@ var StateService = /** @class */ (function () {
                                 for (var j = 0; j < c.ship.length; j++) {
                                     if (c.ship[j].value == optionValue) {
                                         __this_2.state.water.shipid = c.ship[j].id;
+                                        itemMode = true;
                                     }
                                 }
                             }
@@ -1291,10 +1314,12 @@ var StateService = /** @class */ (function () {
                                 for (var j = 0; j < c.quay.length; j++) {
                                     if (c.quay[j].value == optionValue) {
                                         __this_2.state.water.quayid = c.quay[j].id;
+                                        itemMode = true;
                                     }
                                 }
                             }
                             else if (textLine.startsWith(uitext.water.label_workers)) {
+                                itemMode = true;
                                 var optionValue = textLine.split(':')[1].trim();
                                 var cworkers = optionValue.split(', ');
                                 for (var j = 0; j < c.workers.length; j++) {
@@ -1307,19 +1332,31 @@ var StateService = /** @class */ (function () {
                             }
                             else if (textLine.startsWith(uitext.water.label_message)) {
                                 stringText = textLine.replace(uitext.water.label_message + ': ', '') + '\n';
+                                itemMode = true;
                             }
                             else {
                                 stringText = stringText + textLine + '\n';
+                                itemMode = true;
                             }
+                            if (itemMode == false)
+                                break;
                         }
                         __this_2.state.water.message = stringText;
-                        __this_2.onWaterChange();
+                        if (itemMode == true) {
+                            var data = __this_2.injector.get(data_service_1.DataService);
+                            console.log('Water - DataService fetch');
+                            console.log(data);
+                            data.removeEFormItem(state_1.CRANEID);
+                        }
+                        else {
+                            __this_2.onWaterChange();
+                        }
                     }
                 });
             }
         });
     };
-    StateService.ngInjectableDef = i0.defineInjectable({ factory: function StateService_Factory() { return new StateService(i0.inject(i0.NgZone)); }, token: StateService, providedIn: "root" });
+    StateService.ngInjectableDef = i0.defineInjectable({ factory: function StateService_Factory() { return new StateService(i0.inject(i0.NgZone), i0.inject(i0.INJECTOR)); }, token: StateService, providedIn: "root" });
     return StateService;
 }());
 exports.StateService = StateService;
@@ -1504,7 +1541,6 @@ var WaterComponent = /** @class */ (function () {
         var _this = this;
         this.data.getWater().subscribe(function (c) {
             _this.zone.run(function () {
-                console.log('get water is fired');
                 _this.content = {
                     ship: {
                         label: _this.uitext.water.label_ship,

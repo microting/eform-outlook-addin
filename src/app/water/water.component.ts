@@ -31,7 +31,6 @@ export class WaterComponent implements OnInit {
   getWater(): void {
     this.data.getWater().subscribe(c => {
       this.zone.run(() => {
-        console.log('get water is fired')
         this.content = {
           ship: {
             label: this.uitext.water.label_ship,

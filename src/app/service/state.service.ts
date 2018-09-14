@@ -1,8 +1,9 @@
-import { Injectable, NgZone } from '@angular/core';
+import { Injectable, NgZone, Injector } from '@angular/core';
 import { State, CraneState, WaterState, WATERID, CRANEID, CRANET, WATERT} from './state';
 import { Observable, of, BehaviorSubject } from 'rxjs';
 import { Crane, Water } from './data';
 import { i18n } from '../service/i18n';
+import { DataService } from './data.service';
 
 declare const Office: any
 
@@ -16,7 +17,7 @@ export class StateService {
   observableCrane: BehaviorSubject<CraneState>
   observableWater: BehaviorSubject<WaterState>
 
-  constructor(private ngZone: NgZone) {
+  constructor(private zone: NgZone, private injector: Injector) {
     this.state = {
       eform: CRANEID,
       locale: Office.context.displayLanguage,
@@ -68,7 +69,7 @@ export class StateService {
   }
 
   initWaterState(w: Water) {
-    this.ngZone.run(() => {
+    this.zone.run(() => {
       if ( this.state.water == undefined ) {
         this.state.water = {
           shipid: w.ship[0].id,
@@ -86,7 +87,7 @@ export class StateService {
   parseCraneBody(c: Crane): void {
     let uitext = i18n.getTexts(this.state.locale)
 
-    this.ngZone.run(() => {
+    this.zone.run(() => {
       let item = Office.context.mailbox.item
       if ( item.itemType == Office.MailboxEnums.ItemType.Appointment ) {
         const __this = this
@@ -101,22 +102,25 @@ export class StateService {
               textLines.pop()
             }
             let stringText = ''
+            let itemMode = false
             for ( let i = 0; i < textLines.length; i ++ ) {
+              itemMode = false
               const textLine = textLines[i]
               if ( textLine.startsWith( uitext.eform.label_eform ) ) {
                 let optionValue = textLine.split( ':' )[1].trim()
                 let waterVal = uitext.eform[WATERID]
                 if ( optionValue == waterVal ) {
                   __this.state.eform = WATERID
-                  console.log('crane - no need to continue parse - move to water')
                   __this.onEFormChange()
-                  break
+                  itemMode = false
+                  return
                 }
               } else if ( textLine.startsWith( uitext.crane.label_ship ) ) {
                 let optionValue = textLine.split( ':' )[1].trim()
                 for (let j = 0; j < c.ship.length; j ++) {
                   if ( c.ship[j].value == optionValue ) {
                     __this.state.crane.shipid = c.ship[j].id
+                    itemMode = true
                   }
                 }
               } else if ( textLine.startsWith( uitext.crane.label_quay ) ) {
@@ -124,6 +128,7 @@ export class StateService {
                 for (let j = 0; j < c.quay.length; j ++) {
                   if ( c.quay[j].value == optionValue ) {
                     __this.state.crane.quayid = c.quay[j].id
+                    itemMode = true
                   }
                 }
               } else if ( textLine.startsWith( uitext.crane.label_crane ) ) {
@@ -131,9 +136,11 @@ export class StateService {
                 for (let j = 0; j < c.crane.length; j ++) {
                   if ( c.crane[j].value == optionValue ) {
                     __this.state.crane.craneid = c.crane[j].id
+                    itemMode = true
                   }
                 }
               } else if ( textLine.startsWith( uitext.crane.label_workers ) ) {
+                itemMode = true
                 let optionValue = textLine.split( ':' )[1].trim()
                 let cworkers = optionValue.split(', ')
                 if ( cworkers.length > 0 ) {
@@ -147,12 +154,25 @@ export class StateService {
                 }
               } else if (textLine.startsWith( uitext.crane.label_message )) {
                 stringText = textLine.replace(uitext.crane.label_message + ': ', '') + '\n'
+                itemMode = true
               } else {
+                itemMode = true
                 stringText = stringText + textLine + '\n'
               }
+
+              if ( itemMode == false ) break
             }
+
             __this.state.crane.message = stringText
-            __this.onCraneChange()
+
+            if ( itemMode == true ) {
+              const data = __this.injector.get(DataService)
+              console.log('Crane - DataService fetch')
+              console.log(data)
+              data.removeEFormItem(WATERID)
+            } else {
+              __this.onCraneChange()
+            }
           }
         })
       }
@@ -162,7 +182,7 @@ export class StateService {
   parseWaterBody(c: Water): void {
     let uitext = i18n.getTexts(this.state.locale)
 
-    this.ngZone.run(() => {
+    this.zone.run(() => {
       let item = Office.context.mailbox.item
       if ( item.itemType == Office.MailboxEnums.ItemType.Appointment ) {
         const __this = this
@@ -177,20 +197,22 @@ export class StateService {
               textLines.pop()
             }
             let stringText = ''
+            let itemMode = false
             for ( let i = 0; i < textLines.length; i ++ ) {
+              itemMode = false
               const textLine = textLines[i]
               if ( textLine.startsWith( uitext.eform.label_eform ) ) {
                 let optionValue = textLine.split( ':' )[1].trim()
                 let craneVal = uitext.eform[CRANEID]
                 if ( optionValue == craneVal ) {
-                  console.log('water - no need to continue parse')
-                  break
+                  return
                 }
               } else if ( textLine.startsWith( uitext.water.label_ship ) ) {
                 let optionValue = textLine.split( ':' )[1].trim()
                 for (let j = 0; j < c.ship.length; j ++) {
                   if ( c.ship[j].value == optionValue ) {
                     __this.state.water.shipid = c.ship[j].id
+                    itemMode = true
                   }
                 }
               } else if ( textLine.startsWith( uitext.water.label_quay ) ) {
@@ -198,9 +220,11 @@ export class StateService {
                 for (let j = 0; j < c.quay.length; j ++) {
                   if ( c.quay[j].value == optionValue ) {
                     __this.state.water.quayid = c.quay[j].id
+                    itemMode = true
                   }
                 }
               } else if ( textLine.startsWith( uitext.water.label_workers ) ) {
+                itemMode = true
                 let optionValue = textLine.split( ':' )[1].trim()
                 let cworkers = optionValue.split(', ')
                 for (let j = 0; j < c.workers.length; j ++) {
@@ -212,12 +236,25 @@ export class StateService {
                 }
               } else if (textLine.startsWith( uitext.water.label_message )) {
                 stringText = textLine.replace(uitext.water.label_message + ': ', '') + '\n'
+                itemMode = true
               } else {
                 stringText = stringText + textLine + '\n'
+                itemMode = true
               }
+
+              if ( itemMode == false ) break
             }
+
             __this.state.water.message = stringText
-            __this.onWaterChange()
+
+            if ( itemMode == true ) {
+              const data = __this.injector.get(DataService)
+              console.log('Water - DataService fetch')
+              console.log(data)
+              data.removeEFormItem(CRANEID)
+            } else {
+              __this.onWaterChange()
+            }
           }
         })
       }

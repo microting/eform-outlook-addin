@@ -30,7 +30,6 @@ export class CraneComponent implements OnInit {
   getCrane(): void {
     this._data.getCrane().subscribe(c => {
       this._zone.run(() => {
-        console.log('get crane is fired')
         this.content = {
           ship: {
             label: this.uitext.crane.label_ship,

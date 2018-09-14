@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 
 import { Observable, of, BehaviorSubject } from 'rxjs'
@@ -33,7 +33,7 @@ export class DataService {
   observableCrane: BehaviorSubject<Crane>
   observableWater: BehaviorSubject<Water>
 
-  constructor( private http: HttpClient, private state: StateService ) {
+  constructor( private http: HttpClient, private injector: Injector ) {
     this.crane = undefined
     this.water = undefined
     this.eform = MockEForm
@@ -43,17 +43,14 @@ export class DataService {
   }
 
   onEFormChange(): void {
-    console.log('fire eform data change')
     this.observableEForm.next(this.eform)
   }
 
   onCraneChange(): void {
-    console.log('fire crane data change')
     this.observableCrane.next(this.crane)
   }
 
   onWaterChange(): void {
-    console.log('fire water data change')
     this.observableWater.next(this.water)
   }
 
@@ -77,7 +74,10 @@ export class DataService {
 
   fetchCrane() {
     this.crane = MockCrane // Test purpose
-    this.state.initCraneState(this.crane)
+    const stateService = this.injector.get(StateService)
+    console.log('Crane - StateService fetch')
+    console.log(stateService)
+    stateService.initCraneState(this.crane)
     this.onCraneChange()
     // return this.http.get<Crane>(this.apiGetCrane).pipe(
     //   tap(c => this.crane = c)
@@ -86,7 +86,10 @@ export class DataService {
 
   fetchWater() {
     this.water = MockWater // Test purpose
-    this.state.initWaterState(this.water)
+    const stateService = this.injector.get(StateService)
+    console.log('Water - StateService fetch')
+    console.log(stateService)
+    stateService.initWaterState(this.water)
     this.onWaterChange()
     // return this.http.get<Water>(this.apiGetWater).pipe(
     //   tap(w => this.water = w)
