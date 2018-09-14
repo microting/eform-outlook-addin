@@ -105,7 +105,8 @@ export class StateService {
               const textLine = textLines[i]
               if ( textLine.startsWith( uitext.eform.label_eform ) ) {
                 let optionValue = textLine.split( ':' )[1].trim()
-                if ( optionValue == WATERID ) {
+                let waterVal = uitext.eform[WATERID]
+                if ( optionValue == waterVal ) {
                   __this.state.eform = WATERID
                   console.log('crane - no need to continue parse - move to water')
                   __this.onEFormChange()
@@ -180,7 +181,8 @@ export class StateService {
               const textLine = textLines[i]
               if ( textLine.startsWith( uitext.eform.label_eform ) ) {
                 let optionValue = textLine.split( ':' )[1].trim()
-                if ( optionValue == CRANEID ) {
+                let craneVal = uitext.eform[CRANEID]
+                if ( optionValue == craneVal ) {
                   console.log('water - no need to continue parse')
                   break
                 }

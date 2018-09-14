@@ -1191,7 +1191,8 @@ var StateService = /** @class */ (function () {
                             var textLine = textLines[i];
                             if (textLine.startsWith(uitext.eform.label_eform)) {
                                 var optionValue = textLine.split(':')[1].trim();
-                                if (optionValue == state_1.WATERID) {
+                                var waterVal = uitext.eform[state_1.WATERID];
+                                if (optionValue == waterVal) {
                                     __this_1.state.eform = state_1.WATERID;
                                     console.log('crane - no need to continue parse - move to water');
                                     __this_1.onEFormChange();
@@ -1271,7 +1272,8 @@ var StateService = /** @class */ (function () {
                             var textLine = textLines[i];
                             if (textLine.startsWith(uitext.eform.label_eform)) {
                                 var optionValue = textLine.split(':')[1].trim();
-                                if (optionValue == state_1.CRANEID) {
+                                var craneVal = uitext.eform[state_1.CRANEID];
+                                if (optionValue == craneVal) {
                                     console.log('water - no need to continue parse');
                                     break;
                                 }
