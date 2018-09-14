@@ -93,13 +93,10 @@ export class DataService {
   }
 
   removeEFormItem(item: CRANET | WATERT) {
-    console.log('eform remove requested')
-    console.log(this.eform)
     let index = this.eform.indexOf(item);
     if (index > -1) {
       this.eform.splice(index, 1);
     }
-    console.log(this.eform)
     this.onEFormChange()
   }
 }

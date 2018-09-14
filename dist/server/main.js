@@ -694,18 +694,18 @@ var MainComponent = /** @class */ (function () {
     MainComponent.prototype.getEForm = function () {
         var _this = this;
         this._data.getEform().subscribe(function (e) {
-            _this.zone.run(function () {
-                console.log('main - eform changed');
-                console.log(e);
-                _this.eform = {
-                    label: _this.uitext.eform.label_eform,
-                    value: []
-                };
-                for (var i = 0; i < e.length; i++) {
-                    var item = e[i];
-                    _this.eform.value.push({ label: _this.uitext.eform[item], value: item });
-                }
-            });
+            /* this.zone.run(() => { */
+            console.log('main - eform changed');
+            console.log(e);
+            _this.eform = {
+                label: _this.uitext.eform.label_eform,
+                value: []
+            };
+            for (var i = 0; i < e.length; i++) {
+                var item = e[i];
+                _this.eform.value.push({ label: _this.uitext.eform[item], value: item });
+            }
+            /* }) */
         });
     };
     MainComponent.prototype.getState = function () {
@@ -892,13 +892,10 @@ var DataService = /** @class */ (function () {
         // )
     };
     DataService.prototype.removeEFormItem = function (item) {
-        console.log('eform remove requested');
-        console.log(this.eform);
         var index = this.eform.indexOf(item);
         if (index > -1) {
             this.eform.splice(index, 1);
         }
-        console.log(this.eform);
         this.onEFormChange();
     };
     DataService.ngInjectableDef = i0.defineInjectable({ factory: function DataService_Factory() { return new DataService(i0.inject(i1.HttpClient), i0.inject(i0.INJECTOR)); }, token: DataService, providedIn: "root" });
