@@ -715,7 +715,7 @@ var MainComponent = /** @class */ (function () {
     MainComponent.prototype.onInsert = function () {
         var _this = this;
         this.zone.run(function () {
-            var lang = Office.context.displayLanguage;
+            var lang = _this._state.state.locale;
             _this.uitext = i18n_1.i18n.getTexts(lang);
             var txt_subject = '';
             var txt_body = '';
@@ -1193,6 +1193,7 @@ var StateService = /** @class */ (function () {
                                 var optionValue = textLine.split(':')[1].trim();
                                 if (optionValue == state_1.WATERID) {
                                     __this_1.state.eform = state_1.WATERID;
+                                    console.log('crane - no need to continue parse - move to water');
                                     __this_1.onEFormChange();
                                     break;
                                 }
@@ -1271,6 +1272,7 @@ var StateService = /** @class */ (function () {
                             if (textLine.startsWith(uitext.eform.label_eform)) {
                                 var optionValue = textLine.split(':')[1].trim();
                                 if (optionValue == state_1.CRANEID) {
+                                    console.log('water - no need to continue parse');
                                     break;
                                 }
                             }

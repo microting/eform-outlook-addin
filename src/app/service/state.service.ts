@@ -107,6 +107,7 @@ export class StateService {
                 let optionValue = textLine.split( ':' )[1].trim()
                 if ( optionValue == WATERID ) {
                   __this.state.eform = WATERID
+                  console.log('crane - no need to continue parse - move to water')
                   __this.onEFormChange()
                   break
                 }
@@ -180,6 +181,7 @@ export class StateService {
               if ( textLine.startsWith( uitext.eform.label_eform ) ) {
                 let optionValue = textLine.split( ':' )[1].trim()
                 if ( optionValue == CRANEID ) {
+                  console.log('water - no need to continue parse')
                   break
                 }
               } else if ( textLine.startsWith( uitext.water.label_ship ) ) {

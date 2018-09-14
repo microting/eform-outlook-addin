@@ -10,6 +10,6 @@ if (environment.production) {
 
 declare const Office: any
 
-Office.initialize = () => {
+// Office.initialize = () => {
   platformBrowserDynamic().bootstrapModule(AppModule);
-}
+// }

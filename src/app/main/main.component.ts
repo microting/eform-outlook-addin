@@ -50,7 +50,7 @@ export class MainComponent implements OnInit {
 
   onInsert(): void {
     this.zone.run(() => {
-      let lang = Office.context.displayLanguage
+      let lang = this._state.state.locale
       this.uitext = i18n.getTexts(lang)
 
       let txt_subject = ''
