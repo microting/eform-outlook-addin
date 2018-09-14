@@ -43,12 +43,7 @@ export class DataService {
   }
 
   onEFormChange(): void {
-    this.zone.run(() => {
-      console.log('eform change event - ' + this.eform.length)
-      this.observableEForm.next([this.eform[0]])
-    })
-    this.onCraneChange()
-    this.onWaterChange()
+    this.observableEForm.next([this.eform[0]])
   }
 
   onCraneChange(): void {
@@ -63,18 +58,18 @@ export class DataService {
     if ( this.crane == undefined ) {
       this.fetchCrane()
     }
-    return of(this.crane) // Test purpose
+    return this.observableCrane // Test purpose
   }
 
   getWater(): Observable<Water> {
     if ( this.water == undefined ) {
       this.fetchWater()
     }
-    return of(this.water) // Test purpose
+    return this.observableWater // Test purpose
   }
 
   getEform(): Observable<(CRANET | WATERT)[]> {
-    return of(this.eform)
+    return this.observableEForm
   }
 
   fetchCrane() {
@@ -98,12 +93,10 @@ export class DataService {
   }
 
   removeEFormItem(item: CRANET | WATERT) {
-    this.zone.run(() => {
-      let index = this.eform.indexOf(item)
-      if (index > -1) {
-        this.eform.splice(index, 1)
-      }
-      this.onEFormChange()
-    })
+    let index = this.eform.indexOf(item)
+    if (index > -1) {
+      this.eform.splice(index, 1)
+    }
+    this.onEFormChange()
   }
 }

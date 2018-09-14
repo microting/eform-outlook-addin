@@ -468,7 +468,6 @@ var CraneComponent = /** @class */ (function () {
         var _this = this;
         this._data.getCrane().subscribe(function (c) {
             _this._zone.run(function () {
-                console.log('Crane changed');
                 _this.content = {
                     ship: {
                         label: _this.uitext.crane.label_ship,
@@ -849,13 +848,7 @@ var DataService = /** @class */ (function () {
         this.observableWater = new rxjs_1.BehaviorSubject(this.water);
     }
     DataService.prototype.onEFormChange = function () {
-        var _this = this;
-        this.zone.run(function () {
-            console.log('eform change event - ' + _this.eform.length);
-            _this.observableEForm.next([_this.eform[0]]);
-        });
-        this.onCraneChange();
-        this.onWaterChange();
+        this.observableEForm.next([this.eform[0]]);
     };
     DataService.prototype.onCraneChange = function () {
         this.observableCrane.next(this.crane);
@@ -867,16 +860,16 @@ var DataService = /** @class */ (function () {
         if (this.crane == undefined) {
             this.fetchCrane();
         }
-        return rxjs_1.of(this.crane); // Test purpose
+        return this.observableCrane; // Test purpose
     };
     DataService.prototype.getWater = function () {
         if (this.water == undefined) {
             this.fetchWater();
         }
-        return rxjs_1.of(this.water); // Test purpose
+        return this.observableWater; // Test purpose
     };
     DataService.prototype.getEform = function () {
-        return rxjs_1.of(this.eform);
+        return this.observableEForm;
     };
     DataService.prototype.fetchCrane = function () {
         this.crane = mock_data_1.MockCrane; // Test purpose
@@ -897,14 +890,11 @@ var DataService = /** @class */ (function () {
         // )
     };
     DataService.prototype.removeEFormItem = function (item) {
-        var _this = this;
-        this.zone.run(function () {
-            var index = _this.eform.indexOf(item);
-            if (index > -1) {
-                _this.eform.splice(index, 1);
-            }
-            _this.onEFormChange();
-        });
+        var index = this.eform.indexOf(item);
+        if (index > -1) {
+            this.eform.splice(index, 1);
+        }
+        this.onEFormChange();
     };
     DataService.ngInjectableDef = i0.defineInjectable({ factory: function DataService_Factory() { return new DataService(i0.inject(i1.HttpClient), i0.inject(i0.INJECTOR), i0.inject(i0.NgZone)); }, token: DataService, providedIn: "root" });
     return DataService;
@@ -1545,7 +1535,6 @@ var WaterComponent = /** @class */ (function () {
         var _this = this;
         this.data.getWater().subscribe(function (c) {
             _this.zone.run(function () {
-                console.log('Water changed');
                 _this.content = {
                     ship: {
                         label: _this.uitext.water.label_ship,
