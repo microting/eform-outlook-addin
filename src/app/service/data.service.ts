@@ -43,6 +43,7 @@ export class DataService {
   }
 
   onEFormChange(): void {
+    console.log('eform change event - ' + this.eform.length)
     this.observableEForm.next(this.eform)
   }
 

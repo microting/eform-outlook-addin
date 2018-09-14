@@ -713,101 +713,98 @@ var MainComponent = /** @class */ (function () {
         this._state.getEState().subscribe(function (es) { _this.zone.run(function () { _this.state = es; }); });
     };
     MainComponent.prototype.onInsert = function () {
-        var _this = this;
-        this.zone.run(function () {
-            var lang = _this._state.state.locale;
-            _this.uitext = i18n_1.i18n.getTexts(lang);
-            var txt_subject = '';
-            var txt_body = '';
-            if (_this.state == state_1.CRANEID) {
-                txt_subject = state_1.CRANEID;
-                txt_body = _this.uitext.eform.label_eform + ': ' + _this.uitext.eform[state_1.CRANEID] + '<br>';
-                // crane - ship
-                for (var i = 0; i < _this._data.crane.ship.length; i++) {
-                    var shipitem = _this._data.crane.ship[i];
-                    if (shipitem.id == _this._state.state.crane.shipid) {
-                        txt_subject = txt_subject + ' - ' + shipitem.value;
-                        txt_body = txt_body + _this.uitext.crane.label_ship + ': ' + shipitem.value + '<br>';
-                        break;
-                    }
+        var lang = this._state.state.locale;
+        this.uitext = i18n_1.i18n.getTexts(lang);
+        var txt_subject = '';
+        var txt_body = '';
+        if (this.state == state_1.CRANEID) {
+            txt_subject = state_1.CRANEID;
+            txt_body = this.uitext.eform.label_eform + ': ' + this.uitext.eform[state_1.CRANEID] + '<br>';
+            // crane - ship
+            for (var i = 0; i < this._data.crane.ship.length; i++) {
+                var shipitem = this._data.crane.ship[i];
+                if (shipitem.id == this._state.state.crane.shipid) {
+                    txt_subject = txt_subject + ' - ' + shipitem.value;
+                    txt_body = txt_body + this.uitext.crane.label_ship + ': ' + shipitem.value + '<br>';
+                    break;
                 }
-                // crane - quay
-                for (var i = 0; i < _this._data.crane.quay.length; i++) {
-                    var quayitem = _this._data.crane.quay[i];
-                    if (quayitem.id == _this._state.state.crane.quayid) {
-                        txt_subject = txt_subject + ' - ' + quayitem.value;
-                        txt_body = txt_body + _this.uitext.crane.label_quay + ': ' + quayitem.value + '<br>';
-                        break;
-                    }
-                }
-                // crane - crane
-                for (var i = 0; i < _this._data.crane.crane.length; i++) {
-                    var craneitem = _this._data.crane.crane[i];
-                    if (craneitem.id == _this._state.state.crane.craneid) {
-                        txt_subject = txt_subject + ' - ' + craneitem.value;
-                        txt_body = txt_body + _this.uitext.crane.label_crane + ': ' + craneitem.value + '<br>';
-                        break;
-                    }
-                }
-                // crane - workers
-                var cworkers = [];
-                for (var i = 0; i < _this._data.crane.workers.length; i++) {
-                    var worker = _this._data.crane.workers[i];
-                    if (_this._state.state.crane.workers[i]) {
-                        cworkers.push(worker.value);
-                    }
-                }
-                txt_subject = txt_subject + ' - ' + cworkers.join(', ');
-                txt_body = txt_body + _this.uitext.crane.label_workers + ': ' + cworkers.join(', ') + '<br>';
-                // crane - message
-                var txtVal = _this._state.state.crane.message;
-                txtVal = txtVal.replace(/\r/g, '<br>');
-                txtVal = txtVal.replace(/\n/g, '<br>');
-                txt_body = txt_body + _this.uitext.crane.label_message + ': ' + txtVal;
             }
-            else if (_this.state == state_1.WATERID) {
-                txt_subject = state_1.WATERID;
-                txt_body = _this.uitext.eform.label_eform + ': ' + _this.uitext.eform[state_1.WATERID] + '<br>';
-                // water - ship
-                for (var i = 0; i < _this._data.water.ship.length; i++) {
-                    var shipitem = _this._data.water.ship[i];
-                    if (shipitem.id == _this._state.state.water.shipid) {
-                        txt_subject = txt_subject + ' - ' + shipitem.value;
-                        txt_body = txt_body + _this.uitext.water.label_ship + ': ' + shipitem.value + '<br>';
-                        break;
-                    }
+            // crane - quay
+            for (var i = 0; i < this._data.crane.quay.length; i++) {
+                var quayitem = this._data.crane.quay[i];
+                if (quayitem.id == this._state.state.crane.quayid) {
+                    txt_subject = txt_subject + ' - ' + quayitem.value;
+                    txt_body = txt_body + this.uitext.crane.label_quay + ': ' + quayitem.value + '<br>';
+                    break;
                 }
-                // water - quay
-                for (var i = 0; i < _this._data.water.quay.length; i++) {
-                    var quayitem = _this._data.water.quay[i];
-                    if (quayitem.id == _this._state.state.water.quayid) {
-                        txt_subject = txt_subject + ' - ' + quayitem.value;
-                        txt_body = txt_body + _this.uitext.water.label_quay + ': ' + quayitem.value + '<br>';
-                        break;
-                    }
-                }
-                // water - waters
-                var cworkers = [];
-                for (var i = 0; i < _this._data.water.workers.length; i++) {
-                    var worker = _this._data.water.workers[i];
-                    if (_this._state.state.water.workers[i]) {
-                        cworkers.push(worker.value);
-                    }
-                }
-                txt_subject = txt_subject + ' - ' + cworkers.join(', ');
-                txt_body = txt_body + _this.uitext.water.label_workers + ': ' + cworkers.join(', ') + '<br>';
-                // water - message
-                var txtVal = _this._state.state.water.message;
-                txtVal = txtVal.replace(/\r/g, '<br>');
-                txtVal = txtVal.replace(/\n/g, '<br>');
-                txt_body = txt_body + _this.uitext.water.label_message + ': ' + txtVal;
             }
-            var item = Office.context.mailbox.item;
-            if (item.itemType == Office.MailboxEnums.ItemType.Appointment) {
-                item.subject.setAsync(txt_subject);
-                item.body.setAsync(txt_body, { coercionType: Office.CoercionType.Html });
+            // crane - crane
+            for (var i = 0; i < this._data.crane.crane.length; i++) {
+                var craneitem = this._data.crane.crane[i];
+                if (craneitem.id == this._state.state.crane.craneid) {
+                    txt_subject = txt_subject + ' - ' + craneitem.value;
+                    txt_body = txt_body + this.uitext.crane.label_crane + ': ' + craneitem.value + '<br>';
+                    break;
+                }
             }
-        });
+            // crane - workers
+            var cworkers = [];
+            for (var i = 0; i < this._data.crane.workers.length; i++) {
+                var worker = this._data.crane.workers[i];
+                if (this._state.state.crane.workers[i]) {
+                    cworkers.push(worker.value);
+                }
+            }
+            txt_subject = txt_subject + ' - ' + cworkers.join(', ');
+            txt_body = txt_body + this.uitext.crane.label_workers + ': ' + cworkers.join(', ') + '<br>';
+            // crane - message
+            var txtVal = this._state.state.crane.message;
+            txtVal = txtVal.replace(/\r/g, '<br>');
+            txtVal = txtVal.replace(/\n/g, '<br>');
+            txt_body = txt_body + this.uitext.crane.label_message + ': ' + txtVal;
+        }
+        else if (this.state == state_1.WATERID) {
+            txt_subject = state_1.WATERID;
+            txt_body = this.uitext.eform.label_eform + ': ' + this.uitext.eform[state_1.WATERID] + '<br>';
+            // water - ship
+            for (var i = 0; i < this._data.water.ship.length; i++) {
+                var shipitem = this._data.water.ship[i];
+                if (shipitem.id == this._state.state.water.shipid) {
+                    txt_subject = txt_subject + ' - ' + shipitem.value;
+                    txt_body = txt_body + this.uitext.water.label_ship + ': ' + shipitem.value + '<br>';
+                    break;
+                }
+            }
+            // water - quay
+            for (var i = 0; i < this._data.water.quay.length; i++) {
+                var quayitem = this._data.water.quay[i];
+                if (quayitem.id == this._state.state.water.quayid) {
+                    txt_subject = txt_subject + ' - ' + quayitem.value;
+                    txt_body = txt_body + this.uitext.water.label_quay + ': ' + quayitem.value + '<br>';
+                    break;
+                }
+            }
+            // water - waters
+            var cworkers = [];
+            for (var i = 0; i < this._data.water.workers.length; i++) {
+                var worker = this._data.water.workers[i];
+                if (this._state.state.water.workers[i]) {
+                    cworkers.push(worker.value);
+                }
+            }
+            txt_subject = txt_subject + ' - ' + cworkers.join(', ');
+            txt_body = txt_body + this.uitext.water.label_workers + ': ' + cworkers.join(', ') + '<br>';
+            // water - message
+            var txtVal = this._state.state.water.message;
+            txtVal = txtVal.replace(/\r/g, '<br>');
+            txtVal = txtVal.replace(/\n/g, '<br>');
+            txt_body = txt_body + this.uitext.water.label_message + ': ' + txtVal;
+        }
+        var item = Office.context.mailbox.item;
+        if (item.itemType == Office.MailboxEnums.ItemType.Appointment) {
+            item.subject.setAsync(txt_subject);
+            item.body.setAsync(txt_body, { coercionType: Office.CoercionType.Html });
+        }
     };
     return MainComponent;
 }());
@@ -851,6 +848,7 @@ var DataService = /** @class */ (function () {
         this.observableWater = new rxjs_1.BehaviorSubject(this.water);
     }
     DataService.prototype.onEFormChange = function () {
+        console.log('eform change event - ' + this.eform.length);
         this.observableEForm.next(this.eform);
     };
     DataService.prototype.onCraneChange = function () {
