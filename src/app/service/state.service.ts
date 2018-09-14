@@ -86,7 +86,6 @@ export class StateService {
 
   parseCraneBody(c: Crane): void {
     let uitext = i18n.getTexts(this.state.locale)
-    console.log('parseCraneBody')
 
     this.zone.run(() => {
       let item = Office.context.mailbox.item
@@ -168,12 +167,9 @@ export class StateService {
 
             if ( itemMode == true ) {
               const data = __this.injector.get(DataService)
-              console.log('Crane - DataService fetch')
-              console.log(data)
               data.removeEFormItem(WATERID)
-            } else {
-              __this.onCraneChange()
             }
+            __this.onCraneChange()
           }
         })
       }
@@ -182,7 +178,6 @@ export class StateService {
 
   parseWaterBody(c: Water): void {
     let uitext = i18n.getTexts(this.state.locale)
-    console.log('parseWaterBody')
 
     this.zone.run(() => {
       let item = Office.context.mailbox.item
@@ -251,12 +246,9 @@ export class StateService {
 
             if ( itemMode == true ) {
               const data = __this.injector.get(DataService)
-              console.log('Water - DataService fetch')
-              console.log(data)
               data.removeEFormItem(CRANEID)
-            } else {
-              __this.onWaterChange()
             }
+            __this.onWaterChange()
           }
         })
       }

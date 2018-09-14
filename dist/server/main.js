@@ -874,8 +874,6 @@ var DataService = /** @class */ (function () {
     DataService.prototype.fetchCrane = function () {
         this.crane = mock_data_1.MockCrane; // Test purpose
         var stateService = this.injector.get(state_service_1.StateService);
-        console.log('Crane - StateService fetch');
-        console.log(stateService);
         stateService.initCraneState(this.crane);
         this.onCraneChange();
         // return this.http.get<Crane>(this.apiGetCrane).pipe(
@@ -885,8 +883,6 @@ var DataService = /** @class */ (function () {
     DataService.prototype.fetchWater = function () {
         this.water = mock_data_1.MockWater; // Test purpose
         var stateService = this.injector.get(state_service_1.StateService);
-        console.log('Water - StateService fetch');
-        console.log(stateService);
         stateService.initWaterState(this.water);
         this.onWaterChange();
         // return this.http.get<Water>(this.apiGetWater).pipe(
@@ -1175,7 +1171,6 @@ var StateService = /** @class */ (function () {
     StateService.prototype.parseCraneBody = function (c) {
         var _this = this;
         var uitext = i18n_1.i18n.getTexts(this.state.locale);
-        console.log('parseCraneBody');
         this.zone.run(function () {
             var item = Office.context.mailbox.item;
             if (item.itemType == Office.MailboxEnums.ItemType.Appointment) {
@@ -1260,13 +1255,9 @@ var StateService = /** @class */ (function () {
                         __this_1.state.crane.message = stringText;
                         if (itemMode == true) {
                             var data = __this_1.injector.get(data_service_1.DataService);
-                            console.log('Crane - DataService fetch');
-                            console.log(data);
                             data.removeEFormItem(state_1.WATERID);
                         }
-                        else {
-                            __this_1.onCraneChange();
-                        }
+                        __this_1.onCraneChange();
                     }
                 });
             }
@@ -1275,7 +1266,6 @@ var StateService = /** @class */ (function () {
     StateService.prototype.parseWaterBody = function (c) {
         var _this = this;
         var uitext = i18n_1.i18n.getTexts(this.state.locale);
-        console.log('parseWaterBody');
         this.zone.run(function () {
             var item = Office.context.mailbox.item;
             if (item.itemType == Office.MailboxEnums.ItemType.Appointment) {
@@ -1346,13 +1336,9 @@ var StateService = /** @class */ (function () {
                         __this_2.state.water.message = stringText;
                         if (itemMode == true) {
                             var data = __this_2.injector.get(data_service_1.DataService);
-                            console.log('Water - DataService fetch');
-                            console.log(data);
                             data.removeEFormItem(state_1.CRANEID);
                         }
-                        else {
-                            __this_2.onWaterChange();
-                        }
+                        __this_2.onWaterChange();
                     }
                 });
             }

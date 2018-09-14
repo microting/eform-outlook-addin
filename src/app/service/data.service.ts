@@ -75,8 +75,6 @@ export class DataService {
   fetchCrane() {
     this.crane = MockCrane // Test purpose
     const stateService = this.injector.get(StateService)
-    console.log('Crane - StateService fetch')
-    console.log(stateService)
     stateService.initCraneState(this.crane)
     this.onCraneChange()
     // return this.http.get<Crane>(this.apiGetCrane).pipe(
@@ -87,8 +85,6 @@ export class DataService {
   fetchWater() {
     this.water = MockWater // Test purpose
     const stateService = this.injector.get(StateService)
-    console.log('Water - StateService fetch')
-    console.log(stateService)
     stateService.initWaterState(this.water)
     this.onWaterChange()
     // return this.http.get<Water>(this.apiGetWater).pipe(
