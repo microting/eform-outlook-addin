@@ -95,10 +95,10 @@ export class StateService {
           if ( result.status == Office.AsyncResultStatus.Succeeded ) {
             let txtVal: string = result.value
             let textLines = txtVal.split( '\n' )
-            if ( textLines[0] == '' ) {
+            if ( textLines.length > 0 && textLines[0] == '' ) {
               textLines.shift()
             }
-            if ( textLines[textLines.length-1] == '' ) {
+            if ( textLines.length > 0 && textLines[textLines.length-1] == '' ) {
               textLines.pop()
             }
             let stringText = ''
@@ -171,6 +171,8 @@ export class StateService {
               const data = __this.injector.get(DataService)
               data.removeEFormItem(WATERID)
             }
+
+            console.log('crane itemMode = ' + itemMode)
             __this.onCraneChange()
           }
         })
@@ -189,10 +191,10 @@ export class StateService {
           if ( result.status == Office.AsyncResultStatus.Succeeded ) {
             let txtVal: string = result.value
             let textLines = txtVal.split( '\n' )
-            if ( textLines[0] == '' ) {
+            if ( textLines.length > 0 && textLines[0] == '' ) {
               textLines.shift()
             }
-            if ( textLines[textLines.length-1] == '' ) {
+            if ( textLines.length > 0 && textLines[textLines.length-1] == '' ) {
               textLines.pop()
             }
             let stringText = ''
@@ -252,6 +254,8 @@ export class StateService {
               const data = __this.injector.get(DataService)
               data.removeEFormItem(CRANEID)
             }
+
+            console.log('water itemMode = ' + itemMode)
             __this.onWaterChange()
           }
         })

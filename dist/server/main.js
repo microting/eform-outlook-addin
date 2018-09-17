@@ -1179,10 +1179,10 @@ var StateService = /** @class */ (function () {
                     if (result.status == Office.AsyncResultStatus.Succeeded) {
                         var txtVal = result.value;
                         var textLines = txtVal.split('\n');
-                        if (textLines[0] == '') {
+                        if (textLines.length > 0 && textLines[0] == '') {
                             textLines.shift();
                         }
-                        if (textLines[textLines.length - 1] == '') {
+                        if (textLines.length > 0 && textLines[textLines.length - 1] == '') {
                             textLines.pop();
                         }
                         var stringText = '';
@@ -1260,6 +1260,7 @@ var StateService = /** @class */ (function () {
                             var data = __this_1.injector.get(data_service_1.DataService);
                             data.removeEFormItem(state_1.WATERID);
                         }
+                        console.log('crane itemMode = ' + itemMode);
                         __this_1.onCraneChange();
                     }
                 });
@@ -1277,10 +1278,10 @@ var StateService = /** @class */ (function () {
                     if (result.status == Office.AsyncResultStatus.Succeeded) {
                         var txtVal = result.value;
                         var textLines = txtVal.split('\n');
-                        if (textLines[0] == '') {
+                        if (textLines.length > 0 && textLines[0] == '') {
                             textLines.shift();
                         }
-                        if (textLines[textLines.length - 1] == '') {
+                        if (textLines.length > 0 && textLines[textLines.length - 1] == '') {
                             textLines.pop();
                         }
                         var stringText = '';
@@ -1344,6 +1345,7 @@ var StateService = /** @class */ (function () {
                             var data = __this_2.injector.get(data_service_1.DataService);
                             data.removeEFormItem(state_1.CRANEID);
                         }
+                        console.log('water itemMode = ' + itemMode);
                         __this_2.onWaterChange();
                     }
                 });
