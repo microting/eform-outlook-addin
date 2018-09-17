@@ -95,20 +95,20 @@ export class StateService {
           if ( result.status == Office.AsyncResultStatus.Succeeded ) {
             let txtVal: string = result.value
             let textLines = txtVal.split( '\n' )
-            if ( textLines.length > 0 && textLines[0] == '' ) {
-              textLines.shift()
-            }
-            if ( textLines.length > 0 && textLines[textLines.length-1] == '' ) {
-              textLines.pop()
-            }
             let stringText = ''
             let itemMode: boolean
             itemMode = false
             console.log('textLines')
             console.log(textLines)
+            let newLine = false
             for ( let i = 0; i < textLines.length; i ++ ) {
-              itemMode = false
               const textLine = textLines[i]
+              itemMode = false
+              if ( newLine == false && textLine.length == 0 ) {
+                continue
+              } else {
+                newLine = true
+              }
               if ( textLine.startsWith( uitext.eform.label_eform ) ) {
                 let optionValue = textLine.split( ':' )[1].trim()
                 let waterVal = uitext.eform[WATERID]
@@ -196,17 +196,17 @@ export class StateService {
           if ( result.status == Office.AsyncResultStatus.Succeeded ) {
             let txtVal: string = result.value
             let textLines = txtVal.split( '\n' )
-            if ( textLines.length > 0 && textLines[0] == '' ) {
-              textLines.shift()
-            }
-            if ( textLines.length > 0 && textLines[textLines.length-1] == '' ) {
-              textLines.pop()
-            }
             let stringText = ''
             let itemMode = false
+            let newLine = false
             for ( let i = 0; i < textLines.length; i ++ ) {
-              itemMode = false
               const textLine = textLines[i]
+              itemMode = false
+              if ( newLine == false && textLine.length == 0 ) {
+                continue
+              } else {
+                newLine = true
+              }
               if ( textLine.startsWith( uitext.eform.label_eform ) ) {
                 let optionValue = textLine.split( ':' )[1].trim()
                 let craneVal = uitext.eform[CRANEID]

@@ -1177,20 +1177,21 @@ var StateService = /** @class */ (function () {
                     if (result.status == Office.AsyncResultStatus.Succeeded) {
                         var txtVal = result.value;
                         var textLines = txtVal.split('\n');
-                        if (textLines.length > 0 && textLines[0] == '') {
-                            textLines.shift();
-                        }
-                        if (textLines.length > 0 && textLines[textLines.length - 1] == '') {
-                            textLines.pop();
-                        }
                         var stringText = '';
                         var itemMode = void 0;
                         itemMode = false;
                         console.log('textLines');
                         console.log(textLines);
+                        var newLine = false;
                         for (var i = 0; i < textLines.length; i++) {
-                            itemMode = false;
                             var textLine = textLines[i];
+                            itemMode = false;
+                            if (newLine == false && textLine.length == 0) {
+                                continue;
+                            }
+                            else {
+                                newLine = true;
+                            }
                             if (textLine.startsWith(uitext.eform.label_eform)) {
                                 var optionValue = textLine.split(':')[1].trim();
                                 var waterVal = uitext.eform[state_1.WATERID];
@@ -1281,17 +1282,18 @@ var StateService = /** @class */ (function () {
                     if (result.status == Office.AsyncResultStatus.Succeeded) {
                         var txtVal = result.value;
                         var textLines = txtVal.split('\n');
-                        if (textLines.length > 0 && textLines[0] == '') {
-                            textLines.shift();
-                        }
-                        if (textLines.length > 0 && textLines[textLines.length - 1] == '') {
-                            textLines.pop();
-                        }
                         var stringText = '';
                         var itemMode = false;
+                        var newLine = false;
                         for (var i = 0; i < textLines.length; i++) {
-                            itemMode = false;
                             var textLine = textLines[i];
+                            itemMode = false;
+                            if (newLine == false && textLine.length == 0) {
+                                continue;
+                            }
+                            else {
+                                newLine = true;
+                            }
                             if (textLine.startsWith(uitext.eform.label_eform)) {
                                 var optionValue = textLine.split(':')[1].trim();
                                 var craneVal = uitext.eform[state_1.CRANEID];
