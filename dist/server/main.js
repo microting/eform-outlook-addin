@@ -695,8 +695,6 @@ var MainComponent = /** @class */ (function () {
         var _this = this;
         this._data.getEform().subscribe(function (e) {
             _this.zone.run(function () {
-                console.log('main - eform changed');
-                console.log(e);
                 _this.eform = {
                     label: _this.uitext.eform.label_eform,
                     value: []
@@ -1186,7 +1184,10 @@ var StateService = /** @class */ (function () {
                             textLines.pop();
                         }
                         var stringText = '';
-                        var itemMode = false;
+                        var itemMode = void 0;
+                        itemMode = false;
+                        console.log('textLines');
+                        console.log(textLines);
                         for (var i = 0; i < textLines.length; i++) {
                             itemMode = false;
                             var textLine = textLines[i];
@@ -1249,7 +1250,6 @@ var StateService = /** @class */ (function () {
                                 itemMode = true;
                             }
                             else {
-                                itemMode = true;
                                 stringText = stringText + textLine + '\n';
                             }
                             if (itemMode == false)
@@ -1335,7 +1335,6 @@ var StateService = /** @class */ (function () {
                             }
                             else {
                                 stringText = stringText + textLine + '\n';
-                                itemMode = true;
                             }
                             if (itemMode == false)
                                 break;

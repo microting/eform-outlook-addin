@@ -102,7 +102,10 @@ export class StateService {
               textLines.pop()
             }
             let stringText = ''
-            let itemMode = false
+            let itemMode: boolean
+            itemMode = false
+            console.log('textLines')
+            console.log(textLines)
             for ( let i = 0; i < textLines.length; i ++ ) {
               itemMode = false
               const textLine = textLines[i]
@@ -158,7 +161,6 @@ export class StateService {
                 stringText = textLine.replace(uitext.crane.label_message + ': ', '') + '\n'
                 itemMode = true
               } else {
-                itemMode = true
                 stringText = stringText + textLine + '\n'
               }
 
@@ -242,7 +244,6 @@ export class StateService {
                 itemMode = true
               } else {
                 stringText = stringText + textLine + '\n'
-                itemMode = true
               }
 
               if ( itemMode == false ) break
