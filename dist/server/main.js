@@ -1180,8 +1180,6 @@ var StateService = /** @class */ (function () {
                         var stringText = '';
                         var itemMode = void 0;
                         itemMode = false;
-                        console.log('textLines');
-                        console.log(textLines);
                         var newLine = false;
                         for (var i = 0; i < textLines.length; i++) {
                             var textLine = textLines[i];
@@ -1264,7 +1262,6 @@ var StateService = /** @class */ (function () {
                             var data = __this_1.injector.get(data_service_1.DataService);
                             data.removeEFormItem(state_1.WATERID);
                         }
-                        console.log('crane itemMode = ' + itemMode);
                         __this_1.onCraneChange();
                     }
                 });
@@ -1352,7 +1349,6 @@ var StateService = /** @class */ (function () {
                             var data = __this_2.injector.get(data_service_1.DataService);
                             data.removeEFormItem(state_1.CRANEID);
                         }
-                        console.log('water itemMode = ' + itemMode);
                         __this_2.onWaterChange();
                     }
                 });

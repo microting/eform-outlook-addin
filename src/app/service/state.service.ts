@@ -98,8 +98,6 @@ export class StateService {
             let stringText = ''
             let itemMode: boolean
             itemMode = false
-            console.log('textLines')
-            console.log(textLines)
             let newLine = false
             for ( let i = 0; i < textLines.length; i ++ ) {
               const textLine = textLines[i]
@@ -177,7 +175,6 @@ export class StateService {
               data.removeEFormItem(WATERID)
             }
 
-            console.log('crane itemMode = ' + itemMode)
             __this.onCraneChange()
           }
         })
@@ -262,7 +259,6 @@ export class StateService {
               data.removeEFormItem(CRANEID)
             }
 
-            console.log('water itemMode = ' + itemMode)
             __this.onWaterChange()
           }
         })
