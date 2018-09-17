@@ -1250,6 +1250,9 @@ var StateService = /** @class */ (function () {
                                 itemMode = true;
                             }
                             else {
+                                if (stringText.length > 0) {
+                                    itemMode = true;
+                                }
                                 stringText = stringText + textLine + '\n';
                             }
                             if (itemMode == false)
@@ -1334,6 +1337,9 @@ var StateService = /** @class */ (function () {
                                 itemMode = true;
                             }
                             else {
+                                if (stringText.length > 0) {
+                                    itemMode = true;
+                                }
                                 stringText = stringText + textLine + '\n';
                             }
                             if (itemMode == false)

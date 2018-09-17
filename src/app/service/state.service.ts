@@ -161,6 +161,9 @@ export class StateService {
                 stringText = textLine.replace(uitext.crane.label_message + ': ', '') + '\n'
                 itemMode = true
               } else {
+                if ( stringText.length > 0 ) {
+                  itemMode = true
+                }
                 stringText = stringText + textLine + '\n'
               }
 
@@ -243,6 +246,9 @@ export class StateService {
                 stringText = textLine.replace(uitext.water.label_message + ': ', '') + '\n'
                 itemMode = true
               } else {
+                if ( stringText.length > 0 ) {
+                  itemMode = true
+                }
                 stringText = stringText + textLine + '\n'
               }
 
