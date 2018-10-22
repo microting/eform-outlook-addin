@@ -5,7 +5,7 @@
   "description": "Example project from an angular.io guide.",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --host=172.16.2.53",
     "test": "ng test",
     "lint": "tslint ./src/**/*.ts -t verbose",
     "e2e": "ng e2e",
@@ -31,6 +31,7 @@
     "@nguniversal/express-engine": "^6.0.0",
     "@nguniversal/module-map-ngfactory-loader": "^6.0.0",
     "angular-in-memory-web-api": "^0.6.0",
+    "codelyzer": "^4.5.0",
     "core-js": "^2.5.4",
     "ejs": "^2.6.1",
     "rxjs": "^6.0.0",

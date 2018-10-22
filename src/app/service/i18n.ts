@@ -26,9 +26,9 @@ export const i18n = {
   },
   getTexts: function(locale: string) {
     if ( locale.toLowerCase().includes('da') ) {
-      return i18n.en
+      return i18n.en;
     } else {
-      return i18n.en
+      return i18n.en;
     }
   }
-}
+};

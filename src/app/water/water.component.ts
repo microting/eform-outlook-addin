@@ -1,31 +1,37 @@
-import { Component, OnInit, NgZone } from '@angular/core';
-import { Water } from '../service/data';
-import { DataService } from '../service/data.service';
-import { i18n } from '../service/i18n';
-import { StateService } from '../service/state.service';
-import { WaterState } from '../service/state';
+import {Component, OnInit, NgZone} from '@angular/core';
+import {Water} from '../service/data';
+import {DataService} from '../service/data.service';
+import {i18n} from '../service/i18n';
+import {StateService} from '../service/state.service';
+import {WaterState} from '../service/state';
 
 @Component({
   selector: 'app-water',
   templateUrl: './water.component.html',
   styleUrls: ['./water.component.css']
 })
+
 export class WaterComponent implements OnInit {
 
-  content
-  uitext
-  state: WaterState
+  content;
+  uitext;
+  state: WaterState;
 
-  constructor(private zone: NgZone, public data: DataService, public _state: StateService) { }
+  constructor(private zone: NgZone, public data: DataService, public _state: StateService) {
+  }
 
   ngOnInit() {
-    this.uitext = i18n.getTexts(this._state.state.locale)
-    this.getWater()
-    this.getState()
+    this.uitext = i18n.getTexts(this._state.state.locale);
+    this.getWater();
+    this.getState();
   }
 
   getState(): void {
-    this._state.getWaterState().subscribe(ws => { this.zone.run(() => {this.state = ws}) })
+    this._state.getWaterState().subscribe(ws => {
+      this.zone.run(() => {
+        this.state = ws;
+      });
+    });
   }
 
   getWater(): void {
@@ -54,12 +60,12 @@ export class WaterComponent implements OnInit {
             label: this.uitext.water.label_message,
             value: c.message
           }
-        }
-      })
-    })
+        };
+      });
+    });
   }
 
   onWorkers(workerIndex: number) {
-    this.state.workers[workerIndex] = !this.state.workers[workerIndex]
+    this.state.workers[workerIndex] = !this.state.workers[workerIndex];
   }
 }

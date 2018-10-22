@@ -11,20 +11,20 @@ import { CraneState } from '../service/state';
 })
 export class CraneComponent implements OnInit {
 
-  content
-  uitext
-  state: CraneState
+  content;
+  uitext;
+  state: CraneState;
 
   constructor(private _zone: NgZone, public _data: DataService, public _state: StateService) { }
 
   ngOnInit() {
-    this.uitext = i18n.getTexts(this._state.state.locale)
-    this.getCrane()
-    this.getState()
+    this.uitext = i18n.getTexts(this._state.state.locale);
+    this.getCrane();
+    this.getState();
   }
 
   getState(): void {
-    this._state.getCraneState().subscribe(cs => {this._zone.run(() => { this.state = cs }) })
+    this._state.getCraneState().subscribe(cs => {this._zone.run(() => { this.state = cs; }); });
   }
 
   getCrane(): void {
@@ -59,12 +59,12 @@ export class CraneComponent implements OnInit {
             label: this.uitext.crane.label_message,
             value: c.message
           }
-        }
-      })
-    })
+        };
+      });
+    });
   }
 
   onWorkers(workerIndex: number) {
-    this.state.workers[workerIndex] = !this.state.workers[workerIndex]
+    this.state.workers[workerIndex] = !this.state.workers[workerIndex];
   }
 }
