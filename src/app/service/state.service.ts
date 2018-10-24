@@ -107,7 +107,8 @@ export class StateService {
               } else {
                 newLine = true;
               }
-              if ( textLine.startsWith( uitext.eform.label_eform ) ) {
+              // if ( textLine.startsWith( uitext.eform.label_eform ) ) {
+              if ( textLine.startsWith( 'Template#' ) ) {
                 const optionValue = textLine.split( ':' )[1].trim();
                 const waterVal = uitext.eform[WATERID];
                 if ( optionValue === waterVal ) {
@@ -118,7 +119,8 @@ export class StateService {
                 } else {
                   itemMode = true;
                 }
-              } else if ( textLine.startsWith( uitext.crane.label_ship ) ) {
+              // } else if ( textLine.startsWith( uitext.crane.label_ship ) ) {
+              } else if ( textLine.startsWith( 'F1#' ) ) {
                 const optionValue = textLine.split( ':' )[1].trim();
                 for (let j = 0; j < c.ship.length; j ++) {
                   if ( c.ship[j].value === optionValue ) {
@@ -126,7 +128,8 @@ export class StateService {
                     itemMode = true;
                   }
                 }
-              } else if ( textLine.startsWith( uitext.crane.label_quay ) ) {
+              // } else if ( textLine.startsWith( uitext.crane.label_quay ) ) {
+              } else if ( textLine.startsWith( 'F2#' ) ) {
                 const optionValue = textLine.split( ':' )[1].trim();
                 for (let j = 0; j < c.quay.length; j ++) {
                   if ( c.quay[j].value === optionValue ) {
@@ -134,7 +137,8 @@ export class StateService {
                     itemMode = true;
                   }
                 }
-              } else if ( textLine.startsWith( uitext.crane.label_crane ) ) {
+              // } else if ( textLine.startsWith( uitext.crane.label_crane ) ) {
+              } else if ( textLine.startsWith( 'F3#' ) ) {
                 const optionValue = textLine.split( ':' )[1].trim();
                 for (let j = 0; j < c.crane.length; j ++) {
                   if ( c.crane[j].value === optionValue ) {
@@ -142,7 +146,8 @@ export class StateService {
                     itemMode = true;
                   }
                 }
-              } else if ( textLine.startsWith( uitext.crane.label_workers ) ) {
+              // } else if ( textLine.startsWith( uitext.crane.label_workers ) ) {
+              } else if ( textLine.startsWith( 'Sites#' ) ) {
                 itemMode = true;
                 const optionValue = textLine.split( ':' )[1].trim();
                 const cworkers = optionValue.split(', ');
@@ -155,7 +160,8 @@ export class StateService {
                     }
                   }
                 }
-              } else if (textLine.startsWith( uitext.crane.label_message )) {
+              // } else if (textLine.startsWith( uitext.crane.label_message )) {
+              } else if (textLine.startsWith( 'F4#' )) {
                 stringText = textLine.replace(uitext.crane.label_message + ': ', '') + '\n';
                 itemMode = true;
               } else {
@@ -206,7 +212,8 @@ export class StateService {
               } else {
                 newLine = true;
               }
-              if ( textLine.startsWith( uitext.eform.label_eform ) ) {
+              // if ( textLine.startsWith( uitext.eform.label_eform ) ) {
+              if ( textLine.startsWith( 'Template#' ) ) {
                 const optionValue = textLine.split( ':' )[1].trim();
                 const craneVal = uitext.eform[CRANEID];
                 if ( optionValue === craneVal ) {
@@ -214,7 +221,8 @@ export class StateService {
                 } else {
                   itemMode = true;
                 }
-              } else if ( textLine.startsWith( uitext.water.label_ship ) ) {
+              // } else if ( textLine.startsWith( uitext.water.label_ship ) ) {
+              } else if ( textLine.startsWith( 'F1#' ) ) {
                 const optionValue = textLine.split( ':' )[1].trim();
                 for (let j = 0; j < c.ship.length; j ++) {
                   if ( c.ship[j].value === optionValue ) {
@@ -222,7 +230,8 @@ export class StateService {
                     itemMode = true;
                   }
                 }
-              } else if ( textLine.startsWith( uitext.water.label_quay ) ) {
+              // } else if ( textLine.startsWith( uitext.water.label_quay ) ) {
+              } else if ( textLine.startsWith( 'F2#' ) ) {
                 const optionValue = textLine.split( ':' )[1].trim();
                 for (let j = 0; j < c.quay.length; j ++) {
                   if ( c.quay[j].value === optionValue ) {
@@ -230,7 +239,8 @@ export class StateService {
                     itemMode = true;
                   }
                 }
-              } else if ( textLine.startsWith( uitext.water.label_workers ) ) {
+              // } else if ( textLine.startsWith( uitext.water.label_workers ) ) {
+              } else if ( textLine.startsWith( 'Sites#' ) ) {
                 itemMode = true;
                 const optionValue = textLine.split( ':' )[1].trim();
                 const cworkers = optionValue.split(', ');
@@ -241,7 +251,8 @@ export class StateService {
                     }
                   }
                 }
-              } else if (textLine.startsWith( uitext.water.label_message )) {
+              // } else if (textLine.startsWith( uitext.water.label_message )) {
+              } else if (textLine.startsWith( 'F4#' )) {
                 stringText = textLine.replace(uitext.water.label_message + ': ', '') + '\n';
                 itemMode = true;
               } else {

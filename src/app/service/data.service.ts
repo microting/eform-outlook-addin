@@ -55,14 +55,14 @@ export class DataService {
   }
 
   getCrane(): Observable<Crane> {
-    if ( this.crane == undefined ) {
+    if ( this.crane === undefined ) {
       this.fetchCrane();
     }
     return this.observableCrane // Test purpose
   }
 
   getWater(): Observable<Water> {
-    if ( this.water == undefined ) {
+    if ( this.water === undefined ) {
       this.fetchWater();
     }
     return this.observableWater; // Test purpose

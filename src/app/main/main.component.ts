@@ -55,14 +55,16 @@ export class MainComponent implements OnInit {
     let txt_body = '';
     if ( this.state === CRANEID ) {
       txt_subject = CRANEID;
-      txt_body = this.uitext.eform.label_eform + ': ' + this.uitext.eform[CRANEID] + '<br>';
+      // txt_body = this.uitext.eform.label_eform + ': ' + this.uitext.eform[CRANEID] + '<br>';
+      txt_body = 'Template# ' + this.uitext.eform[CRANEID] + '<br>';
 
       // crane - ship
       for ( let i = 0; i < this._data.crane.ship.length; i ++ ) {
         const shipitem = this._data.crane.ship[i];
         if ( shipitem.id === this._state.state.crane.shipid ) {
           txt_subject = txt_subject + ' - ' + shipitem.value;
-          txt_body = txt_body + this.uitext.crane.label_ship + ': ' + shipitem.value + '<br>';
+          // txt_body = txt_body + this.uitext.crane.label_ship + ': ' + shipitem.value + '<br>';
+          txt_body = 'F1# ' + shipitem.value + '<br>';
           break;
         }
       }
@@ -72,7 +74,8 @@ export class MainComponent implements OnInit {
         const quayitem = this._data.crane.quay[i];
         if ( quayitem.id === this._state.state.crane.quayid ) {
           txt_subject = txt_subject + ' - ' + quayitem.value;
-          txt_body = txt_body + this.uitext.crane.label_quay + ': ' + quayitem.value + '<br>';
+          // txt_body = txt_body + this.uitext.crane.label_quay + ': ' + quayitem.value + '<br>';
+          txt_body = 'F2# ' + quayitem.value + '<br>';
           break;
         }
       }
@@ -82,7 +85,8 @@ export class MainComponent implements OnInit {
         const craneitem = this._data.crane.crane[i];
         if ( craneitem.id === this._state.state.crane.craneid ) {
           txt_subject = txt_subject + ' - ' + craneitem.value;
-          txt_body = txt_body + this.uitext.crane.label_crane + ': ' + craneitem.value + '<br>';
+          // txt_body = txt_body + this.uitext.crane.label_crane + ': ' + craneitem.value + '<br>';
+          txt_body = 'F3# ' + craneitem.value + '<br>';
           break;
         }
       }
@@ -96,24 +100,28 @@ export class MainComponent implements OnInit {
         }
       }
       txt_subject = txt_subject + ' - ' + cworkers.join(', ');
-      txt_body = txt_body + this.uitext.crane.label_workers + ': ' + cworkers.join(', ') + '<br>';
+      // txt_body = txt_body + this.uitext.crane.label_workers + ': ' + cworkers.join(', ') + '<br>';
+      txt_body = 'Sites# ' + cworkers.join(', ') + '<br>';
 
       // crane - message
       let txtVal = this._state.state.crane.message;
       txtVal = txtVal.replace(/\r/g, '<br>');
       txtVal = txtVal.replace(/\n/g, '<br>');
-      txt_body = txt_body + this.uitext.crane.label_message + ': ' + txtVal
+      // txt_body = txt_body + this.uitext.crane.label_message + ': ' + txtVal
+      txt_body = 'F4# ' + txtVal;
 
     } else if ( this.state === WATERID ) {
       txt_subject = WATERID;
-      txt_body = this.uitext.eform.label_eform + ': ' + this.uitext.eform[WATERID] + '<br>';
+      // txt_body = this.uitext.eform.label_eform + ': ' + this.uitext.eform[WATERID] + '<br>';
+      txt_body = 'Template# ' + this.uitext.eform[WATERID] + '<br>';
 
       // water - ship
       for ( let i = 0; i < this._data.water.ship.length; i ++ ) {
         const shipitem = this._data.water.ship[i];
         if ( shipitem.id === this._state.state.water.shipid ) {
           txt_subject = txt_subject + ' - ' + shipitem.value;
-          txt_body = txt_body + this.uitext.water.label_ship + ': ' + shipitem.value + '<br>';
+          // txt_body = txt_body + this.uitext.water.label_ship + ': ' + shipitem.value + '<br>';
+          txt_body = 'F1# ' + shipitem.value + '<br>';
           break;
         }
       }
@@ -123,7 +131,8 @@ export class MainComponent implements OnInit {
         const quayitem = this._data.water.quay[i];
         if ( quayitem.id === this._state.state.water.quayid ) {
           txt_subject = txt_subject + ' - ' + quayitem.value;
-          txt_body = txt_body + this.uitext.water.label_quay + ': ' + quayitem.value + '<br>';
+          // txt_body = txt_body + this.uitext.water.label_quay + ': ' + quayitem.value + '<br>';
+          txt_body = 'F2# ' + quayitem.value + '<br>';
           break;
         }
       }
@@ -137,13 +146,15 @@ export class MainComponent implements OnInit {
         }
       }
       txt_subject = txt_subject + ' - ' + cworkers.join(', ');
-      txt_body = txt_body + this.uitext.water.label_workers + ': ' + cworkers.join(', ') + '<br>';
+      // txt_body = txt_body + this.uitext.water.label_workers + ': ' + cworkers.join(', ') + '<br>';
+      txt_body = 'Sites# ' + cworkers.join(', ') + '<br>';
 
       // water - message
       let txtVal = this._state.state.water.message;
       txtVal = txtVal.replace(/\r/g, '<br>');
       txtVal = txtVal.replace(/\n/g, '<br>');
-      txt_body = txt_body + this.uitext.water.label_message + ': ' + txtVal;
+      // txt_body = txt_body + this.uitext.water.label_message + ': ' + txtVal;
+      txt_body = 'F3# ' + txtVal;
 
     }
 
