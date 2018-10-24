@@ -64,7 +64,7 @@ export class MainComponent implements OnInit {
         if ( shipitem.id === this._state.state.crane.shipid ) {
           txt_subject = txt_subject + ' - ' + shipitem.value;
           // txt_body = txt_body + this.uitext.crane.label_ship + ': ' + shipitem.value + '<br>';
-          txt_body = txt_body + 'F1# ' + shipitem.value + '<br>';
+          txt_body = txt_body + 'F1# ' + shipitem.id + '<br>';
           break;
         }
       }
@@ -75,7 +75,7 @@ export class MainComponent implements OnInit {
         if ( quayitem.id === this._state.state.crane.quayid ) {
           txt_subject = txt_subject + ' - ' + quayitem.value;
           // txt_body = txt_body + this.uitext.crane.label_quay + ': ' + quayitem.value + '<br>';
-          txt_body = txt_body + 'F2# ' + quayitem.value + '<br>';
+          txt_body = txt_body + 'F2# ' + quayitem.id + '<br>';
           break;
         }
       }
@@ -86,22 +86,24 @@ export class MainComponent implements OnInit {
         if ( craneitem.id === this._state.state.crane.craneid ) {
           txt_subject = txt_subject + ' - ' + craneitem.value;
           // txt_body = txt_body + this.uitext.crane.label_crane + ': ' + craneitem.value + '<br>';
-          txt_body = txt_body + 'F3# ' + craneitem.value + '<br>';
+          txt_body = txt_body + 'F3# ' + craneitem.id + '<br>';
           break;
         }
       }
 
       // crane - workers
-      const cworkers = [];
+      const cworkerids = [];
+      const cworkervalues = [];
       for ( let i = 0; i < this._data.crane.workers.length; i ++ ) {
         const worker = this._data.crane.workers[i];
         if ( this._state.state.crane.workers[i] ) {
-          cworkers.push(worker.value);
+          cworkerids.push(worker.id);
+          cworkervalues.push(worker.value);
         }
       }
-      txt_subject = txt_subject + ' - ' + cworkers.join(', ');
+      txt_subject = txt_subject + ' - ' + cworkervalues.join(', ');
       // txt_body = txt_body + this.uitext.crane.label_workers + ': ' + cworkers.join(', ') + '<br>';
-      txt_body = txt_body + 'Sites# ' + cworkers.join(', ') + '<br>';
+      txt_body = txt_body + 'Sites# ' + cworkerids.join(', ') + '<br>';
 
       // crane - message
       let txtVal = this._state.state.crane.message;
@@ -121,7 +123,7 @@ export class MainComponent implements OnInit {
         if ( shipitem.id === this._state.state.water.shipid ) {
           txt_subject = txt_subject + ' - ' + shipitem.value;
           // txt_body = txt_body + this.uitext.water.label_ship + ': ' + shipitem.value + '<br>';
-          txt_body = txt_body + 'F1# ' + shipitem.value + '<br>';
+          txt_body = txt_body + 'F1# ' + shipitem.id + '<br>';
           break;
         }
       }
@@ -132,22 +134,24 @@ export class MainComponent implements OnInit {
         if ( quayitem.id === this._state.state.water.quayid ) {
           txt_subject = txt_subject + ' - ' + quayitem.value;
           // txt_body = txt_body + this.uitext.water.label_quay + ': ' + quayitem.value + '<br>';
-          txt_body = txt_body + 'F2# ' + quayitem.value + '<br>';
+          txt_body = txt_body + 'F2# ' + quayitem.id + '<br>';
           break;
         }
       }
 
       // water - waters
-      const cworkers = [];
+      const cworkerids = [];
+      const cworkervalues = [];
       for ( let i = 0; i < this._data.water.workers.length; i ++ ) {
         const worker = this._data.water.workers[i];
         if ( this._state.state.water.workers[i] ) {
-          cworkers.push(worker.value);
+          cworkerids.push(worker.id);
+          cworkervalues.push(worker.value);
         }
       }
-      txt_subject = txt_subject + ' - ' + cworkers.join(', ');
+      txt_subject = txt_subject + ' - ' + cworkervalues.join(', ');
       // txt_body = txt_body + this.uitext.water.label_workers + ': ' + cworkers.join(', ') + '<br>';
-      txt_body = txt_body + 'Sites# ' + cworkers.join(', ') + '<br>';
+      txt_body = txt_body + 'Sites# ' + cworkerids.join(', ') + '<br>';
 
       // water - message
       let txtVal = this._state.state.water.message;

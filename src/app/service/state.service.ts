@@ -109,39 +109,39 @@ export class StateService {
               }
               // if ( textLine.startsWith( uitext.eform.label_eform ) ) {
               if ( textLine.startsWith( 'Template#' ) ) {
-                const optionValue = textLine.split( ':' )[1].trim();
+                const optionValue = textLine.split( '#' )[1].trim();
                 const waterVal = uitext.eform[WATERID];
                 if ( optionValue === waterVal ) {
                   __this.state.eform = WATERID;
                   __this.onEFormChange();
                   itemMode = false;
-                  return
+                  return;
                 } else {
                   itemMode = true;
                 }
               // } else if ( textLine.startsWith( uitext.crane.label_ship ) ) {
               } else if ( textLine.startsWith( 'F1#' ) ) {
-                const optionValue = textLine.split( ':' )[1].trim();
+                const optionValue = textLine.split( '#' )[1].trim();
                 for (let j = 0; j < c.ship.length; j ++) {
-                  if ( c.ship[j].value === optionValue ) {
+                  if ( c.ship[j].id === optionValue ) {
                     __this.state.crane.shipid = c.ship[j].id;
                     itemMode = true;
                   }
                 }
               // } else if ( textLine.startsWith( uitext.crane.label_quay ) ) {
               } else if ( textLine.startsWith( 'F2#' ) ) {
-                const optionValue = textLine.split( ':' )[1].trim();
+                const optionValue = textLine.split( '#' )[1].trim();
                 for (let j = 0; j < c.quay.length; j ++) {
-                  if ( c.quay[j].value === optionValue ) {
+                  if ( c.quay[j].id === optionValue ) {
                     __this.state.crane.quayid = c.quay[j].id;
                     itemMode = true;
                   }
                 }
               // } else if ( textLine.startsWith( uitext.crane.label_crane ) ) {
               } else if ( textLine.startsWith( 'F3#' ) ) {
-                const optionValue = textLine.split( ':' )[1].trim();
+                const optionValue = textLine.split( '#' )[1].trim();
                 for (let j = 0; j < c.crane.length; j ++) {
-                  if ( c.crane[j].value === optionValue ) {
+                  if ( c.crane[j].id === optionValue ) {
                     __this.state.crane.craneid = c.crane[j].id;
                     itemMode = true;
                   }
@@ -149,12 +149,12 @@ export class StateService {
               // } else if ( textLine.startsWith( uitext.crane.label_workers ) ) {
               } else if ( textLine.startsWith( 'Sites#' ) ) {
                 itemMode = true;
-                const optionValue = textLine.split( ':' )[1].trim();
+                const optionValue = textLine.split( '#' )[1].trim();
                 const cworkers = optionValue.split(', ');
                 if ( cworkers.length > 0 ) {
                   for (let j = 0; j < c.workers.length; j ++) {
                     for (let k = 0; k < cworkers.length; k ++) {
-                      if ( c.workers[j].value === cworkers[k] ) {
+                      if ( c.workers[j].id === cworkers[k] ) {
                         __this.state.crane.workers[j] = true;
                       }
                     }
@@ -214,7 +214,7 @@ export class StateService {
               }
               // if ( textLine.startsWith( uitext.eform.label_eform ) ) {
               if ( textLine.startsWith( 'Template#' ) ) {
-                const optionValue = textLine.split( ':' )[1].trim();
+                const optionValue = textLine.split( '#' )[1].trim();
                 const craneVal = uitext.eform[CRANEID];
                 if ( optionValue === craneVal ) {
                   return;
@@ -223,18 +223,18 @@ export class StateService {
                 }
               // } else if ( textLine.startsWith( uitext.water.label_ship ) ) {
               } else if ( textLine.startsWith( 'F1#' ) ) {
-                const optionValue = textLine.split( ':' )[1].trim();
+                const optionValue = textLine.split( '#' )[1].trim();
                 for (let j = 0; j < c.ship.length; j ++) {
-                  if ( c.ship[j].value === optionValue ) {
+                  if ( c.ship[j].id === optionValue ) {
                     __this.state.water.shipid = c.ship[j].id;
                     itemMode = true;
                   }
                 }
               // } else if ( textLine.startsWith( uitext.water.label_quay ) ) {
               } else if ( textLine.startsWith( 'F2#' ) ) {
-                const optionValue = textLine.split( ':' )[1].trim();
+                const optionValue = textLine.split( '#' )[1].trim();
                 for (let j = 0; j < c.quay.length; j ++) {
-                  if ( c.quay[j].value === optionValue ) {
+                  if ( c.quay[j].id === optionValue ) {
                     __this.state.water.quayid = c.quay[j].id;
                     itemMode = true;
                   }
@@ -242,11 +242,11 @@ export class StateService {
               // } else if ( textLine.startsWith( uitext.water.label_workers ) ) {
               } else if ( textLine.startsWith( 'Sites#' ) ) {
                 itemMode = true;
-                const optionValue = textLine.split( ':' )[1].trim();
+                const optionValue = textLine.split( '#' )[1].trim();
                 const cworkers = optionValue.split(', ');
                 for (let j = 0; j < c.workers.length; j ++) {
                   for (let k = 0; k < cworkers.length; k ++) {
-                    if ( c.workers[j].value === cworkers[k] ) {
+                    if ( c.workers[j].id === cworkers[k] ) {
                       __this.state.water.workers[j] = true;
                     }
                   }
