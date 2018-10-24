@@ -12,7 +12,8 @@
     "build:ssr": "npm run build:client-and-server-bundles && npm run webpack:server",
     "serve:ssr": "node dist/server.js",
     "build:client-and-server-bundles": "ng build --prod && ng run eform:server",
-    "webpack:server": "webpack --config webpack.server.config.js --progress --colors"
+    "webpack:server": "webpack --config webpack.server.config.js --progress --colors",
+    "heroku-postbuild": "npm run build:ssr"
   },
   "keywords": [],
   "author": "",
@@ -55,5 +56,6 @@
     "typescript": "2.7.2",
     "webpack-cli": "^2.0.14"
   },
-  "repository": {}
+  "repository": {},
+  
 }
