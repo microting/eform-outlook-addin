@@ -1,3 +1,4 @@
+
 {
   "name": "angular-io-example",
   "version": "1.0.0",
@@ -13,7 +14,7 @@
     "serve:ssr": "node dist/server.js",
     "build:client-and-server-bundles": "ng build --prod && ng run eform:server",
     "webpack:server": "webpack --config webpack.server.config.js --progress --colors",
-    "heroku-postbuild": "npm run build:ssr"
+    "heroku-postbuild":"npm run build:ssr"
   },
   "keywords": [],
   "author": "",
@@ -56,6 +57,5 @@
     "typescript": "2.7.2",
     "webpack-cli": "^2.0.14"
   },
-  "repository": {},
-  
+  "repository": {}
 }
