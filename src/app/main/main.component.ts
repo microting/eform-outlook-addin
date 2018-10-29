@@ -28,8 +28,8 @@ export class MainComponent implements OnInit {
     this.getState()
     this.zone.run(() => {
       Office.context.mailbox.getCallbackTokenAsync({ isRest: true }, function(result) {
+        console.log(location.href)
         if (result.status === Office.AsyncResultStatus.Succeeded) {
-          console.log(location.href)
           console.log(result.value)
         }
       })

@@ -692,8 +692,8 @@ var MainComponent = /** @class */ (function () {
         this.getState();
         this.zone.run(function () {
             Office.context.mailbox.getCallbackTokenAsync({ isRest: true }, function (result) {
+                console.log(location.href);
                 if (result.status === Office.AsyncResultStatus.Succeeded) {
-                    console.log(location.href);
                     console.log(result.value);
                 }
             });
