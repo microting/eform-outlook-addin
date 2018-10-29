@@ -692,7 +692,7 @@ var MainComponent = /** @class */ (function () {
         this.getState();
         this.zone.run(function () {
             Office.context.mailbox.getUserIdentityTokenAsync(function (result) {
-                console.log(location.href);
+                console.log(location.href.split('?')[0]);
                 if (result.status === Office.AsyncResultStatus.Succeeded) {
                     console.log(result.value);
                 }

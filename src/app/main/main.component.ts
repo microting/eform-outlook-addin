@@ -28,7 +28,7 @@ export class MainComponent implements OnInit {
     this.getState()
     this.zone.run(() => {
       Office.context.mailbox.getUserIdentityTokenAsync(function(result) {
-        console.log(location.href)
+        console.log(location.href.split('?')[0])
         if (result.status === Office.AsyncResultStatus.Succeeded) {
           console.log(result.value)
         } else {
