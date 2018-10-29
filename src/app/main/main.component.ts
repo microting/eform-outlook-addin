@@ -4,7 +4,7 @@ import { i18n } from '../service/i18n';
 import { StateService } from '../service/state.service';
 import { CRANET, WATERT, CRANEID, WATERID } from '../service/state';
 
-// declare const Office: any
+declare const Office: any
 
 @Component({
   selector: 'app-main',
