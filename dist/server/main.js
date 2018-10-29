@@ -696,6 +696,9 @@ var MainComponent = /** @class */ (function () {
                 if (result.status === Office.AsyncResultStatus.Succeeded) {
                     console.log(result.value);
                 }
+                else {
+                    console.log(result.error.message);
+                }
             });
         });
     };
