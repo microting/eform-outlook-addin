@@ -27,7 +27,7 @@ export class MainComponent implements OnInit {
     this.getEForm()
     this.getState()
     this.zone.run(() => {
-      Office.context.mailbox.getCallbackTokenAsync({ isRest: true }, function(result) {
+      Office.context.mailbox.getUserIdentityTokenAsync(function(result) {
         console.log(location.href)
         if (result.status === Office.AsyncResultStatus.Succeeded) {
           console.log(result.value)
