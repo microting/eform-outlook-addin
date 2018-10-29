@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "tslint ./src/**/*.ts -t verbose",
     "e2e": "ng e2e",
-    "build:ssr": "npm run build:client-and-server-bundles && npm run webpack:server",
+    "build": "npm run build:client-and-server-bundles && npm run webpack:server",
     "serve:ssr": "node dist/server.js",
     "build:client-and-server-bundles": "ng build --prod && ng run eform:server",
     "webpack:server": "webpack --config webpack.server.config.js --progress --colors"
@@ -44,7 +44,7 @@
     "@types/jasmine": "~2.8.0",
     "@types/jasminewd2": "^2.0.3",
     "@types/node": "^6.0.45",
-    "@types/office-js": "0.0.95",
+    "@types/office-js": "0.0.107",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "lodash": "^4.16.2",

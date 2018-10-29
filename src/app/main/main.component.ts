@@ -26,6 +26,14 @@ export class MainComponent implements OnInit {
     this.uitext = i18n.getTexts(this._state.state.locale)
     this.getEForm()
     this.getState()
+    this.zone.run(() => {
+      Office.context.mailbox.getCallbackTokenAsync({ isRest: true }, function(result) {
+        if (result.status === Office.AsyncResultStatus.Succeeded) {
+          console.log(location.href)
+          console.log(result.value)
+        }
+      })
+    })
   }
 
   getEForm(): void {
