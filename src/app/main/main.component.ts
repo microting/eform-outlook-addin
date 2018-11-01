@@ -44,7 +44,11 @@ export class MainComponent implements OnInit {
   }
 
   getState(): void {
-    this._state.getEState().subscribe(es => { this.zone.run(() => {this.state = es}) })
+    this._state.getEState().subscribe(es => {
+      this.zone.run(() => {
+        this.state = es;
+      });
+    });
   }
 
   onInsert(): void {
