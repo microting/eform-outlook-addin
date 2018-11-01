@@ -9,3 +9,4 @@
 # /tslint.json
 # /webpack.server.config.js
 .idea
+/dist
