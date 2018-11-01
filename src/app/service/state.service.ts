@@ -162,7 +162,7 @@ export class StateService {
                 }
               // } else if (textLine.startsWith( uitext.crane.label_message )) {
               } else if (textLine.startsWith( 'F4#' )) {
-                stringText = textLine.replace(uitext.crane.label_message + ': ', '') + '\n';
+                stringText = textLine.replace('F4# ', '') + '\n';
                 itemMode = true;
               } else {
                 if ( stringText.length > 0 ) {
@@ -253,7 +253,7 @@ export class StateService {
                 }
               // } else if (textLine.startsWith( uitext.water.label_message )) {
               } else if (textLine.startsWith( 'F4#' )) {
-                stringText = textLine.replace(uitext.water.label_message + ': ', '') + '\n';
+                stringText = textLine.replace('F4# ', '') + '\n';
                 itemMode = true;
               } else {
                 if ( stringText.length > 0 ) {
