@@ -129,7 +129,8 @@ export class MainComponent implements OnInit {
       txt_body = txt_body + 'F4# ' + txtVal;
 
     } else if ( this.state === WATERID ) {
-      txt_subject = WATERID;
+      // txt_subject = WATERID;
+      txt_subject = this.uitext.eform[WATERID];
       // txt_body = this.uitext.eform.label_eform + ': ' + this.uitext.eform[WATERID] + '<br>';
       // txt_body = 'Template# ' + this.uitext.eform[WATERID] + '<br>';
       txt_body = 'Template# ' + WATERID + '<br>';
