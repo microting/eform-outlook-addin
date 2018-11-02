@@ -70,7 +70,7 @@ export class MainComponent implements OnInit {
     if ( this.state === CRANEID ) {
       txt_subject = CRANEID;
       // txt_body = this.uitext.eform.label_eform + ': ' + this.uitext.eform[CRANEID] + '<br>';
-      txt_body = 'Template# ' + this.uitext.eform[CRANEID] + '<br>';
+      // txt_body = 'Template# ' + this.uitext.eform[CRANEID] + '<br>';
       txt_body = 'Template# ' + CRANEID + '<br>';
 
       // crane - ship
