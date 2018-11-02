@@ -41,7 +41,6 @@ export class MainComponent implements OnInit {
   getEForm(): void {
     this._data.getEform().subscribe(e => {
       this.zone.run(() => {
-        console.log(e);
         this.eform = {
           label: this.uitext.eform.label_eform,
           value: []
@@ -50,6 +49,7 @@ export class MainComponent implements OnInit {
           const item = e[i];
           this.eform.value.push({label: this.uitext.eform[item], value: item});
         }
+        console.log(this.eform);
       });
     });
   }
