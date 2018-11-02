@@ -3,8 +3,8 @@ export const i18n = {
   en: {
     eform: {
       label_eform: 'eForm',
-      '1734': 'Crane', /* CRANEID */
-      '1200': 'Water'  /* WATERID */
+      'g1734': 'Crane', /* CRANEID */
+      'g1200': 'Water'  /* WATERID */
     },
     crane: {
       label_edit: 'Edit',
