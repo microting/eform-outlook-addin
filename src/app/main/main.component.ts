@@ -71,6 +71,7 @@ export class MainComponent implements OnInit {
       txt_subject = CRANEID;
       // txt_body = this.uitext.eform.label_eform + ': ' + this.uitext.eform[CRANEID] + '<br>';
       txt_body = 'Template# ' + this.uitext.eform[CRANEID] + '<br>';
+      txt_body = 'Template# ' + CRANEID + '<br>';
 
       // crane - ship
       for ( let i = 0; i < this._data.crane.ship.length; i ++ ) {
@@ -129,7 +130,8 @@ export class MainComponent implements OnInit {
     } else if ( this.state === WATERID ) {
       txt_subject = WATERID;
       // txt_body = this.uitext.eform.label_eform + ': ' + this.uitext.eform[WATERID] + '<br>';
-      txt_body = 'Template# ' + this.uitext.eform[WATERID] + '<br>';
+      // txt_body = 'Template# ' + this.uitext.eform[WATERID] + '<br>';
+      txt_body = 'Template# ' + WATERID + '<br>';
 
       // water - ship
       for ( let i = 0; i < this._data.water.ship.length; i ++ ) {

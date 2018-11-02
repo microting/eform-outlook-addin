@@ -110,7 +110,8 @@ export class StateService {
               // if ( textLine.startsWith( uitext.eform.label_eform ) ) {
               if ( textLine.startsWith( 'Template#' ) ) {
                 const optionValue = textLine.split( '#' )[1].trim();
-                const waterVal = uitext.eform[WATERID];
+                // const waterVal = uitext.eform[WATERID];
+                const waterVal = WATERID;
                 if ( optionValue === waterVal ) {
                   __this.state.eform = WATERID;
                   __this.onEFormChange();
@@ -215,7 +216,8 @@ export class StateService {
               // if ( textLine.startsWith( uitext.eform.label_eform ) ) {
               if ( textLine.startsWith( 'Template#' ) ) {
                 const optionValue = textLine.split( '#' )[1].trim();
-                const craneVal = uitext.eform[CRANEID];
+                // const craneVal = uitext.eform[CRANEID];
+                const craneVal = CRANEID;
                 if ( optionValue === craneVal ) {
                   return;
                 } else {

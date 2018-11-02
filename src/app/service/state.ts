@@ -1,8 +1,8 @@
-export type CRANET = 'crane';
-export type WATERT = 'water';
+export type CRANET = '1734';
+export type WATERT = '1200';
 
-export const CRANEID = 'crane';
-export const WATERID = 'water';
+export const CRANEID = '1734';
+export const WATERID = '1200';
 
 export class State {
   eform: CRANET | WATERT;
