@@ -26,21 +26,22 @@ export class MainComponent implements OnInit {
     this.uitext = i18n.getTexts(this._state.state.locale);
     this.getEForm();
     this.getState();
-    this.zone.run(() => {
-      Office.context.mailbox.getUserIdentityTokenAsync(function(result) {
-        console.log(location.href.split('?')[0])
-        if (result.status === Office.AsyncResultStatus.Succeeded) {
-          console.log(result.value)
-        } else {
-          console.log(result.error.message)
-        }
-      })
-    })
+    // this.zone.run(() => {
+    //   Office.context.mailbox.getUserIdentityTokenAsync(function(result) {
+    //     console.log(location.href.split('?')[0])
+    //     if (result.status === Office.AsyncResultStatus.Succeeded) {
+    //       console.log(result.value)
+    //     } else {
+    //       console.log(result.error.message)
+    //     }
+    //   })
+    // })
   }
 
   getEForm(): void {
     this._data.getEform().subscribe(e => {
       this.zone.run(() => {
+        console.log(e);
         this.eform = {
           label: this.uitext.eform.label_eform,
           value: []
