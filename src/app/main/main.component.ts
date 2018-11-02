@@ -49,7 +49,6 @@ export class MainComponent implements OnInit {
           const item = e[i];
           this.eform.value.push({label: this.uitext.eform[item], value: item});
         }
-        console.log(this.eform);
       });
     });
   }
