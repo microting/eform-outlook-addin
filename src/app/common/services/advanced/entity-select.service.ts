@@ -26,33 +26,6 @@ export class EntitySelectService extends BaseService {
     super(_http, router);
   }
 
-  // getEntitySelectableGroupList(model: AdvEntitySelectableGroupListRequestModel):
-  //   Observable<OperationDataResult<AdvEntitySelectableGroupListModel>> {
-  //   return this.post<AdvEntitySelectableGroupListModel>(AdvSelectableEntityMethods.GetAll, model);
-  // }
-  //
-  // getEntitySelectableGroup(id: string): Observable<OperationDataResult<AdvEntitySelectableGroupModel>> {
-  //   return this.get<AdvEntitySelectableGroupModel>(AdvSelectableEntityMethods.GetSingle + '/' + id);
-  // }
-  //
-  // // updateEntitySelectableGroup(model: AdvEntitySelectableGroupEditModel): Observable<OperationResult> {
-  // //   return this.post<AdvEntitySelectableGroupEditModel>(AdvSelectableEntityMethods.UpdateSingle, model);
-  // // }
-  //
-  // deleteEntitySelectableGroup(groupUid: string): Observable<OperationResult> {
-  //   return this.get(AdvSelectableEntityMethods.DeleteSingle + '/' + groupUid);
-  // }
-  //
-  // // createEntitySelectableGroup(model: AdvEntitySelectableGroupEditModel): Observable<OperationResult> {
-  // //   return this.post<AdvEntitySelectableGroupEditModel>(AdvSelectableEntityMethods.CreateSingle, model);
-  // // }
-  //
-  // getEntitySelectableGroupDictionary(entityGroupUid: string):
-  //   Observable<OperationDataResult<Array<CommonDictionaryTextModel>>> {
-  //   return this.get<Array<CommonDictionaryTextModel>>(AdvSelectableEntityMethods.GetAll + '/dict/'
-  //     + entityGroupUid);
-  // }
-
   getEntitySelectableGroupOutlook(id: string, token: string): Observable<OperationDataResult<AdvEntitySelectableGroupModel>> {
     return this.get<AdvEntitySelectableGroupModel>(AdvSelectableEntityMethods.GetSingle + '/' + id + '&token=' + token);
   }

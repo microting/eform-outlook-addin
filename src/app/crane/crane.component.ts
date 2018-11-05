@@ -3,6 +3,11 @@ import { DataService } from '../service/data.service';
 import { i18n } from '../service/i18n';
 import { StateService } from '../service/state.service';
 import { CraneState } from '../service/state';
+import {
+  AdvEntitySelectableGroupListModel,
+  AdvEntitySelectableGroupListRequestModel, AdvEntitySelectableGroupModel
+} from '../common/models/advanced';
+import {EntitySelectService} from '../common/services/advanced';
 
 @Component({
   selector: 'app-crane',
@@ -15,7 +20,15 @@ export class CraneComponent implements OnInit {
   uitext;
   state: CraneState;
 
-  constructor(private _zone: NgZone, public _data: DataService, public _state: StateService) { }
+  ships: AdvEntitySelectableGroupModel;
+  quays: AdvEntitySelectableGroupModel;
+  cranes: AdvEntitySelectableGroupModel;
+  workers: AdvEntitySelectableGroupModel;
+
+  constructor(private _zone: NgZone,
+              public _data: DataService,
+              public _state: StateService,
+              private entitySelectService: EntitySelectService) { }
 
   ngOnInit() {
     this.uitext = i18n.getTexts(this._state.state.locale);
