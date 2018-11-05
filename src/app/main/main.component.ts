@@ -176,7 +176,7 @@ export class MainComponent implements OnInit {
       txtVal = txtVal.replace(/\r/g, '<br>');
       txtVal = txtVal.replace(/\n/g, '<br>');
       // txt_body = txt_body + this.uitext.water.label_message + ': ' + txtVal;
-      txt_body = txt_body + 'F4# ' + txtVal;
+      txt_body = txt_body + 'F3# ' + txtVal;
 
     }
 

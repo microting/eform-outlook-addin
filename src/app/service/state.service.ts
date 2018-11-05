@@ -254,8 +254,8 @@ export class StateService {
                   }
                 }
               // } else if (textLine.startsWith( uitext.water.label_message )) {
-              } else if (textLine.startsWith( 'F4#' )) {
-                stringText = textLine.replace('F4# ', '') + '\n';
+              } else if (textLine.startsWith( 'F3#' )) {
+                stringText = textLine.replace('F3# ', '') + '\n';
                 itemMode = true;
               } else {
                 if ( stringText.length > 0 ) {
