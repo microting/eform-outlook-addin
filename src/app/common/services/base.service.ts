@@ -10,6 +10,10 @@ export class BaseService {
   constructor(private http: HttpClient, private router: Router) {
   }
 
+  baseUrl() {
+    return 'https://someurl.com';
+  }
+
   protected get<T>(method: string, params?: any): Observable<any> {
     return this.http.get(method,
       { headers: this.setHeaders(), params: this.setParams(params) })

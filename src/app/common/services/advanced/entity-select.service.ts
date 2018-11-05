@@ -27,7 +27,8 @@ export class EntitySelectService extends BaseService {
   }
 
   getEntitySelectableGroupOutlook(id: string, token: string): Observable<OperationDataResult<AdvEntitySelectableGroupModel>> {
-    return this.get<AdvEntitySelectableGroupModel>(AdvSelectableEntityMethods.GetSingle + '/' + id + '&token=' + token);
+    return this.get<AdvEntitySelectableGroupModel>(
+      `${this.baseUrl()}/${AdvSelectableEntityMethods.GetSingle}/${id}&token=${token}`);
   }
 }
 
