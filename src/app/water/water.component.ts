@@ -22,9 +22,9 @@ export class WaterComponent implements OnInit {
   content;
   uitext;
   state: WaterState;
-  ships: AdvEntitySelectableGroupModel;
-  quays: AdvEntitySelectableGroupModel;
-  workers: AdvEntitySelectableGroupModel;
+  ships: AdvEntitySelectableGroupModel = new AdvEntitySelectableGroupModel();
+  quays: AdvEntitySelectableGroupModel = new AdvEntitySelectableGroupModel();
+  workers: AdvEntitySelectableGroupModel = new AdvEntitySelectableGroupModel();
 
   constructor(private zone: NgZone,
               public data: DataService,
