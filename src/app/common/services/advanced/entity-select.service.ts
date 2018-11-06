@@ -29,7 +29,7 @@ export class EntitySelectService extends BaseService {
   getEntitySelectableGroupOutlook(id: string, token: string, callerUrl: string): Observable<OperationDataResult<AdvEntitySelectableGroupModel>> {
     console.log('getEntitySelectableGroupOutlook called');
     return this.get<AdvEntitySelectableGroupModel>(
-      `${this.baseUrl()}/${AdvSelectableEntityMethods.GetSingle}/${id}?token=${token}&callerurl=${callerUrl}`);
+      `${this.baseUrl()}/${AdvSelectableEntityMethods.GetSingle}/exchange/${id}?token=${token}&callerURL=${callerUrl}`);
   }
 }
 
