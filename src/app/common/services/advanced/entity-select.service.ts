@@ -27,6 +27,7 @@ export class EntitySelectService extends BaseService {
   }
 
   getEntitySelectableGroupOutlook(id: string, token: string): Observable<OperationDataResult<AdvEntitySelectableGroupModel>> {
+    console.log('getEntitySelectableGroupOutlook called');
     return this.get<AdvEntitySelectableGroupModel>(
       `${this.baseUrl()}/${AdvSelectableEntityMethods.GetSingle}/${id}&token=${token}`);
   }

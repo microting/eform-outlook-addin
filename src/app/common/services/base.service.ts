@@ -11,6 +11,7 @@ export class BaseService {
   }
 
   baseUrl() {
+    console.log('baseUrl called');
     return 'https://someurl.com';
   }
 
