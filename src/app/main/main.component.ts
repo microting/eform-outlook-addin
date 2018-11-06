@@ -30,6 +30,7 @@ export class MainComponent implements OnInit {
     this.zone.run(() => {
       Office.context.mailbox.getUserIdentityTokenAsync(function(result) {
         console.log(location.href.split('?')[0])
+        localStorage.setItem('callerUrl', location.href.split('?')[0]);
         if (result.status === Office.AsyncResultStatus.Succeeded) {
           // console.log(result.value);
           localStorage.setItem('userIdentityToken', result.value);
