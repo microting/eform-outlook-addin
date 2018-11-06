@@ -6,8 +6,7 @@ import {StateService} from '../service/state.service';
 import {WaterState} from '../service/state';
 import {EntitySelectService} from '../common/services/advanced';
 import {
-  AdvEntitySelectableGroupListModel,
-  AdvEntitySelectableGroupListRequestModel, AdvEntitySelectableGroupModel
+  AdvEntitySelectableGroupEditModel
 } from '../common/models/advanced';
 
 
@@ -22,9 +21,9 @@ export class WaterComponent implements OnInit {
   content;
   uitext;
   state: WaterState;
-  ships: AdvEntitySelectableGroupModel = new AdvEntitySelectableGroupModel();
-  quays: AdvEntitySelectableGroupModel = new AdvEntitySelectableGroupModel();
-  workers: AdvEntitySelectableGroupModel = new AdvEntitySelectableGroupModel();
+  ships: AdvEntitySelectableGroupEditModel = new AdvEntitySelectableGroupEditModel();
+  quays: AdvEntitySelectableGroupEditModel = new AdvEntitySelectableGroupEditModel();
+  workers: AdvEntitySelectableGroupEditModel = new AdvEntitySelectableGroupEditModel();
 
   constructor(private zone: NgZone,
               public data: DataService,
@@ -87,7 +86,7 @@ export class WaterComponent implements OnInit {
   loadShips() {
     this.entitySelectService.getEntitySelectableGroupOutlook('5477', localStorage.getItem('userIdentityToken')).subscribe((data) => {
       if (data && data.success) {
-        this.ships.entityGroupItemLst = data.model.entityGroupItemLst;
+        this.ships.advEntitySelectableItemModels = data.model.entityGroupItemLst;
       }
     });
   }
@@ -95,7 +94,7 @@ export class WaterComponent implements OnInit {
   loadQuays() {
     this.entitySelectService.getEntitySelectableGroupOutlook('5482', localStorage.getItem('userIdentityToken')).subscribe((data) => {
       if (data && data.success) {
-        this.quays.entityGroupItemLst = data.model.entityGroupItemLst;
+        this.quays.advEntitySelectableItemModels = data.model.entityGroupItemLst;
       }
     });
   }
@@ -103,7 +102,7 @@ export class WaterComponent implements OnInit {
   loadWorkers() {
     this.entitySelectService.getEntitySelectableGroupOutlook('5457', localStorage.getItem('userIdentityToken')).subscribe((data) => {
       if (data && data.success) {
-        this.workers.entityGroupItemLst = data.model.entityGroupItemLst;
+        this.workers.advEntitySelectableItemModels = data.model.entityGroupItemLst;
       }
     });
   }
