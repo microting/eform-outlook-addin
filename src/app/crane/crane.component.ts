@@ -4,6 +4,7 @@ import { i18n } from '../service/i18n';
 import { StateService } from '../service/state.service';
 import { CraneState } from '../service/state';
 import {
+  AdvEntitySelectableGroupEditModel,
   AdvEntitySelectableGroupListModel,
   AdvEntitySelectableGroupListRequestModel, AdvEntitySelectableGroupModel
 } from '../common/models/advanced';
@@ -20,10 +21,10 @@ export class CraneComponent implements OnInit {
   uitext;
   state: CraneState;
 
-  ships: AdvEntitySelectableGroupModel;
-  quays: AdvEntitySelectableGroupModel;
-  cranes: AdvEntitySelectableGroupModel;
-  workers: AdvEntitySelectableGroupModel;
+  ships: AdvEntitySelectableGroupEditModel = new AdvEntitySelectableGroupEditModel();
+  quays: AdvEntitySelectableGroupEditModel = new AdvEntitySelectableGroupEditModel();
+  cranes: AdvEntitySelectableGroupEditModel = new AdvEntitySelectableGroupEditModel();
+  workers: AdvEntitySelectableGroupEditModel = new AdvEntitySelectableGroupEditModel();
 
   constructor(private _zone: NgZone,
               public _data: DataService,
@@ -32,6 +33,10 @@ export class CraneComponent implements OnInit {
 
   ngOnInit() {
     this.uitext = i18n.getTexts(this._state.state.locale);
+    this.loadShips();
+    this.loadQuays();
+    this.loadWorkers();
+    this.loadCranes();
     this.getCrane();
     this.getState();
   }
@@ -79,5 +84,50 @@ export class CraneComponent implements OnInit {
 
   onWorkers(workerIndex: number) {
     this.state.workers[workerIndex] = !this.state.workers[workerIndex];
+  }
+
+
+  loadShips() {
+    console.log('loadShips called');
+    const userIdentityToken = localStorage.getItem('userIdentityToken');
+    console.log('userIdentityToken is ' + userIdentityToken);
+    this.entitySelectService.getEntitySelectableGroupOutlook('5477', userIdentityToken).subscribe((data) => {
+      if (data && data.success) {
+        this.ships.advEntitySelectableItemModels = data.model.entityGroupItemLst;
+      }
+    });
+  }
+
+  loadQuays() {
+    console.log('loadQuays called');
+    const userIdentityToken = localStorage.getItem('userIdentityToken');
+    console.log('userIdentityToken is ' + userIdentityToken);
+    this.entitySelectService.getEntitySelectableGroupOutlook('5482', userIdentityToken).subscribe((data) => {
+      if (data && data.success) {
+        this.quays.advEntitySelectableItemModels = data.model.entityGroupItemLst;
+      }
+    });
+  }
+
+  loadCranes() {
+    console.log('loadWorkers called');
+    const userIdentityToken = localStorage.getItem('userIdentityToken');
+    console.log('userIdentityToken is ' + userIdentityToken);
+    this.entitySelectService.getEntitySelectableGroupOutlook('5487', userIdentityToken).subscribe((data) => {
+      if (data && data.success) {
+        this.cranes.advEntitySelectableItemModels = data.model.entityGroupItemLst;
+      }
+    });
+  }
+
+  loadWorkers() {
+    console.log('loadWorkers called');
+    const userIdentityToken = localStorage.getItem('userIdentityToken');
+    console.log('userIdentityToken is ' + userIdentityToken);
+    this.entitySelectService.getEntitySelectableGroupOutlook('5457', userIdentityToken).subscribe((data) => {
+      if (data && data.success) {
+        this.workers.advEntitySelectableItemModels = data.model.entityGroupItemLst;
+      }
+    });
   }
 }
