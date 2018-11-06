@@ -16,6 +16,7 @@ export class BaseService {
   }
 
   protected get<T>(method: string, params?: any): Observable<any> {
+    console.log('get called');
     return this.http.get(method,
       { headers: this.setHeaders(), params: this.setParams(params) })
       .pipe(
@@ -67,6 +68,7 @@ export class BaseService {
   }
 
   private setHeaders(contentType?: string) {
+    console.log('setHeaders called');
     let headers = new HttpHeaders();
     if (contentType === 'formData') {} else if (contentType) {
       headers = headers.set('Content-Type', contentType);
@@ -79,11 +81,12 @@ export class BaseService {
     //   headers = headers.append('Authorization', 'Bearer ' + user.access_token);
     // }
     // add localization
-    headers = headers.append('Locale', localStorage.getItem('locale'));
+    // headers = headers.append('Locale', localStorage.getItem('locale'));
     return headers;
   }
 
   private setParams(params: any) {
+    console.log('setParams called');
     let httpParams = new HttpParams();
     if (!params) {
       return httpParams;
@@ -108,6 +111,7 @@ export class BaseService {
   }
 
   private extractData<T>(res: any) {
+    console.log('extractData called');
     let body;
     try {
       body = res;
