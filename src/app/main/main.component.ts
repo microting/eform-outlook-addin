@@ -28,17 +28,33 @@ export class MainComponent implements OnInit {
     this.getEForm();
     this.getState();
     this.zone.run(() => {
-      Office.context.mailbox.getUserIdentityTokenAsync(function(result) {
-        console.log('this.window.location.hostname is : ' + window.location.hostname);
-        localStorage.setItem('callerUrl', window.location.hostname);
-        if (result.status === Office.AsyncResultStatus.Succeeded) {
-          // console.log(result.value);
-          localStorage.setItem('userIdentityToken', result.value);
-          // this.userIdentityToken = result.value;
-        } else {
-          // console.log(result.error.message);
-        }
-      });
+      this.getAuthToken();
+      // Office.context.mailbox.getUserIdentityTokenAsync(function(result) {
+      //   console.log('this.window.location.hostname is : ' + window.location.hostname);
+      //   localStorage.setItem('callerUrl', window.location.hostname);
+      //   if (result.status === Office.AsyncResultStatus.Succeeded) {
+      //     // console.log(result.value);
+      //     localStorage.setItem('userIdentityToken', result.value);
+      //     // this.userIdentityToken = result.value;
+      //   } else {
+      //     // console.log(result.error.message);
+      //   }
+      // });
+    });
+  }
+
+  getAuthToken() {
+    console.log('getAuthToken called');
+    Office.context.mailbox.getUserIdentityTokenAsync(function(result) {
+      console.log('this.window.location.hostname is : ' + window.location.hostname);
+      localStorage.setItem('callerUrl', window.location.hostname);
+      if (result.status === Office.AsyncResultStatus.Succeeded) {
+        console.log('success result for getting new token : ' + result.value);
+        localStorage.setItem('userIdentityToken', result.value);
+        // this.userIdentityToken = result.value;
+      } else {
+        console.log('Error on trying to get new token, error was : ' + result.error.message);
+      }
     });
   }
 

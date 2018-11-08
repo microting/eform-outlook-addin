@@ -87,7 +87,7 @@ export class WaterComponent implements OnInit {
     console.log('loadShips called');
     const userIdentityToken = localStorage.getItem('userIdentityToken');
     const callerUrl = localStorage.getItem('callerUrl');
-    console.log('userIdentityToken is ' + userIdentityToken);
+    // console.log('userIdentityToken is ' + userIdentityToken);
     this.entitySelectService.getEntitySelectableGroupOutlook('5477', userIdentityToken, callerUrl).subscribe((data) => {
       if (data && data.success) {
         this.ships.advEntitySelectableItemModels = data.model.entityGroupItemLst;
@@ -99,7 +99,7 @@ export class WaterComponent implements OnInit {
     console.log('loadQuays called');
     const userIdentityToken = localStorage.getItem('userIdentityToken');
     const callerUrl = localStorage.getItem('callerUrl');
-    console.log('userIdentityToken is ' + userIdentityToken);
+    // console.log('userIdentityToken is ' + userIdentityToken);
     this.entitySelectService.getEntitySelectableGroupOutlook('5482', userIdentityToken, callerUrl).subscribe((data) => {
       if (data && data.success) {
         this.quays.advEntitySelectableItemModels = data.model.entityGroupItemLst;
@@ -111,7 +111,7 @@ export class WaterComponent implements OnInit {
     console.log('loadWorkers called');
     const userIdentityToken = localStorage.getItem('userIdentityToken');
     const callerUrl = localStorage.getItem('callerUrl');
-    console.log('userIdentityToken is ' + userIdentityToken);
+    // console.log('userIdentityToken is ' + userIdentityToken);
     this.entitySelectService.getEntitySelectableGroupOutlook('5457', userIdentityToken, callerUrl).subscribe((data) => {
       if (data && data.success) {
         this.workers.advEntitySelectableItemModels = data.model.entityGroupItemLst;
