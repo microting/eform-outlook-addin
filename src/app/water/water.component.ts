@@ -21,6 +21,9 @@ export class WaterComponent implements OnInit {
   content;
   uitext;
   state: WaterState;
+  selectedShip: string;
+  selectedQuay: string;
+  selectedWorkers: boolean[];
   ships: AdvEntitySelectableGroupEditModel = new AdvEntitySelectableGroupEditModel();
   quays: AdvEntitySelectableGroupEditModel = new AdvEntitySelectableGroupEditModel();
   workers: AdvEntitySelectableGroupEditModel = new AdvEntitySelectableGroupEditModel();
@@ -80,7 +83,7 @@ export class WaterComponent implements OnInit {
   }
 
   onWorkers(workerIndex: number) {
-    this.state.workers[workerIndex] = !this.state.workers[workerIndex];
+    this.selectedWorkers[workerIndex] = !this.selectedWorkers[workerIndex];
   }
 
   loadShips() {

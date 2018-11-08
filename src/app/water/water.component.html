@@ -5,7 +5,7 @@
     <!--<div class='link'>{{this.content.ship.label_edit}}</div>-->
     <!--<div class='link'>{{this.content.ship.label_refresh}}</div>-->
   </div>
-  <select [(ngModel)]='state.shipid' >
+  <select [(ngModel)]='selectedShip' >
     <option *ngFor='let entityItem of ships.advEntitySelectableItemModels'
             [ngValue]='entityItem.microtingUUID' >{{entityItem.value}}</option>
   </select>
@@ -17,7 +17,7 @@
     <!--<div class='link'>{{this.content.quay.label_edit}}</div>-->
     <!--<div class='link'>{{this.content.quay.label_refresh}}</div>-->
   </div>
-  <select [(ngModel)]='state.quayid' >
+  <select [(ngModel)]='selectedQuay' >
       <option *ngFor='let entityItem of quays.advEntitySelectableItemModels'
           [ngValue]='entityItem.microtingUUID' >{{entityItem.value}}</option>
   </select>
