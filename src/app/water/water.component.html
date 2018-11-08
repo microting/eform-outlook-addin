@@ -33,7 +33,7 @@
       <li *ngFor='let entityItem of workers.advEntitySelectableItemModels; index as i'
           (click)='onWorkers(i)' >
           <input type='checkbox' [(ngModel)]='selectedWorkers[i]'
-              >{{entityItem.value}}
+              >{{entityItem.name}}
       </li>
   </ul>
 </div>
