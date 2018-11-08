@@ -47,7 +47,7 @@ export class MainComponent implements OnInit {
     console.log('getAuthToken called');
     Office.context.mailbox.getUserIdentityTokenAsync(function(result) {
       console.log('this.window.location.hostname is : ' + window.location.hostname);
-      localStorage.setItem('callerUrl', window.location.hostname);
+      localStorage.setItem('callerUrl', 'https://' + window.location.hostname + '/');
       if (result.status === Office.AsyncResultStatus.Succeeded) {
         console.log('success result for getting new token : ' + result.value);
         localStorage.setItem('userIdentityToken', result.value);
