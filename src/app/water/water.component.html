@@ -1,43 +1,44 @@
 <div class='section' *ngIf="state">
   <div class='section-header'>
-    <label>{{this.content.ship.label}}</label>
+    <label>Skibe</label>
     <div class='padding'></div>
     <!--<div class='link'>{{this.content.ship.label_edit}}</div>-->
     <!--<div class='link'>{{this.content.ship.label_refresh}}</div>-->
   </div>
   <select [(ngModel)]='state.shipid' >
-      <option *ngFor='let optionItem of content.ship.value'
-          [ngValue]='optionItem.id' >{{optionItem.value}}</option>
+    <option *ngFor='let entityItem of ships.advEntitySelectableItemModels'
+            [ngValue]='entityItem.microtingUUID' >{{entityItem.value}}</option>
   </select>
+</div>
 </div>
 <div class='section' *ngIf="state">
   <div class='section-header'>
-    <label>{{this.content.quay.label}}</label>
+    <label>Kaje</label>
     <div class='padding'></div>
     <!--<div class='link'>{{this.content.quay.label_edit}}</div>-->
     <!--<div class='link'>{{this.content.quay.label_refresh}}</div>-->
   </div>
   <select [(ngModel)]='state.quayid' >
-      <option *ngFor='let optionItem of content.quay.value'
-          [ngValue]='optionItem.id' >{{optionItem.value}}</option>
+      <option *ngFor='let entityItem of quays.advEntitySelectableItemModels'
+          [ngValue]='entityItem.microtingUUID' >{{entityItem.value}}</option>
   </select>
 </div>
 <div class='section' *ngIf="state">
   <div class='section-header'>
-    <label>{{this.content.workers.label}}</label>
+    <label>Medarbejdere</label>
     <div class='padding'></div>
     <!--<div class='link'>{{this.content.workers.label_edit}}</div>-->
     <!--<div class='link'>{{this.content.workers.label_refresh}}</div>-->
   </div>
   <ul>
-      <li *ngFor='let checkItem of content.workers.value; index as i'
+      <li *ngFor='let entityItem of workers.advEntitySelectableItemModels; index as i'
           (click)='onWorkers(i)' >
           <input type='checkbox' [(ngModel)]='state.workers[i]'
-              >{{checkItem.value}}
+              >{{entityItem.value}}
       </li>
   </ul>
 </div>
 <div class='section' *ngIf="state">
-  <label>{{this.content.message.label}}</label>
+  <label>Besked til medarbejder</label>
   <textarea [(ngModel)]='state.message' rows="8" ></textarea>
 </div>

@@ -3,6 +3,8 @@ export class AdvEntitySelectableItemModel {
   description: string;
   entityItemUId: string;
   workflowState: string;
+  microtingUUID: string;
+  id: number;
 
   constructor(name?: string) {
     this.name = name;
