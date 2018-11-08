@@ -83,8 +83,8 @@ export class WaterComponent implements OnInit {
   //   // });
   // }
 
-  onWorkers(workerIndex: number) {
-    this.selectedWorkers[workerIndex] = !this.selectedWorkers[workerIndex];
+  onWorkers(entityItemId: number) {
+    this.selectedWorkers[entityItemId] = !this.selectedWorkers[entityItemId];
   }
 
   loadShips() {

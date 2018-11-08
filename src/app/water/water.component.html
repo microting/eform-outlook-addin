@@ -30,10 +30,9 @@
     <!--<div class='link'>{{this.content.workers.label_refresh}}</div>-->
   </div>
   <ul>
-      <li *ngFor='let entityItem of workers.advEntitySelectableItemModels; index as i'
-          (click)='onWorkers(i)' >
-          <input type='checkbox' [(ngModel)]='selectedWorkers[i]'
-              >{{entityItem.name}}
+      <li *ngFor='let entityItem of workers.advEntitySelectableItemModels'
+          (click)='onWorkers(entityItem.id)' >
+          <input type='checkbox'>{{entityItem.name}}
       </li>
   </ul>
 </div>
