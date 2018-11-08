@@ -32,12 +32,12 @@
   <ul>
       <li *ngFor='let entityItem of workers.advEntitySelectableItemModels; index as i'
           (click)='onWorkers(i)' >
-          <input type='checkbox' [(ngModel)]='state.workers[i]'
+          <input type='checkbox' [(ngModel)]='selectedWorkers[i]'
               >{{entityItem.value}}
       </li>
   </ul>
 </div>
 <div class='section'>
   <label>Besked til medarbejder</label>
-  <textarea [(ngModel)]='state.message' rows="8" ></textarea>
+  <textarea [(ngModel)]='currentMessage' rows="8" ></textarea>
 </div>
