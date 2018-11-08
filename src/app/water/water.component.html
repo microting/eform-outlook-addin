@@ -1,4 +1,4 @@
-<div class='section' *ngIf="state">
+<div class='section'>
   <div class='section-header'>
     <label>Skibe</label>
     <div class='padding'></div>
@@ -10,7 +10,7 @@
             [ngValue]='entityItem.microtingUUID' >{{entityItem.value}}</option>
   </select>
 </div>
-<div class='section' *ngIf="state">
+<div class='section'>
   <div class='section-header'>
     <label>Kaje</label>
     <div class='padding'></div>
@@ -22,7 +22,7 @@
           [ngValue]='entityItem.microtingUUID' >{{entityItem.value}}</option>
   </select>
 </div>
-<div class='section' *ngIf="state">
+<div class='section'>
   <div class='section-header'>
     <label>Medarbejdere</label>
     <div class='padding'></div>
@@ -37,7 +37,7 @@
       </li>
   </ul>
 </div>
-<div class='section' *ngIf="state">
+<div class='section'>
   <label>Besked til medarbejder</label>
   <textarea [(ngModel)]='state.message' rows="8" ></textarea>
 </div>

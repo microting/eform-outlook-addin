@@ -36,8 +36,8 @@ export class WaterComponent implements OnInit {
     this.loadShips();
     this.loadQuays();
     this.loadWorkers();
-    this.getWater();
-    this.getState();
+    // this.getWater();
+    // this.getState();
   }
 
   getState(): void {
