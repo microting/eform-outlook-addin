@@ -18,6 +18,7 @@ import { WaterComponent } from './water/water.component';
 import { DataService } from './service/data.service';
 import { StateService } from './service/state.service';
 import { EntitySelectService } from './common/services/advanced';
+import { SitesService } from './common/services/advanced';
 
 @NgModule({
   imports: [
@@ -33,7 +34,7 @@ import { EntitySelectService } from './common/services/advanced';
     CraneComponent,
     WaterComponent
   ],
-  providers: [ DataService, StateService, EntitySelectService ],
+  providers: [ DataService, StateService, EntitySelectService, SitesService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {
