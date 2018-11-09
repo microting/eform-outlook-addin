@@ -118,7 +118,7 @@ export class WaterComponent implements OnInit {
     const userIdentityToken = localStorage.getItem('userIdentityToken');
     const callerUrl = localStorage.getItem('callerUrl');
     console.log('userIdentityToken is ' + userIdentityToken);
-    this.sitesService.getAllSites().subscribe((data) => {
+    this.sitesService.getAllSites(userIdentityToken, callerUrl).subscribe((data) => {
       if (data && data.success) {
         this.sitesDto = data.model;
       }

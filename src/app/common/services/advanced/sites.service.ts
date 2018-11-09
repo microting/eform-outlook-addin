@@ -18,7 +18,8 @@ export class SitesService extends BaseService {
     super(_http, router);
   }
 
-  getAllSites(): Observable<OperationDataResult<Array<SiteNameDto>>> {
-    return this.get<Array<SiteNameDto>>(SitesMethods.GetAll);
+  getAllSites(token: string, callerUrl: string): Observable<OperationDataResult<Array<SiteNameDto>>> {
+    return this.get<Array<SiteNameDto>>(
+      `${this.baseUrl()}/${SitesMethods.GetAll}/exchange?token=${token}&callerURL=${callerUrl}`);
   }
 }
