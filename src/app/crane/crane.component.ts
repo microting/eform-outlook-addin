@@ -112,7 +112,7 @@ export class CraneComponent implements OnInit {
   }
 
   loadCranes() {
-    console.log('loadWorkers called');
+    console.log('loadSites called');
     const userIdentityToken = localStorage.getItem('userIdentityToken');
     const callerUrl = localStorage.getItem('callerUrl');
     // console.log('userIdentityToken is ' + userIdentityToken);
@@ -124,7 +124,7 @@ export class CraneComponent implements OnInit {
   }
 
   loadWorkers() {
-    console.log('loadWorkers called');
+    console.log('loadSites called');
     const userIdentityToken = localStorage.getItem('userIdentityToken');
     const callerUrl = localStorage.getItem('callerUrl');
     // console.log('userIdentityToken is ' + userIdentityToken);

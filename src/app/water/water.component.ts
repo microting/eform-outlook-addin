@@ -8,6 +8,8 @@ import {EntitySelectService} from '../common/services/advanced';
 import {
   AdvEntitySelectableGroupEditModel
 } from '../common/models/advanced';
+import {SitesService} from '../common/services/advanced/sites.service';
+import {SiteNameDto} from '../common/models/dto';
 
 
 @Component({
@@ -23,23 +25,23 @@ export class WaterComponent implements OnInit {
   state: WaterState;
   selectedShip: string;
   selectedQuay: string;
-  selectedWorkers: boolean[];
+  selectedSites: boolean[];
   currentMessage: string;
   ships: AdvEntitySelectableGroupEditModel = new AdvEntitySelectableGroupEditModel();
   quays: AdvEntitySelectableGroupEditModel = new AdvEntitySelectableGroupEditModel();
-  workers: AdvEntitySelectableGroupEditModel = new AdvEntitySelectableGroupEditModel();
+  sitesDto: Array<SiteNameDto> = [];
 
   constructor(private zone: NgZone,
               public data: DataService,
               public _state: StateService,
-              private entitySelectService: EntitySelectService) {
+              private entitySelectService: EntitySelectService, private sitesService: SitesService) {
   }
 
   ngOnInit() {
     // this.uitext = i18n.getTexts(this._state.state.locale);
     this.loadShips();
     this.loadQuays();
-    this.loadWorkers();
+    this.loadSites();
     // this.getWater();
     // this.getState();
   }
@@ -83,8 +85,8 @@ export class WaterComponent implements OnInit {
   //   // });
   // }
 
-  onWorkers(entityItemId: number) {
-    this.selectedWorkers[entityItemId] = !this.selectedWorkers[entityItemId];
+  onSites(siteUId: number) {
+    this.selectedSites[siteUId] = !this.selectedSites[siteUId];
   }
 
   loadShips() {
@@ -111,14 +113,14 @@ export class WaterComponent implements OnInit {
     });
   }
 
-  loadWorkers() {
-    console.log('loadWorkers called');
+  loadSites() {
+    console.log('loadSites called');
     const userIdentityToken = localStorage.getItem('userIdentityToken');
     const callerUrl = localStorage.getItem('callerUrl');
-    // console.log('userIdentityToken is ' + userIdentityToken);
-    this.entitySelectService.getEntitySelectableGroupOutlook('5457', userIdentityToken, callerUrl).subscribe((data) => {
+    console.log('userIdentityToken is ' + userIdentityToken);
+    this.sitesService.getAllSites().subscribe((data) => {
       if (data && data.success) {
-        this.workers.advEntitySelectableItemModels = data.model.entityGroupItemLst;
+        this.sitesDto = data.model;
       }
     });
   }
