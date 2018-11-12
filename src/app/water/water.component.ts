@@ -45,9 +45,9 @@ export class WaterComponent implements OnInit {
 
   ngOnInit() {
     this.parseWaterBody();
-    this.loadShips();
-    this.loadQuays();
-    this.loadSites();
+    // this.loadShips();
+    // this.loadQuays();
+    // this.loadSites();
   }
 
   onSites(site: SiteNameDto) {
@@ -228,6 +228,9 @@ export class WaterComponent implements OnInit {
 
             // __this.currentMessage = stringText;
           }
+          __this.loadSites();
+          __this.loadQuays();
+          __this.loadShips();
         });
       }
     });
