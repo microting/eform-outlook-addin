@@ -40,56 +40,14 @@ export class WaterComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.uitext = i18n.getTexts(this._state.state.locale);
     this.loadShips();
     this.loadQuays();
     this.loadSites();
-    // this.getWater();
-    // this.getState();
   }
-
-  // getState(): void {
-  //   this._state.getWaterState().subscribe(ws => {
-  //     this.zone.run(() => {
-  //       this.state = ws;
-  //     });
-  //   });
-  // }
-
-  // getWater(): void {
-  //   // this.data.getWater().subscribe(c => {
-  //   //   this.zone.run(() => {
-  //   //     this.content = {
-  //   //       ship: {
-  //   //         label: this.uitext.water.label_ship,
-  //   //         label_edit: this.uitext.water.label_edit,
-  //   //         label_refresh: this.uitext.water.label_refresh,
-  //   //         value: c.ship
-  //   //       },
-  //   //       quay: {
-  //   //         label: this.uitext.water.label_quay,
-  //   //         label_edit: this.uitext.water.label_edit,
-  //   //         label_refresh: this.uitext.water.label_refresh,
-  //   //         value: c.quay
-  //   //       },
-  //   //       workers: {
-  //   //         label: this.uitext.water.label_workers,
-  //   //         label_edit: this.uitext.water.label_edit,
-  //   //         label_refresh: this.uitext.water.label_refresh,
-  //   //         value: c.workers
-  //   //       },
-  //   //       message: {
-  //   //         label: this.uitext.water.label_message,
-  //   //         value: c.message
-  //   //       }
-  //   //     };
-  //   //   });
-  //   // });
-  // }
 
   onSites(site: SiteNameDto) {
     // this.selectedSites[siteUId] = !this.selectedSites[siteUId];
-    if (this.selectedSites.includes(site)) {
+    if (!this.selectedSites.includes(site)) {
       this.selectedSites.push(site);
     }
   }
@@ -188,13 +146,11 @@ export class WaterComponent implements OnInit {
       // txt_body = txt_body + 'Sites#' + '<br>';
 
       // water - message
-      // let txtVal = this._state.state.water.message;
-      // txtVal = txtVal.replace(/\r/g, '<br>');
-      // txtVal = txtVal.replace(/\n/g, '<br>');
-      // // txt_body = txt_body + this.uitext.water.label_message + ': ' + txtVal;
-      // txt_body = txt_body + 'F3# ' + txtVal;
+      let txtVal = this.currentMessage;
+      txtVal = txtVal.replace(/\r/g, '<br>');
+      txtVal = txtVal.replace(/\n/g, '<br>');
+      txt_body = txt_body + 'F3# ' + txtVal;
 
-      txt_body = txt_body + 'F3#' + this.currentMessage;
 
     // }
 
