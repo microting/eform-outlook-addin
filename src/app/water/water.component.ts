@@ -41,14 +41,12 @@ export class WaterComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loadShips().then(this.loadQuays).then((this.loadSites)).then(this.parseWaterBody);
+    this.loadShips().then(quays => this.loadQuays().then( sites => this.loadSites().then(existingValues => this.parseWaterBody())));
+    // this.loadShips().then(this.loadQuays).then((this.loadSites)).then(this.parseWaterBody);
     // this.loadSites();
     // this.parseWaterBody();
   }
 
-  // retriveData(): Promise<any> {
-  //   // return this.loadShips().map(response )
-  // }
 
   onSites(site: SiteNameDto) {
     if (!this.selectedSites.includes(site)) {
