@@ -35,7 +35,7 @@ export class WaterComponent implements OnInit {
   sitesDto: Array<SiteNameDto> = [];
   parsedShipId: string;
   parsedQuayId: string;
-  parsedSiteIds: Array<string>;
+  parsedSiteIds: Array<string> = [];
 
   constructor(private zone: NgZone,
               public data: DataService,
@@ -161,8 +161,10 @@ export class WaterComponent implements OnInit {
             let stringText = '';
             let itemMode = false;
             let newLine = false;
+            console.log('Looping through lines...');
             for (let i = 0; i < textLines.length; i++) {
               const textLine = textLines[i];
+              console.log('Line : ' + i.toString() + ' contains : ' + textLine);
               itemMode = false;
               if (newLine === false && textLine.length === 0) {
                 continue;
@@ -212,7 +214,7 @@ export class WaterComponent implements OnInit {
               } else if (textLine.startsWith('F3#')) {
                 stringText = textLine.replace('F3# ', '') + '\n';
                 console.log('F3# is ' + stringText);
-                __this.currentMessage = stringText;
+                // __this.currentMessage = stringText;
                 itemMode = true;
               } else {
                 if (stringText.length > 0) {
@@ -226,7 +228,7 @@ export class WaterComponent implements OnInit {
               }
             }
 
-            // __this.currentMessage = stringText;
+            __this.currentMessage = stringText;
           }
           __this.loadSites();
           __this.loadQuays();
