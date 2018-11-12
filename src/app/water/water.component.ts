@@ -180,7 +180,7 @@ export class WaterComponent implements OnInit {
                 //   if (optionValue === ship.microtingUUID) {
                 //     console.log('The found ship is ' + ship.name);
                 //     __this.selectedShip = ship;
-                //     itemMode = true;
+                    itemMode = true;
                 //   }
                 // }
               } else if (textLine.startsWith('F2#')) {
@@ -192,7 +192,7 @@ export class WaterComponent implements OnInit {
                 //   if (optionValue === quay.microtingUUID) {
                 //     console.log('The found quay is ' + quay.name);
                 //     __this.selectedQuay = quay;
-                //     itemMode = true;
+                    itemMode = true;
                 //   }
                 // }
               } else if (textLine.startsWith('Sites#')) {
@@ -208,7 +208,7 @@ export class WaterComponent implements OnInit {
                 //   if (optionValue === site.siteUId.toString()) {
                 //     console.log('The found quay is ' + site.siteName);
                 //     __this.selectedSites.push(site);
-                //     itemMode = true;
+                    itemMode = true;
                 //   }
                 // }
               } else if (textLine.startsWith('F3#')) {
