@@ -139,10 +139,10 @@ export class WaterComponent implements OnInit {
     // } else if ( this.state === WATERID ) {
       // txt_subject = WATERID;
       // txt_subject = this.uitext.eform[WATERID];
-      txt_subject = '1200';
+      txt_subject = 'Vand';
       // txt_body = this.uitext.eform.label_eform + ': ' + this.uitext.eform[WATERID] + '<br>';
       // txt_body = 'Template# ' + this.uitext.eform[WATERID] + '<br>';
-      txt_body = 'Template# ' + WATERID + '<br>';
+      txt_body = 'Template# 1200 <br>';
 
       // water - ship
       // for ( let i = 0; i < this._data.water.ship.length; i ++ ) {
@@ -154,8 +154,8 @@ export class WaterComponent implements OnInit {
       //     break;
       //   }
       // }
-      // txt_subject = txt_subject + ' - ' + ;
-      txt_body = txt_body + 'F1#' + '<br>';
+      txt_subject = txt_subject + ' - ' + this.selectedShip.name;
+      txt_body = txt_body + 'F1#' + this.selectedShip.microtingUUID + '<br>';
 
       // water - quay
       // for ( let i = 0; i < this._data.water.quay.length; i ++ ) {
@@ -168,7 +168,8 @@ export class WaterComponent implements OnInit {
       //   }
       // }
 
-      txt_body = txt_body + 'F2#' + '<br>';
+    txt_subject = txt_subject + ' - ' + this.selectedQuay.name;
+    txt_body = txt_body + 'F2#' + this.selectedQuay.microtingUUID + '<br>';
 
       // water - waters
       // const cworkerids = [];
