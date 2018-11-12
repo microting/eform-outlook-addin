@@ -7,7 +7,7 @@
   </div>
   <select [(ngModel)]='selectedShip' >
     <option *ngFor='let entityItem of ships.advEntitySelectableItemModels'
-            [ngValue]='entityItem' >{{entityItem.name}}</option>
+            [ngValue]='entityItem' [selected]="parsedShipId==entityItem.microtingUUID">{{entityItem.name}}</option>
   </select>
 </div>
 <div class='section'>
@@ -19,7 +19,7 @@
   </div>
   <select [(ngModel)]='selectedQuay' >
       <option *ngFor='let entityItem of quays.advEntitySelectableItemModels'
-          [ngValue]='entityItem' >{{entityItem.name}}</option>
+          [ngValue]='entityItem' [selected]="parsedQuayId==entityItem.microtingUUID" ]>{{entityItem.name}}</option>
   </select>
 </div>
 <div class='section'>
@@ -32,7 +32,7 @@
   <ul>
       <li *ngFor='let siteDto of sitesDto'
           (click)="onSites(siteDto)" >
-          <input type='checkbox'>{{siteDto.siteName}}
+          <input type='checkbox' [checked]="parsedSiteIds.includes(siteDto.siteUId.toString())">{{siteDto.siteName}}
       </li>
   </ul>
 </div>
