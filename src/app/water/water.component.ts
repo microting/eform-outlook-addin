@@ -172,20 +172,20 @@ export class WaterComponent implements OnInit {
     txt_body = txt_body + 'F2#' + this.selectedQuay.microtingUUID + '<br>';
 
       // water - waters
-      // const cworkerids = [];
-      // const cworkervalues = [];
-      // for ( let i = 0; i < this._data.water.workers.length; i ++ ) {
-      //   const worker = this._data.water.workers[i];
-      //   if ( this._state.state.water.workers[i] ) {
-      //     cworkerids.push(worker.id);
-      //     cworkervalues.push(worker.value);
-      //   }
-      // }
-      // txt_subject = txt_subject + ' - ' + cworkervalues.join(', ');
+      const cworkerids = [];
+      const cworkervalues = [];
+      for ( let i = 0; i < this.selectedSites.length; i ++ ) {
+        const site = this.selectedSites[i];
+        // if ( this._state.state.water.workers[i] ) {
+          cworkerids.push(site.siteUId);
+          cworkervalues.push(site.siteName);
+        // }
+      }
+      txt_subject = txt_subject + ' - ' + cworkervalues.join(', ');
       // // txt_body = txt_body + this.uitext.water.label_workers + ': ' + cworkers.join(', ') + '<br>';
-      // txt_body = txt_body + 'Sites# ' + cworkerids.join(', ') + '<br>';
+      txt_body = txt_body + 'Sites# ' + cworkerids.join(', ') + '<br>';
 
-      txt_body = txt_body + 'Sites#' + '<br>';
+      // txt_body = txt_body + 'Sites#' + '<br>';
 
       // water - message
       // let txtVal = this._state.state.water.message;
@@ -194,7 +194,7 @@ export class WaterComponent implements OnInit {
       // // txt_body = txt_body + this.uitext.water.label_message + ': ' + txtVal;
       // txt_body = txt_body + 'F3# ' + txtVal;
 
-      txt_body = txt_body + 'F3#';
+      txt_body = txt_body + 'F3#' + this.currentMessage;
 
     // }
 
