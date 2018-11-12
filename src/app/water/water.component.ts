@@ -41,7 +41,7 @@ export class WaterComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loadSites();
+    this.loadShips();
   }
 
   onSites(site: SiteNameDto) {
@@ -53,7 +53,7 @@ export class WaterComponent implements OnInit {
     console.log('selectedSites now contains ' + JSON.stringify(this.selectedSites));
   }
 
-  loadSites()  {
+  loadShips()  {
     console.log('loadShips called!');
     const promise = new Promise((resolve, reject) => {
       const userIdentityToken = localStorage.getItem('userIdentityToken');
@@ -101,7 +101,7 @@ export class WaterComponent implements OnInit {
         if (data && data.success) {
           this.sitesDto = data.model;
           resolve();
-          thi.parseWaterBody();
+          this.parseWaterBody();
         }
       });
     });
