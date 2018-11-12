@@ -33,6 +33,9 @@ export class WaterComponent implements OnInit {
   ships: AdvEntitySelectableGroupEditModel = new AdvEntitySelectableGroupEditModel();
   quays: AdvEntitySelectableGroupEditModel = new AdvEntitySelectableGroupEditModel();
   sitesDto: Array<SiteNameDto> = [];
+  parsedShipId: string;
+  parsedQuayId: string;
+  parsedSiteIds: Array<string>;
 
   constructor(private zone: NgZone,
               public data: DataService,
@@ -166,7 +169,9 @@ export class WaterComponent implements OnInit {
                 newLine = true;
               }
               if (textLine.startsWith('F1#')) {
-                const optionValue = textLine.split('#')[1].trim();
+                __this.parsedShipId = textLine.split('#')[1].trim();
+                // const optionValue = textLine.split('#')[1].trim();
+                // __this.parsedShipId = optionValue;
                 // for (const ship of __this.ships.advEntitySelectableItemModels) {
                 //   if (optionValue === ship.microtingUUID) {
                 //     console.log('The found ship is ' + ship.name);
@@ -175,7 +180,8 @@ export class WaterComponent implements OnInit {
                 //   }
                 // }
               } else if (textLine.startsWith('F2#')) {
-                const optionValue = textLine.split('#')[1].trim();
+                __this.parsedQuayId = textLine.split('#')[1].trim();
+                // const optionValue = textLine.split('#')[1].trim();
                 // for (const quay of __this.quays.advEntitySelectableItemModels) {
                 //   if (optionValue === quay.microtingUUID) {
                 //     console.log('The found quay is ' + quay.name);
@@ -187,6 +193,10 @@ export class WaterComponent implements OnInit {
                 itemMode = true;
                 const optionValue = textLine.split('#')[1].trim();
                 const cworkers = optionValue.split(', ');
+                for (const site of cworkers) {
+                  console.log('The found site is ' + site);
+                  __this.parsedSiteIds.push(site);
+                }
                 // for (const site of __this.sitesDto) {
                 //   if (optionValue === site.siteUId.toString()) {
                 //     console.log('The found quay is ' + site.siteName);
@@ -202,6 +212,7 @@ export class WaterComponent implements OnInit {
                   itemMode = true;
                 }
                 stringText = stringText + textLine + '\n';
+                __this.currentMessage = stringText;
               }
 
               if (itemMode === false) {
@@ -209,7 +220,7 @@ export class WaterComponent implements OnInit {
               }
             }
 
-            __this.currentMessage = stringText;
+            // __this.currentMessage = stringText;
           }
         });
       }
