@@ -41,12 +41,8 @@ export class WaterComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loadShips().then(quays => this.loadQuays().then( sites => this.loadSites().then(existingValues => this.parseWaterBody())));
-    // this.loadShips().then(this.loadQuays).then((this.loadSites)).then(this.parseWaterBody);
-    // this.loadSites();
-    // this.parseWaterBody();
+    this.loadSites();
   }
-
 
   onSites(site: SiteNameDto) {
     if (!this.selectedSites.includes(site)) {
@@ -57,7 +53,7 @@ export class WaterComponent implements OnInit {
     console.log('selectedSites now contains ' + JSON.stringify(this.selectedSites));
   }
 
-  loadShips()  {
+  loadSites()  {
     console.log('loadShips called!');
     const promise = new Promise((resolve, reject) => {
       const userIdentityToken = localStorage.getItem('userIdentityToken');
@@ -67,6 +63,7 @@ export class WaterComponent implements OnInit {
         if (data && data.success) {
           this.ships.advEntitySelectableItemModels = data.model.entityGroupItemLst;
           resolve();
+          this.loadQuays();
         } else {
         }
       });
@@ -86,6 +83,7 @@ export class WaterComponent implements OnInit {
         if (data && data.success) {
           this.quays.advEntitySelectableItemModels = data.model.entityGroupItemLst;
           resolve();
+          this.loadSites();
         }
       });
     });
@@ -103,6 +101,7 @@ export class WaterComponent implements OnInit {
         if (data && data.success) {
           this.sitesDto = data.model;
           resolve();
+          thi.parseWaterBody();
         }
       });
     });
