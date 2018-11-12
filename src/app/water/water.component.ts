@@ -206,13 +206,13 @@ export class WaterComponent implements OnInit {
                 // }
               } else if (textLine.startsWith('F3#')) {
                 stringText = textLine.replace('F3# ', '') + '\n';
+                __this.currentMessage = stringText;
                 itemMode = true;
               } else {
                 if (stringText.length > 0) {
                   itemMode = true;
                 }
                 stringText = stringText + textLine + '\n';
-                __this.currentMessage = stringText;
               }
 
               if (itemMode === false) {
