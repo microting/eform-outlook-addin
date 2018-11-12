@@ -108,7 +108,7 @@ export class WaterComponent implements OnInit {
     // water - waters
     const cworkerids = [];
     const cworkervalues = [];
-    for (let site of this.selectedSites) {
+    for (const site of this.selectedSites) {
       cworkerids.push(site.siteUId);
       cworkervalues.push(site.siteName);
     }
@@ -131,5 +131,78 @@ export class WaterComponent implements OnInit {
       item.subject.setAsync(txt_subject);
       item.body.setAsync(txt_body, {coercionType: Office.CoercionType.Html});
     }
+  }
+
+  parseWaterBody(c: Water): void {
+    // const uitext = i18n.getTexts(this.state.locale);
+
+    this.zone.run(() => {
+      const item = Office.context.mailbox.item;
+      if (item.itemType === Office.MailboxEnums.ItemType.Appointment) {
+        const __this = this;
+        item.body.getAsync(Office.CoercionType.Text, function (result) {
+          if (result.status === Office.AsyncResultStatus.Succeeded) {
+            const txtVal: string = result.value;
+            const textLines = txtVal.split('\n');
+            let stringText = '';
+            let itemMode = false;
+            let newLine = false;
+            for (let i = 0; i < textLines.length; i++) {
+              const textLine = textLines[i];
+              itemMode = false;
+              if (newLine === false && textLine.length === 0) {
+                continue;
+              } else {
+                newLine = true;
+              }
+              if (textLine.startsWith('F1#')) {
+                const optionValue = textLine.split('#')[1].trim();
+                for (const ship of __this.ships.advEntitySelectableItemModels) {
+                  if (optionValue === ship.microtingUUID) {
+                    console.log('The found ship is ' + ship.name);
+                    __this.selectedShip = ship;
+                    itemMode = true;
+                  }
+                }
+              } else if (textLine.startsWith('F2#')) {
+                const optionValue = textLine.split('#')[1].trim();
+                for (const quay of __this.quays.advEntitySelectableItemModels) {
+                  if (optionValue === quay.microtingUUID) {
+                    console.log('The found quay is ' + quay.name);
+                    __this.selectedQuay = quay;
+                    itemMode = true;
+                  }
+                }
+              } else if (textLine.startsWith('Sites#')) {
+                itemMode = true;
+                const optionValue = textLine.split('#')[1].trim();
+                const cworkers = optionValue.split(', ');
+                for (const site of __this.sitesDto) {
+                  if (optionValue === site.siteUId.toString()) {
+                    console.log('The found quay is ' + site.siteName);
+                    __this.selectedSites.push(site);
+                    itemMode = true;
+                  }
+                }
+              } else if (textLine.startsWith('F3#')) {
+                stringText = textLine.replace('F3# ', '') + '\n';
+                itemMode = true;
+              } else {
+                if (stringText.length > 0) {
+                  itemMode = true;
+                }
+                stringText = stringText + textLine + '\n';
+              }
+
+              if (itemMode === false) {
+                break;
+              }
+            }
+
+            __this.currentMessage = stringText;
+          }
+        });
+      }
+    });
   }
 }
