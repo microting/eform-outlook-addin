@@ -138,10 +138,10 @@ export class WaterComponent implements OnInit {
         // const site = this.selectedSites[i];
         // if ( this._state.state.water.workers[i] ) {
           cworkerids.push(site.siteUId);
-          cworkervalues.push(site.siteName);
+          // cworkervalues.push(site.siteName);
         // }
       }
-      txt_subject = txt_subject + ' - ' + cworkervalues.join(', ');
+      // txt_subject = txt_subject + ' - ' + cworkervalues.join(', ');
       // // txt_body = txt_body + this.uitext.water.label_workers + ': ' + cworkers.join(', ') + '<br>';
       txt_body = txt_body + 'Sites# ' + cworkerids.join(', ') + '<br>';
 
