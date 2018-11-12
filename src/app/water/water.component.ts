@@ -6,7 +6,8 @@ import {StateService} from '../service/state.service';
 import {WaterState} from '../service/state';
 import {EntitySelectService} from '../common/services/advanced';
 import {
-  AdvEntitySelectableGroupEditModel
+  AdvEntitySelectableGroupEditModel,
+  AdvEntitySelectableItemModel
 } from '../common/models/advanced';
 import {SitesService} from '../common/services/advanced/sites.service';
 import {SiteNameDto} from '../common/models/dto';
@@ -23,9 +24,9 @@ export class WaterComponent implements OnInit {
   // content;
   // uitext;
   state: WaterState;
-  selectedShip: string;
-  selectedQuay: string;
-  selectedSites: boolean[];
+  selectedShip: AdvEntitySelectableItemModel;
+  selectedQuay: AdvEntitySelectableItemModel;
+  selectedSites: Array<SiteNameDto>;
   currentMessage: string;
   ships: AdvEntitySelectableGroupEditModel = new AdvEntitySelectableGroupEditModel();
   quays: AdvEntitySelectableGroupEditModel = new AdvEntitySelectableGroupEditModel();
@@ -85,8 +86,11 @@ export class WaterComponent implements OnInit {
   //   // });
   // }
 
-  onSites(siteUId: number) {
-    this.selectedSites[siteUId] = !this.selectedSites[siteUId];
+  onSites(site: SiteNameDto) {
+    // this.selectedSites[siteUId] = !this.selectedSites[siteUId];
+    if (this.selectedSites.includes(site)) {
+      this.selectedSites.push(site);
+    }
   }
 
   loadShips() {

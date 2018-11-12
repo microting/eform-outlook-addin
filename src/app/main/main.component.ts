@@ -95,58 +95,65 @@ export class MainComponent implements OnInit {
       txt_body = 'Template# ' + CRANEID + '<br>';
 
       // crane - ship
-      for ( let i = 0; i < this._data.crane.ship.length; i ++ ) {
-        const shipitem = this._data.crane.ship[i];
-        if ( shipitem.id === this._state.state.crane.shipid ) {
-          txt_subject = txt_subject + ' - ' + shipitem.value;
-          // txt_body = txt_body + this.uitext.crane.label_ship + ': ' + shipitem.value + '<br>';
-          txt_body = txt_body + 'F1# ' + shipitem.id + '<br>';
-          break;
-        }
-      }
+      // for ( let i = 0; i < this._data.crane.ship.length; i ++ ) {
+      //   const shipitem = this._data.crane.ship[i];
+      //   if ( shipitem.id === this._state.state.crane.shipid ) {
+      //     txt_subject = txt_subject + ' - ' + shipitem.value;
+      //     // txt_body = txt_body + this.uitext.crane.label_ship + ': ' + shipitem.value + '<br>';
+      //     txt_body = txt_body + 'F1# ' + shipitem.id + '<br>';
+      //     break;
+      //   }
+      // }
+      txt_body = txt_body + 'F1#';
 
       // crane - quay
-      for ( let i = 0; i < this._data.crane.quay.length; i ++ ) {
-        const quayitem = this._data.crane.quay[i];
-        if ( quayitem.id === this._state.state.crane.quayid ) {
-          txt_subject = txt_subject + ' - ' + quayitem.value;
-          // txt_body = txt_body + this.uitext.crane.label_quay + ': ' + quayitem.value + '<br>';
-          txt_body = txt_body + 'F2# ' + quayitem.id + '<br>';
-          break;
-        }
-      }
+      // for ( let i = 0; i < this._data.crane.quay.length; i ++ ) {
+      //   const quayitem = this._data.crane.quay[i];
+      //   if ( quayitem.id === this._state.state.crane.quayid ) {
+      //     txt_subject = txt_subject + ' - ' + quayitem.value;
+      //     // txt_body = txt_body + this.uitext.crane.label_quay + ': ' + quayitem.value + '<br>';
+      //     txt_body = txt_body + 'F2# ' + quayitem.id + '<br>';
+      //     break;
+      //   }
+      // }
+      txt_body = txt_body + 'F2#';
 
       // crane - crane
-      for ( let i = 0; i < this._data.crane.crane.length; i ++ ) {
-        const craneitem = this._data.crane.crane[i];
-        if ( craneitem.id === this._state.state.crane.craneid ) {
-          txt_subject = txt_subject + ' - ' + craneitem.value;
-          // txt_body = txt_body + this.uitext.crane.label_crane + ': ' + craneitem.value + '<br>';
-          txt_body = txt_body + 'F3# ' + craneitem.id + '<br>';
-          break;
-        }
-      }
+      // for ( let i = 0; i < this._data.crane.crane.length; i ++ ) {
+      //   const craneitem = this._data.crane.crane[i];
+      //   if ( craneitem.id === this._state.state.crane.craneid ) {
+      //     txt_subject = txt_subject + ' - ' + craneitem.value;
+      //     // txt_body = txt_body + this.uitext.crane.label_crane + ': ' + craneitem.value + '<br>';
+      //     txt_body = txt_body + 'F3# ' + craneitem.id + '<br>';
+      //     break;
+      //   }
+      // }
+      txt_body = txt_body + 'F3#';
 
       // crane - workers
-      const cworkerids = [];
-      const cworkervalues = [];
-      for ( let i = 0; i < this._data.crane.workers.length; i ++ ) {
-        const worker = this._data.crane.workers[i];
-        if ( this._state.state.crane.workers[i] ) {
-          cworkerids.push(worker.id);
-          cworkervalues.push(worker.value);
-        }
-      }
-      txt_subject = txt_subject + ' - ' + cworkervalues.join(', ');
-      // txt_body = txt_body + this.uitext.crane.label_workers + ': ' + cworkers.join(', ') + '<br>';
-      txt_body = txt_body + 'Sites# ' + cworkerids.join(', ') + '<br>';
+      // const cworkerids = [];
+      // const cworkervalues = [];
+      // for ( let i = 0; i < this._data.crane.workers.length; i ++ ) {
+      //   const worker = this._data.crane.workers[i];
+      //   if ( this._state.state.crane.workers[i] ) {
+      //     cworkerids.push(worker.id);
+      //     cworkervalues.push(worker.value);
+      //   }
+      // }
+      // txt_subject = txt_subject + ' - ' + cworkervalues.join(', ');
+      // // txt_body = txt_body + this.uitext.crane.label_workers + ': ' + cworkers.join(', ') + '<br>';
+      // txt_body = txt_body + 'Sites# ' + cworkerids.join(', ') + '<br>';
+
+      txt_body = txt_body + 'Sites#';
 
       // crane - message
-      let txtVal = this._state.state.crane.message;
-      txtVal = txtVal.replace(/\r/g, '<br>');
-      txtVal = txtVal.replace(/\n/g, '<br>');
-      // txt_body = txt_body + this.uitext.crane.label_message + ': ' + txtVal
-      txt_body = txt_body + 'F4# ' + txtVal;
+      // let txtVal = this._state.state.crane.message;
+      // txtVal = txtVal.replace(/\r/g, '<br>');
+      // txtVal = txtVal.replace(/\n/g, '<br>');
+      // // txt_body = txt_body + this.uitext.crane.label_message + ': ' + txtVal
+      // txt_body = txt_body + 'F4# ' + txtVal;
+
+      txt_body = txt_body + 'F4#';
 
     } else if ( this.state === WATERID ) {
       // txt_subject = WATERID;
@@ -156,47 +163,55 @@ export class MainComponent implements OnInit {
       txt_body = 'Template# ' + WATERID + '<br>';
 
       // water - ship
-      for ( let i = 0; i < this._data.water.ship.length; i ++ ) {
-        const shipitem = this._data.water.ship[i];
-        if ( shipitem.id === this._state.state.water.shipid ) {
-          txt_subject = txt_subject + ' - ' + shipitem.value;
-          // txt_body = txt_body + this.uitext.water.label_ship + ': ' + shipitem.value + '<br>';
-          txt_body = txt_body + 'F1# ' + shipitem.id + '<br>';
-          break;
-        }
-      }
+      // for ( let i = 0; i < this._data.water.ship.length; i ++ ) {
+      //   const shipitem = this._data.water.ship[i];
+      //   if ( shipitem.id === this._state.state.water.shipid ) {
+      //     txt_subject = txt_subject + ' - ' + shipitem.value;
+      //     // txt_body = txt_body + this.uitext.water.label_ship + ': ' + shipitem.value + '<br>';
+      //     txt_body = txt_body + 'F1# ' + shipitem.id + '<br>';
+      //     break;
+      //   }
+      // }
+
+      txt_body = txt_body + 'F1#';
 
       // water - quay
-      for ( let i = 0; i < this._data.water.quay.length; i ++ ) {
-        const quayitem = this._data.water.quay[i];
-        if ( quayitem.id === this._state.state.water.quayid ) {
-          txt_subject = txt_subject + ' - ' + quayitem.value;
-          // txt_body = txt_body + this.uitext.water.label_quay + ': ' + quayitem.value + '<br>';
-          txt_body = txt_body + 'F2# ' + quayitem.id + '<br>';
-          break;
-        }
-      }
+      // for ( let i = 0; i < this._data.water.quay.length; i ++ ) {
+      //   const quayitem = this._data.water.quay[i];
+      //   if ( quayitem.id === this._state.state.water.quayid ) {
+      //     txt_subject = txt_subject + ' - ' + quayitem.value;
+      //     // txt_body = txt_body + this.uitext.water.label_quay + ': ' + quayitem.value + '<br>';
+      //     txt_body = txt_body + 'F2# ' + quayitem.id + '<br>';
+      //     break;
+      //   }
+      // }
+
+      txt_body = txt_body + 'F2#';
 
       // water - waters
-      const cworkerids = [];
-      const cworkervalues = [];
-      for ( let i = 0; i < this._data.water.workers.length; i ++ ) {
-        const worker = this._data.water.workers[i];
-        if ( this._state.state.water.workers[i] ) {
-          cworkerids.push(worker.id);
-          cworkervalues.push(worker.value);
-        }
-      }
-      txt_subject = txt_subject + ' - ' + cworkervalues.join(', ');
-      // txt_body = txt_body + this.uitext.water.label_workers + ': ' + cworkers.join(', ') + '<br>';
-      txt_body = txt_body + 'Sites# ' + cworkerids.join(', ') + '<br>';
+      // const cworkerids = [];
+      // const cworkervalues = [];
+      // for ( let i = 0; i < this._data.water.workers.length; i ++ ) {
+      //   const worker = this._data.water.workers[i];
+      //   if ( this._state.state.water.workers[i] ) {
+      //     cworkerids.push(worker.id);
+      //     cworkervalues.push(worker.value);
+      //   }
+      // }
+      // txt_subject = txt_subject + ' - ' + cworkervalues.join(', ');
+      // // txt_body = txt_body + this.uitext.water.label_workers + ': ' + cworkers.join(', ') + '<br>';
+      // txt_body = txt_body + 'Sites# ' + cworkerids.join(', ') + '<br>';
+
+      txt_body = txt_body + '¨Sites#';
 
       // water - message
-      let txtVal = this._state.state.water.message;
-      txtVal = txtVal.replace(/\r/g, '<br>');
-      txtVal = txtVal.replace(/\n/g, '<br>');
-      // txt_body = txt_body + this.uitext.water.label_message + ': ' + txtVal;
-      txt_body = txt_body + 'F3# ' + txtVal;
+      // let txtVal = this._state.state.water.message;
+      // txtVal = txtVal.replace(/\r/g, '<br>');
+      // txtVal = txtVal.replace(/\n/g, '<br>');
+      // // txt_body = txt_body + this.uitext.water.label_message + ': ' + txtVal;
+      // txt_body = txt_body + 'F3# ' + txtVal;
+
+      txt_body = txt_body + 'F3#';
 
     }
 
