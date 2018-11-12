@@ -11,6 +11,7 @@ import {
 } from '../common/models/advanced';
 import {SitesService} from '../common/services/advanced/sites.service';
 import {SiteNameDto} from '../common/models/dto';
+import {Observable} from 'rxjs/internal/Observable';
 
 declare const Office: any;
 
@@ -40,11 +41,14 @@ export class WaterComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loadShips();
-    this.loadQuays();
-    this.loadSites();
-    this.parseWaterBody();
+    this.loadShips().then(this.loadQuays).then((this.loadSites)).then(this.parseWaterBody);
+    // this.loadSites();
+    // this.parseWaterBody();
   }
+
+  // retriveData(): Promise<any> {
+  //   // return this.loadShips().map(response )
+  // }
 
   onSites(site: SiteNameDto) {
     if (!this.selectedSites.includes(site)) {
@@ -55,40 +59,56 @@ export class WaterComponent implements OnInit {
     console.log('selectedSites now contains ' + JSON.stringify(this.selectedSites));
   }
 
-  loadShips() {
-    // console.log('loadShips called');
-    const userIdentityToken = localStorage.getItem('userIdentityToken');
-    const callerUrl = localStorage.getItem('callerUrl');
-    // console.log('userIdentityToken is ' + userIdentityToken);
-    this.entitySelectService.getEntitySelectableGroupOutlook('5477', userIdentityToken, callerUrl).subscribe((data) => {
-      if (data && data.success) {
-        this.ships.advEntitySelectableItemModels = data.model.entityGroupItemLst;
-      }
+  loadShips()  {
+    console.log('loadShips called!');
+    const promise = new Promise((resolve, reject) => {
+      const userIdentityToken = localStorage.getItem('userIdentityToken');
+      const callerUrl = localStorage.getItem('callerUrl');
+      // console.log('userIdentityToken is ' + userIdentityToken);
+      this.entitySelectService.getEntitySelectableGroupOutlook('5477', userIdentityToken, callerUrl).subscribe((data) => {
+        if (data && data.success) {
+          this.ships.advEntitySelectableItemModels = data.model.entityGroupItemLst;
+          resolve();
+        } else {
+        }
+      });
     });
+    return promise;
+    // console.log('loadShips called');
   }
 
   loadQuays() {
-    // console.log('loadQuays called');
-    const userIdentityToken = localStorage.getItem('userIdentityToken');
-    const callerUrl = localStorage.getItem('callerUrl');
-    // console.log('userIdentityToken is ' + userIdentityToken);
-    this.entitySelectService.getEntitySelectableGroupOutlook('5482', userIdentityToken, callerUrl).subscribe((data) => {
-      if (data && data.success) {
-        this.quays.advEntitySelectableItemModels = data.model.entityGroupItemLst;
-      }
+    console.log('loadQuays called!');
+    const promise = new Promise((resolve, reject) => {
+      // console.log('loadQuays called');
+      const userIdentityToken = localStorage.getItem('userIdentityToken');
+      const callerUrl = localStorage.getItem('callerUrl');
+      // console.log('userIdentityToken is ' + userIdentityToken);
+      this.entitySelectService.getEntitySelectableGroupOutlook('5482', userIdentityToken, callerUrl).subscribe((data) => {
+        if (data && data.success) {
+          this.quays.advEntitySelectableItemModels = data.model.entityGroupItemLst;
+          resolve();
+        }
+      });
     });
+    return promise;
   }
 
   loadSites() {
-    // console.log('loadSites called');
-    const userIdentityToken = localStorage.getItem('userIdentityToken');
-    const callerUrl = localStorage.getItem('callerUrl');
-    // console.log('userIdentityToken is ' + userIdentityToken);
-    this.sitesService.getAllSites(userIdentityToken, callerUrl).subscribe((data) => {
-      if (data && data.success) {
-        this.sitesDto = data.model;
-      }
+    console.log('loadSites called!');
+    const promise = new Promise((resolve, reject) => {
+      // console.log('loadSites called');
+      const userIdentityToken = localStorage.getItem('userIdentityToken');
+      const callerUrl = localStorage.getItem('callerUrl');
+      // console.log('userIdentityToken is ' + userIdentityToken);
+      this.sitesService.getAllSites(userIdentityToken, callerUrl).subscribe((data) => {
+        if (data && data.success) {
+          this.sitesDto = data.model;
+          resolve();
+        }
+      });
     });
+    return promise;
   }
 
   onInsert(): void {
@@ -135,6 +155,7 @@ export class WaterComponent implements OnInit {
   }
 
   parseWaterBody(): void {
+    console.log('parseWaterBody called!');
     // const uitext = i18n.getTexts(this.state.locale);
 
     this.zone.run(() => {

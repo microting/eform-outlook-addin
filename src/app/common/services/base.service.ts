@@ -11,7 +11,7 @@ export class BaseService {
   }
 
   baseUrl() {
-    console.log('baseUrl called');
+    // console.log('baseUrl called');
     return 'https://www.microting3eform.com';
   }
 
