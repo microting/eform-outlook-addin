@@ -26,7 +26,7 @@ export class WaterComponent implements OnInit {
   state: WaterState;
   selectedShip: AdvEntitySelectableItemModel;
   selectedQuay: AdvEntitySelectableItemModel;
-  selectedSites: Array<SiteNameDto>;
+  selectedSites: Array<SiteNameDto> = [];
   currentMessage: string;
   ships: AdvEntitySelectableGroupEditModel = new AdvEntitySelectableGroupEditModel();
   quays: AdvEntitySelectableGroupEditModel = new AdvEntitySelectableGroupEditModel();

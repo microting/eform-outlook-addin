@@ -104,7 +104,7 @@ export class MainComponent implements OnInit {
       //     break;
       //   }
       // }
-      txt_body = txt_body + 'F1#';
+      txt_body = txt_body + 'F1#' + '<br>';
 
       // crane - quay
       // for ( let i = 0; i < this._data.crane.quay.length; i ++ ) {
@@ -116,7 +116,7 @@ export class MainComponent implements OnInit {
       //     break;
       //   }
       // }
-      txt_body = txt_body + 'F2#';
+      txt_body = txt_body + 'F2#' + '<br>';
 
       // crane - crane
       // for ( let i = 0; i < this._data.crane.crane.length; i ++ ) {
@@ -128,7 +128,7 @@ export class MainComponent implements OnInit {
       //     break;
       //   }
       // }
-      txt_body = txt_body + 'F3#';
+      txt_body = txt_body + 'F3#' + '<br>';
 
       // crane - workers
       // const cworkerids = [];
@@ -144,7 +144,7 @@ export class MainComponent implements OnInit {
       // // txt_body = txt_body + this.uitext.crane.label_workers + ': ' + cworkers.join(', ') + '<br>';
       // txt_body = txt_body + 'Sites# ' + cworkerids.join(', ') + '<br>';
 
-      txt_body = txt_body + 'Sites#';
+      txt_body = txt_body + 'Sites#' + '<br>';
 
       // crane - message
       // let txtVal = this._state.state.crane.message;
@@ -173,7 +173,7 @@ export class MainComponent implements OnInit {
       //   }
       // }
 
-      txt_body = txt_body + 'F1#';
+      txt_body = txt_body + 'F1#' + '<br>';
 
       // water - quay
       // for ( let i = 0; i < this._data.water.quay.length; i ++ ) {
@@ -186,7 +186,7 @@ export class MainComponent implements OnInit {
       //   }
       // }
 
-      txt_body = txt_body + 'F2#';
+      txt_body = txt_body + 'F2#' + '<br>';
 
       // water - waters
       // const cworkerids = [];
@@ -202,7 +202,7 @@ export class MainComponent implements OnInit {
       // // txt_body = txt_body + this.uitext.water.label_workers + ': ' + cworkers.join(', ') + '<br>';
       // txt_body = txt_body + 'Sites# ' + cworkerids.join(', ') + '<br>';
 
-      txt_body = txt_body + '¨Sites#';
+      txt_body = txt_body + 'Sites#' + '<br>';
 
       // water - message
       // let txtVal = this._state.state.water.message;
