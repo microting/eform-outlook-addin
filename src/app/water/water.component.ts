@@ -53,59 +53,47 @@ export class WaterComponent implements OnInit {
     console.log('selectedSites now contains ' + JSON.stringify(this.selectedSites));
   }
 
-  loadShips()  {
+  loadShips() {
     console.log('loadShips called!');
-    const promise = new Promise((resolve, reject) => {
-      const userIdentityToken = localStorage.getItem('userIdentityToken');
-      const callerUrl = localStorage.getItem('callerUrl');
-      // console.log('userIdentityToken is ' + userIdentityToken);
-      this.entitySelectService.getEntitySelectableGroupOutlook('5477', userIdentityToken, callerUrl).subscribe((data) => {
-        if (data && data.success) {
-          this.ships.advEntitySelectableItemModels = data.model.entityGroupItemLst;
-          resolve();
-          this.loadQuays();
-        } else {
-        }
-      });
+    const userIdentityToken = localStorage.getItem('userIdentityToken');
+    const callerUrl = localStorage.getItem('callerUrl');
+    // console.log('userIdentityToken is ' + userIdentityToken);
+    this.entitySelectService.getEntitySelectableGroupOutlook('5477', userIdentityToken, callerUrl).subscribe((data) => {
+      if (data && data.success) {
+        this.ships.advEntitySelectableItemModels = data.model.entityGroupItemLst;
+        this.loadQuays();
+      } else {
+      }
     });
-    return promise;
     // console.log('loadShips called');
   }
 
   loadQuays() {
     console.log('loadQuays called!');
-    const promise = new Promise((resolve, reject) => {
-      // console.log('loadQuays called');
-      const userIdentityToken = localStorage.getItem('userIdentityToken');
-      const callerUrl = localStorage.getItem('callerUrl');
-      // console.log('userIdentityToken is ' + userIdentityToken);
-      this.entitySelectService.getEntitySelectableGroupOutlook('5482', userIdentityToken, callerUrl).subscribe((data) => {
-        if (data && data.success) {
-          this.quays.advEntitySelectableItemModels = data.model.entityGroupItemLst;
-          resolve();
-          this.loadSites();
-        }
-      });
+    // console.log('loadQuays called');
+    const userIdentityToken = localStorage.getItem('userIdentityToken');
+    const callerUrl = localStorage.getItem('callerUrl');
+    // console.log('userIdentityToken is ' + userIdentityToken);
+    this.entitySelectService.getEntitySelectableGroupOutlook('5482', userIdentityToken, callerUrl).subscribe((data) => {
+      if (data && data.success) {
+        this.quays.advEntitySelectableItemModels = data.model.entityGroupItemLst;
+        this.loadSites();
+      }
     });
-    return promise;
   }
 
   loadSites() {
     console.log('loadSites called!');
-    const promise = new Promise((resolve, reject) => {
-      // console.log('loadSites called');
-      const userIdentityToken = localStorage.getItem('userIdentityToken');
-      const callerUrl = localStorage.getItem('callerUrl');
-      // console.log('userIdentityToken is ' + userIdentityToken);
-      this.sitesService.getAllSites(userIdentityToken, callerUrl).subscribe((data) => {
-        if (data && data.success) {
-          this.sitesDto = data.model;
-          resolve();
-          this.parseWaterBody();
-        }
-      });
+    // console.log('loadSites called');
+    const userIdentityToken = localStorage.getItem('userIdentityToken');
+    const callerUrl = localStorage.getItem('callerUrl');
+    // console.log('userIdentityToken is ' + userIdentityToken);
+    this.sitesService.getAllSites(userIdentityToken, callerUrl).subscribe((data) => {
+      if (data && data.success) {
+        this.sitesDto = data.model;
+        this.parseWaterBody();
+      }
     });
-    return promise;
   }
 
   onInsert(): void {
