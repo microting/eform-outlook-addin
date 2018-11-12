@@ -46,6 +46,7 @@ export class WaterComponent implements OnInit {
   }
 
   onSites(site: SiteNameDto) {
+    console.log('siteNameDto is ' + SiteNameDto);
     // this.selectedSites[siteUId] = !this.selectedSites[siteUId];
     if (!this.selectedSites.includes(site)) {
       this.selectedSites.push(site);
@@ -132,8 +133,8 @@ export class WaterComponent implements OnInit {
       // water - waters
       const cworkerids = [];
       const cworkervalues = [];
-      for ( let i = 0; i < this.selectedSites.length; i ++ ) {
-        const site = this.selectedSites[i];
+      for ( let site of this.selectedSites) {
+        // const site = this.selectedSites[i];
         // if ( this._state.state.water.workers[i] ) {
           cworkerids.push(site.siteUId);
           cworkervalues.push(site.siteName);
