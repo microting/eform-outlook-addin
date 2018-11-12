@@ -169,9 +169,10 @@ export class WaterComponent implements OnInit {
                 newLine = true;
               }
               if (textLine.startsWith('F1#')) {
-                __this.parsedShipId = textLine.split('#')[1].trim();
-                // const optionValue = textLine.split('#')[1].trim();
-                // __this.parsedShipId = optionValue;
+                 // = textLine.split('#')[1].trim();
+                const optionValue = textLine.split('#')[1].trim();
+                console.log('F1# is ' + optionValue);
+                __this.parsedShipId = optionValue;
                 // for (const ship of __this.ships.advEntitySelectableItemModels) {
                 //   if (optionValue === ship.microtingUUID) {
                 //     console.log('The found ship is ' + ship.name);
@@ -180,8 +181,10 @@ export class WaterComponent implements OnInit {
                 //   }
                 // }
               } else if (textLine.startsWith('F2#')) {
-                __this.parsedQuayId = textLine.split('#')[1].trim();
-                // const optionValue = textLine.split('#')[1].trim();
+                // __this.parsedQuayId = textLine.split('#')[1].trim();
+                const optionValue = textLine.split('#')[1].trim();
+                console.log('F2# is ' + optionValue);
+                __this.parsedQuayId = optionValue;
                 // for (const quay of __this.quays.advEntitySelectableItemModels) {
                 //   if (optionValue === quay.microtingUUID) {
                 //     console.log('The found quay is ' + quay.name);
@@ -192,6 +195,7 @@ export class WaterComponent implements OnInit {
               } else if (textLine.startsWith('Sites#')) {
                 itemMode = true;
                 const optionValue = textLine.split('#')[1].trim();
+                console.log('Sites# is ' + optionValue);
                 const cworkers = optionValue.split(', ');
                 for (const site of cworkers) {
                   console.log('The found site is ' + site);
@@ -206,6 +210,7 @@ export class WaterComponent implements OnInit {
                 // }
               } else if (textLine.startsWith('F3#')) {
                 stringText = textLine.replace('F3# ', '') + '\n';
+                console.log('F3# is ' + stringText);
                 __this.currentMessage = stringText;
                 itemMode = true;
               } else {
