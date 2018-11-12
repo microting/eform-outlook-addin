@@ -46,16 +46,16 @@ export class WaterComponent implements OnInit {
   }
 
   onSites(site: SiteNameDto) {
-    console.log('siteNameDto is ' + site);
-    // this.selectedSites[siteUId] = !this.selectedSites[siteUId];
     if (!this.selectedSites.includes(site)) {
       this.selectedSites.push(site);
+    } else {
+      this.selectedSites.splice(this.selectedSites.indexOf(site), 1);
     }
     console.log('selectedSites now contains ' + JSON.stringify(this.selectedSites));
   }
 
   loadShips() {
-    console.log('loadShips called');
+    // console.log('loadShips called');
     const userIdentityToken = localStorage.getItem('userIdentityToken');
     const callerUrl = localStorage.getItem('callerUrl');
     // console.log('userIdentityToken is ' + userIdentityToken);
@@ -67,7 +67,7 @@ export class WaterComponent implements OnInit {
   }
 
   loadQuays() {
-    console.log('loadQuays called');
+    // console.log('loadQuays called');
     const userIdentityToken = localStorage.getItem('userIdentityToken');
     const callerUrl = localStorage.getItem('callerUrl');
     // console.log('userIdentityToken is ' + userIdentityToken);
@@ -79,10 +79,10 @@ export class WaterComponent implements OnInit {
   }
 
   loadSites() {
-    console.log('loadSites called');
+    // console.log('loadSites called');
     const userIdentityToken = localStorage.getItem('userIdentityToken');
     const callerUrl = localStorage.getItem('callerUrl');
-    console.log('userIdentityToken is ' + userIdentityToken);
+    // console.log('userIdentityToken is ' + userIdentityToken);
     this.sitesService.getAllSites(userIdentityToken, callerUrl).subscribe((data) => {
       if (data && data.success) {
         this.sitesDto = data.model;
@@ -91,74 +91,43 @@ export class WaterComponent implements OnInit {
   }
 
   onInsert(): void {
-    // const lang = this._state.state.locale;
-    // this.uitext = i18n.getTexts(lang);
 
     let txt_subject;
     let txt_body;
-    // } else if ( this.state === WATERID ) {
-      // txt_subject = WATERID;
-      // txt_subject = this.uitext.eform[WATERID];
-      txt_subject = 'Vand';
-      // txt_body = this.uitext.eform.label_eform + ': ' + this.uitext.eform[WATERID] + '<br>';
-      // txt_body = 'Template# ' + this.uitext.eform[WATERID] + '<br>';
-      txt_body = 'Template# 1200 <br>';
+    txt_subject = 'Vand';
+    txt_body = 'Template# 1200 <br>';
 
-      // water - ship
-      // for ( let i = 0; i < this._data.water.ship.length; i ++ ) {
-      //   const shipitem = this._data.water.ship[i];
-      //   if ( shipitem.id === this._state.state.water.shipid ) {
-      //     txt_subject = txt_subject + ' - ' + shipitem.value;
-      //     // txt_body = txt_body + this.uitext.water.label_ship + ': ' + shipitem.value + '<br>';
-      //     txt_body = txt_body + 'F1# ' + shipitem.id + '<br>';
-      //     break;
-      //   }
-      // }
-      txt_subject = txt_subject + ' - ' + this.selectedShip.name;
-      txt_body = txt_body + 'F1#' + this.selectedShip.microtingUUID + '<br>';
+    // water - ship
+    txt_subject = txt_subject + ' - ' + this.selectedShip.name;
+    txt_body = txt_body + 'F1#' + this.selectedShip.microtingUUID + '<br>';
 
-      // water - quay
-      // for ( let i = 0; i < this._data.water.quay.length; i ++ ) {
-      //   const quayitem = this._data.water.quay[i];
-      //   if ( quayitem.id === this._state.state.water.quayid ) {
-      //     txt_subject = txt_subject + ' - ' + quayitem.value;
-      //     // txt_body = txt_body + this.uitext.water.label_quay + ': ' + quayitem.value + '<br>';
-      //     txt_body = txt_body + 'F2# ' + quayitem.id + '<br>';
-      //     break;
-      //   }
-      // }
-
+    // water - quay
     txt_subject = txt_subject + ' - ' + this.selectedQuay.name;
     txt_body = txt_body + 'F2#' + this.selectedQuay.microtingUUID + '<br>';
 
-      // water - waters
-      const cworkerids = [];
-      const cworkervalues = [];
-      for ( let site of this.selectedSites) {
-        // const site = this.selectedSites[i];
-        // if ( this._state.state.water.workers[i] ) {
-          cworkerids.push(site.siteUId);
-          cworkervalues.push(site.siteName);
-        // }
-      }
-      txt_subject = txt_subject + ' - ' + cworkervalues.join(', ');
-      // // txt_body = txt_body + this.uitext.water.label_workers + ': ' + cworkers.join(', ') + '<br>';
-      txt_body = txt_body + 'Sites# ' + cworkerids.join(', ') + '<br>';
+    // water - waters
+    const cworkerids = [];
+    const cworkervalues = [];
+    for (let site of this.selectedSites) {
+      cworkerids.push(site.siteUId);
+      cworkervalues.push(site.siteName);
+    }
+    txt_subject = txt_subject + ' - ' + cworkervalues.join(', ');
+    txt_body = txt_body + 'Sites# ' + cworkerids.join(', ') + '<br>';
 
-      // txt_body = txt_body + 'Sites#' + '<br>';
 
-      // water - message
-      let txtVal = this.currentMessage;
-      txtVal = txtVal.replace(/\r/g, '<br>');
-      txtVal = txtVal.replace(/\n/g, '<br>');
-      txt_body = txt_body + 'F3# ' + txtVal;
+    // water - message
+    let txtVal = this.currentMessage;
+    txtVal = txtVal.replace(/\r/g, '<br>');
+    txtVal = txtVal.replace(/\n/g, '<br>');
+    txt_body = txt_body + 'F3# ' + txtVal;
 
 
     // }
 
     const item = Office.context.mailbox.item;
 
-    if ( item.itemType === Office.MailboxEnums.ItemType.Appointment ) {
+    if (item.itemType === Office.MailboxEnums.ItemType.Appointment) {
       item.subject.setAsync(txt_subject);
       item.body.setAsync(txt_body, {coercionType: Office.CoercionType.Html});
     }
