@@ -46,11 +46,12 @@ export class WaterComponent implements OnInit {
   }
 
   onSites(site: SiteNameDto) {
-    console.log('siteNameDto is ' + SiteNameDto);
+    console.log('siteNameDto is ' + site);
     // this.selectedSites[siteUId] = !this.selectedSites[siteUId];
     if (!this.selectedSites.includes(site)) {
       this.selectedSites.push(site);
     }
+    console.log('selectedSites now contains ' + JSON.stringify(this.selectedSites));
   }
 
   loadShips() {

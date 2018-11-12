@@ -81,145 +81,145 @@ export class MainComponent implements OnInit {
     });
   }
 
-  onInsert(): void {
-    const lang = this._state.state.locale;
-    this.uitext = i18n.getTexts(lang);
-
-    let txt_subject = '';
-    let txt_body = '';
-    if ( this.state === CRANEID ) {
-      // txt_subject = CRANEID;
-      txt_subject = this.uitext.eform[CRANEID];
-      // txt_body = this.uitext.eform.label_eform + ': ' + this.uitext.eform[CRANEID] + '<br>';
-      // txt_body = 'Template# ' + this.uitext.eform[CRANEID] + '<br>';
-      txt_body = 'Template# ' + CRANEID + '<br>';
-
-      // crane - ship
-      // for ( let i = 0; i < this._data.crane.ship.length; i ++ ) {
-      //   const shipitem = this._data.crane.ship[i];
-      //   if ( shipitem.id === this._state.state.crane.shipid ) {
-      //     txt_subject = txt_subject + ' - ' + shipitem.value;
-      //     // txt_body = txt_body + this.uitext.crane.label_ship + ': ' + shipitem.value + '<br>';
-      //     txt_body = txt_body + 'F1# ' + shipitem.id + '<br>';
-      //     break;
-      //   }
-      // }
-      txt_body = txt_body + 'F1#' + '<br>';
-
-      // crane - quay
-      // for ( let i = 0; i < this._data.crane.quay.length; i ++ ) {
-      //   const quayitem = this._data.crane.quay[i];
-      //   if ( quayitem.id === this._state.state.crane.quayid ) {
-      //     txt_subject = txt_subject + ' - ' + quayitem.value;
-      //     // txt_body = txt_body + this.uitext.crane.label_quay + ': ' + quayitem.value + '<br>';
-      //     txt_body = txt_body + 'F2# ' + quayitem.id + '<br>';
-      //     break;
-      //   }
-      // }
-      txt_body = txt_body + 'F2#' + '<br>';
-
-      // crane - crane
-      // for ( let i = 0; i < this._data.crane.crane.length; i ++ ) {
-      //   const craneitem = this._data.crane.crane[i];
-      //   if ( craneitem.id === this._state.state.crane.craneid ) {
-      //     txt_subject = txt_subject + ' - ' + craneitem.value;
-      //     // txt_body = txt_body + this.uitext.crane.label_crane + ': ' + craneitem.value + '<br>';
-      //     txt_body = txt_body + 'F3# ' + craneitem.id + '<br>';
-      //     break;
-      //   }
-      // }
-      txt_body = txt_body + 'F3#' + '<br>';
-
-      // crane - workers
-      // const cworkerids = [];
-      // const cworkervalues = [];
-      // for ( let i = 0; i < this._data.crane.workers.length; i ++ ) {
-      //   const worker = this._data.crane.workers[i];
-      //   if ( this._state.state.crane.workers[i] ) {
-      //     cworkerids.push(worker.id);
-      //     cworkervalues.push(worker.value);
-      //   }
-      // }
-      // txt_subject = txt_subject + ' - ' + cworkervalues.join(', ');
-      // // txt_body = txt_body + this.uitext.crane.label_workers + ': ' + cworkers.join(', ') + '<br>';
-      // txt_body = txt_body + 'Sites# ' + cworkerids.join(', ') + '<br>';
-
-      txt_body = txt_body + 'Sites#' + '<br>';
-
-      // crane - message
-      // let txtVal = this._state.state.crane.message;
-      // txtVal = txtVal.replace(/\r/g, '<br>');
-      // txtVal = txtVal.replace(/\n/g, '<br>');
-      // // txt_body = txt_body + this.uitext.crane.label_message + ': ' + txtVal
-      // txt_body = txt_body + 'F4# ' + txtVal;
-
-      txt_body = txt_body + 'F4#';
-
-    } else if ( this.state === WATERID ) {
-      // txt_subject = WATERID;
-      txt_subject = this.uitext.eform[WATERID];
-      // txt_body = this.uitext.eform.label_eform + ': ' + this.uitext.eform[WATERID] + '<br>';
-      // txt_body = 'Template# ' + this.uitext.eform[WATERID] + '<br>';
-      txt_body = 'Template# ' + WATERID + '<br>';
-
-      // water - ship
-      // for ( let i = 0; i < this._data.water.ship.length; i ++ ) {
-      //   const shipitem = this._data.water.ship[i];
-      //   if ( shipitem.id === this._state.state.water.shipid ) {
-      //     txt_subject = txt_subject + ' - ' + shipitem.value;
-      //     // txt_body = txt_body + this.uitext.water.label_ship + ': ' + shipitem.value + '<br>';
-      //     txt_body = txt_body + 'F1# ' + shipitem.id + '<br>';
-      //     break;
-      //   }
-      // }
-      // txt_subject = txt_subject + ' - ' + ;
-      txt_body = txt_body + 'F1#' + '<br>';
-
-      // water - quay
-      // for ( let i = 0; i < this._data.water.quay.length; i ++ ) {
-      //   const quayitem = this._data.water.quay[i];
-      //   if ( quayitem.id === this._state.state.water.quayid ) {
-      //     txt_subject = txt_subject + ' - ' + quayitem.value;
-      //     // txt_body = txt_body + this.uitext.water.label_quay + ': ' + quayitem.value + '<br>';
-      //     txt_body = txt_body + 'F2# ' + quayitem.id + '<br>';
-      //     break;
-      //   }
-      // }
-
-      txt_body = txt_body + 'F2#' + '<br>';
-
-      // water - waters
-      // const cworkerids = [];
-      // const cworkervalues = [];
-      // for ( let i = 0; i < this._data.water.workers.length; i ++ ) {
-      //   const worker = this._data.water.workers[i];
-      //   if ( this._state.state.water.workers[i] ) {
-      //     cworkerids.push(worker.id);
-      //     cworkervalues.push(worker.value);
-      //   }
-      // }
-      // txt_subject = txt_subject + ' - ' + cworkervalues.join(', ');
-      // // txt_body = txt_body + this.uitext.water.label_workers + ': ' + cworkers.join(', ') + '<br>';
-      // txt_body = txt_body + 'Sites# ' + cworkerids.join(', ') + '<br>';
-
-      txt_body = txt_body + 'Sites#' + '<br>';
-
-      // water - message
-      // let txtVal = this._state.state.water.message;
-      // txtVal = txtVal.replace(/\r/g, '<br>');
-      // txtVal = txtVal.replace(/\n/g, '<br>');
-      // // txt_body = txt_body + this.uitext.water.label_message + ': ' + txtVal;
-      // txt_body = txt_body + 'F3# ' + txtVal;
-
-      txt_body = txt_body + 'F3#';
-
-    }
-
-    const item = Office.context.mailbox.item;
-
-    if ( item.itemType === Office.MailboxEnums.ItemType.Appointment ) {
-      item.subject.setAsync(txt_subject);
-      item.body.setAsync(txt_body, {coercionType: Office.CoercionType.Html});
-    }
-  }
+  // onInsert(): void {
+  //   const lang = this._state.state.locale;
+  //   this.uitext = i18n.getTexts(lang);
+  //
+  //   let txt_subject = '';
+  //   let txt_body = '';
+  //   if ( this.state === CRANEID ) {
+  //     // txt_subject = CRANEID;
+  //     txt_subject = this.uitext.eform[CRANEID];
+  //     // txt_body = this.uitext.eform.label_eform + ': ' + this.uitext.eform[CRANEID] + '<br>';
+  //     // txt_body = 'Template# ' + this.uitext.eform[CRANEID] + '<br>';
+  //     txt_body = 'Template# ' + CRANEID + '<br>';
+  //
+  //     // crane - ship
+  //     // for ( let i = 0; i < this._data.crane.ship.length; i ++ ) {
+  //     //   const shipitem = this._data.crane.ship[i];
+  //     //   if ( shipitem.id === this._state.state.crane.shipid ) {
+  //     //     txt_subject = txt_subject + ' - ' + shipitem.value;
+  //     //     // txt_body = txt_body + this.uitext.crane.label_ship + ': ' + shipitem.value + '<br>';
+  //     //     txt_body = txt_body + 'F1# ' + shipitem.id + '<br>';
+  //     //     break;
+  //     //   }
+  //     // }
+  //     txt_body = txt_body + 'F1#' + '<br>';
+  //
+  //     // crane - quay
+  //     // for ( let i = 0; i < this._data.crane.quay.length; i ++ ) {
+  //     //   const quayitem = this._data.crane.quay[i];
+  //     //   if ( quayitem.id === this._state.state.crane.quayid ) {
+  //     //     txt_subject = txt_subject + ' - ' + quayitem.value;
+  //     //     // txt_body = txt_body + this.uitext.crane.label_quay + ': ' + quayitem.value + '<br>';
+  //     //     txt_body = txt_body + 'F2# ' + quayitem.id + '<br>';
+  //     //     break;
+  //     //   }
+  //     // }
+  //     txt_body = txt_body + 'F2#' + '<br>';
+  //
+  //     // crane - crane
+  //     // for ( let i = 0; i < this._data.crane.crane.length; i ++ ) {
+  //     //   const craneitem = this._data.crane.crane[i];
+  //     //   if ( craneitem.id === this._state.state.crane.craneid ) {
+  //     //     txt_subject = txt_subject + ' - ' + craneitem.value;
+  //     //     // txt_body = txt_body + this.uitext.crane.label_crane + ': ' + craneitem.value + '<br>';
+  //     //     txt_body = txt_body + 'F3# ' + craneitem.id + '<br>';
+  //     //     break;
+  //     //   }
+  //     // }
+  //     txt_body = txt_body + 'F3#' + '<br>';
+  //
+  //     // crane - workers
+  //     // const cworkerids = [];
+  //     // const cworkervalues = [];
+  //     // for ( let i = 0; i < this._data.crane.workers.length; i ++ ) {
+  //     //   const worker = this._data.crane.workers[i];
+  //     //   if ( this._state.state.crane.workers[i] ) {
+  //     //     cworkerids.push(worker.id);
+  //     //     cworkervalues.push(worker.value);
+  //     //   }
+  //     // }
+  //     // txt_subject = txt_subject + ' - ' + cworkervalues.join(', ');
+  //     // // txt_body = txt_body + this.uitext.crane.label_workers + ': ' + cworkers.join(', ') + '<br>';
+  //     // txt_body = txt_body + 'Sites# ' + cworkerids.join(', ') + '<br>';
+  //
+  //     txt_body = txt_body + 'Sites#' + '<br>';
+  //
+  //     // crane - message
+  //     // let txtVal = this._state.state.crane.message;
+  //     // txtVal = txtVal.replace(/\r/g, '<br>');
+  //     // txtVal = txtVal.replace(/\n/g, '<br>');
+  //     // // txt_body = txt_body + this.uitext.crane.label_message + ': ' + txtVal
+  //     // txt_body = txt_body + 'F4# ' + txtVal;
+  //
+  //     txt_body = txt_body + 'F4#';
+  //
+  //   } else if ( this.state === WATERID ) {
+  //     // txt_subject = WATERID;
+  //     txt_subject = this.uitext.eform[WATERID];
+  //     // txt_body = this.uitext.eform.label_eform + ': ' + this.uitext.eform[WATERID] + '<br>';
+  //     // txt_body = 'Template# ' + this.uitext.eform[WATERID] + '<br>';
+  //     txt_body = 'Template# ' + WATERID + '<br>';
+  //
+  //     // water - ship
+  //     // for ( let i = 0; i < this._data.water.ship.length; i ++ ) {
+  //     //   const shipitem = this._data.water.ship[i];
+  //     //   if ( shipitem.id === this._state.state.water.shipid ) {
+  //     //     txt_subject = txt_subject + ' - ' + shipitem.value;
+  //     //     // txt_body = txt_body + this.uitext.water.label_ship + ': ' + shipitem.value + '<br>';
+  //     //     txt_body = txt_body + 'F1# ' + shipitem.id + '<br>';
+  //     //     break;
+  //     //   }
+  //     // }
+  //     // txt_subject = txt_subject + ' - ' + ;
+  //     txt_body = txt_body + 'F1#' + '<br>';
+  //
+  //     // water - quay
+  //     // for ( let i = 0; i < this._data.water.quay.length; i ++ ) {
+  //     //   const quayitem = this._data.water.quay[i];
+  //     //   if ( quayitem.id === this._state.state.water.quayid ) {
+  //     //     txt_subject = txt_subject + ' - ' + quayitem.value;
+  //     //     // txt_body = txt_body + this.uitext.water.label_quay + ': ' + quayitem.value + '<br>';
+  //     //     txt_body = txt_body + 'F2# ' + quayitem.id + '<br>';
+  //     //     break;
+  //     //   }
+  //     // }
+  //
+  //     txt_body = txt_body + 'F2#' + '<br>';
+  //
+  //     // water - waters
+  //     // const cworkerids = [];
+  //     // const cworkervalues = [];
+  //     // for ( let i = 0; i < this._data.water.workers.length; i ++ ) {
+  //     //   const worker = this._data.water.workers[i];
+  //     //   if ( this._state.state.water.workers[i] ) {
+  //     //     cworkerids.push(worker.id);
+  //     //     cworkervalues.push(worker.value);
+  //     //   }
+  //     // }
+  //     // txt_subject = txt_subject + ' - ' + cworkervalues.join(', ');
+  //     // // txt_body = txt_body + this.uitext.water.label_workers + ': ' + cworkers.join(', ') + '<br>';
+  //     // txt_body = txt_body + 'Sites# ' + cworkerids.join(', ') + '<br>';
+  //
+  //     txt_body = txt_body + 'Sites#' + '<br>';
+  //
+  //     // water - message
+  //     // let txtVal = this._state.state.water.message;
+  //     // txtVal = txtVal.replace(/\r/g, '<br>');
+  //     // txtVal = txtVal.replace(/\n/g, '<br>');
+  //     // // txt_body = txt_body + this.uitext.water.label_message + ': ' + txtVal;
+  //     // txt_body = txt_body + 'F3# ' + txtVal;
+  //
+  //     txt_body = txt_body + 'F3#';
+  //
+  //   }
+  //
+  //   const item = Office.context.mailbox.item;
+  //
+  //   if ( item.itemType === Office.MailboxEnums.ItemType.Appointment ) {
+  //     item.subject.setAsync(txt_subject);
+  //     item.body.setAsync(txt_body, {coercionType: Office.CoercionType.Html});
+  //   }
+  // }
 }
