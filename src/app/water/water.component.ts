@@ -41,7 +41,10 @@ export class WaterComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.parseWaterBody();
     this.loadShips();
+    this.loadQuays();
+    this.loadSites();
   }
 
   onSites(site: SiteNameDto) {
@@ -61,7 +64,7 @@ export class WaterComponent implements OnInit {
     this.entitySelectService.getEntitySelectableGroupOutlook('5477', userIdentityToken, callerUrl).subscribe((data) => {
       if (data && data.success) {
         this.ships.advEntitySelectableItemModels = data.model.entityGroupItemLst;
-        this.loadQuays();
+        // this.loadQuays();
       } else {
       }
     });
@@ -77,7 +80,7 @@ export class WaterComponent implements OnInit {
     this.entitySelectService.getEntitySelectableGroupOutlook('5482', userIdentityToken, callerUrl).subscribe((data) => {
       if (data && data.success) {
         this.quays.advEntitySelectableItemModels = data.model.entityGroupItemLst;
-        this.loadSites();
+        // this.loadSites();
       }
     });
   }
@@ -91,7 +94,7 @@ export class WaterComponent implements OnInit {
     this.sitesService.getAllSites(userIdentityToken, callerUrl).subscribe((data) => {
       if (data && data.success) {
         this.sitesDto = data.model;
-        this.parseWaterBody();
+        // this.parseWaterBody();
       }
     });
   }
@@ -164,33 +167,33 @@ export class WaterComponent implements OnInit {
               }
               if (textLine.startsWith('F1#')) {
                 const optionValue = textLine.split('#')[1].trim();
-                for (const ship of __this.ships.advEntitySelectableItemModels) {
-                  if (optionValue === ship.microtingUUID) {
-                    console.log('The found ship is ' + ship.name);
-                    __this.selectedShip = ship;
-                    itemMode = true;
-                  }
-                }
+                // for (const ship of __this.ships.advEntitySelectableItemModels) {
+                //   if (optionValue === ship.microtingUUID) {
+                //     console.log('The found ship is ' + ship.name);
+                //     __this.selectedShip = ship;
+                //     itemMode = true;
+                //   }
+                // }
               } else if (textLine.startsWith('F2#')) {
                 const optionValue = textLine.split('#')[1].trim();
-                for (const quay of __this.quays.advEntitySelectableItemModels) {
-                  if (optionValue === quay.microtingUUID) {
-                    console.log('The found quay is ' + quay.name);
-                    __this.selectedQuay = quay;
-                    itemMode = true;
-                  }
-                }
+                // for (const quay of __this.quays.advEntitySelectableItemModels) {
+                //   if (optionValue === quay.microtingUUID) {
+                //     console.log('The found quay is ' + quay.name);
+                //     __this.selectedQuay = quay;
+                //     itemMode = true;
+                //   }
+                // }
               } else if (textLine.startsWith('Sites#')) {
                 itemMode = true;
                 const optionValue = textLine.split('#')[1].trim();
                 const cworkers = optionValue.split(', ');
-                for (const site of __this.sitesDto) {
-                  if (optionValue === site.siteUId.toString()) {
-                    console.log('The found quay is ' + site.siteName);
-                    __this.selectedSites.push(site);
-                    itemMode = true;
-                  }
-                }
+                // for (const site of __this.sitesDto) {
+                //   if (optionValue === site.siteUId.toString()) {
+                //     console.log('The found quay is ' + site.siteName);
+                //     __this.selectedSites.push(site);
+                //     itemMode = true;
+                //   }
+                // }
               } else if (textLine.startsWith('F3#')) {
                 stringText = textLine.replace('F3# ', '') + '\n';
                 itemMode = true;

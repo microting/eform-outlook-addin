@@ -26,7 +26,7 @@ export class MainComponent implements OnInit {
   ngOnInit() {
     this.uitext = i18n.getTexts(this._state.state.locale);
     this.getEForm();
-    this.getState();
+    // this.getState();
     this.zone.run(() => {
       this.getAuthToken();
       // Office.context.mailbox.getUserIdentityTokenAsync(function(result) {
@@ -73,13 +73,13 @@ export class MainComponent implements OnInit {
     });
   }
 
-  getState(): void {
-    this._state.getEState().subscribe(es => {
-      this.zone.run(() => {
-        this.state = es;
-      });
-    });
-  }
+  // getState(): void {
+  //   this._state.getEState().subscribe(es => {
+  //     this.zone.run(() => {
+  //       this.state = es;
+  //     });
+  //   });
+  // }
 
   // onInsert(): void {
   //   const lang = this._state.state.locale;

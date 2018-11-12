@@ -61,12 +61,12 @@ export class DataService {
     return this.observableCrane // Test purpose
   }
 
-  getWater(): Observable<Water> {
-    if ( this.water === undefined ) {
-      this.fetchWater();
-    }
-    return this.observableWater; // Test purpose
-  }
+  // getWater(): Observable<Water> {
+  //   if ( this.water === undefined ) {
+  //     this.fetchWater();
+  //   }
+  //   return this.observableWater; // Test purpose
+  // }
 
   getEform(): Observable<(CRANET | WATERT)[]> {
     return this.observableEForm;
@@ -82,15 +82,15 @@ export class DataService {
     // )
   }
 
-  fetchWater() {
-    this.water = MockWater; // Test purpose
-    const stateService = this.injector.get(StateService);
-    stateService.initWaterState(this.water);
-    this.onWaterChange();
-    // return this.http.get<Water>(this.apiGetWater).pipe(
-    //   tap(w => this.water = w)
-    // )
-  }
+  // fetchWater() {
+  //   this.water = MockWater; // Test purpose
+  //   const stateService = this.injector.get(StateService);
+  //   stateService.initWaterState(this.water);
+  //   this.onWaterChange();
+  //   // return this.http.get<Water>(this.apiGetWater).pipe(
+  //   //   tap(w => this.water = w)
+  //   // )
+  // }
 
   removeEFormItem(item: CRANET | WATERT) {
     const index = this.eform.indexOf(item);
