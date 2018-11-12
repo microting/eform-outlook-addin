@@ -172,7 +172,7 @@ export class MainComponent implements OnInit {
       //     break;
       //   }
       // }
-
+      // txt_subject = txt_subject + ' - ' + ;
       txt_body = txt_body + 'F1#' + '<br>';
 
       // water - quay
