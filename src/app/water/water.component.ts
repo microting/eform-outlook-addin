@@ -156,6 +156,7 @@ export class WaterComponent implements OnInit {
         item.body.getAsync(Office.CoercionType.Text, function (result) {
           if (result.status === Office.AsyncResultStatus.Succeeded) {
             const txtVal: string = result.value;
+            console.log('We have a result back. Result is : ' + txtVal);
             const textLines = txtVal.split('\n');
             let stringText = '';
             let itemMode = false;
