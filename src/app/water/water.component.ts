@@ -45,6 +45,9 @@ export class WaterComponent implements OnInit {
     this.currentMessage = '';
     this.parsedShipId = '';
     this.parsedQuayId = '';
+    this.loadSites();
+    this.loadQuays();
+    this.loadShips();
     this.parseWaterBody();
   }
 
@@ -200,9 +203,6 @@ export class WaterComponent implements OnInit {
 
             __this.currentMessage = stringText;
           }
-          __this.loadSites();
-          __this.loadQuays();
-          __this.loadShips();
         });
       }
     });
