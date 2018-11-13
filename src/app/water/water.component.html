@@ -5,7 +5,7 @@
     <!--<div class='link'>{{this.content.ship.label_edit}}</div>-->
     <!--<div class='link'>{{this.content.ship.label_refresh}}</div>-->
   </div>
-  <select [(ngModel)]='selectedShip' >
+  <select [(ngModel)]='ships' >
     <option *ngFor='let entityItem of ships.advEntitySelectableItemModels'
             [ngValue]='entityItem'>{{entityItem.name}}</option>
   </select>
@@ -17,7 +17,7 @@
     <!--<div class='link'>{{this.content.quay.label_edit}}</div>-->
     <!--<div class='link'>{{this.content.quay.label_refresh}}</div>-->
   </div>
-  <select [(ngModel)]='selectedQuay' >
+  <select [(ngModel)]='quays' >
       <option *ngFor='let entityItem of quays.advEntitySelectableItemModels'
           [ngValue]='entityItem'>{{entityItem.name}}</option>
   </select>
