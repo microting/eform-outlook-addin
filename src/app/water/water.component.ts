@@ -48,7 +48,7 @@ export class WaterComponent implements OnInit {
     this.loadSites();
     this.loadQuays();
     this.loadShips();
-    this.parseWaterBody();
+    this.parseBody();
   }
 
   onSites(site: SiteNameDto) {
@@ -137,7 +137,7 @@ export class WaterComponent implements OnInit {
     }
   }
 
-  parseWaterBody(): void {
+  parseBody(): void {
     console.log('parseWaterBody called!');
 
     this.zone.run(() => {

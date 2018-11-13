@@ -1,58 +1,60 @@
-<div class='section' *ngIf="state">
+<div class='section'>
   <div class='section-header'>
-    <label>{{this.content.ship.label}}</label>
+    <label>Skibe</label>
     <div class='padding'></div>
     <!--<div class='link'>{{this.content.ship.label_edit}}</div>-->
     <!--<div class='link'>{{this.content.ship.label_refresh}}</div>-->
   </div>
-  <select [(ngModel)]='state.shipid' >
-      <option *ngFor='let optionItem of content.ship.value'
-          [ngValue]='optionItem.id' >{{optionItem.value}}</option>
+  <select [(ngModel)]='selectedShip' >
+    <option *ngFor='let entityItem of ships.advEntitySelectableItemModels'
+            [ngValue]='entityItem'>{{entityItem.name}}</option>
   </select>
 </div>
-<div class='section' *ngIf="state">
+
+<div class='section'>
   <div class='section-header'>
-    <label>{{this.content.quay.label}}</label>
+    <label>Kaje</label>
     <div class='padding'></div>
     <!--<div class='link'>{{this.content.quay.label_edit}}</div>-->
     <!--<div class='link'>{{this.content.quay.label_refresh}}</div>-->
   </div>
-  <select [(ngModel)]='state.quayid' >
-      <option *ngFor='let optionItem of content.quay.value'
-          [ngValue]='optionItem.id' >{{optionItem.value}}</option>
+  <select [(ngModel)]='selectedQuay' >
+    <option *ngFor='let entityItem of quays.advEntitySelectableItemModels'
+            [ngValue]='entityItem'>{{entityItem.name}}</option>
   </select>
+
 </div>
-<div class='section' *ngIf="state">
+<div class='section'>
   <div class='section-header'>
-    <label>{{this.content.crane.label}}</label>
+    <label>Kraner</label>
     <div class='padding'></div>
     <!--<div class='link'>{{this.content.crane.label_edit}}</div>-->
     <!--<div class='link'>{{this.content.crane.label_refresh}}</div>-->
   </div>
-  <ul>
-      <li *ngFor='let radioItem of content.crane.value'
-          (click)='state.craneid = radioItem.id' >
-          <input type='radio' [value]='radioItem.id' [(ngModel)]='state.craneid'
-              >{{radioItem.value}}
-      </li>
-  </ul>
+  <select [(ngModel)]='selectedCrane' >
+    <option *ngFor='let entityItem of cranes.advEntitySelectableItemModels'
+            [ngValue]='entityItem'>{{entityItem.name}}</option>
+  </select>
 </div>
-<div class='section' *ngIf="state">
+<div class='section'>
   <div class='section-header'>
-    <label>{{this.content.workers.label}}</label>
+    <label>Medarbejdere</label>
     <div class='padding'></div>
     <!--<div class='link'>{{this.content.workers.label_edit}}</div>-->
     <!--<div class='link'>{{this.content.workers.label_refresh}}</div>-->
   </div>
   <ul>
-      <li *ngFor='let checkItem of content.workers.value; index as i'
-          (click)='onWorkers(i)' >
-          <input type='checkbox' [(ngModel)]='state.workers[i]'
-              >{{checkItem.value}}
-      </li>
+    <li *ngFor='let siteDto of sitesDto'
+        (click)="onSites(siteDto)" >
+      <input type='checkbox' [checked]="parsedSiteIds.includes(siteDto.siteUId.toString())">{{siteDto.siteName}}
+    </li>
   </ul>
 </div>
-<div class='section' *ngIf="state">
-  <label>{{this.content.message.label}}</label>
-  <textarea [(ngModel)]='state.message' rows="8" ></textarea>
+<div class='section'>
+  <label>Besked til medarbejder</label>
+  <textarea [(ngModel)]='currentMessage' rows="8" ></textarea>
+</div>
+
+<div class='section'>
+  <div class='button' (click)='onInsert()'>Insert</div>
 </div>
