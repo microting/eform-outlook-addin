@@ -29,12 +29,12 @@ export class WaterComponent implements OnInit {
   selectedShip: AdvEntitySelectableItemModel;
   selectedQuay: AdvEntitySelectableItemModel;
   selectedSites: Array<SiteNameDto> = [];
-  currentMessage: string;
+  currentMessage = '';
   ships: AdvEntitySelectableGroupEditModel = new AdvEntitySelectableGroupEditModel();
   quays: AdvEntitySelectableGroupEditModel = new AdvEntitySelectableGroupEditModel();
   sitesDto: Array<SiteNameDto> = [];
-  parsedShipId: string;
-  parsedQuayId: string;
+  parsedShipId = '';
+  parsedQuayId = '';
   parsedSiteIds: Array<string> = [];
 
   constructor(private zone: NgZone,
