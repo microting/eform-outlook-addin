@@ -127,16 +127,16 @@ export class CraneComponent implements OnInit {
 
     // water - ship
     txt_subject = txt_subject + ' - ' + this.selectedShip.name;
-    txt_body = txt_body + 'F1#' + this.selectedShip.microtingUUID + '<br>';
+    txt_body = txt_body + 'F1# ' + this.selectedShip.microtingUUID + '<br>';
 
     // water - quay
     txt_subject = txt_subject + ' - ' + this.selectedQuay.name;
-    txt_body = txt_body + 'F2#' + this.selectedQuay.microtingUUID + '<br>';
+    txt_body = txt_body + 'F2# ' + this.selectedQuay.microtingUUID + '<br>';
 
 
     // water - quay
     txt_subject = txt_subject + ' - ' + this.selectedCrane.name;
-    txt_body = txt_body + 'F3#' + this.selectedCrane.microtingUUID + '<br>';
+    txt_body = txt_body + 'F3# ' + this.selectedCrane.microtingUUID + '<br>';
 
     // water - waters
     const cworkerids = [];
