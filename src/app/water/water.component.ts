@@ -1,9 +1,6 @@
 import {Component, OnInit, NgZone} from '@angular/core';
-import {Water} from '../service/data';
 import {DataService} from '../service/data.service';
-import {i18n} from '../service/i18n';
 import {StateService} from '../service/state.service';
-import {CRANEID, WATERID, WaterState} from '../service/state';
 import {EntitySelectService} from '../common/services/advanced';
 import {
   AdvEntitySelectableGroupEditModel,
@@ -11,7 +8,6 @@ import {
 } from '../common/models/advanced';
 import {SitesService} from '../common/services/advanced/sites.service';
 import {SiteNameDto} from '../common/models/dto';
-import {Observable} from 'rxjs/internal/Observable';
 
 declare const Office: any;
 
@@ -23,9 +19,6 @@ declare const Office: any;
 
 export class WaterComponent implements OnInit {
 
-  // content;
-  // uitext;
-  state: WaterState;
   selectedShip: AdvEntitySelectableItemModel;
   selectedQuay: AdvEntitySelectableItemModel;
   selectedSites: Array<SiteNameDto> = [];
@@ -44,10 +37,10 @@ export class WaterComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  ngAfterViewInit() {
     this.parseWaterBody();
-    // this.loadShips();
-    // this.loadQuays();
-    // this.loadSites();
   }
 
   onSites(site: SiteNameDto) {
@@ -63,7 +56,6 @@ export class WaterComponent implements OnInit {
     console.log('loadShips called!');
     const userIdentityToken = localStorage.getItem('userIdentityToken');
     const callerUrl = localStorage.getItem('callerUrl');
-    // console.log('userIdentityToken is ' + userIdentityToken);
     this.entitySelectService.getEntitySelectableGroupOutlook('5477', userIdentityToken, callerUrl).subscribe((data) => {
       if (data && data.success) {
         this.ships.advEntitySelectableItemModels = data.model.entityGroupItemLst;
@@ -76,10 +68,8 @@ export class WaterComponent implements OnInit {
 
   loadQuays() {
     console.log('loadQuays called!');
-    // console.log('loadQuays called');
     const userIdentityToken = localStorage.getItem('userIdentityToken');
     const callerUrl = localStorage.getItem('callerUrl');
-    // console.log('userIdentityToken is ' + userIdentityToken);
     this.entitySelectService.getEntitySelectableGroupOutlook('5482', userIdentityToken, callerUrl).subscribe((data) => {
       if (data && data.success) {
         this.quays.advEntitySelectableItemModels = data.model.entityGroupItemLst;
@@ -90,14 +80,11 @@ export class WaterComponent implements OnInit {
 
   loadSites() {
     console.log('loadSites called!');
-    // console.log('loadSites called');
     const userIdentityToken = localStorage.getItem('userIdentityToken');
     const callerUrl = localStorage.getItem('callerUrl');
-    // console.log('userIdentityToken is ' + userIdentityToken);
     this.sitesService.getAllSites(userIdentityToken, callerUrl).subscribe((data) => {
       if (data && data.success) {
         this.sitesDto = data.model;
-        // this.parseWaterBody();
       }
     });
   }
@@ -188,25 +175,13 @@ export class WaterComponent implements OnInit {
                 const optionValue = textLine.split('#')[1].trim();
                 console.log('F1# is ' + optionValue);
                 __this.parsedShipId = optionValue;
-                // for (const ship of __this.ships.advEntitySelectableItemModels) {
-                //   if (optionValue === ship.microtingUUID) {
-                //     console.log('The found ship is ' + ship.name);
-                //     __this.selectedShip = ship;
                     itemMode = true;
-                //   }
-                // }
               } else if (textLine.startsWith('F2#')) {
                 // __this.parsedQuayId = textLine.split('#')[1].trim();
                 const optionValue = textLine.split('#')[1].trim();
                 console.log('F2# is ' + optionValue);
                 __this.parsedQuayId = optionValue;
-                // for (const quay of __this.quays.advEntitySelectableItemModels) {
-                //   if (optionValue === quay.microtingUUID) {
-                //     console.log('The found quay is ' + quay.name);
-                //     __this.selectedQuay = quay;
                     itemMode = true;
-                //   }
-                // }
               } else if (textLine.startsWith('Sites#')) {
                 itemMode = true;
                 const optionValue = textLine.split('#')[1].trim();
@@ -216,17 +191,11 @@ export class WaterComponent implements OnInit {
                   console.log('The found site is ' + site);
                   __this.parsedSiteIds.push(site);
                 }
-                // for (const site of __this.sitesDto) {
-                //   if (optionValue === site.siteUId.toString()) {
-                //     console.log('The found quay is ' + site.siteName);
-                //     __this.selectedSites.push(site);
                     itemMode = true;
-                //   }
-                // }
               } else if (textLine.startsWith('F3#')) {
                 stringText = textLine.replace('F3# ', '') + '\n';
                 console.log('F3# is ' + stringText);
-                // __this.currentMessage = stringText;
+
                 itemMode = true;
               } else {
                 if (stringText.length > 0) {
