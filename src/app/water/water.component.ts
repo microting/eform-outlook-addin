@@ -1,4 +1,4 @@
-import {Component, OnInit, NgZone} from '@angular/core';
+import {Component, OnInit, NgZone, ChangeDetectorRef} from '@angular/core';
 import {DataService} from '../service/data.service';
 import {StateService} from '../service/state.service';
 import {EntitySelectService} from '../common/services/advanced';
@@ -29,11 +29,16 @@ export class WaterComponent implements OnInit {
   parsedShipId = '';
   parsedQuayId = '';
   parsedSiteIds: Array<string> = [];
+  changeDetectorRef: ChangeDetectorRef;
+
 
   constructor(private zone: NgZone,
               public data: DataService,
               public _state: StateService,
-              private entitySelectService: EntitySelectService, private sitesService: SitesService) {
+              private entitySelectService: EntitySelectService,
+              private sitesService: SitesService,
+              changeDetectorRef: ChangeDetectorRef) {
+    this.changeDetectorRef = changeDetectorRef;
   }
 
   ngOnInit() {
@@ -41,6 +46,7 @@ export class WaterComponent implements OnInit {
 
   ngAfterViewInit() {
     this.parseWaterBody();
+    this.changeDetectorRef.detectChanges();
   }
 
   onSites(site: SiteNameDto) {
