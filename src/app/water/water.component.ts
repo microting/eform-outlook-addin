@@ -22,12 +22,12 @@ export class WaterComponent implements OnInit {
   selectedShip: AdvEntitySelectableItemModel;
   selectedQuay: AdvEntitySelectableItemModel;
   selectedSites: Array<SiteNameDto> = [];
-  currentMessage = '';
+  currentMessage: string;
   ships: AdvEntitySelectableGroupEditModel = new AdvEntitySelectableGroupEditModel();
   quays: AdvEntitySelectableGroupEditModel = new AdvEntitySelectableGroupEditModel();
   sitesDto: Array<SiteNameDto> = [];
-  parsedShipId = '';
-  parsedQuayId = '';
+  parsedShipId: string;
+  parsedQuayId: string;
   parsedSiteIds: Array<string> = [];
 
 
@@ -42,6 +42,9 @@ export class WaterComponent implements OnInit {
   }
 
   ngAfterViewInit() {
+    this.currentMessage = '';
+    this.parsedShipId = '';
+    this.parsedQuayId = '';
     this.parseWaterBody();
   }
 
@@ -61,11 +64,9 @@ export class WaterComponent implements OnInit {
     this.entitySelectService.getEntitySelectableGroupOutlook('5477', userIdentityToken, callerUrl).subscribe((data) => {
       if (data && data.success) {
         this.ships.advEntitySelectableItemModels = data.model.entityGroupItemLst;
-        // this.loadQuays();
       } else {
       }
     });
-    // console.log('loadShips called');
   }
 
   loadQuays() {
@@ -75,7 +76,6 @@ export class WaterComponent implements OnInit {
     this.entitySelectService.getEntitySelectableGroupOutlook('5482', userIdentityToken, callerUrl).subscribe((data) => {
       if (data && data.success) {
         this.quays.advEntitySelectableItemModels = data.model.entityGroupItemLst;
-        // this.loadSites();
       }
     });
   }
@@ -123,9 +123,6 @@ export class WaterComponent implements OnInit {
     txtVal = txtVal.replace(/\n/g, '<br>');
     txt_body = txt_body + 'F3# ' + txtVal;
 
-
-    // }
-
     const item = Office.context.mailbox.item;
 
     if (item.itemType === Office.MailboxEnums.ItemType.Appointment) {
@@ -136,7 +133,6 @@ export class WaterComponent implements OnInit {
 
   parseWaterBody(): void {
     console.log('parseWaterBody called!');
-    // const uitext = i18n.getTexts(this.state.locale);
 
     this.zone.run(() => {
       const item = Office.context.mailbox.item;
@@ -161,25 +157,13 @@ export class WaterComponent implements OnInit {
                 newLine = true;
               }
               if ( textLine.startsWith( 'Template#' ) ) {
-                // const optionValue = textLine.split('#')[1].trim();
-                // const waterVal = uitext.eform[WATERID];
-                // const waterVal = WATERID;
-                // if (optionValue === waterVal) {
-                //   __this.state.eform = WATERID;
-                //   __this.onEFormChange();
-                //   itemMode = false;
-                //   return;
-                // } else {
                   itemMode = true;
-                // }
               } else if (textLine.startsWith('F1#')) {
-                 // = textLine.split('#')[1].trim();
                 const optionValue = textLine.split('#')[1].trim();
                 console.log('F1# is ' + optionValue);
                 __this.parsedShipId = optionValue;
                     itemMode = true;
               } else if (textLine.startsWith('F2#')) {
-                // __this.parsedQuayId = textLine.split('#')[1].trim();
                 const optionValue = textLine.split('#')[1].trim();
                 console.log('F2# is ' + optionValue);
                 __this.parsedQuayId = optionValue;
