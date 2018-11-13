@@ -171,7 +171,19 @@ export class WaterComponent implements OnInit {
               } else {
                 newLine = true;
               }
-              if (textLine.startsWith('F1#')) {
+              if ( textLine.startsWith( 'Template#' ) ) {
+                // const optionValue = textLine.split('#')[1].trim();
+                // const waterVal = uitext.eform[WATERID];
+                // const waterVal = WATERID;
+                // if (optionValue === waterVal) {
+                //   __this.state.eform = WATERID;
+                //   __this.onEFormChange();
+                //   itemMode = false;
+                //   return;
+                // } else {
+                  itemMode = true;
+                // }
+              } else if (textLine.startsWith('F1#')) {
                  // = textLine.split('#')[1].trim();
                 const optionValue = textLine.split('#')[1].trim();
                 console.log('F1# is ' + optionValue);
