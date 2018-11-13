@@ -64,6 +64,7 @@ export class WaterComponent implements OnInit {
     this.entitySelectService.getEntitySelectableGroupOutlook('5477', userIdentityToken, callerUrl).subscribe((data) => {
       if (data && data.success) {
         this.ships.advEntitySelectableItemModels = data.model.entityGroupItemLst;
+        console.log('loadShips returned successfully!');
       } else {
       }
     });
@@ -76,6 +77,7 @@ export class WaterComponent implements OnInit {
     this.entitySelectService.getEntitySelectableGroupOutlook('5482', userIdentityToken, callerUrl).subscribe((data) => {
       if (data && data.success) {
         this.quays.advEntitySelectableItemModels = data.model.entityGroupItemLst;
+        console.log('loadQuays returned successfully!');
       }
     });
   }
@@ -87,6 +89,7 @@ export class WaterComponent implements OnInit {
     this.sitesService.getAllSites(userIdentityToken, callerUrl).subscribe((data) => {
       if (data && data.success) {
         this.sitesDto = data.model;
+        console.log('loadSites returned successfully!');
       }
     });
   }
