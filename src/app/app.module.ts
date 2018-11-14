@@ -16,12 +16,14 @@ import { WaterComponent } from './water/water.component';
 
 import { EntitySelectService } from './common/services/advanced';
 import { SitesService } from './common/services/advanced';
+import {EformSharedModule} from './common/modules/eform-shared/eform-shared.module';
 
 @NgModule({
   imports: [
     BrowserModule.withServerTransition({ appId: 'eform' }),
     FormsModule,
     AppRoutingModule,
+    EformSharedModule,
     HttpClientModule
   ],
   declarations: [

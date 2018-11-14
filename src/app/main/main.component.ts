@@ -13,6 +13,7 @@ export class MainComponent implements OnInit, AfterViewInit {
 
   eForms: TemplateListModel;
   state: TemplateDto;
+  spinnerStatus = false;
 
   constructor(private zone: NgZone) { }
 
@@ -40,6 +41,7 @@ export class MainComponent implements OnInit, AfterViewInit {
     eform.label = 'Vand';
     eform.id = 1200;
     this.eForms.templates.push(eform);
+
   }
 
   getAuthToken() {
@@ -58,6 +60,7 @@ export class MainComponent implements OnInit, AfterViewInit {
   }
 
   parseBody(): void {
+    this.spinnerStatus = true;
     this.zone.run(() => {
       const item = Office.context.mailbox.item;
       if (item.itemType === Office.MailboxEnums.ItemType.Appointment) {
@@ -93,5 +96,6 @@ export class MainComponent implements OnInit, AfterViewInit {
         });
       }
     });
+    this.spinnerStatus = false;
   }
 }

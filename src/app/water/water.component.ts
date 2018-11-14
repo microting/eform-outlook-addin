@@ -27,7 +27,7 @@ export class WaterComponent implements OnInit, AfterViewInit {
   parsedShipId: string;
   parsedQuayId: string;
   parsedSiteIds: Array<string> = [];
-
+  spinnerStatus = false;
 
   constructor(private zone: NgZone,
               private entitySelectService: EntitySelectService,
@@ -57,6 +57,7 @@ export class WaterComponent implements OnInit, AfterViewInit {
   }
 
   loadShips() {
+    this.spinnerStatus = true;
     console.log('loadShips called!');
     const userIdentityToken = localStorage.getItem('userIdentityToken');
     const callerUrl = localStorage.getItem('callerUrl');
@@ -64,12 +65,14 @@ export class WaterComponent implements OnInit, AfterViewInit {
       if (data && data.success) {
         this.ships.advEntitySelectableItemModels = data.model.entityGroupItemLst;
         console.log('loadShips returned successfully!');
+        this.spinnerStatus = false;
       } else {
       }
     });
   }
 
   loadQuays() {
+    this.spinnerStatus = true;
     console.log('loadQuays called!');
     const userIdentityToken = localStorage.getItem('userIdentityToken');
     const callerUrl = localStorage.getItem('callerUrl');
@@ -77,11 +80,13 @@ export class WaterComponent implements OnInit, AfterViewInit {
       if (data && data.success) {
         this.quays.advEntitySelectableItemModels = data.model.entityGroupItemLst;
         console.log('loadQuays returned successfully!');
+        this.spinnerStatus = false;
       }
     });
   }
 
   loadSites() {
+    this.spinnerStatus = true;
     console.log('loadSites called!');
     const userIdentityToken = localStorage.getItem('userIdentityToken');
     const callerUrl = localStorage.getItem('callerUrl');
@@ -89,6 +94,7 @@ export class WaterComponent implements OnInit, AfterViewInit {
       if (data && data.success) {
         this.sitesDto = data.model;
         console.log('loadSites returned successfully!');
+        this.spinnerStatus = false;
       }
     });
   }
@@ -136,6 +142,7 @@ export class WaterComponent implements OnInit, AfterViewInit {
   parseBody(): void {
     console.log('parseWaterBody called!');
 
+    this.spinnerStatus = true;
     this.zone.run(() => {
       const item = Office.context.mailbox.item;
       if (item.itemType === Office.MailboxEnums.ItemType.Appointment) {
@@ -202,5 +209,7 @@ export class WaterComponent implements OnInit, AfterViewInit {
         });
       }
     });
+
+    this.spinnerStatus = false;
   }
 }

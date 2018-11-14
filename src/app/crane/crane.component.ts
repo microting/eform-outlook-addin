@@ -30,6 +30,7 @@ export class CraneComponent implements OnInit, AfterViewInit {
   parsedQuayId: string;
   parsedCraneId: string;
   parsedSiteIds: Array<string> = [];
+  spinnerStatus = false;
 
   constructor(private zone: NgZone,
               private entitySelectService: EntitySelectService,
