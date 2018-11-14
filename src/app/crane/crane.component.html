@@ -43,21 +43,15 @@
     <!--<div class='link'>{{this.content.workers.label_edit}}</div>-->
     <!--<div class='link'>{{this.content.workers.label_refresh}}</div>-->
   </div>
-  <ng-container *ngFor="let siteDto of sitesDto">
-    <div class="mat-checkbox" >
-      <input id="checkboxSites{{siteDto.id}}" (change)="onSites(siteDto)"
-             [checked]="parsedSiteIds.includes(siteDto.siteUId.toString())" [value]="parsedSiteIds.includes(siteDto.siteUId.toString())" color="primary" type="checkbox">
-      <label for="checkboxSites{{siteDto.id}}">{{siteDto.siteName}}</label>
-    </div>
-  </ng-container>
-
-
-  <ul>
-    <li *ngFor='let siteDto of sitesDto'
-        (click)="onSites(siteDto)" >
-      <input type='checkbox' [checked]="parsedSiteIds.includes(siteDto.siteUId.toString())">{{siteDto.siteName}}
-    </li>
-  </ul>
+  <div class="row">
+    <ng-container *ngFor="let siteDto of sitesDto">
+      <div class="mat-checkbox" >
+        <input id="checkboxSites{{siteDto.siteUId.toString()}}" (change)="onSites(siteDto)"
+               [checked]="parsedSiteIds.includes(siteDto.siteUId.toString())" [value]="parsedSiteIds.includes(siteDto.siteUId.toString())" color="primary" type="checkbox">
+        <label for="checkboxSites{{siteDto.siteUId.toString()}}">{{siteDto.siteName}}</label>
+      </div>
+    </ng-container>
+  </div>
 </div>
 <div class='section'>
   <label>Besked til medarbejder</label>
