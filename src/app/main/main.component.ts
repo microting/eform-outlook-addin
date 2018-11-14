@@ -29,12 +29,12 @@ export class MainComponent implements OnInit {
   geteForms(): void {
     let eform = new TemplateDto();
     eform.label = 'Kran'
-    eform.id = 1200;
+    eform.id = 1734;
     this.eForms.templates.push(eform);
 
     eform = new TemplateDto();
     eform.label = 'Vand';
-    eform.id = 1734;
+    eform.id = 1200;
     this.eForms.templates.push(eform);
   }
 
