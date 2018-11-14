@@ -91,7 +91,6 @@ export class MainComponent implements OnInit {
             for (let i = 0; i < textLines.length; i++) {
               const textLine = textLines[i];
               console.log('Line : ' + i.toString() + ' contains : ' + textLine);
-              itemMode = false;
               if (newLine === false && textLine.length === 0) {
                 continue;
               } else {
