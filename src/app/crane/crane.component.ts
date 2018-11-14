@@ -1,4 +1,4 @@
-import { Component, OnInit, NgZone } from '@angular/core';
+import {Component, OnInit, NgZone, AfterViewInit} from '@angular/core';
 import {
   AdvEntitySelectableGroupEditModel,
   AdvEntitySelectableItemModel
@@ -14,7 +14,7 @@ declare const Office: any;
   templateUrl: './crane.component.html',
   styleUrls: ['./crane.component.css']
 })
-export class CraneComponent implements OnInit {
+export class CraneComponent implements OnInit, AfterViewInit {
 
 
   selectedShip: AdvEntitySelectableItemModel;

@@ -1,4 +1,4 @@
-import { Component, OnInit, NgZone } from '@angular/core';
+import {Component, OnInit, NgZone, AfterViewInit} from '@angular/core';
 import { TemplateDto } from '../common/models/dto';
 import {TemplateListModel} from '../common/models/eforms/template-list.model';
 
@@ -9,7 +9,7 @@ declare const Office: any;
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-export class MainComponent implements OnInit {
+export class MainComponent implements OnInit, AfterViewInit {
 
   eForms: TemplateListModel;
   state: TemplateDto;
@@ -20,6 +20,10 @@ export class MainComponent implements OnInit {
     this.eForms = new TemplateListModel();
     this.geteForms();
     this.state = new TemplateDto();
+
+  }
+
+  ngAfterViewInit() {
     this.parseBody();
     this.zone.run(() => {
       this.getAuthToken();
@@ -28,7 +32,7 @@ export class MainComponent implements OnInit {
 
   geteForms(): void {
     let eform = new TemplateDto();
-    eform.label = 'Kran'
+    eform.label = 'Kran';
     eform.id = 1734;
     this.eForms.templates.push(eform);
 

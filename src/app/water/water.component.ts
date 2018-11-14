@@ -1,4 +1,4 @@
-import {Component, OnInit, NgZone} from '@angular/core';
+import {Component, OnInit, NgZone, AfterViewInit} from '@angular/core';
 import {EntitySelectService} from '../common/services/advanced';
 import {
   AdvEntitySelectableGroupEditModel,
@@ -15,7 +15,7 @@ declare const Office: any;
   styleUrls: ['./water.component.css']
 })
 
-export class WaterComponent implements OnInit {
+export class WaterComponent implements OnInit, AfterViewInit {
 
   selectedShip: AdvEntitySelectableItemModel;
   selectedQuay: AdvEntitySelectableItemModel;
