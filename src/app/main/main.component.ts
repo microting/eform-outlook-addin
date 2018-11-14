@@ -12,14 +12,14 @@ declare const Office: any;
 export class MainComponent implements OnInit {
 
   eForms: TemplateListModel;
-  state: string;
+  state: TemplateDto;
 
   constructor(private zone: NgZone) { }
 
   ngOnInit() {
     this.eForms = new TemplateListModel();
     this.geteForms();
-    this.state = '';
+    this.state = new TemplateDto();
     this.parseBody();
     this.zone.run(() => {
       this.getAuthToken();
@@ -77,7 +77,12 @@ export class MainComponent implements OnInit {
               if (textLine.startsWith('Template#')) {
                 const optionValue = textLine.split('#')[1].trim();
                 console.log('Template# is ' + optionValue);
-                __this.state = optionValue;
+                for (const eform of __this.eForms.templates ) {
+                  if (eform.id.toString() === optionValue) {
+                    console.log('selected eform is ' + JSON.stringify(eform));
+                    __this.state = eform;
+                  }
+                }
               }
             }
           }
