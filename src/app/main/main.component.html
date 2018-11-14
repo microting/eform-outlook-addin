@@ -4,7 +4,7 @@
       <label>eForm</label>
       <select [(ngModel)]='state' >
         <option *ngFor='let eform of eForms.templates'
-            [ngValue]='eform.label' >{{eform.label}}</option>
+            [ngValue]='eform' >{{eform.label}}</option>
       </select>
     </div>
   </div>
