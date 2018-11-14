@@ -27,6 +27,7 @@ export class MainComponent implements OnInit {
     this.uitext = i18n.getTexts(this._state.state.locale);
     this.getEForm();
     // this.getState();
+    this.state = '';
     this.parseBody();
     this.zone.run(() => {
       this.getAuthToken();
@@ -85,7 +86,6 @@ export class MainComponent implements OnInit {
             console.log('We have a result back. Result is : ' + txtVal);
             const textLines = txtVal.split('\n');
             const stringText = '';
-            let itemMode = false;
             let newLine = false;
             console.log('Looping through lines...');
             for (let i = 0; i < textLines.length; i++) {
@@ -99,8 +99,8 @@ export class MainComponent implements OnInit {
               }
               if (textLine.startsWith('Template#')) {
                 const optionValue = textLine.split('#')[1].trim();
+                console.log('Template# is ' + optionValue);
                 __this.state = optionValue;
-                itemMode = true;
               }
             }
           }
