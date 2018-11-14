@@ -1,6 +1,4 @@
 import {Component, OnInit, NgZone} from '@angular/core';
-import {DataService} from '../service/data.service';
-import {StateService} from '../service/state.service';
 import {EntitySelectService} from '../common/services/advanced';
 import {
   AdvEntitySelectableGroupEditModel,
@@ -32,8 +30,6 @@ export class WaterComponent implements OnInit {
 
 
   constructor(private zone: NgZone,
-              public data: DataService,
-              public _state: StateService,
               private entitySelectService: EntitySelectService,
               private sitesService: SitesService) {
   }

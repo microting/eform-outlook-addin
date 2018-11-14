@@ -1,12 +1,7 @@
 import { Component, OnInit, NgZone } from '@angular/core';
-import { DataService } from '../service/data.service';
-import { i18n } from '../service/i18n';
-import { StateService } from '../service/state.service';
-import { CraneState } from '../service/state';
 import {
   AdvEntitySelectableGroupEditModel,
-  AdvEntitySelectableGroupListModel,
-  AdvEntitySelectableGroupListRequestModel, AdvEntitySelectableGroupModel, AdvEntitySelectableItemModel
+  AdvEntitySelectableItemModel
 } from '../common/models/advanced';
 import {EntitySelectService} from '../common/services/advanced';
 import {SiteNameDto} from '../common/models/dto';
@@ -21,9 +16,6 @@ declare const Office: any;
 })
 export class CraneComponent implements OnInit {
 
-  content;
-  uitext;
-  state: CraneState;
 
   selectedShip: AdvEntitySelectableItemModel;
   selectedQuay: AdvEntitySelectableItemModel;
@@ -33,7 +25,6 @@ export class CraneComponent implements OnInit {
   ships: AdvEntitySelectableGroupEditModel = new AdvEntitySelectableGroupEditModel();
   quays: AdvEntitySelectableGroupEditModel = new AdvEntitySelectableGroupEditModel();
   cranes: AdvEntitySelectableGroupEditModel = new AdvEntitySelectableGroupEditModel();
-  // workers: AdvEntitySelectableGroupEditModel = new AdvEntitySelectableGroupEditModel();
   sitesDto: Array<SiteNameDto> = [];
   parsedShipId: string;
   parsedQuayId: string;
@@ -41,8 +32,6 @@ export class CraneComponent implements OnInit {
   parsedSiteIds: Array<string> = [];
 
   constructor(private zone: NgZone,
-              public _data: DataService,
-              public _state: StateService,
               private entitySelectService: EntitySelectService,
               private sitesService: SitesService) { }
 
@@ -123,7 +112,7 @@ export class CraneComponent implements OnInit {
     let txt_subject;
     let txt_body;
     txt_subject = 'Kran';
-    txt_body = 'Template# 1576 <br>';
+    txt_body = 'Template# 1734 <br>';
 
     // water - ship
     txt_subject = txt_subject + ' - ' + this.selectedShip.name;

@@ -1,11 +1,10 @@
-import { NgModule }       from '@angular/core';
-import { BrowserModule }  from '@angular/platform-browser';
-import { FormsModule }    from '@angular/forms';
-import { HttpClientModule }    from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
-import { AppRoutingModule }     from './app-routing.module';
-
-import { AppComponent }         from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 
 import { PLATFORM_ID, APP_ID, Inject } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
@@ -15,8 +14,6 @@ import { EditComponent } from './edit/edit.component';
 import { CraneComponent } from './crane/crane.component';
 import { WaterComponent } from './water/water.component';
 
-import { DataService } from './service/data.service';
-import { StateService } from './service/state.service';
 import { EntitySelectService } from './common/services/advanced';
 import { SitesService } from './common/services/advanced';
 
@@ -34,7 +31,7 @@ import { SitesService } from './common/services/advanced';
     CraneComponent,
     WaterComponent
   ],
-  providers: [ DataService, StateService, EntitySelectService, SitesService ],
+  providers: [ EntitySelectService, SitesService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {

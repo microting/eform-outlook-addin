@@ -1,18 +1,18 @@
 <div class='main'>
   <div class='header'>
     <div class='section'>
-      <label>{{this.eform.label}}</label>
+      <label>eForm</label>
       <select [(ngModel)]='state' >
-        <option *ngFor='let optionItem of eform.value'
-            [ngValue]='optionItem.value' >{{optionItem.label}}</option>
+        <option *ngFor='let eform of eForms.templates'
+            [ngValue]='eform.label' >{{eform.label}}</option>
       </select>
     </div>
   </div>
 
-  <div class='content' *ngIf="state == '1734'"> <!-- CRANEID -->
+  <div class='content' *ngIf="state == '1734'"> <!-- kran -->
     <app-crane></app-crane>
   </div>
-  <div class='content' *ngIf="state == '1200'"> <!-- WATERID -->
+  <div class='content' *ngIf="state == '1200'"> <!-- vand -->
     <app-water></app-water>
   </div>
 </div>
