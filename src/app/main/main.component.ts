@@ -27,6 +27,7 @@ export class MainComponent implements OnInit {
     this.uitext = i18n.getTexts(this._state.state.locale);
     this.getEForm();
     // this.getState();
+    this.parseBody();
     this.zone.run(() => {
       this.getAuthToken();
       // Office.context.mailbox.getUserIdentityTokenAsync(function(result) {
@@ -73,6 +74,40 @@ export class MainComponent implements OnInit {
     });
   }
 
+  parseBody(): void {
+    this.zone.run(() => {
+      const item = Office.context.mailbox.item;
+      if (item.itemType === Office.MailboxEnums.ItemType.Appointment) {
+        const __this = this;
+        item.body.getAsync(Office.CoercionType.Text, function (result) {
+          if (result.status === Office.AsyncResultStatus.Succeeded) {
+            const txtVal: string = result.value;
+            console.log('We have a result back. Result is : ' + txtVal);
+            const textLines = txtVal.split('\n');
+            const stringText = '';
+            let itemMode = false;
+            let newLine = false;
+            console.log('Looping through lines...');
+            for (let i = 0; i < textLines.length; i++) {
+              const textLine = textLines[i];
+              console.log('Line : ' + i.toString() + ' contains : ' + textLine);
+              itemMode = false;
+              if (newLine === false && textLine.length === 0) {
+                continue;
+              } else {
+                newLine = true;
+              }
+              if (textLine.startsWith('Template#')) {
+                const optionValue = textLine.split('#')[1].trim();
+                __this.state = optionValue;
+                itemMode = true;
+              }
+            }
+          }
+        });
+      }
+    });
+  }
   // getState(): void {
   //   this._state.getEState().subscribe(es => {
   //     this.zone.run(() => {
