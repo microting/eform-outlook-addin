@@ -26,7 +26,7 @@ export class WaterComponent implements OnInit, AfterViewInit {
   sitesDto: Array<SiteNameDto> = [];
   parsedShipId: string;
   parsedQuayId: string;
-  parsedSiteIds: Array<string> = [];
+  parsedSiteIds: Array<number> = [];
   spinnerStatus = false;
 
   constructor(private zone: NgZone,
@@ -95,6 +95,13 @@ export class WaterComponent implements OnInit, AfterViewInit {
         this.sitesDto = data.model;
         console.log('loadSites returned successfully!');
         this.spinnerStatus = false;
+        for (const siteId of this.parsedSiteIds) {
+          for (const siteDto of this.sitesDto) {
+            if (siteDto.siteUId === siteId) {
+              this.selectedSites.push(siteDto);
+            }
+          }
+        }
       }
     });
   }
@@ -184,7 +191,7 @@ export class WaterComponent implements OnInit, AfterViewInit {
                 const cworkers = optionValue.split(', ');
                 for (const site of cworkers) {
                   console.log('The found site is ' + site);
-                  __this.parsedSiteIds.push(site);
+                  __this.parsedSiteIds.push(parseInt(site, 10));
                 }
                     itemMode = true;
               } else if (textLine.startsWith('F3#')) {
