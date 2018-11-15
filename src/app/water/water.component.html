@@ -6,7 +6,8 @@
         [placeholder]="'Skibe'"
         [clearable]="false"
         [items]="ships.advEntitySelectableItemModels"
-        [(ngModel)]="selectedShip"></ng-select>
+        [(ngModel)]="selectedShip"
+        [bindLabel]="'name'"></ng-select>
     </div>
   </div>
 </div>
@@ -19,7 +20,8 @@
         [placeholder]="'Kaje'"
         [clearable]="false"
         [items]="quays.advEntitySelectableItemModels"
-        [(ngModel)]="selectedQuay"></ng-select>
+        [(ngModel)]="selectedQuay"
+        [bindLabel]="'name'"></ng-select>
     </div>
   </div>
 </div>
