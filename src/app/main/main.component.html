@@ -1,20 +1,29 @@
-<div class='main'>
-  <div class='header'>
-    <div class='section'>
-      <label>eForm</label>
-      <select [(ngModel)]='state' >
-        <option *ngFor='let eform of eForms.templates'
-            [ngValue]='eform' >{{eform.label}}</option>
-      </select>
+<div class="container-fluid">
+  <div class='main'>
+    <div class='header'>
+      <div class='section'>
+
+        <div class="col-md-4 ng-select-wrapper">
+          <ng-select
+            class="custom"
+            dropdownPosition="'bottom'"
+            [placeholder]="'eForm'"
+            [items]="eForms.templates"
+            [(ngModel)]="state"
+            [bindLabel]="'label'"
+            [bindValue]="'id'"
+            [multiple]="false"></ng-select>
+        </div>
+      </div>
+    </div>
+
+    <div class='content' *ngIf="state.id == 1734"> <!-- kran -->
+      <app-crane></app-crane>
+    </div>
+    <div class='content' *ngIf="state.id == 1200"> <!-- vand -->
+      <app-water></app-water>
     </div>
   </div>
 
-  <div class='content' *ngIf="state.id == 1734"> <!-- kran -->
-    <app-crane></app-crane>
-  </div>
-  <div class='content' *ngIf="state.id == 1200"> <!-- vand -->
-    <app-water></app-water>
-  </div>
+  <eform-spinner [spinnerVisibility]="spinnerStatus"></eform-spinner>
 </div>
-
-<eform-spinner [spinnerVisibility]="spinnerStatus"></eform-spinner>

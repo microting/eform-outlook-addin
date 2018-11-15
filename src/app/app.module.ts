@@ -16,7 +16,8 @@ import { WaterComponent } from './water/water.component';
 
 import { EntitySelectService } from './common/services/advanced';
 import { SitesService } from './common/services/advanced';
-import {EformSharedModule} from './common/modules/eform-shared/eform-shared.module';
+import { EformSharedModule } from './common/modules/eform-shared/eform-shared.module';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import {EformSharedModule} from './common/modules/eform-shared/eform-shared.modu
     FormsModule,
     AppRoutingModule,
     EformSharedModule,
+    NgSelectModule,
     HttpClientModule
   ],
   declarations: [

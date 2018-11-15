@@ -45,10 +45,12 @@
   </div>
   <div class="row">
     <ng-container *ngFor="let siteDto of sitesDto">
-      <div class="mat-checkbox" >
-        <input id="checkboxSites{{siteDto.siteUId.toString()}}" (change)="onSites(siteDto)"
-               [checked]="parsedSiteIds.includes(siteDto.siteUId.toString())" [value]="parsedSiteIds.includes(siteDto.siteUId.toString())" color="primary" type="checkbox">
-        <label for="checkboxSites{{siteDto.siteUId.toString()}}">{{siteDto.siteName}}</label>
+      <div class="col-md-12">
+        <div class="mat-checkbox" >
+          <input id="checkboxSites{{siteDto.siteUId.toString()}}" (change)="onSites(siteDto)"
+                 [checked]="parsedSiteIds.includes(siteDto.siteUId.toString())" [value]="parsedSiteIds.includes(siteDto.siteUId.toString())" color="primary" type="checkbox">
+          <label for="checkboxSites{{siteDto.siteUId.toString()}}">{{siteDto.siteName}}</label>
+        </div>
       </div>
     </ng-container>
   </div>
