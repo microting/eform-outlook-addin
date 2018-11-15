@@ -1,27 +1,35 @@
 <div class='section'>
   <div class='section-header'>
-    <label>Skibe</label>
-    <div class='padding'></div>
-    <!--<div class='link'>{{this.content.ship.label_edit}}</div>-->
-    <!--<div class='link'>{{this.content.ship.label_refresh}}</div>-->
+    <div class="col-md-4 ng-select-wrapper">
+      <ng-select
+        class="custom"
+        dropdownPosition="'bottom'"
+        [placeholder]="'Skibe'"
+        [items]="ships.advEntitySelectableItemModels"
+        [(ngModel)]="selectedShip"
+        [bindLabel]="'name'"
+        [bindValue]="'microtingUUID'"
+        [multiple]="false"></ng-select>
+    </div>
   </div>
-  <select [(ngModel)]='selectedShip' >
-    <option *ngFor='let entityItem of ships.advEntitySelectableItemModels'
-            [ngValue]='entityItem'>{{entityItem.name}}</option>
-  </select>
 </div>
+
 <div class='section'>
   <div class='section-header'>
-    <label>Kaje</label>
-    <div class='padding'></div>
-    <!--<div class='link'>{{this.content.quay.label_edit}}</div>-->
-    <!--<div class='link'>{{this.content.quay.label_refresh}}</div>-->
+    <div class="col-md-4 ng-select-wrapper">
+      <ng-select
+        class="custom"
+        dropdownPosition="'bottom'"
+        [placeholder]="'Kaje'"
+        [items]="quays.advEntitySelectableItemModels"
+        [(ngModel)]="selectedQuay"
+        [bindLabel]="'name'"
+        [bindValue]="'microtingUUID'"
+        [multiple]="false"></ng-select>
+    </div>
   </div>
-  <select [(ngModel)]='selectedQuay' >
-      <option *ngFor='let entityItem of quays.advEntitySelectableItemModels'
-          [ngValue]='entityItem'>{{entityItem.name}}</option>
-  </select>
 </div>
+
 <div class='section'>
   <div class='section-header'>
     <label>Medarbejdere</label>
@@ -29,12 +37,17 @@
     <!--<div class='link'>{{this.content.workers.label_edit}}</div>-->
     <!--<div class='link'>{{this.content.workers.label_refresh}}</div>-->
   </div>
-  <ul>
-      <li *ngFor='let siteDto of sitesDto'
-          (click)="onSites(siteDto)" >
-          <input type='checkbox' [checked]="parsedSiteIds.includes(siteDto.siteUId.toString())">{{siteDto.siteName}}
-      </li>
-  </ul>
+  <div class="row">
+    <ng-container *ngFor="let siteDto of sitesDto">
+      <div class="col-md-12">
+        <div class="mat-checkbox" >
+          <input id="checkboxSites{{siteDto.siteUId.toString()}}" (change)="onSites(siteDto)"
+                 [checked]="parsedSiteIds.includes(siteDto.siteUId.toString())" [value]="parsedSiteIds.includes(siteDto.siteUId.toString())" color="primary" type="checkbox">
+          <label for="checkboxSites{{siteDto.siteUId.toString()}}">{{siteDto.siteName}}</label>
+        </div>
+      </div>
+    </ng-container>
+  </div>
 </div>
 <div class='section'>
   <label>Besked til medarbejder</label>

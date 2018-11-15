@@ -1,40 +1,48 @@
 <div class='section'>
   <div class='section-header'>
-    <label>Skibe</label>
-    <div class='padding'></div>
-    <!--<div class='link'>{{this.content.ship.label_edit}}</div>-->
-    <!--<div class='link'>{{this.content.ship.label_refresh}}</div>-->
+    <div class="col-md-4 ng-select-wrapper">
+      <ng-select
+        class="custom"
+        dropdownPosition="'bottom'"
+        [placeholder]="'Skibe'"
+        [items]="ships.advEntitySelectableItemModels"
+        [(ngModel)]="selectedShip"
+        [bindLabel]="'name'"
+        [bindValue]="'microtingUUID'"
+        [multiple]="false"></ng-select>
+    </div>
   </div>
-  <select [(ngModel)]='selectedShip' >
-    <option *ngFor='let entityItem of ships.advEntitySelectableItemModels'
-            [ngValue]='entityItem'>{{entityItem.name}}</option>
-  </select>
 </div>
 
 <div class='section'>
   <div class='section-header'>
-    <label>Kaje</label>
-    <div class='padding'></div>
-    <!--<div class='link'>{{this.content.quay.label_edit}}</div>-->
-    <!--<div class='link'>{{this.content.quay.label_refresh}}</div>-->
+    <div class="col-md-4 ng-select-wrapper">
+      <ng-select
+        class="custom"
+        dropdownPosition="'bottom'"
+        [placeholder]="'Kaje'"
+        [items]="quays.advEntitySelectableItemModels"
+        [(ngModel)]="selectedQuay"
+        [bindLabel]="'name'"
+        [bindValue]="'microtingUUID'"
+        [multiple]="false"></ng-select>
+    </div>
   </div>
-  <select [(ngModel)]='selectedQuay' >
-    <option *ngFor='let entityItem of quays.advEntitySelectableItemModels'
-            [ngValue]='entityItem'>{{entityItem.name}}</option>
-  </select>
-
 </div>
 <div class='section'>
   <div class='section-header'>
-    <label>Kraner</label>
-    <div class='padding'></div>
-    <!--<div class='link'>{{this.content.crane.label_edit}}</div>-->
-    <!--<div class='link'>{{this.content.crane.label_refresh}}</div>-->
+    <div class="col-md-4 ng-select-wrapper">
+      <ng-select
+        class="custom"
+        dropdownPosition="'bottom'"
+        [placeholder]="'Kraner'"
+        [items]="cranes.advEntitySelectableItemModels"
+        [(ngModel)]="selectedCrane"
+        [bindLabel]="'name'"
+        [bindValue]="'microtingUUID'"
+        [multiple]="false"></ng-select>
+    </div>
   </div>
-  <select [(ngModel)]='selectedCrane' >
-    <option *ngFor='let entityItem of cranes.advEntitySelectableItemModels'
-            [ngValue]='entityItem'>{{entityItem.name}}</option>
-  </select>
 </div>
 <div class='section'>
   <div class='section-header'>
