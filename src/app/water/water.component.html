@@ -2,14 +2,11 @@
   <div class='section-header'>
     <div class="col-md-4 ng-select-wrapper">
       <ng-select
-        class="custom"
         dropdownPosition="'bottom'"
         [placeholder]="'Skibe'"
+        [clearable]="false"
         [items]="ships.advEntitySelectableItemModels"
-        [(ngModel)]="selectedShip"
-        [bindLabel]="'name'"
-        [bindValue]="'microtingUUID'"
-        [multiple]="false"></ng-select>
+        [(ngModel)]="selectedShip"></ng-select>
     </div>
   </div>
 </div>
@@ -18,14 +15,11 @@
   <div class='section-header'>
     <div class="col-md-4 ng-select-wrapper">
       <ng-select
-        class="custom"
         dropdownPosition="'bottom'"
         [placeholder]="'Kaje'"
+        [clearable]="false"
         [items]="quays.advEntitySelectableItemModels"
-        [(ngModel)]="selectedQuay"
-        [bindLabel]="'name'"
-        [bindValue]="'microtingUUID'"
-        [multiple]="false"></ng-select>
+        [(ngModel)]="selectedQuay"></ng-select>
     </div>
   </div>
 </div>
