@@ -18,6 +18,7 @@ import { EntitySelectService } from './common/services/advanced';
 import { SitesService } from './common/services/advanced';
 import { EformSharedModule } from './common/modules/eform-shared/eform-shared.module';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { EformImportedModule } from './common/modules/eform-imported/eform-imported.module';
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     AppRoutingModule,
     EformSharedModule,
     NgSelectModule,
+    EformImportedModule,
     HttpClientModule
   ],
   declarations: [
