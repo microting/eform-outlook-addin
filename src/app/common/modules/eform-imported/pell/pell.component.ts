@@ -51,10 +51,10 @@ export class PellComponent implements OnInit, AfterViewInit, OnChanges {
       defaultParagraphSeparator: 'br',
       styleWithCSS: false,
       actions: [
-        'bold',
-        'underline',
-        'italic',
-        'strikethrough',
+        // 'bold',
+        // 'underline',
+        // 'italic',
+        // 'strikethrough',
       ].concat(actions),
       classes: {}
     });
