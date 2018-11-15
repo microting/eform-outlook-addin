@@ -29,7 +29,7 @@ export class CraneComponent implements OnInit, AfterViewInit {
   parsedShipId: string;
   parsedQuayId: string;
   parsedCraneId: string;
-  parsedSiteIds: Array<number> = [];
+  parsedSiteIds: Array<string> = [];
   spinnerStatus = false;
 
   constructor(private zone: NgZone,
@@ -104,13 +104,13 @@ export class CraneComponent implements OnInit, AfterViewInit {
       if (data && data.success) {
         this.sitesDto = data.model;
         console.log('loadSites returned successfully!');
-        // for (const siteId of this.parsedSiteIds) {
-        //   for (const siteDto of this.sitesDto) {
-        //     if (siteDto.siteUId === siteId) {
-        //       this.selectedSites.push(siteDto);
-        //     }
-        //   }
-        // }
+        for (const siteId of this.parsedSiteIds) {
+          for (const siteDto of this.sitesDto) {
+            if (siteDto.siteUId.toString() === siteId) {
+              this.selectedSites.push(siteDto);
+            }
+          }
+        }
       }
     });
   }
@@ -209,7 +209,7 @@ export class CraneComponent implements OnInit, AfterViewInit {
                 const cworkers = optionValue.split(', ');
                 for (const site of cworkers) {
                   console.log('The found site is ' + site);
-                  __this.parsedSiteIds.push(parseInt(site, 10));
+                  __this.parsedSiteIds.push(site);
                 }
                 itemMode = true;
               } else if (textLine.startsWith('F4#')) {
