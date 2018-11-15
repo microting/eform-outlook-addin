@@ -95,13 +95,13 @@ export class WaterComponent implements OnInit, AfterViewInit {
         this.sitesDto = data.model;
         console.log('loadSites returned successfully!');
         this.spinnerStatus = false;
-        for (const siteId of this.parsedSiteIds) {
-          for (const siteDto of this.sitesDto) {
-            if (siteDto.siteUId === siteId) {
-              this.selectedSites.push(siteDto);
-            }
-          }
-        }
+        // for (const siteId of this.parsedSiteIds) {
+        //   for (const siteDto of this.sitesDto) {
+        //     if (siteDto.siteUId === siteId) {
+        //       this.selectedSites.push(siteDto);
+        //     }
+        //   }
+        // }
       }
     });
   }

@@ -104,13 +104,13 @@ export class CraneComponent implements OnInit, AfterViewInit {
       if (data && data.success) {
         this.sitesDto = data.model;
         console.log('loadSites returned successfully!');
-        for (const siteId of this.parsedSiteIds) {
-          for (const siteDto of this.sitesDto) {
-            if (siteDto.siteUId === siteId) {
-              this.selectedSites.push(siteDto);
-            }
-          }
-        }
+        // for (const siteId of this.parsedSiteIds) {
+        //   for (const siteDto of this.sitesDto) {
+        //     if (siteDto.siteUId === siteId) {
+        //       this.selectedSites.push(siteDto);
+        //     }
+        //   }
+        // }
       }
     });
   }
