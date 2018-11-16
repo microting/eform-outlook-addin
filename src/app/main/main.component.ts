@@ -36,12 +36,12 @@ export class MainComponent implements OnInit, AfterViewInit {
     let eform = new TemplateDto();
     eform.label = 'Kran';
     eform.id = 1734;
-    this.eForms.templates.push(eform);
+    this.eForms.templates = [eform];
 
     eform = new TemplateDto();
     eform.label = 'Vand';
     eform.id = 1200;
-    this.eForms.templates.push(eform);
+    this.eForms.templates = [...this.eForms.templates, eform];
     
     this.config.notFoundText = 'Kran';
   }
@@ -90,8 +90,7 @@ export class MainComponent implements OnInit, AfterViewInit {
                   if (eform.id.toString() === optionValue) {
                     console.log('selected eform is ' + JSON.stringify(eform));
                     __this.state = eform;
-                    __this.eForms.templates = [];
-                    __this.eForms.templates.push(eform);
+                    __this.eForms.templates = [eform];
                     if (eform.label == 'Kran') {
                       __this.config.notFoundText = 'Kran';
                     } else if (eform.label == 'Vand') {
