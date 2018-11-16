@@ -1,6 +1,7 @@
 import {Component, OnInit, NgZone, AfterViewInit} from '@angular/core';
 import { TemplateDto } from '../common/models/dto';
 import {TemplateListModel} from '../common/models/eforms/template-list.model';
+import { NgSelectConfig } from '@ng-select/ng-select';
 
 declare const Office: any;
 
@@ -15,7 +16,7 @@ export class MainComponent implements OnInit, AfterViewInit {
   state: TemplateDto;
   spinnerStatus = false;
 
-  constructor(private zone: NgZone) { }
+  constructor(private zone: NgZone, private config: NgSelectConfig) { }
 
   ngOnInit() {
     this.eForms = new TemplateListModel();
@@ -41,7 +42,6 @@ export class MainComponent implements OnInit, AfterViewInit {
     eform.label = 'Vand';
     eform.id = 1200;
     this.eForms.templates.push(eform);
-
   }
 
   getAuthToken() {
@@ -81,6 +81,7 @@ export class MainComponent implements OnInit, AfterViewInit {
               } else {
                 newLine = true;
               }
+              let selected = false;
               if (textLine.startsWith('Template#')) {
                 const optionValue = textLine.split('#')[1].trim();
                 console.log('Template# is ' + optionValue);
@@ -88,8 +89,16 @@ export class MainComponent implements OnInit, AfterViewInit {
                   if (eform.id.toString() === optionValue) {
                     console.log('selected eform is ' + JSON.stringify(eform));
                     __this.state = eform;
+                    __this.eForms.templates = [];
+                    __this.eForms.templates.push(eform);
+                    __this.config.notFoundText = eform.label as string;
+                    selected = true;
+                    break;
                   }
                 }
+              }
+              if (!selected) {
+                __this.config.notFoundText = 'Kran';
               }
             }
           }
