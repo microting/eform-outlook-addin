@@ -42,6 +42,8 @@ export class MainComponent implements OnInit, AfterViewInit {
     eform.label = 'Vand';
     eform.id = 1200;
     this.eForms.templates.push(eform);
+    
+    this.config.notFoundText = 'Kran';
   }
 
   getAuthToken() {
@@ -81,7 +83,6 @@ export class MainComponent implements OnInit, AfterViewInit {
               } else {
                 newLine = true;
               }
-              let selected = false;
               if (textLine.startsWith('Template#')) {
                 const optionValue = textLine.split('#')[1].trim();
                 console.log('Template# is ' + optionValue);
@@ -91,14 +92,13 @@ export class MainComponent implements OnInit, AfterViewInit {
                     __this.state = eform;
                     __this.eForms.templates = [];
                     __this.eForms.templates.push(eform);
-                    __this.config.notFoundText = eform.label as string;
-                    selected = true;
-                    break;
+                    if (eform.label == 'Kran') {
+                      __this.config.notFoundText = 'Kran';
+                    } else if (eform.label == 'Vand') {
+                      __this.config.notFoundText = 'Vand';
+                    }
                   }
                 }
-              }
-              if (!selected) {
-                __this.config.notFoundText = 'Kran';
               }
             }
           }
