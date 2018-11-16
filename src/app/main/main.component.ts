@@ -91,11 +91,6 @@ export class MainComponent implements OnInit, AfterViewInit {
                     console.log('selected eform is ' + JSON.stringify(eform));
                     __this.state = [eform];
                     __this.eForms.templates = [eform];
-                    if (eform.label == 'Kran') {
-                      __this.config.notFoundText = 'Kran';
-                    } else if (eform.label == 'Vand') {
-                      __this.config.notFoundText = 'Vand';
-                    }
                   }
                 }
               }
