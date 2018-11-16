@@ -42,6 +42,8 @@ export class MainComponent implements OnInit, AfterViewInit {
     eform.label = 'Vand';
     eform.id = 1200;
     this.eForms.templates = [...this.eForms.templates, eform];
+
+    this.state = this.eForms.templates[0];
   }
 
   getAuthToken() {
@@ -88,7 +90,7 @@ export class MainComponent implements OnInit, AfterViewInit {
                   if (eform.id.toString() === optionValue) {
                     console.log('selected eform is ' + JSON.stringify(eform));
                     __this.eForms.templates = [eform];
-                    __this.state = eform;
+                    __this.state = __this.eForms.templates[0];
                     console.log('selected state is ' + JSON.stringify(__this.state));
                     console.log('selected template ' + JSON.stringify(__this.eForms.templates));
                   }
