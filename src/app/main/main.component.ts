@@ -13,7 +13,7 @@ declare const Office: any;
 export class MainComponent implements OnInit, AfterViewInit {
 
   eForms: TemplateListModel;
-  state: TemplateDto[];
+  state: TemplateDto;
   spinnerStatus = false;
 
   constructor(private zone: NgZone, private config: NgSelectConfig) { }
@@ -21,7 +21,7 @@ export class MainComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.eForms = new TemplateListModel();
     this.geteForms();
-    this.state = [new TemplateDto()];
+    this.state = new TemplateDto();
 
   }
 
@@ -42,8 +42,6 @@ export class MainComponent implements OnInit, AfterViewInit {
     eform.label = 'Vand';
     eform.id = 1200;
     this.eForms.templates = [...this.eForms.templates, eform];
-    
-    this.config.notFoundText = 'Kran';
   }
 
   getAuthToken() {
@@ -89,8 +87,8 @@ export class MainComponent implements OnInit, AfterViewInit {
                 for (const eform of __this.eForms.templates ) {
                   if (eform.id.toString() === optionValue) {
                     console.log('selected eform is ' + JSON.stringify(eform));
-                    __this.state = [eform];
                     __this.eForms.templates = [eform];
+                    __this.state = eform;
                   }
                 }
               }
