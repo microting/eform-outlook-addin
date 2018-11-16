@@ -89,6 +89,8 @@ export class MainComponent implements OnInit, AfterViewInit {
                     console.log('selected eform is ' + JSON.stringify(eform));
                     __this.eForms.templates = [eform];
                     __this.state = eform;
+                    console.log('selected state is ' + JSON.stringify(__this.state));
+                    console.log('selected template ' + JSON.stringify(__this.eForms.templates));
                   }
                 }
               }
