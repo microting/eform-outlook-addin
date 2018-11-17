@@ -21,12 +21,11 @@ export class MainComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.eForms = new TemplateListModel();
     this.geteForms();
-    this.state = new TemplateDto();
-
+    // this.state = new TemplateDto();
+    this.parseBody();
   }
 
   ngAfterViewInit() {
-    this.parseBody();
     this.zone.run(() => {
       this.getAuthToken();
     });
@@ -43,7 +42,8 @@ export class MainComponent implements OnInit, AfterViewInit {
     eform.id = 1200;
     this.eForms.templates = [...this.eForms.templates, eform];
 
-    this.state = this.eForms.templates[0];
+    // this.state = this.eForms.templates[0];
+    // console.log(JSON.stringify(this.state));
   }
 
   getAuthToken() {
@@ -72,7 +72,6 @@ export class MainComponent implements OnInit, AfterViewInit {
             const txtVal: string = result.value;
             console.log('We have a result back. Result is : ' + txtVal);
             const textLines = txtVal.split('\n');
-            const stringText = '';
             let newLine = false;
             console.log('Looping through lines...');
             for (let i = 0; i < textLines.length; i++) {
@@ -90,11 +89,9 @@ export class MainComponent implements OnInit, AfterViewInit {
                   if (eform.id.toString() === optionValue) {
                     console.log('selected eform is ' + JSON.stringify(eform));
                     __this.eForms.templates = [eform];
-                    __this.state = __this.eForms.templates[0];
-                    console.log('selected state is ' + JSON.stringify(__this.state));
-                    console.log('selected template ' + JSON.stringify(__this.eForms.templates));
                   }
                 }
+                __this.state = __this.eForms.templates[0];
               }
             }
           }

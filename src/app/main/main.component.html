@@ -6,9 +6,10 @@
           <ng-select
             dropdownPosition="'bottom'"
             [placeholder]="'eForm'"
+            [bindValue]="'id'"
             [clearable]="false"
             [items]="eForms.templates"
-            [(ngModel)]="state"></ng-select>
+            [(ngModel)]="state.id"></ng-select>
         </div>
       </div>
     </div>
