@@ -68,6 +68,12 @@ export class CraneComponent implements OnInit, AfterViewInit {
     this.entitySelectService.getEntitySelectableGroupOutlook('5477', userIdentityToken, callerUrl).subscribe((data) => {
       if (data && data.success) {
         this.ships.advEntitySelectableItemModels = data.model.entityGroupItemLst;
+        let npshipid = Number.parseInt(this.parsedShipId)
+        this.ships.advEntitySelectableItemModels.forEach(ship => {
+          if (ship.id == npshipid) {
+            this.selectedShip = ship
+          }
+        });
       }
     });
   }
