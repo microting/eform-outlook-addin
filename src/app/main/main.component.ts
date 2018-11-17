@@ -91,10 +91,10 @@ export class MainComponent implements OnInit, AfterViewInit {
                     __this.eForms.templates = [eform];
                   }
                 }
-                __this.state = __this.eForms.templates[0];
               }
             }
           }
+          __this.state = __this.eForms.templates[0];
         });
       }
     });
