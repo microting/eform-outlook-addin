@@ -21,7 +21,6 @@ export class MainComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.eForms = new TemplateListModel();
     this.geteForms();
-    // this.state = new TemplateDto();
     this.parseBody();
   }
 
@@ -42,7 +41,7 @@ export class MainComponent implements OnInit, AfterViewInit {
     eform.id = 1200;
     this.eForms.templates = [...this.eForms.templates, eform];
 
-    // this.state = this.eForms.templates[0];
+    this.state = this.eForms.templates[0];
     // console.log(JSON.stringify(this.state));
   }
 
@@ -94,10 +93,13 @@ export class MainComponent implements OnInit, AfterViewInit {
               }
             }
           }
-          __this.state = __this.eForms.templates[0];
+          __this.state = new TemplateDto();
+          __this.state.id = __this.eForms.templates[0].id;
+          __this.state.label = __this.eForms.templates[0].label;
         });
       }
     });
+    // this.state =this.eForms.templates[0]; //test purpose
     this.spinnerStatus = false;
   }
 }
