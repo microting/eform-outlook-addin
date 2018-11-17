@@ -85,6 +85,11 @@ export class CraneComponent implements OnInit, AfterViewInit {
     this.entitySelectService.getEntitySelectableGroupOutlook('5482', userIdentityToken, callerUrl).subscribe((data) => {
       if (data && data.success) {
         this.quays.advEntitySelectableItemModels = data.model.entityGroupItemLst;
+        this.quays.advEntitySelectableItemModels.forEach(quay => {
+          if (quay.microtingUUID == this.parsedQuayId) {
+            this.selectedQuay = quay;
+          }
+        });
       }
     });
   }
@@ -97,6 +102,11 @@ export class CraneComponent implements OnInit, AfterViewInit {
     this.entitySelectService.getEntitySelectableGroupOutlook('5487', userIdentityToken, callerUrl).subscribe((data) => {
       if (data && data.success) {
         this.cranes.advEntitySelectableItemModels = data.model.entityGroupItemLst;
+        this.cranes.advEntitySelectableItemModels.forEach(crane => {
+          if (crane.microtingUUID == this.parsedCraneId) {
+            this.selectedCrane = crane;
+          }
+        });
       }
     });
   }
