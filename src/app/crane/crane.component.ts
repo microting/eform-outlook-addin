@@ -69,9 +69,11 @@ export class CraneComponent implements OnInit, AfterViewInit {
       if (data && data.success) {
         this.ships.advEntitySelectableItemModels = data.model.entityGroupItemLst;
         let npshipid = Number.parseInt(this.parsedShipId)
+        console.log('shipid = ', npshipid);
         this.ships.advEntitySelectableItemModels.forEach(ship => {
           if (ship.id == npshipid) {
-            this.selectedShip = ship
+            this.selectedShip = ship;
+            console.log('selectedShip = ', ship);
           }
         });
       }
