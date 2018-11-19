@@ -147,9 +147,10 @@ export class WaterComponent implements OnInit, AfterViewInit {
     console.log('currentMessage to be inserted is ' + JSON.stringify(this.currentMessage));
     txtVal = txtVal.replace('<div>', '');
     txtVal = txtVal.replace('</div>', '');
+    txtVal = txtVal.replace(/\r/g, '');
+    txtVal = txtVal.replace('&nbsp;', '');
+    txtVal = txtVal.replace(/\n/g, '');
     console.log('currentMessage to be inserted is after replace ' + JSON.stringify(txtVal));
-    // txtVal = txtVal.replace(/\r/g, '<br>');
-    // txtVal = txtVal.replace(/\n/g, '<br>');
     txt_body = txt_body + 'F3# ' + txtVal;
 
     const item = Office.context.mailbox.item;
