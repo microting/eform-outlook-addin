@@ -211,7 +211,7 @@ export class WaterComponent implements OnInit, AfterViewInit {
                 }
                     itemMode = true;
               } else if (textLine.startsWith('F3#')) {
-                stringText = textLine.replace('F3# ', '') + '\n';
+                stringText = textLine.replace('F3# ', '') + '<br>';
                 console.log('F3# is ' + stringText);
 
                 itemMode = true;
@@ -219,7 +219,8 @@ export class WaterComponent implements OnInit, AfterViewInit {
                 if (stringText.length > 0) {
                   itemMode = true;
                 }
-                stringText = stringText + textLine + '<br>';
+                const tempLine = textLine.replace(/\n/g, '<br>');
+                stringText = stringText + tempLine + '<br>';
               }
 
               if (itemMode === false) {
