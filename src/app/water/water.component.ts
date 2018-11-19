@@ -166,6 +166,7 @@ export class WaterComponent implements OnInit, AfterViewInit {
         const __this = this;
         item.body.getAsync(Office.CoercionType.Text, function (result) {
           if (result.status === Office.AsyncResultStatus.Succeeded) {
+            console.log('The result is ' + JSON.stringify(result));
             const txtVal: string = result.value;
             console.log('We have a result back. Result is : ' + txtVal);
             const textLines = txtVal.split('\n');
