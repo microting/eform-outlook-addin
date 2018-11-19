@@ -16,6 +16,7 @@ import { WaterComponent } from './water/water.component';
 
 import { EntitySelectService } from './common/services/advanced';
 import { SitesService } from './common/services/advanced';
+import { IdentityService } from './common/services/advanced/identity.service';
 import { EformSharedModule } from './common/modules/eform-shared/eform-shared.module';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { EformImportedModule } from './common/modules/eform-imported/eform-imported.module';
@@ -37,7 +38,7 @@ import { EformImportedModule } from './common/modules/eform-imported/eform-impor
     CraneComponent,
     WaterComponent
   ],
-  providers: [ EntitySelectService, SitesService ],
+  providers: [ EntitySelectService, SitesService, IdentityService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {

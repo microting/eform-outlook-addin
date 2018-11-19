@@ -2,6 +2,7 @@ import {Component, OnInit, NgZone, AfterViewInit} from '@angular/core';
 import { TemplateDto } from '../common/models/dto';
 import {TemplateListModel} from '../common/models/eforms/template-list.model';
 import { NgSelectConfig } from '@ng-select/ng-select';
+import { IdentityService } from '../common/services/advanced/identity.service';
 
 declare const Office: any;
 
@@ -16,13 +17,15 @@ export class MainComponent implements OnInit {
   state: TemplateDto;
   spinnerStatus = false;
 
-  constructor(private zone: NgZone, private config: NgSelectConfig) { }
+  constructor(private zone: NgZone, private config: NgSelectConfig, private idService: IdentityService ) { }
 
   ngOnInit() {
     this.eForms = new TemplateListModel();
     this.zone.run(() => {
-      localStorage.removeItem('userIdentityToken');
-      // this.getAuthToken();
+      // localStorage.removeItem('userIdentityToken');
+      this.geteForms();
+      this.parseBody();
+      this.idService.readIdentity();
     })
   }
 
@@ -38,23 +41,6 @@ export class MainComponent implements OnInit {
     this.eForms.templates = [...this.eForms.templates, eform];
 
     this.state = this.eForms.templates[0];
-  }
-
-  getAuthToken() {
-    console.log('getAuthToken called');
-    const __this = this;
-    Office.context.mailbox.getUserIdentityTokenAsync(function(result) {
-      console.log('this.window.location.hostname is : ' + window.location.hostname);
-      localStorage.setItem('callerUrl', 'https://' + window.location.hostname + '/');
-      if (result.status === Office.AsyncResultStatus.Succeeded) {
-        console.log('success result for getting new token : ' + result.value);
-        localStorage.setItem('userIdentityToken', result.value);
-        __this.geteForms();
-        __this.parseBody();
-      } else {
-        console.log('Error on trying to get new token, error was : ' + result.error.message);
-      }
-    });
   }
 
   parseBody(): void {

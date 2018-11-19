@@ -6,6 +6,7 @@ import {
 import {EntitySelectService} from '../common/services/advanced';
 import {SiteNameDto} from '../common/models/dto';
 import {SitesService} from '../common/services/advanced/sites.service';
+import {IdentityService} from '../common/services/advanced/identity.service';
 
 declare const Office: any;
 
@@ -31,12 +32,15 @@ export class CraneComponent implements OnInit, AfterViewInit {
   parsedCraneId: string;
   parsedSiteIds: Array<string> = [];
   spinnerStatus = false;
+  userIdentityToken: string;
 
   constructor(private zone: NgZone,
               private entitySelectService: EntitySelectService,
-              private sitesService: SitesService) { }
+              private sitesService: SitesService,
+              private idService: IdentityService) { }
 
   ngOnInit() {
+    this.idService.getIdentity().subscribe(id => this.userIdentityToken = id)
   }
 
   ngAfterViewInit() {
@@ -51,7 +55,7 @@ export class CraneComponent implements OnInit, AfterViewInit {
     this.parseBody();
   }
 
-    onSites(site: SiteNameDto) {
+  onSites(site: SiteNameDto) {
     if (!this.selectedSites.includes(site)) {
       this.selectedSites.push(site);
     } else {
@@ -62,10 +66,9 @@ export class CraneComponent implements OnInit, AfterViewInit {
 
   loadShips() {
     console.log('loadShips called');
-    const userIdentityToken = localStorage.getItem('userIdentityToken');
     const callerUrl = localStorage.getItem('callerUrl');
     // console.log('userIdentityToken is ' + userIdentityToken);
-    this.entitySelectService.getEntitySelectableGroupOutlook('5477', userIdentityToken, callerUrl).subscribe((data) => {
+    this.entitySelectService.getEntitySelectableGroupOutlook('5477', this.userIdentityToken, callerUrl).subscribe((data) => {
       if (data && data.success) {
         this.ships.advEntitySelectableItemModels = data.model.entityGroupItemLst;
         this.ships.advEntitySelectableItemModels.forEach(ship => {
@@ -79,10 +82,9 @@ export class CraneComponent implements OnInit, AfterViewInit {
 
   loadQuays() {
     console.log('loadQuays called');
-    const userIdentityToken = localStorage.getItem('userIdentityToken');
     const callerUrl = localStorage.getItem('callerUrl');
     // console.log('userIdentityToken is ' + userIdentityToken);
-    this.entitySelectService.getEntitySelectableGroupOutlook('5482', userIdentityToken, callerUrl).subscribe((data) => {
+    this.entitySelectService.getEntitySelectableGroupOutlook('5482', this.userIdentityToken, callerUrl).subscribe((data) => {
       if (data && data.success) {
         this.quays.advEntitySelectableItemModels = data.model.entityGroupItemLst;
         this.quays.advEntitySelectableItemModels.forEach(quay => {
@@ -96,10 +98,9 @@ export class CraneComponent implements OnInit, AfterViewInit {
 
   loadCranes() {
     console.log('loadSites called');
-    const userIdentityToken = localStorage.getItem('userIdentityToken');
     const callerUrl = localStorage.getItem('callerUrl');
     // console.log('userIdentityToken is ' + userIdentityToken);
-    this.entitySelectService.getEntitySelectableGroupOutlook('5487', userIdentityToken, callerUrl).subscribe((data) => {
+    this.entitySelectService.getEntitySelectableGroupOutlook('5487', this.userIdentityToken, callerUrl).subscribe((data) => {
       if (data && data.success) {
         this.cranes.advEntitySelectableItemModels = data.model.entityGroupItemLst;
         this.cranes.advEntitySelectableItemModels.forEach(crane => {
@@ -113,9 +114,8 @@ export class CraneComponent implements OnInit, AfterViewInit {
 
   loadSites() {
     console.log('loadSites called!');
-    const userIdentityToken = localStorage.getItem('userIdentityToken');
     const callerUrl = localStorage.getItem('callerUrl');
-    this.sitesService.getAllSites(userIdentityToken, callerUrl).subscribe((data) => {
+    this.sitesService.getAllSites(this.userIdentityToken, callerUrl).subscribe((data) => {
       if (data && data.success) {
         this.sitesDto = data.model;
         console.log('loadSites returned successfully!');

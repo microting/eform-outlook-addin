@@ -5,6 +5,7 @@ import {
   AdvEntitySelectableItemModel
 } from '../common/models/advanced';
 import {SitesService} from '../common/services/advanced/sites.service';
+import {IdentityService} from '../common/services/advanced/identity.service';
 import {SiteNameDto} from '../common/models/dto';
 
 declare const Office: any;
@@ -28,13 +29,17 @@ export class WaterComponent implements OnInit, AfterViewInit {
   parsedQuayId: string;
   parsedSiteIds: Array<string> = [];
   spinnerStatus = false;
+  userIdentityToken: string;
+
 
   constructor(private zone: NgZone,
               private entitySelectService: EntitySelectService,
-              private sitesService: SitesService) {
+              private sitesService: SitesService,
+              private idService: IdentityService) {
   }
 
   ngOnInit() {
+    this.idService.getIdentity().subscribe(id => this.userIdentityToken = id)
   }
 
   ngAfterViewInit() {
@@ -59,9 +64,8 @@ export class WaterComponent implements OnInit, AfterViewInit {
   loadShips() {
     this.spinnerStatus = true;
     console.log('loadShips called!');
-    const userIdentityToken = localStorage.getItem('userIdentityToken');
     const callerUrl = localStorage.getItem('callerUrl');
-    this.entitySelectService.getEntitySelectableGroupOutlook('5477', userIdentityToken, callerUrl).subscribe((data) => {
+    this.entitySelectService.getEntitySelectableGroupOutlook('5477', this.userIdentityToken, callerUrl).subscribe((data) => {
       if (data && data.success) {
         this.ships.advEntitySelectableItemModels = data.model.entityGroupItemLst;
         console.log('loadShips returned successfully!');
@@ -79,9 +83,8 @@ export class WaterComponent implements OnInit, AfterViewInit {
   loadQuays() {
     this.spinnerStatus = true;
     console.log('loadQuays called!');
-    const userIdentityToken = localStorage.getItem('userIdentityToken');
     const callerUrl = localStorage.getItem('callerUrl');
-    this.entitySelectService.getEntitySelectableGroupOutlook('5482', userIdentityToken, callerUrl).subscribe((data) => {
+    this.entitySelectService.getEntitySelectableGroupOutlook('5482', this.userIdentityToken, callerUrl).subscribe((data) => {
       if (data && data.success) {
         this.quays.advEntitySelectableItemModels = data.model.entityGroupItemLst;
         console.log('loadQuays returned successfully!');
@@ -98,9 +101,8 @@ export class WaterComponent implements OnInit, AfterViewInit {
   loadSites() {
     this.spinnerStatus = true;
     console.log('loadSites called!');
-    const userIdentityToken = localStorage.getItem('userIdentityToken');
     const callerUrl = localStorage.getItem('callerUrl');
-    this.sitesService.getAllSites(userIdentityToken, callerUrl).subscribe((data) => {
+    this.sitesService.getAllSites(this.userIdentityToken, callerUrl).subscribe((data) => {
       if (data && data.success) {
         this.sitesDto = data.model;
         console.log('loadSites returned successfully!');
