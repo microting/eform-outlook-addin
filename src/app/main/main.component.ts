@@ -26,8 +26,8 @@ export class MainComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     this.zone.run(() => {
-      localStorage.removeItem('userIdentityToken');
-      // this.getAuthToken();
+      // localStorage.removeItem('userIdentityToken');
+      this.getAuthToken();
     });
   }
 
