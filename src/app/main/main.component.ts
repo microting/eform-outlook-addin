@@ -33,12 +33,12 @@ export class MainComponent implements OnInit, AfterViewInit {
   geteForms(): void {
     let eform = new TemplateDto();
     eform.label = 'Kran';
-    eform.id = 1734;
+    eform.id = 60;
     this.eForms.templates = [eform];
 
     eform = new TemplateDto();
     eform.label = 'Vand';
-    eform.id = 1200;
+    eform.id = 62;
     this.eForms.templates = [...this.eForms.templates, eform];
 
     this.state = this.eForms.templates[0];

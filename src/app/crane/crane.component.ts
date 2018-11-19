@@ -135,7 +135,7 @@ export class CraneComponent implements OnInit, AfterViewInit {
     let txt_subject;
     let txt_body;
     txt_subject = 'Kran';
-    txt_body = 'Template# 1734 <br>';
+    txt_body = 'Template# 60 <br>';
 
     // water - ship
     txt_subject = txt_subject + ' - ' + this.selectedShip.name;

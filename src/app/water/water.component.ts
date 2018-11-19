@@ -121,7 +121,7 @@ export class WaterComponent implements OnInit, AfterViewInit {
     let txt_subject;
     let txt_body;
     txt_subject = 'Vand';
-    txt_body = 'Template# 1200 <br>';
+    txt_body = 'Template# 62 <br>';
 
     // water - ship
     txt_subject = txt_subject + ' - ' + this.selectedShip.name;
