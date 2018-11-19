@@ -163,8 +163,11 @@ export class CraneComponent implements OnInit, AfterViewInit {
 
     // water - message
     let txtVal = this.currentMessage;
-    txtVal = txtVal.replace(/\r/g, '<br>');
-    txtVal = txtVal.replace(/\n/g, '<br>');
+    txtVal = txtVal.replace('<div>', '');
+    txtVal = txtVal.replace('</div>', '');
+    txtVal = txtVal.replace(/\r/g, '');
+    txtVal = txtVal.replace('&nbsp;', '');
+    txtVal = txtVal.replace(/\n/g, '');
     txt_body = txt_body + 'F4# ' + txtVal;
 
     const item = Office.context.mailbox.item;
@@ -228,7 +231,7 @@ export class CraneComponent implements OnInit, AfterViewInit {
                 }
                 itemMode = true;
               } else if (textLine.startsWith('F4#')) {
-                stringText = textLine.replace('F4# ', '') + '\n';
+                stringText = textLine.replace('F4# ', '') + '<br>';
                 console.log('F4# is ' + stringText);
 
                 itemMode = true;
@@ -236,7 +239,8 @@ export class CraneComponent implements OnInit, AfterViewInit {
                 if (stringText.length > 0) {
                   itemMode = true;
                 }
-                stringText = stringText + textLine + '<br>';
+                const tempLine = textLine.replace(/\n/g, '<br>');
+                stringText = stringText + tempLine + '<br>';
               }
 
               if (itemMode === false) {
