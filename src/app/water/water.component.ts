@@ -67,7 +67,7 @@ export class WaterComponent implements OnInit, AfterViewInit {
         console.log('loadShips returned successfully!');
         this.spinnerStatus = false;
         this.ships.advEntitySelectableItemModels.forEach(ship => {
-          if (ship.microtingUUID == this.parsedShipId) {
+          if (ship.microtingUUID === this.parsedShipId) {
             this.selectedShip = ship;
           }
         });
@@ -87,7 +87,7 @@ export class WaterComponent implements OnInit, AfterViewInit {
         console.log('loadQuays returned successfully!');
         this.spinnerStatus = false;
         this.quays.advEntitySelectableItemModels.forEach(quay => {
-          if (quay.microtingUUID == this.parsedQuayId) {
+          if (quay.microtingUUID === this.parsedQuayId) {
             this.selectedQuay = quay;
           }
         });
@@ -213,7 +213,7 @@ export class WaterComponent implements OnInit, AfterViewInit {
                 if (stringText.length > 0) {
                   itemMode = true;
                 }
-                stringText = stringText + textLine + '\n';
+                stringText = stringText + textLine + '<br>';
               }
 
               if (itemMode === false) {
