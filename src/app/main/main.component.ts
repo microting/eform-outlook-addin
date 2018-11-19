@@ -10,7 +10,7 @@ declare const Office: any;
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-export class MainComponent implements OnInit, AfterViewInit {
+export class MainComponent implements OnInit {
 
   eForms: TemplateListModel;
   state: TemplateDto;
@@ -20,15 +20,10 @@ export class MainComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.eForms = new TemplateListModel();
-    // this.geteForms();
-    // this.parseBody();
-  }
-
-  ngAfterViewInit() {
     this.zone.run(() => {
-      // localStorage.removeItem('userIdentityToken');
-      this.getAuthToken();
-    });
+      localStorage.removeItem('userIdentityToken');
+      // this.getAuthToken();
+    })
   }
 
   geteForms(): void {
@@ -43,7 +38,6 @@ export class MainComponent implements OnInit, AfterViewInit {
     this.eForms.templates = [...this.eForms.templates, eform];
 
     this.state = this.eForms.templates[0];
-    // console.log(JSON.stringify(this.state));
   }
 
   getAuthToken() {
@@ -55,7 +49,6 @@ export class MainComponent implements OnInit, AfterViewInit {
       if (result.status === Office.AsyncResultStatus.Succeeded) {
         console.log('success result for getting new token : ' + result.value);
         localStorage.setItem('userIdentityToken', result.value);
-        // this.userIdentityToken = result.value;
         __this.geteForms();
         __this.parseBody();
       } else {
