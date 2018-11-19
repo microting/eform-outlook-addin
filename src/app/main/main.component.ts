@@ -20,13 +20,14 @@ export class MainComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.eForms = new TemplateListModel();
-    this.geteForms();
-    this.parseBody();
+    // this.geteForms();
+    // this.parseBody();
   }
 
   ngAfterViewInit() {
     this.zone.run(() => {
-      this.getAuthToken();
+      localStorage.removeItem('userIdentityToken');
+      // this.getAuthToken();
     });
   }
 
@@ -47,6 +48,7 @@ export class MainComponent implements OnInit, AfterViewInit {
 
   getAuthToken() {
     console.log('getAuthToken called');
+    const __this = this;
     Office.context.mailbox.getUserIdentityTokenAsync(function(result) {
       console.log('this.window.location.hostname is : ' + window.location.hostname);
       localStorage.setItem('callerUrl', 'https://' + window.location.hostname + '/');
@@ -54,6 +56,8 @@ export class MainComponent implements OnInit, AfterViewInit {
         console.log('success result for getting new token : ' + result.value);
         localStorage.setItem('userIdentityToken', result.value);
         // this.userIdentityToken = result.value;
+        __this.geteForms();
+        __this.parseBody();
       } else {
         console.log('Error on trying to get new token, error was : ' + result.error.message);
       }
