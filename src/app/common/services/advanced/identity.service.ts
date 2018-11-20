@@ -22,6 +22,7 @@ export class IdentityService {
   }
 
   onIdChange(): void {
+    console.log('idService - id changed ', this.id);
     this.observableId.next(this.id);
   }
 
