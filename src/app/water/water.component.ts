@@ -42,6 +42,9 @@ export class WaterComponent implements OnInit {
 
   ngOnInit() {
     this.idService.getIdentity().subscribe(id => {
+      if (id == undefined) {
+        return;
+      }
       this.identity = id;
       console.log('water - id changed', id);
       this.loadShips();
