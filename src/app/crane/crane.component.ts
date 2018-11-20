@@ -21,16 +21,16 @@ export class CraneComponent implements OnInit {
   selectedShip: AdvEntitySelectableItemModel;
   selectedQuay: AdvEntitySelectableItemModel;
   selectedCrane: AdvEntitySelectableItemModel;
-  selectedSites: Array<SiteNameDto> = [];
+  selectedSites: Array<SiteNameDto>;
   currentMessage: string;
-  ships: AdvEntitySelectableGroupEditModel = new AdvEntitySelectableGroupEditModel();
-  quays: AdvEntitySelectableGroupEditModel = new AdvEntitySelectableGroupEditModel();
-  cranes: AdvEntitySelectableGroupEditModel = new AdvEntitySelectableGroupEditModel();
-  sitesDto: Array<SiteNameDto> = [];
+  ships: AdvEntitySelectableGroupEditModel;
+  quays: AdvEntitySelectableGroupEditModel;
+  cranes: AdvEntitySelectableGroupEditModel;
+  sitesDto: Array<SiteNameDto>;
   parsedShipId: string;
   parsedQuayId: string;
   parsedCraneId: string;
-  parsedSiteIds: Array<string> = [];
+  parsedSiteIds: Array<string>;
   spinnerStatus = false;
   identity: {
     userIdentityToken: string;
@@ -58,6 +58,13 @@ export class CraneComponent implements OnInit {
     this.parsedShipId = '';
     this.parsedQuayId = '';
     this.parsedCraneId = '';
+    this.parsedSiteIds = undefined;
+
+    this.selectedSites = undefined;
+    this.sitesDto = undefined;
+    this.ships = undefined;
+    this.cranes = undefined;
+    this.quays = undefined;
     this.parseBody();
   }
 
@@ -76,6 +83,7 @@ export class CraneComponent implements OnInit {
     // console.log('userIdentityToken is ' + userIdentityToken);
     this.entitySelectService.getEntitySelectableGroupOutlook('5477', this.identity.userIdentityToken, this.identity.callerUrl).subscribe((data) => {
       if (data && data.success) {
+        this.ships = new AdvEntitySelectableGroupEditModel();
         this.ships.advEntitySelectableItemModels = data.model.entityGroupItemLst;
         this.ships.advEntitySelectableItemModels.forEach(ship => {
           if (ship.microtingUUID === this.parsedShipId) {
@@ -92,6 +100,7 @@ export class CraneComponent implements OnInit {
     // console.log('userIdentityToken is ' + userIdentityToken);
     this.entitySelectService.getEntitySelectableGroupOutlook('5482', this.identity.userIdentityToken, this.identity.callerUrl).subscribe((data) => {
       if (data && data.success) {
+        this.quays = new AdvEntitySelectableGroupEditModel();
         this.quays.advEntitySelectableItemModels = data.model.entityGroupItemLst;
         this.quays.advEntitySelectableItemModels.forEach(quay => {
           if (quay.microtingUUID === this.parsedQuayId) {
@@ -108,6 +117,7 @@ export class CraneComponent implements OnInit {
     // console.log('userIdentityToken is ' + userIdentityToken);
     this.entitySelectService.getEntitySelectableGroupOutlook('5487', this.identity.userIdentityToken, this.identity.callerUrl).subscribe((data) => {
       if (data && data.success) {
+        this.cranes = new AdvEntitySelectableGroupEditModel();
         this.cranes.advEntitySelectableItemModels = data.model.entityGroupItemLst;
         this.cranes.advEntitySelectableItemModels.forEach(crane => {
           if (crane.microtingUUID === this.parsedCraneId) {
@@ -124,6 +134,7 @@ export class CraneComponent implements OnInit {
     this.sitesService.getAllSites(this.identity.userIdentityToken, this.identity.callerUrl).subscribe((data) => {
       if (data && data.success) {
         this.sitesDto = data.model;
+        this.selectedSites = [];
         console.log('crane - loadSites returned successfully!');
         for (const siteId of this.parsedSiteIds) {
           for (const siteDto of this.sitesDto) {
