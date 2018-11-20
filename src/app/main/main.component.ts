@@ -22,7 +22,6 @@ export class MainComponent implements OnInit {
   ngOnInit() {
     this.eForms = new TemplateListModel();
     this.zone.run(() => {
-      // localStorage.removeItem('userIdentityToken');
       this.geteForms();
       this.parseBody();
       this.idService.readIdentity();

@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Observable, of} from 'rxjs';
+import {Observable, of, BehaviorSubject} from 'rxjs';
 
 declare const Office: any;
 
@@ -11,10 +11,18 @@ export class IdentityService {
     callerUrl: string
   }
 
-  constructor() {}
+  observableId: BehaviorSubject<{userIdentityToken: string, callerUrl: string}>;
+
+  constructor() {
+    this.observableId = new BehaviorSubject<{userIdentityToken: string, callerUrl: string}>(this.id);
+  }
 
   getIdentity(): Observable<{userIdentityToken: string, callerUrl: string}> {
-    return of(this.id);
+    return this.observableId;
+  }
+
+  onIdChange(): void {
+    this.observableId.next(this.id);
   }
 
   readIdentity() {
@@ -28,7 +36,8 @@ export class IdentityService {
         __this.id = {
           callerUrl: 'https://' + window.location.hostname + '/',
           userIdentityToken: result.value
-        }
+        };
+        __this.onIdChange();
         // localStorage.setItem('userIdentityToken', result.value);
       } else {
         console.log('idService - Error on trying to get new token, error was : ' + result.error.message);
