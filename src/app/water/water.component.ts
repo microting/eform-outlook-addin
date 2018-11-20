@@ -20,14 +20,14 @@ export class WaterComponent implements OnInit {
 
   selectedShip: AdvEntitySelectableItemModel;
   selectedQuay: AdvEntitySelectableItemModel;
-  selectedSites: Array<SiteNameDto> = [];
+  selectedSites: Array<SiteNameDto>;
   currentMessage: string;
-  ships: AdvEntitySelectableGroupEditModel = new AdvEntitySelectableGroupEditModel();
-  quays: AdvEntitySelectableGroupEditModel = new AdvEntitySelectableGroupEditModel();
-  sitesDto: Array<SiteNameDto> = [];
+  ships: AdvEntitySelectableGroupEditModel;
+  quays: AdvEntitySelectableGroupEditModel;
+  sitesDto: Array<SiteNameDto>;
   parsedShipId: string;
   parsedQuayId: string;
-  parsedSiteIds: Array<string> = [];
+  parsedSiteIds: Array<string>;
   spinnerStatus = false;
   identity: {
     userIdentityToken: string;
@@ -54,6 +54,13 @@ export class WaterComponent implements OnInit {
     this.currentMessage = '';
     this.parsedShipId = '';
     this.parsedQuayId = '';
+    this.parsedSiteIds = [];
+
+    this.selectedSites = undefined;
+    this.sitesDto = undefined;
+    this.ships = undefined;
+    this.quays = undefined;
+
     this.parseBody();
   }
 
@@ -72,6 +79,7 @@ export class WaterComponent implements OnInit {
     // const callerUrl = localStorage.getItem('callerUrl');
     this.entitySelectService.getEntitySelectableGroupOutlook('5477', this.identity.userIdentityToken, this.identity.callerUrl).subscribe((data) => {
       if (data && data.success) {
+        this.ships = new AdvEntitySelectableGroupEditModel();
         this.ships.advEntitySelectableItemModels = data.model.entityGroupItemLst;
         console.log('water - loadShips returned successfully!');
         this.spinnerStatus = false;
@@ -91,6 +99,7 @@ export class WaterComponent implements OnInit {
     // const callerUrl = localStorage.getItem('callerUrl');
     this.entitySelectService.getEntitySelectableGroupOutlook('5482', this.identity.userIdentityToken, this.identity.callerUrl).subscribe((data) => {
       if (data && data.success) {
+        this.quays = new AdvEntitySelectableGroupEditModel();
         this.quays.advEntitySelectableItemModels = data.model.entityGroupItemLst;
         console.log('water - loadQuays returned successfully!');
         this.spinnerStatus = false;
@@ -110,6 +119,7 @@ export class WaterComponent implements OnInit {
     this.sitesService.getAllSites(this.identity.userIdentityToken, this.identity.callerUrl).subscribe((data) => {
       if (data && data.success) {
         this.sitesDto = data.model;
+        this.selectedSites = [];
         console.log('water - loadSites returned successfully!');
         this.spinnerStatus = false;
         for (const siteId of this.parsedSiteIds) {

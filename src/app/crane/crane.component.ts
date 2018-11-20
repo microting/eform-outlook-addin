@@ -58,7 +58,7 @@ export class CraneComponent implements OnInit {
     this.parsedShipId = '';
     this.parsedQuayId = '';
     this.parsedCraneId = '';
-    this.parsedSiteIds = undefined;
+    this.parsedSiteIds = [];
 
     this.selectedSites = undefined;
     this.sitesDto = undefined;
