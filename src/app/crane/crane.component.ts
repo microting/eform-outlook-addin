@@ -44,16 +44,18 @@ export class CraneComponent implements OnInit {
 
   ngOnInit() {
     this.idService.getIdentity().subscribe(id => {
-      if (id == undefined) {
-        return;
-      }
-      this.identity = id;
-      console.log('crane - id changed', id);
-      this.loadShips();
-      this.loadQuays();
-      this.loadCranes();
-      this.loadSites();
-    })
+      this.zone.run(() => {
+        if (id == undefined) {
+          return;
+        }
+        this.identity = id;
+        console.log('crane - id changed', id);
+        this.loadShips();
+        this.loadQuays();
+        this.loadCranes();
+        this.loadSites();
+      });
+    });
     this.currentMessage = '';
     this.parsedShipId = '';
     this.parsedQuayId = '';

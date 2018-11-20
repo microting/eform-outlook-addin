@@ -42,15 +42,17 @@ export class WaterComponent implements OnInit {
 
   ngOnInit() {
     this.idService.getIdentity().subscribe(id => {
-      if (id == undefined) {
-        return;
-      }
-      this.identity = id;
-      console.log('water - id changed', id);
-      this.loadShips();
-      this.loadQuays();
-      this.loadSites();
-    })
+      this.zone.run(() => {
+        if (id == undefined) {
+          return;
+        }
+        this.identity = id;
+        console.log('water - id changed', id);
+        this.loadShips();
+        this.loadQuays();
+        this.loadSites();
+      });
+    });
     this.currentMessage = '';
     this.parsedShipId = '';
     this.parsedQuayId = '';
