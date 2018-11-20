@@ -15,7 +15,7 @@ declare const Office: any;
   templateUrl: './crane.component.html',
   styleUrls: ['./crane.component.css']
 })
-export class CraneComponent implements OnInit, AfterViewInit {
+export class CraneComponent implements OnInit {
 
 
   selectedShip: AdvEntitySelectableItemModel;
@@ -32,8 +32,10 @@ export class CraneComponent implements OnInit, AfterViewInit {
   parsedCraneId: string;
   parsedSiteIds: Array<string> = [];
   spinnerStatus = false;
-  userIdentityToken: string;
-  callerUrl: string;
+  identity: {
+    userIdentityToken: string;
+    callerUrl: string;
+  }
 
   constructor(private zone: NgZone,
               private entitySelectService: EntitySelectService,
@@ -41,19 +43,18 @@ export class CraneComponent implements OnInit, AfterViewInit {
               private idService: IdentityService) { }
 
   ngOnInit() {
-    this.idService.getIdentity().subscribe(id => {this.userIdentityToken = id; console.log('crane - id changed', id);})
-    this.idService.getCalluerURL().subscribe(curl => {this.callerUrl = curl; console.log('crane - curl changed', curl);})
-  }
-
-  ngAfterViewInit() {
+    this.idService.getIdentity().subscribe(id => {
+      this.identity = id;
+      console.log('crane - id changed', id);
+      this.loadShips();
+      this.loadQuays();
+      this.loadCranes();
+      this.loadSites();
+    })
     this.currentMessage = '';
     this.parsedShipId = '';
     this.parsedQuayId = '';
     this.parsedCraneId = '';
-    this.loadShips();
-    this.loadQuays();
-    this.loadCranes();
-    this.loadSites();
     this.parseBody();
   }
 
@@ -63,14 +64,14 @@ export class CraneComponent implements OnInit, AfterViewInit {
     } else {
       this.selectedSites.splice(this.selectedSites.indexOf(site), 1);
     }
-    console.log('selectedSites now contains ' + JSON.stringify(this.selectedSites));
+    console.log('crane - selectedSites now contains ' + JSON.stringify(this.selectedSites));
   }
 
   loadShips() {
-    console.log('loadShips called');
+    console.log('crane - loadShips called');
     // const callerUrl = localStorage.getItem('callerUrl');
     // console.log('userIdentityToken is ' + userIdentityToken);
-    this.entitySelectService.getEntitySelectableGroupOutlook('5477', this.userIdentityToken, this.callerUrl).subscribe((data) => {
+    this.entitySelectService.getEntitySelectableGroupOutlook('5477', this.identity.userIdentityToken, this.identity.callerUrl).subscribe((data) => {
       if (data && data.success) {
         this.ships.advEntitySelectableItemModels = data.model.entityGroupItemLst;
         this.ships.advEntitySelectableItemModels.forEach(ship => {
@@ -83,10 +84,10 @@ export class CraneComponent implements OnInit, AfterViewInit {
   }
 
   loadQuays() {
-    console.log('loadQuays called');
+    console.log('crane - loadQuays called');
     // const callerUrl = localStorage.getItem('callerUrl');
     // console.log('userIdentityToken is ' + userIdentityToken);
-    this.entitySelectService.getEntitySelectableGroupOutlook('5482', this.userIdentityToken, this.callerUrl).subscribe((data) => {
+    this.entitySelectService.getEntitySelectableGroupOutlook('5482', this.identity.userIdentityToken, this.identity.callerUrl).subscribe((data) => {
       if (data && data.success) {
         this.quays.advEntitySelectableItemModels = data.model.entityGroupItemLst;
         this.quays.advEntitySelectableItemModels.forEach(quay => {
@@ -99,10 +100,10 @@ export class CraneComponent implements OnInit, AfterViewInit {
   }
 
   loadCranes() {
+    console.log('crane - loadSites called');
     // const callerUrl = localStorage.getItem('callerUrl');
-    console.log('loadSites called', this.callerUrl, this.userIdentityToken);
     // console.log('userIdentityToken is ' + userIdentityToken);
-    this.entitySelectService.getEntitySelectableGroupOutlook('5487', this.userIdentityToken, this.callerUrl).subscribe((data) => {
+    this.entitySelectService.getEntitySelectableGroupOutlook('5487', this.identity.userIdentityToken, this.identity.callerUrl).subscribe((data) => {
       if (data && data.success) {
         this.cranes.advEntitySelectableItemModels = data.model.entityGroupItemLst;
         this.cranes.advEntitySelectableItemModels.forEach(crane => {
@@ -115,12 +116,12 @@ export class CraneComponent implements OnInit, AfterViewInit {
   }
 
   loadSites() {
-    console.log('loadSites called!');
+    console.log('crane - loadSites called!');
     // const callerUrl = localStorage.getItem('callerUrl');
-    this.sitesService.getAllSites(this.userIdentityToken, this.callerUrl).subscribe((data) => {
+    this.sitesService.getAllSites(this.identity.userIdentityToken, this.identity.callerUrl).subscribe((data) => {
       if (data && data.success) {
         this.sitesDto = data.model;
-        console.log('loadSites returned successfully!');
+        console.log('crane - loadSites returned successfully!');
         for (const siteId of this.parsedSiteIds) {
           for (const siteDto of this.sitesDto) {
             if (siteDto.siteUId.toString() === siteId) {
@@ -165,13 +166,13 @@ export class CraneComponent implements OnInit, AfterViewInit {
 
     // water - message
     let txtVal = this.currentMessage;
-    console.log('currentMessage to be inserted is ' + JSON.stringify(this.currentMessage));
+    console.log('crane - currentMessage to be inserted is ' + JSON.stringify(this.currentMessage));
     txtVal = txtVal.replace('<div>', '');
     txtVal = txtVal.replace('</div>', '');
     txtVal = txtVal.replace(/\r/g, '');
     txtVal = txtVal.replace('&nbsp;', '');
     txtVal = txtVal.replace(/\n/g, '');
-    console.log('currentMessage to be inserted is after replace ' + JSON.stringify(txtVal));
+    console.log('crane - currentMessage to be inserted is after replace ' + JSON.stringify(txtVal));
     txt_body = txt_body + 'F4# ' + txtVal;
 
     const item = Office.context.mailbox.item;
@@ -183,7 +184,7 @@ export class CraneComponent implements OnInit, AfterViewInit {
   }
 
   parseBody(): void {
-    console.log('parseWaterBody called!');
+    console.log('crane - parseWaterBody called!');
 
     this.zone.run(() => {
       const item = Office.context.mailbox.item;
@@ -192,15 +193,15 @@ export class CraneComponent implements OnInit, AfterViewInit {
         item.body.getAsync(Office.CoercionType.Text, function (result) {
           if (result.status === Office.AsyncResultStatus.Succeeded) {
             const txtVal: string = result.value;
-            console.log('We have a result back. Result is : ' + txtVal);
+            console.log('crane - We have a result back. Result is : ' + txtVal);
             const textLines = txtVal.split('\n');
             let stringText = '';
             let itemMode = false;
             let newLine = false;
-            console.log('Looping through lines...');
+            console.log('crane - Looping through lines...');
             for (let i = 0; i < textLines.length; i++) {
               const textLine = textLines[i];
-              console.log('Line : ' + i.toString() + ' contains : ' + textLine);
+              console.log('crane - Line : ' + i.toString() + ' contains : ' + textLine);
               itemMode = false;
               if (newLine === false && textLine.length === 0) {
                 continue;
@@ -211,32 +212,32 @@ export class CraneComponent implements OnInit, AfterViewInit {
                 itemMode = true;
               } else if (textLine.startsWith('F1#')) {
                 const optionValue = textLine.split('#')[1].trim();
-                console.log('F1# is ' + optionValue);
+                console.log('crane - F1# is ' + optionValue);
                 __this.parsedShipId = optionValue;
                 itemMode = true;
               } else if (textLine.startsWith('F2#')) {
                 const optionValue = textLine.split('#')[1].trim();
-                console.log('F2# is ' + optionValue);
+                console.log('crane - F2# is ' + optionValue);
                 __this.parsedQuayId = optionValue;
                 itemMode = true;
               } else if (textLine.startsWith('F3#')) {
                 const optionValue = textLine.split('#')[1].trim();
-                console.log('F3# is ' + optionValue);
+                console.log('crane - F3# is ' + optionValue);
                 __this.parsedCraneId = optionValue;
                 itemMode = true;
               } else if (textLine.startsWith('Sites#')) {
                 itemMode = true;
                 const optionValue = textLine.split('#')[1].trim();
-                console.log('Sites# is ' + optionValue);
+                console.log('crane - Sites# is ' + optionValue);
                 const cworkers = optionValue.split(', ');
                 for (const site of cworkers) {
-                  console.log('The found site is ' + site);
+                  console.log('crane - The found site is ' + site);
                   __this.parsedSiteIds.push(site);
                 }
                 itemMode = true;
               } else if (textLine.startsWith('F4#')) {
                 stringText = textLine.replace('F4# ', '') + '<br>';
-                console.log('F4# is ' + stringText);
+                console.log('crane - F4# is ' + stringText);
 
                 itemMode = true;
               } else {

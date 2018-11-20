@@ -16,7 +16,7 @@ declare const Office: any;
   styleUrls: ['./water.component.css']
 })
 
-export class WaterComponent implements OnInit, AfterViewInit {
+export class WaterComponent implements OnInit {
 
   selectedShip: AdvEntitySelectableItemModel;
   selectedQuay: AdvEntitySelectableItemModel;
@@ -29,8 +29,10 @@ export class WaterComponent implements OnInit, AfterViewInit {
   parsedQuayId: string;
   parsedSiteIds: Array<string> = [];
   spinnerStatus = false;
-  userIdentityToken: string;
-  callerUrl: string;
+  identity: {
+    userIdentityToken: string;
+    callerUrl: string;
+  }
 
   constructor(private zone: NgZone,
               private entitySelectService: EntitySelectService,
@@ -39,17 +41,16 @@ export class WaterComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.idService.getIdentity().subscribe(id => {this.userIdentityToken = id; console.log('crane - id changed', id);})
-    this.idService.getCalluerURL().subscribe(curl => {this.callerUrl = curl; console.log('crane - curl changed', curl);})
-  }
-
-  ngAfterViewInit() {
+    this.idService.getIdentity().subscribe(id => {
+      this.identity = id;
+      console.log('water - id changed', id);
+      this.loadShips();
+      this.loadQuays();
+      this.loadSites();
+    })
     this.currentMessage = '';
     this.parsedShipId = '';
     this.parsedQuayId = '';
-    this.loadSites();
-    this.loadQuays();
-    this.loadShips();
     this.parseBody();
   }
 
@@ -59,17 +60,17 @@ export class WaterComponent implements OnInit, AfterViewInit {
     } else {
       this.selectedSites.splice(this.selectedSites.indexOf(site), 1);
     }
-    console.log('selectedSites now contains ' + JSON.stringify(this.selectedSites));
+    console.log('water - selectedSites now contains ' + JSON.stringify(this.selectedSites));
   }
 
   loadShips() {
     this.spinnerStatus = true;
-    console.log('loadShips called!');
+    console.log('water - loadShips called!');
     // const callerUrl = localStorage.getItem('callerUrl');
-    this.entitySelectService.getEntitySelectableGroupOutlook('5477', this.userIdentityToken, this.callerUrl).subscribe((data) => {
+    this.entitySelectService.getEntitySelectableGroupOutlook('5477', this.identity.userIdentityToken, this.identity.callerUrl).subscribe((data) => {
       if (data && data.success) {
         this.ships.advEntitySelectableItemModels = data.model.entityGroupItemLst;
-        console.log('loadShips returned successfully!');
+        console.log('water - loadShips returned successfully!');
         this.spinnerStatus = false;
         this.ships.advEntitySelectableItemModels.forEach(ship => {
           if (ship.microtingUUID === this.parsedShipId) {
@@ -83,12 +84,12 @@ export class WaterComponent implements OnInit, AfterViewInit {
 
   loadQuays() {
     this.spinnerStatus = true;
-    console.log('loadQuays called!');
+    console.log('water - loadQuays called!');
     // const callerUrl = localStorage.getItem('callerUrl');
-    this.entitySelectService.getEntitySelectableGroupOutlook('5482', this.userIdentityToken, this.callerUrl).subscribe((data) => {
+    this.entitySelectService.getEntitySelectableGroupOutlook('5482', this.identity.userIdentityToken, this.identity.callerUrl).subscribe((data) => {
       if (data && data.success) {
         this.quays.advEntitySelectableItemModels = data.model.entityGroupItemLst;
-        console.log('loadQuays returned successfully!');
+        console.log('water - loadQuays returned successfully!');
         this.spinnerStatus = false;
         this.quays.advEntitySelectableItemModels.forEach(quay => {
           if (quay.microtingUUID === this.parsedQuayId) {
@@ -101,12 +102,12 @@ export class WaterComponent implements OnInit, AfterViewInit {
 
   loadSites() {
     this.spinnerStatus = true;
-    console.log('loadSites called!');
+    console.log('water - loadSites called!');
     // const callerUrl = localStorage.getItem('callerUrl');
-    this.sitesService.getAllSites(this.userIdentityToken, this.callerUrl).subscribe((data) => {
+    this.sitesService.getAllSites(this.identity.userIdentityToken, this.identity.callerUrl).subscribe((data) => {
       if (data && data.success) {
         this.sitesDto = data.model;
-        console.log('loadSites returned successfully!');
+        console.log('water - loadSites returned successfully!');
         this.spinnerStatus = false;
         for (const siteId of this.parsedSiteIds) {
           for (const siteDto of this.sitesDto) {
@@ -147,13 +148,13 @@ export class WaterComponent implements OnInit, AfterViewInit {
 
     // water - message
     let txtVal = this.currentMessage;
-    console.log('currentMessage to be inserted is ' + JSON.stringify(this.currentMessage));
+    console.log('water - currentMessage to be inserted is ' + JSON.stringify(this.currentMessage));
     txtVal = txtVal.replace('<div>', '');
     txtVal = txtVal.replace('</div>', '');
     txtVal = txtVal.replace(/\r/g, '');
     txtVal = txtVal.replace('&nbsp;', '');
     txtVal = txtVal.replace(/\n/g, '');
-    console.log('currentMessage to be inserted is after replace ' + JSON.stringify(txtVal));
+    console.log('water - currentMessage to be inserted is after replace ' + JSON.stringify(txtVal));
     txt_body = txt_body + 'F3# ' + txtVal;
 
     const item = Office.context.mailbox.item;
@@ -165,7 +166,7 @@ export class WaterComponent implements OnInit, AfterViewInit {
   }
 
   parseBody(): void {
-    console.log('parseWaterBody called!');
+    console.log('water - parseWaterBody called!');
 
     this.spinnerStatus = true;
     this.zone.run(() => {
@@ -174,17 +175,17 @@ export class WaterComponent implements OnInit, AfterViewInit {
         const __this = this;
         item.body.getAsync(Office.CoercionType.Text, function (result) {
           if (result.status === Office.AsyncResultStatus.Succeeded) {
-            console.log('The result is ' + JSON.stringify(result));
+            console.log('water - The result is ' + JSON.stringify(result));
             const txtVal: string = result.value;
-            console.log('We have a result back. Result is : ' + txtVal);
+            console.log('water - We have a result back. Result is : ' + txtVal);
             const textLines = txtVal.split('\n');
             let stringText = '';
             let itemMode = false;
             let newLine = false;
-            console.log('Looping through lines...');
+            console.log('water - Looping through lines...');
             for (let i = 0; i < textLines.length; i++) {
               const textLine = textLines[i];
-              console.log('Line : ' + i.toString() + ' contains : ' + textLine);
+              console.log('water - Line : ' + i.toString() + ' contains : ' + textLine);
               itemMode = false;
               if (newLine === false && textLine.length === 0) {
                 continue;
@@ -195,27 +196,27 @@ export class WaterComponent implements OnInit, AfterViewInit {
                   itemMode = true;
               } else if (textLine.startsWith('F1#')) {
                 const optionValue = textLine.split('#')[1].trim();
-                console.log('F1# is ' + optionValue);
+                console.log('water - F1# is ' + optionValue);
                 __this.parsedShipId = optionValue;
                     itemMode = true;
               } else if (textLine.startsWith('F2#')) {
                 const optionValue = textLine.split('#')[1].trim();
-                console.log('F2# is ' + optionValue);
+                console.log('water - F2# is ' + optionValue);
                 __this.parsedQuayId = optionValue;
                     itemMode = true;
               } else if (textLine.startsWith('Sites#')) {
                 itemMode = true;
                 const optionValue = textLine.split('#')[1].trim();
-                console.log('Sites# is ' + optionValue);
+                console.log('water - Sites# is ' + optionValue);
                 const cworkers = optionValue.split(', ');
                 for (const site of cworkers) {
-                  console.log('The found site is ' + site);
+                  console.log('water - The found site is ' + site);
                   __this.parsedSiteIds.push(site);
                 }
                     itemMode = true;
               } else if (textLine.startsWith('F3#')) {
                 stringText = textLine.replace('F3# ', '') + '<br>';
-                console.log('F3# is ' + stringText);
+                console.log('water - F3# is ' + stringText);
 
                 itemMode = true;
               } else {

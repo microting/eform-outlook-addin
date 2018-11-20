@@ -6,32 +6,32 @@ declare const Office: any;
 @Injectable()
 export class IdentityService {
 
-  identity: string
-  calluerUrl: string
+  id: {
+    userIdentityToken: string
+    callerUrl: string
+  }
 
   constructor() {}
 
-  getIdentity(): Observable<string> {
-    return of(this.identity);
-  }
-
-  getCalluerURL() :Observable<string> {
-    return of(this.calluerUrl);
+  getIdentity(): Observable<{userIdentityToken: string, callerUrl: string}> {
+    return of(this.id);
   }
 
   readIdentity() {
-    console.log('getAuthToken called');
+    console.log('idService - getAuthToken called');
     const __this = this;
     Office.context.mailbox.getUserIdentityTokenAsync(function(result) {
-      console.log('this.window.location.hostname is : ' + window.location.hostname);
-      __this.calluerUrl = 'https://' + window.location.hostname + '/';
+      console.log('idService - this.window.location.hostname is : ' + window.location.hostname);
       // localStorage.setItem('callerUrl', 'https://' + window.location.hostname + '/');
       if (result.status === Office.AsyncResultStatus.Succeeded) {
-        console.log('success result for getting new token : ' + result.value);
-        __this.identity = result.value;
+        console.log('idService - success result for getting new token : ' + result.value);
+        __this.id = {
+          callerUrl: 'https://' + window.location.hostname + '/',
+          userIdentityToken: result.value
+        }
         // localStorage.setItem('userIdentityToken', result.value);
       } else {
-        console.log('Error on trying to get new token, error was : ' + result.error.message);
+        console.log('idService - Error on trying to get new token, error was : ' + result.error.message);
       }
     });
   }
