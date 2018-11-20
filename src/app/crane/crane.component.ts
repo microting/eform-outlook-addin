@@ -23,9 +23,9 @@ export class CraneComponent implements OnInit {
   selectedCrane: AdvEntitySelectableItemModel;
   selectedSites: Array<SiteNameDto>;
   currentMessage: string;
-  ships: AdvEntitySelectableGroupEditModel;
-  quays: AdvEntitySelectableGroupEditModel;
-  cranes: AdvEntitySelectableGroupEditModel;
+  ships: AdvEntitySelectableGroupEditModel = new AdvEntitySelectableGroupEditModel();
+  quays: AdvEntitySelectableGroupEditModel = new AdvEntitySelectableGroupEditModel();
+  cranes: AdvEntitySelectableGroupEditModel = new AdvEntitySelectableGroupEditModel();
   sitesDto: Array<SiteNameDto>;
   parsedShipId: string;
   parsedQuayId: string;
@@ -62,9 +62,9 @@ export class CraneComponent implements OnInit {
 
     this.selectedSites = undefined;
     this.sitesDto = undefined;
-    this.ships = undefined;
-    this.cranes = undefined;
-    this.quays = undefined;
+    this.ships.advEntitySelectableItemModels = undefined;
+    this.cranes.advEntitySelectableItemModels = undefined;
+    this.quays.advEntitySelectableItemModels = undefined;
     this.parseBody();
   }
 
@@ -83,7 +83,6 @@ export class CraneComponent implements OnInit {
     // console.log('userIdentityToken is ' + userIdentityToken);
     this.entitySelectService.getEntitySelectableGroupOutlook('5477', this.identity.userIdentityToken, this.identity.callerUrl).subscribe((data) => {
       if (data && data.success) {
-        this.ships = new AdvEntitySelectableGroupEditModel();
         this.ships.advEntitySelectableItemModels = data.model.entityGroupItemLst;
         this.ships.advEntitySelectableItemModels.forEach(ship => {
           if (ship.microtingUUID === this.parsedShipId) {
@@ -100,7 +99,6 @@ export class CraneComponent implements OnInit {
     // console.log('userIdentityToken is ' + userIdentityToken);
     this.entitySelectService.getEntitySelectableGroupOutlook('5482', this.identity.userIdentityToken, this.identity.callerUrl).subscribe((data) => {
       if (data && data.success) {
-        this.quays = new AdvEntitySelectableGroupEditModel();
         this.quays.advEntitySelectableItemModels = data.model.entityGroupItemLst;
         this.quays.advEntitySelectableItemModels.forEach(quay => {
           if (quay.microtingUUID === this.parsedQuayId) {
@@ -117,7 +115,6 @@ export class CraneComponent implements OnInit {
     // console.log('userIdentityToken is ' + userIdentityToken);
     this.entitySelectService.getEntitySelectableGroupOutlook('5487', this.identity.userIdentityToken, this.identity.callerUrl).subscribe((data) => {
       if (data && data.success) {
-        this.cranes = new AdvEntitySelectableGroupEditModel();
         this.cranes.advEntitySelectableItemModels = data.model.entityGroupItemLst;
         this.cranes.advEntitySelectableItemModels.forEach(crane => {
           if (crane.microtingUUID === this.parsedCraneId) {
