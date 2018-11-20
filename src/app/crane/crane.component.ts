@@ -155,16 +155,16 @@ export class CraneComponent implements OnInit {
 
     // water - ship
     txt_subject = txt_subject + ' - ' + this.selectedShip.name;
-    txt_body = txt_body + 'F1# ' + this.selectedShip.microtingUUID + '<br>';
+    txt_body = txt_body + 'F269# ' + this.selectedShip.microtingUUID + '<br>';
 
     // water - quay
     txt_subject = txt_subject + ' - ' + this.selectedQuay.name;
-    txt_body = txt_body + 'F2# ' + this.selectedQuay.microtingUUID + '<br>';
+    txt_body = txt_body + 'F270# ' + this.selectedQuay.microtingUUID + '<br>';
 
 
     // water - quay
     txt_subject = txt_subject + ' - ' + this.selectedCrane.name;
-    txt_body = txt_body + 'F3# ' + this.selectedCrane.microtingUUID + '<br>';
+    txt_body = txt_body + 'F271# ' + this.selectedCrane.microtingUUID + '<br>';
 
     // water - waters
     const cworkerids = [];
@@ -223,19 +223,19 @@ export class CraneComponent implements OnInit {
               }
               if ( textLine.startsWith( 'Template#' ) ) {
                 itemMode = true;
-              } else if (textLine.startsWith('F1#')) {
+              } else if (textLine.startsWith('F269#')) {
                 const optionValue = textLine.split('#')[1].trim();
-                console.log('crane - F1# is ' + optionValue);
+                console.log('F269# is ' + optionValue);
                 __this.parsedShipId = optionValue;
                 itemMode = true;
-              } else if (textLine.startsWith('F2#')) {
+              } else if (textLine.startsWith('F270#')) {
                 const optionValue = textLine.split('#')[1].trim();
-                console.log('crane - F2# is ' + optionValue);
+                console.log('F270# is ' + optionValue);
                 __this.parsedQuayId = optionValue;
                 itemMode = true;
-              } else if (textLine.startsWith('F3#')) {
+              } else if (textLine.startsWith('F271#')) {
                 const optionValue = textLine.split('#')[1].trim();
-                console.log('crane - F3# is ' + optionValue);
+                console.log('F271# is ' + optionValue);
                 __this.parsedCraneId = optionValue;
                 itemMode = true;
               } else if (textLine.startsWith('Sites#')) {

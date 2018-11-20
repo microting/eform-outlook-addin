@@ -142,11 +142,11 @@ export class WaterComponent implements OnInit {
 
     // water - ship
     txt_subject = txt_subject + ' - ' + this.selectedShip.name;
-    txt_body = txt_body + 'F1# ' + this.selectedShip.microtingUUID + '<br>';
+    txt_body = txt_body + 'F275# ' + this.selectedShip.microtingUUID + '<br>';
 
     // water - quay
     txt_subject = txt_subject + ' - ' + this.selectedQuay.name;
-    txt_body = txt_body + 'F2# ' + this.selectedQuay.microtingUUID + '<br>';
+    txt_body = txt_body + 'F276# ' + this.selectedQuay.microtingUUID + '<br>';
 
     // water - waters
     const cworkerids = [];
@@ -207,14 +207,14 @@ export class WaterComponent implements OnInit {
               }
               if ( textLine.startsWith( 'Template#' ) ) {
                   itemMode = true;
-              } else if (textLine.startsWith('F1#')) {
+              } else if (textLine.startsWith('F275#')) {
                 const optionValue = textLine.split('#')[1].trim();
-                console.log('water - F1# is ' + optionValue);
+                console.log('F275# is ' + optionValue);
                 __this.parsedShipId = optionValue;
                     itemMode = true;
-              } else if (textLine.startsWith('F2#')) {
+              } else if (textLine.startsWith('F276#')) {
                 const optionValue = textLine.split('#')[1].trim();
-                console.log('water - F2# is ' + optionValue);
+                console.log('F276# is ' + optionValue);
                 __this.parsedQuayId = optionValue;
                     itemMode = true;
               } else if (textLine.startsWith('Sites#')) {
