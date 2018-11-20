@@ -30,7 +30,7 @@ export class WaterComponent implements OnInit, AfterViewInit {
   parsedSiteIds: Array<string> = [];
   spinnerStatus = false;
   userIdentityToken: string;
-
+  callerUrl: string;
 
   constructor(private zone: NgZone,
               private entitySelectService: EntitySelectService,
@@ -39,7 +39,8 @@ export class WaterComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.idService.getIdentity().subscribe(id => this.userIdentityToken = id)
+    this.idService.getIdentity().subscribe(id => {this.userIdentityToken = id; console.log('crane - id changed', id);})
+    this.idService.getCalluerURL().subscribe(curl => {this.callerUrl = curl; console.log('crane - curl changed', curl);})
   }
 
   ngAfterViewInit() {
@@ -64,8 +65,8 @@ export class WaterComponent implements OnInit, AfterViewInit {
   loadShips() {
     this.spinnerStatus = true;
     console.log('loadShips called!');
-    const callerUrl = localStorage.getItem('callerUrl');
-    this.entitySelectService.getEntitySelectableGroupOutlook('5477', this.userIdentityToken, callerUrl).subscribe((data) => {
+    // const callerUrl = localStorage.getItem('callerUrl');
+    this.entitySelectService.getEntitySelectableGroupOutlook('5477', this.userIdentityToken, this.callerUrl).subscribe((data) => {
       if (data && data.success) {
         this.ships.advEntitySelectableItemModels = data.model.entityGroupItemLst;
         console.log('loadShips returned successfully!');
@@ -83,8 +84,8 @@ export class WaterComponent implements OnInit, AfterViewInit {
   loadQuays() {
     this.spinnerStatus = true;
     console.log('loadQuays called!');
-    const callerUrl = localStorage.getItem('callerUrl');
-    this.entitySelectService.getEntitySelectableGroupOutlook('5482', this.userIdentityToken, callerUrl).subscribe((data) => {
+    // const callerUrl = localStorage.getItem('callerUrl');
+    this.entitySelectService.getEntitySelectableGroupOutlook('5482', this.userIdentityToken, this.callerUrl).subscribe((data) => {
       if (data && data.success) {
         this.quays.advEntitySelectableItemModels = data.model.entityGroupItemLst;
         console.log('loadQuays returned successfully!');
@@ -101,8 +102,8 @@ export class WaterComponent implements OnInit, AfterViewInit {
   loadSites() {
     this.spinnerStatus = true;
     console.log('loadSites called!');
-    const callerUrl = localStorage.getItem('callerUrl');
-    this.sitesService.getAllSites(this.userIdentityToken, callerUrl).subscribe((data) => {
+    // const callerUrl = localStorage.getItem('callerUrl');
+    this.sitesService.getAllSites(this.userIdentityToken, this.callerUrl).subscribe((data) => {
       if (data && data.success) {
         this.sitesDto = data.model;
         console.log('loadSites returned successfully!');
