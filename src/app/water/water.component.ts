@@ -160,15 +160,15 @@ export class WaterComponent implements OnInit {
 
 
     // water - message
-    let txtVal = this.currentMessage;
-    console.log('water - currentMessage to be inserted is ' + JSON.stringify(this.currentMessage));
-    txtVal = txtVal.replace('<div>', '');
-    txtVal = txtVal.replace('</div>', '');
-    txtVal = txtVal.replace(/\r/g, '');
-    txtVal = txtVal.replace('&nbsp;', '');
-    txtVal = txtVal.replace(/\n/g, '');
-    console.log('water - currentMessage to be inserted is after replace ' + JSON.stringify(txtVal));
-    txt_body = txt_body + 'F3# ' + txtVal;
+    // let txtVal = this.currentMessage;
+    // console.log('water - currentMessage to be inserted is ' + JSON.stringify(this.currentMessage));
+    // txtVal = txtVal.replace('<div>', '');
+    // txtVal = txtVal.replace('</div>', '');
+    // txtVal = txtVal.replace(/\r/g, '');
+    // txtVal = txtVal.replace('&nbsp;', '');
+    // txtVal = txtVal.replace(/\n/g, '');
+    // console.log('water - currentMessage to be inserted is after replace ' + JSON.stringify(txtVal));
+    // txt_body = txt_body + 'F3# ' + txtVal;
 
     const item = Office.context.mailbox.item;
 
@@ -227,11 +227,11 @@ export class WaterComponent implements OnInit {
                   __this.parsedSiteIds.push(site);
                 }
                     itemMode = true;
-              } else if (textLine.startsWith('F3#')) {
-                stringText = textLine.replace('F3# ', '') + '<br>';
-                console.log('water - F3# is ' + stringText);
-
-                itemMode = true;
+              // } else if (textLine.startsWith('F3#')) {
+              //   stringText = textLine.replace('F3# ', '') + '<br>';
+              //   console.log('water - F3# is ' + stringText);
+              //
+              //   itemMode = true;
               } else {
                 if (stringText.length > 0) {
                   itemMode = true;

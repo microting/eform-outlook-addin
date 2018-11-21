@@ -178,15 +178,15 @@ export class CraneComponent implements OnInit {
 
 
     // water - message
-    let txtVal = this.currentMessage;
-    console.log('crane - currentMessage to be inserted is ' + JSON.stringify(this.currentMessage));
-    txtVal = txtVal.replace('<div>', '');
-    txtVal = txtVal.replace('</div>', '');
-    txtVal = txtVal.replace(/\r/g, '');
-    txtVal = txtVal.replace('&nbsp;', '');
-    txtVal = txtVal.replace(/\n/g, '');
-    console.log('crane - currentMessage to be inserted is after replace ' + JSON.stringify(txtVal));
-    txt_body = txt_body + 'F4# ' + txtVal;
+    // let txtVal = this.currentMessage;
+    // console.log('crane - currentMessage to be inserted is ' + JSON.stringify(this.currentMessage));
+    // txtVal = txtVal.replace('<div>', '');
+    // txtVal = txtVal.replace('</div>', '');
+    // txtVal = txtVal.replace(/\r/g, '');
+    // txtVal = txtVal.replace('&nbsp;', '');
+    // txtVal = txtVal.replace(/\n/g, '');
+    // console.log('crane - currentMessage to be inserted is after replace ' + JSON.stringify(txtVal));
+    // txt_body = txt_body + 'F4# ' + txtVal;
 
     const item = Office.context.mailbox.item;
 
@@ -248,11 +248,11 @@ export class CraneComponent implements OnInit {
                   __this.parsedSiteIds.push(site);
                 }
                 itemMode = true;
-              } else if (textLine.startsWith('F4#')) {
-                stringText = textLine.replace('F4# ', '') + '<br>';
-                console.log('crane - F4# is ' + stringText);
-
-                itemMode = true;
+              // } else if (textLine.startsWith('F4#')) {
+              //   stringText = textLine.replace('F4# ', '') + '<br>';
+              //   console.log('crane - F4# is ' + stringText);
+              //
+              //   itemMode = true;
               } else {
                 if (stringText.length > 0) {
                   itemMode = true;
