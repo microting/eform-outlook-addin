@@ -33,22 +33,23 @@ export class MainComponent implements OnInit {
   }
 
   checkLocation(): void {
+    const __this = this
     Office.context.mailbox.item.location.getAsync(function(result) {
       if (result.status == Office.AsyncResultStatus.Succeeded) {
         console.log('Location - ', result.value)
         if (result.value.length > 0) {
-          this.disabled = true
+          __this.disabled = true
           if (document.querySelector('.pell-content').hasAttribute('contenteditable')) {
             document.querySelector('.pell-content').removeAttribute('contenteditable')
           }
         } else {
-          this.disabled = false
+          __this.disabled = false
           if (!document.querySelector('.pell-content').hasAttribute('contenteditable')) {
             document.querySelector('.pell-content').setAttribute('contenteditable',"true")
           }
         }
       } else {
-        this.disabled = false
+        __this.disabled = false
         if (!document.querySelector('.pell-content').hasAttribute('contenteditable')) {
           document.querySelector('.pell-content').setAttribute('contenteditable',"true")
         }
