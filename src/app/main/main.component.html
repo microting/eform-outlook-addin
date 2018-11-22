@@ -1,25 +1,27 @@
 <div class="container-fluid">
-  <div class='main'>
-    <div class='header'>
-      <div class='section'>
-        <div class="col-md-4 ng-select-wrapper">
-          <ng-select
-            dropdownPosition="'bottom'"
-            [placeholder]="'eForm'"
-            [clearable]="false"
-            [items]="eForms.templates"
-            [(ngModel)]="state"></ng-select>
+  <form [formGroup]="entireForm">
+    <div class='main'>
+      <div class='header'>
+        <div class='section'>
+          <div class="col-md-4 ng-select-wrapper">
+            <ng-select
+              dropdownPosition="'bottom'"
+              [placeholder]="'eForm'"
+              [clearable]="false"
+              [items]="eForms.templates"
+              [(ngModel)]="state"></ng-select>
+          </div>
         </div>
+      </div>
+
+      <div class='content' *ngIf="state == undefined? false : state.id == 60"> <!-- kran -->
+        <app-crane></app-crane>
+      </div>
+      <div class='content' *ngIf="state == undefined? false : state.id == 62"> <!-- vand -->
+        <app-water></app-water>
       </div>
     </div>
 
-    <div class='content' *ngIf="state == undefined? false : state.id == 60"> <!-- kran -->
-      <app-crane></app-crane>
-    </div>
-    <div class='content' *ngIf="state == undefined? false : state.id == 62"> <!-- vand -->
-      <app-water></app-water>
-    </div>
-  </div>
-
-  <eform-spinner [spinnerVisibility]="spinnerStatus"></eform-spinner>
+    <eform-spinner [spinnerVisibility]="spinnerStatus"></eform-spinner>
+  </form>
 </div>
