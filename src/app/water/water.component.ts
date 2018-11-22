@@ -1,4 +1,4 @@
-import {Component, OnInit, NgZone, AfterViewInit} from '@angular/core';
+import {Component, OnInit, NgZone, AfterViewInit, Input} from '@angular/core';
 import {EntitySelectService} from '../common/services/advanced';
 import {
   AdvEntitySelectableGroupEditModel,
@@ -18,6 +18,8 @@ declare const Office: any;
 
 export class WaterComponent implements OnInit {
 
+  @Input() disabled: boolean
+  
   selectedShip: AdvEntitySelectableItemModel;
   selectedQuay: AdvEntitySelectableItemModel;
   selectedSites: Array<SiteNameDto>;

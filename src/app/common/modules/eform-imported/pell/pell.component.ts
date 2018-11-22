@@ -12,7 +12,6 @@ export class PellComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() actions: Array<Object> = [];
   @Input() value: String = '';
   @Output() valueChange = new EventEmitter();
-  @Input() disabled: boolean;
   pell = pell;
   html;
   editor;

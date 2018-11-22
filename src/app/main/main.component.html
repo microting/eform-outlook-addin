@@ -4,6 +4,7 @@
       <div class='section'>
         <div class="col-md-4 ng-select-wrapper">
           <ng-select
+            [disabled]='disabled'
             dropdownPosition="'bottom'"
             [placeholder]="'eForm'"
             [clearable]="false"
@@ -14,10 +15,10 @@
     </div>
 
     <div class='content' *ngIf="state == undefined? false : state.id == 60"> <!-- kran -->
-      <app-crane></app-crane>
+      <app-crane [disabled]="disabled"></app-crane>
     </div>
     <div class='content' *ngIf="state == undefined? false : state.id == 62"> <!-- vand -->
-      <app-water></app-water>
+      <app-water [disabled]='disabled'></app-water>
     </div>
   </div>
 

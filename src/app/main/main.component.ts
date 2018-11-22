@@ -17,11 +17,14 @@ export class MainComponent implements OnInit {
   state: TemplateDto;
   spinnerStatus = false;
 
+  disabled: boolean
+
   constructor(private zone: NgZone, private config: NgSelectConfig, private idService: IdentityService ) { }
 
   ngOnInit() {
     this.eForms = new TemplateListModel();
     this.zone.run(() => {
+      this.disabled = true
       this.geteForms();
       this.parseBody();
       this.idService.readIdentity();

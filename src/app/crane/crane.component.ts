@@ -17,7 +17,7 @@ declare const Office: any;
 })
 export class CraneComponent implements OnInit {
 
-  disabled: boolean
+  @Input() disabled: boolean
 
   selectedShip: AdvEntitySelectableItemModel;
   selectedQuay: AdvEntitySelectableItemModel;
@@ -58,7 +58,6 @@ export class CraneComponent implements OnInit {
       });
     });
 
-    this.disabled = true
     this.currentMessage = '';
     this.parsedShipId = '';
     this.parsedQuayId = '';
