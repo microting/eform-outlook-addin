@@ -2,6 +2,7 @@
   <div class='section-header'>
     <div class="col-md-4 ng-select-wrapper">
       <ng-select
+        [disabled]="disabled"
         dropdownPosition="'bottom'"
         [placeholder]="'Skibe'"
         [clearable]="false"
@@ -16,6 +17,7 @@
   <div class='section-header'>
     <div class="col-md-4 ng-select-wrapper">
       <ng-select
+        [disabled]="disabled"
         dropdownPosition="'bottom'"
         [placeholder]="'Kaje'"
         [clearable]="false"
@@ -29,6 +31,7 @@
   <div class='section-header'>
     <div class="col-md-4 ng-select-wrapper">
       <ng-select
+        [disabled]="disabled"
         dropdownPosition="'bottom'"
         [placeholder]="'Kraner'"
         [clearable]="false"
@@ -49,7 +52,7 @@
     <ng-container *ngFor="let siteDto of sitesDto">
       <div class="col-md-12">
         <div class="mat-checkbox" >
-          <input id="checkboxSites{{siteDto.siteUId.toString()}}" (change)="onSites(siteDto)"
+          <input id="checkboxSites{{siteDto.siteUId.toString()}}" (change)="onSites(siteDto)" [disabled]="disabled"
                  [checked]="parsedSiteIds.includes(siteDto.siteUId.toString())" [value]="parsedSiteIds.includes(siteDto.siteUId.toString())" color="primary" type="checkbox">
           <label for="checkboxSites{{siteDto.siteUId.toString()}}">{{siteDto.siteName}}</label>
         </div>
@@ -61,12 +64,12 @@
 <div class='section'>
   <div class='section-header'>
     <label>Besked til medarbejder</label>
-    <pell-editor [(value)]="currentMessage"></pell-editor>
+    <pell-editor [(value)]="currentMessage" [disabled]="disabled"></pell-editor>
   </div>
 </div>
 
 <div class='section'>
-  <button class='btn btn-ar btn-danger' (click)='onInsert()'>Insert</button>
+  <button class='btn btn-ar btn-danger' (click)='onInsert()' [disabled]="disabled">Insert</button>
 </div>
 
 <eform-spinner [spinnerVisibility]="spinnerStatus"></eform-spinner>

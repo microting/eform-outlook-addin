@@ -1,4 +1,4 @@
-import {Component, OnInit, NgZone, AfterViewInit} from '@angular/core';
+import {Component, OnInit, NgZone, Input} from '@angular/core';
 import {
   AdvEntitySelectableGroupEditModel,
   AdvEntitySelectableItemModel
@@ -17,6 +17,7 @@ declare const Office: any;
 })
 export class CraneComponent implements OnInit {
 
+  disabled: boolean
 
   selectedShip: AdvEntitySelectableItemModel;
   selectedQuay: AdvEntitySelectableItemModel;
@@ -56,6 +57,8 @@ export class CraneComponent implements OnInit {
         this.loadSites();
       });
     });
+
+    this.disabled = true
     this.currentMessage = '';
     this.parsedShipId = '';
     this.parsedQuayId = '';

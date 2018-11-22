@@ -3,7 +3,6 @@ import { TemplateDto } from '../common/models/dto';
 import {TemplateListModel} from '../common/models/eforms/template-list.model';
 import { NgSelectConfig } from '@ng-select/ng-select';
 import { IdentityService } from '../common/services/advanced/identity.service';
-import { FormGroup } from '@angular/forms';
 
 declare const Office: any;
 
@@ -14,7 +13,6 @@ declare const Office: any;
 })
 export class MainComponent implements OnInit {
 
-  entireForm: FormGroup;
   eForms: TemplateListModel;
   state: TemplateDto;
   spinnerStatus = false;
@@ -27,7 +25,6 @@ export class MainComponent implements OnInit {
       this.geteForms();
       this.parseBody();
       this.idService.readIdentity();
-      this.entireForm.disable()
     })
   }
 
