@@ -162,15 +162,15 @@ export class WaterComponent implements OnInit {
 
 
     // water - message
-    // let txtVal = this.currentMessage;
-    // console.log('water - currentMessage to be inserted is ' + JSON.stringify(this.currentMessage));
-    // txtVal = txtVal.replace('<div>', '');
-    // txtVal = txtVal.replace('</div>', '');
-    // txtVal = txtVal.replace(/\r/g, '');
-    // txtVal = txtVal.replace('&nbsp;', '');
-    // txtVal = txtVal.replace(/\n/g, '');
-    // console.log('water - currentMessage to be inserted is after replace ' + JSON.stringify(txtVal));
-    // txt_body = txt_body + 'F3# ' + txtVal;
+    let txtVal = this.currentMessage;
+    console.log('water - currentMessage to be inserted is ' + JSON.stringify(this.currentMessage));
+    txtVal = txtVal.replace('<div>', '');
+    txtVal = txtVal.replace('</div>', '');
+    txtVal = txtVal.replace(/\r/g, '');
+    txtVal = txtVal.replace('&nbsp;', '');
+    txtVal = txtVal.replace(/\n/g, '');
+    console.log('water - currentMessage to be inserted is after replace ' + JSON.stringify(txtVal));
+    txt_body = txt_body + 'F3# ' + txtVal;
 
     const item = Office.context.mailbox.item;
 
