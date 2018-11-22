@@ -4,7 +4,7 @@ import {TemplateListModel} from '../common/models/eforms/template-list.model';
 import { NgSelectConfig } from '@ng-select/ng-select';
 import { IdentityService } from '../common/services/advanced/identity.service';
 
-declare const Office: any;
+// declare const Office: any;
 
 @Component({
   selector: 'app-main',
@@ -24,10 +24,35 @@ export class MainComponent implements OnInit {
   ngOnInit() {
     this.eForms = new TemplateListModel();
     this.zone.run(() => {
-      this.disabled = true
+      this.disabled = false
       this.geteForms();
       this.parseBody();
+      this.checkLocation();
       this.idService.readIdentity();
+    })
+  }
+
+  checkLocation(): void {
+    Office.context.mailbox.item.location.getAsync(function(result) {
+      if (result.status == Office.AsyncResultStatus.Succeeded) {
+        console.log('Location - ', result.value)
+        if (result.value.length > 0) {
+          this.disabled = true
+          if (document.querySelector('.pell-content').hasAttribute('contenteditable')) {
+            document.querySelector('.pell-content').removeAttribute('contenteditable')
+          }
+        } else {
+          this.disabled = false
+          if (!document.querySelector('.pell-content').hasAttribute('contenteditable')) {
+            document.querySelector('.pell-content').setAttribute('contenteditable',"true")
+          }
+        }
+      } else {
+        this.disabled = false
+        if (!document.querySelector('.pell-content').hasAttribute('contenteditable')) {
+          document.querySelector('.pell-content').setAttribute('contenteditable',"true")
+        }
+      }
     })
   }
 
