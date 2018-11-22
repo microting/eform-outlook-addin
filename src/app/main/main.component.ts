@@ -4,7 +4,7 @@ import {TemplateListModel} from '../common/models/eforms/template-list.model';
 import { NgSelectConfig } from '@ng-select/ng-select';
 import { IdentityService } from '../common/services/advanced/identity.service';
 
-// declare const Office: any;
+declare const Office: any;
 
 @Component({
   selector: 'app-main',
